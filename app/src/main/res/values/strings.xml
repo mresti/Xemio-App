@@ -18,9 +18,11 @@
     <string name="activity_user_type_cancer_text">Selecciona su tipo de cáncer</string>
     <string name="activity_user_type_chemotherapy_text">Selecciona su tipo de quimioterapia</string>
 
-    
+
     <string name="string_content_description">Non accessible view</string>
     <string name="element_prompt">Elige elemento</string>
+
+    <string name="action_settings">Settings</string>
 
     // temp
     <string-array name="element_arrays">
