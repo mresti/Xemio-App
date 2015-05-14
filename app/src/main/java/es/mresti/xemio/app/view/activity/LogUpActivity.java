@@ -14,7 +14,7 @@ import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.validator.EmailValidator;
-import es.mresti.xemio.app.view.validator.AliasValidator;
+import es.mresti.xemio.app.view.validator.ContentValidator;
 
 
 public class LogUpActivity extends BaseActivity {
@@ -41,7 +41,7 @@ public class LogUpActivity extends BaseActivity {
   EditText mAliasText;
 
   // The validator for the nickname input field.
-  private AliasValidator mAliasValidator;
+  private ContentValidator mContentValidator;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, LogUpActivity.class);
@@ -66,8 +66,8 @@ public class LogUpActivity extends BaseActivity {
     // Setup field validators.
     mEmailValidator = new EmailValidator();
     mEmailText.addTextChangedListener(mEmailValidator);
-    mAliasValidator = new AliasValidator();
-    mAliasText.addTextChangedListener(mAliasValidator);
+    mContentValidator = new ContentValidator();
+    mAliasText.addTextChangedListener(mContentValidator);
   }
 
   /**
@@ -79,7 +79,7 @@ public class LogUpActivity extends BaseActivity {
       mEmailText.setError("Invalid email");
       Log.w(mLOGTAG, "Not saving personal information: Invalid email");
       return;
-    }else if(!mAliasValidator.isValid()) {
+    }else if(!mContentValidator.isValid()) {
       mAliasText.setError("Invalid alias");
       Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
       return;

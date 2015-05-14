@@ -4,9 +4,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 
 /**
- * An nickname format validator for {@link android.widget.EditText}.
+ * A validator for {@link android.widget.EditText}.
  */
-public class AliasValidator implements TextWatcher {
+public class ContentValidator implements TextWatcher {
 
   private boolean mIsValid = false;
 
