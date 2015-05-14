@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Xemio</string>
+
+    // UI components text
+    <string name="btn_text_signin">Entrar</string>
+    <string name="btn_text_register">Registro</string>
+    <string name="btn_text_check">Comprobar</string>
+    <string name="btn_text_next">Siguiente</string>
+
+    <string name="form_email">Email</string>
+    <string name="form_alias">Alias</string>
+    <string name="form_age">Edad</string>
+    <string name="form_extra">Otra información</string>
+
+    <string name="activity_user_verify_text">Por favor, revise su correo electrónico para verificar su cuenta.</string>
+    <string name="activity_user_verified_text">Gracias, estás verificado.</string>
+    <string name="activity_user_type_cancer_text">Selecciona su tipo de cáncer</string>
+    <string name="activity_user_type_chemotherapy_text">Selecciona su tipo de quimioterapia</string>
+
+    
+    <string name="string_content_description">Non accessible view</string>
+    <string name="element_prompt">Elige elemento</string>
+
+    // temp
+    <string-array name="element_arrays">
+        <item>Element 1</item>
+        <item>Element 2</item>
+        <item>Element 3</item>
+        <item>Element 4</item>
+        <item>Element 5</item>
+        <item>Element 6</item>
+    </string-array>
+
+</resources>
