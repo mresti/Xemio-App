@@ -2,11 +2,17 @@
 <resources>
     <string name="app_name">Xemio</string>
 
+    <string name="title_history">Historial</string>
+    <string name="title_incidence">Incidencias</string>
+
     // UI components text
     <string name="btn_text_signin">Entrar</string>
     <string name="btn_text_register">Registro</string>
     <string name="btn_text_check">Comprobar</string>
     <string name="btn_text_next">Siguiente</string>
+
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
 
     <string name="form_email">Email</string>
     <string name="form_alias">Alias</string>
@@ -33,5 +39,10 @@
         <item>Element 5</item>
         <item>Element 6</item>
     </string-array>
+
+
+    // error message
+    <string name="error_email">Email inválido</string>
+    <string name="error_empty">Campo no vacío</string>
 
 </resources>
