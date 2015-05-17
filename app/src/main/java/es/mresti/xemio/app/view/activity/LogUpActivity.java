@@ -76,13 +76,11 @@ public class LogUpActivity extends BaseActivity {
   @OnClick(R.id.btn_save)
   void navigateToVerify() {
     if (!mEmailValidator.isValid()) {
-      mEmailText.setError("Invalid email");
+      mEmailText.setError(getText(R.string.error_email));
       Log.w(mLOGTAG, "Not saving personal information: Invalid email");
-      return;
     }else if(!mContentValidator.isValid()) {
-      mAliasText.setError("Invalid alias");
+      mAliasText.setError(getText(R.string.error_empty));
       Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
-      return;
     }else{
       this.mNavigator.navigateToVerify(this);
     }

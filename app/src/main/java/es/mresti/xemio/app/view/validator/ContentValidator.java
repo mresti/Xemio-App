@@ -15,10 +15,10 @@ public class ContentValidator implements TextWatcher {
   }
 
   /**
-   * Validates if the given input is a valid email address.
+   * Validates if the given input is not an empty string.
    *
-   * @param text The email to validate.
-   * @return {@code true} if the input is a valid email. {@code false} otherwise.
+   * @param text The text to validate.
+   * @return {@code true} if the input is not an empty string. {@code false} otherwise.
    */
   public static boolean isValidText(CharSequence text) {
     return text != null && !text.toString().isEmpty();
