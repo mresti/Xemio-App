@@ -17,9 +17,6 @@ public class VerifiedActivity extends BaseActivity {
 
   private Navigator mNavigator;
 
-  @InjectView(R.id.toolbar)
-  Toolbar mtoolbar;
-
   @InjectView(R.id.btn_verified)
   Button mBtn_verify;
 
@@ -41,7 +38,6 @@ public class VerifiedActivity extends BaseActivity {
    */
   private void initialize() {
     this.mNavigator = new Navigator();
-    setSupportActionBar(mtoolbar);
   }
 
   /**
