@@ -17,9 +17,6 @@ import es.mresti.xemio.app.navigation.Navigator;
 public class ChemotherapyActivity extends BaseActivity {
   private Navigator mNavigator;
 
-  @InjectView(R.id.toolbar)
-  Toolbar mtoolbar;
-
   @InjectView(R.id.spinner1)
   Spinner mSpinner_chemo;
 
@@ -49,7 +46,6 @@ public class ChemotherapyActivity extends BaseActivity {
   private void initialize() {
     addListenerOnSpinnerItemSelection();
     this.mNavigator = new Navigator();
-    setSupportActionBar(mtoolbar);
   }
 
   /**
