@@ -6,11 +6,12 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/theme_default_primary</item>
-        <item name="colorPrimaryDark">@color/theme_default_primary_dark</item>
-        <item name="colorAccent">@color/theme_default_accent</item>
-        <item name="colorControlHighlight">@color/theme_default_accent_light</item>
-        <item name="colorButtonNormal">@color/theme_default_accent_light</item>
+        <item name="colorPrimary">@color/ColorPrimary</item>
+        <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
+        <item name="colorAccent">@color/ColorAccent</item>
+        <item name="colorControlHighlight">@color/ColorPrimaryLight</item>
+        <item name="colorButtonNormal">@color/ColorPrimaryDark</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
 </resources>

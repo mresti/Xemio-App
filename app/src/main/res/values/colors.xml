@@ -11,4 +11,13 @@
     <color name="theme_default_divider_color">#B6B6B6</color>
     <color name="theme_default_text_icons">#FFFFFF</color>
     <color name="color_white">#FFFFFF</color>
+
+    <color name="ColorPrimary">#FF9800</color>
+    <color name="ColorPrimaryDark">#F57C00</color>
+    <color name="ColorPrimaryLight">#FFE0B2</color>
+    <color name="ColorAccent">#9E9E9E</color>
+    <color name="ColorPrimaryText">#212121</color>
+    <color name="ColorSecondaryText">#727272</color>
+    <color name="ColorIcons">#212121</color>
+    <color name="ColorDivider">#B6B6B6</color>
 </resources>
