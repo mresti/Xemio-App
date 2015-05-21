@@ -32,7 +32,7 @@
             <EditText android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
                       android:layout_marginTop="16dp"
-                      android:id="@+id/emailInput1"
+                      android:id="@+id/emailInput"
                       android:inputType="textEmailAddress"
                       android:hint="@string/form_email"
                       android:singleLine="true"/>
@@ -40,7 +40,7 @@
             <EditText android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
                       android:layout_marginTop="16dp"
-                      android:id="@+id/aliasInput2"
+                      android:id="@+id/aliasInput"
                       android:hint="@string/form_alias"
                       android:singleLine="true"/>
 
