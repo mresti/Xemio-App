@@ -47,7 +47,7 @@ public class Navigator {
   }
 
   /**
-   * Goes to the user details screen.
+   * Goes to the dashboard screen.
    *
    * @param context A Context needed to open the destiny activity.
    */
@@ -59,7 +59,7 @@ public class Navigator {
   }
 
   /**
-   * Goes to the user details screen.
+   * Goes to the user verify screen.
    *
    * @param context A Context needed to open the destiny activity.
    */
@@ -71,7 +71,7 @@ public class Navigator {
   }
 
   /**
-   * Goes to the user details screen.
+   * Goes to the user verified screen.
    *
    * @param context A Context needed to open the destiny activity.
    */
@@ -83,7 +83,7 @@ public class Navigator {
   }
 
   /**
-   * Goes to the user details screen.
+   * Goes to the cancer screen.
    *
    * @param context A Context needed to open the destiny activity.
    */
@@ -95,7 +95,7 @@ public class Navigator {
   }
 
   /**
-   * Goes to the user details screen.
+   * Goes to the chemotherapy screen.
    *
    * @param context A Context needed to open the destiny activity.
    */
@@ -107,7 +107,7 @@ public class Navigator {
   }
 
   /**
-   * Goes to the user details screen.
+   * Goes to the extra screen.
    *
    * @param context A Context needed to open the destiny activity.
    */
@@ -117,7 +117,4 @@ public class Navigator {
       context.startActivity(intentToLaunch);
     }
   }
-
-
-
 }
