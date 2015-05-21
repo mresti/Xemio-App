@@ -18,9 +18,6 @@ public class CancerActivity extends BaseActivity {
 
   private Navigator mNavigator;
 
-  @InjectView(R.id.toolbar)
-  Toolbar mtoolbar;
-
   @InjectView(R.id.spinner1)
   Spinner mSpinner_cancer;
 
@@ -50,8 +47,6 @@ public class CancerActivity extends BaseActivity {
   private void initialize() {
     addListenerOnSpinnerItemSelection();
     this.mNavigator = new Navigator();
-    setSupportActionBar(mtoolbar);
-
   }
 
   /**
