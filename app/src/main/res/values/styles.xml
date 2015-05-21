@@ -10,8 +10,7 @@
         <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
         <item name="colorAccent">@color/ColorAccent</item>
         <item name="colorControlHighlight">@color/ColorPrimaryLight</item>
-        <item name="colorButtonNormal">@color/ColorPrimaryDark</item>
-        <item name="android:windowTranslucentStatus">true</item>
+        <item name="colorButtonNormal">@color/ColorAccent</item>
     </style>
 
 </resources>
