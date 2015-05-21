@@ -18,10 +18,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="72dp"
             android:layout_marginBottom="120dp"
+            android:src="@drawable/logo"
             android:contentDescription="@string/string_content_description"/>
 
         <LinearLayout
