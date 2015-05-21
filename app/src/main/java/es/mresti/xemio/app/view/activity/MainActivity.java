@@ -17,9 +17,6 @@ public class MainActivity extends BaseActivity {
 
   private Navigator mNavigator;
 
-  @InjectView(R.id.toolbar)
-  Toolbar mtoolbar;
-
   @InjectView(R.id.btn_LogUp) Button mBtn_LogUp;
   @InjectView(R.id.btn_LogIn) Button mBtn_LogIn;
 
@@ -37,7 +34,6 @@ public class MainActivity extends BaseActivity {
    */
   private void initialize() {
     this.mNavigator = new Navigator();
-    setSupportActionBar(mtoolbar);
   }
 
   /**

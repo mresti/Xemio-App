@@ -23,9 +23,6 @@ public class LogUpActivity extends BaseActivity {
 
   private Navigator mNavigator;
 
-  @InjectView(R.id.toolbar)
-  Toolbar mtoolbar;
-
   @InjectView(R.id.btn_save)
   Button btn_save;
 
@@ -36,11 +33,11 @@ public class LogUpActivity extends BaseActivity {
   // The validator for the email input field.
   private EmailValidator mEmailValidator;
 
-  // The input field where the user enters his nickname.
+  // The input field where the user enters his alias.
   @InjectView(R.id.aliasInput)
   EditText mAliasText;
 
-  // The validator for the nickname input field.
+  // The validator for the alias input field.
   private ContentValidator mContentValidator;
 
   public static Intent getCallingIntent(Context context) {
@@ -61,7 +58,6 @@ public class LogUpActivity extends BaseActivity {
    */
   private void initialize() {
     this.mNavigator = new Navigator();
-    setSupportActionBar(mtoolbar);
 
     // Setup field validators.
     mEmailValidator = new EmailValidator();
