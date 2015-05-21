@@ -18,9 +18,6 @@ import es.mresti.xemio.app.navigation.Navigator;
 public class ExtraActivity extends BaseActivity {
   private Navigator mNavigator;
 
-  @InjectView(R.id.toolbar)
-  Toolbar mtoolbar;
-
   // The input field where the user enters his email.
   @InjectView(R.id.ageInput)
   EditText mAgeInput;
@@ -50,7 +47,6 @@ public class ExtraActivity extends BaseActivity {
    */
   private void initialize() {
     this.mNavigator = new Navigator();
-    setSupportActionBar(mtoolbar);
   }
 
   /**
