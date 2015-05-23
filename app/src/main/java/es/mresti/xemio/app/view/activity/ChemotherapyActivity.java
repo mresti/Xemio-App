@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.support.v7.widget.Toolbar;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
