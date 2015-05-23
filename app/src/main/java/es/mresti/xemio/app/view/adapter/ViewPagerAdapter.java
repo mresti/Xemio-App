@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import es.mresti.xemio.app.view.fragment.Tab1;
 import es.mresti.xemio.app.view.fragment.Tab2;
+import es.mresti.xemio.app.view.fragment.Tab3;
 
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
@@ -26,18 +27,16 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
   @Override
   public Fragment getItem(int position) {
 
-    if(position == 0) // if the position is 0 we are returning the First tab
-    {
+    if(position == 0){
       Tab1 tab1 = new Tab1();
       return tab1;
-    }
-    else             // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
-    {
+    }else if(position == 1){
       Tab2 tab2 = new Tab2();
       return tab2;
+    }else{
+      Tab3 tab3 = new Tab3();
+      return tab3;
     }
-
-
   }
 
   // This method return the titles for the Tabs in the Tab Strip

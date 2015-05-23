@@ -11,7 +11,7 @@
                 android:padding="16dp"
                 android:text="Mi historial"
                 android:id="@+id/textView1"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:textColor="@color/theme_default_primary"
                 />
 

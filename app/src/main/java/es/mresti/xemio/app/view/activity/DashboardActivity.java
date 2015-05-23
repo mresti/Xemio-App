@@ -30,8 +30,8 @@ public class DashboardActivity extends BaseActivity {
   ViewPager pager;
   ViewPagerAdapter adapter;
   SlidingTabLayout tabs;
-  CharSequence Titles[]={"Inicio","Historial"};
-  int Numboftabs =2;
+  CharSequence Titles[]={"Inicio","Historial", "Calendario"};
+  int Numboftabs = 3;
 
 
   public static Intent getCallingIntent(Context context) {
