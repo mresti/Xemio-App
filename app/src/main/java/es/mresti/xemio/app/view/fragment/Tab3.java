@@ -12,7 +12,7 @@ import es.mresti.xemio.R;
 public class Tab3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.tab_history, container, false);
+        View v = inflater.inflate(R.layout.tab_calendar, container, false);
         return v;
     }
 }
