@@ -13,4 +13,9 @@
         <item name="colorButtonNormal">@color/ColorAccent</item>
     </style>
 
+    <style name="TextAppearance.Xemio.FloatLabel" parent="android:TextAppearance.Small">
+        <item name="android:textColor">@color/float_label</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>
