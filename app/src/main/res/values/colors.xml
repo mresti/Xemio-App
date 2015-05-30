@@ -20,4 +20,6 @@
     <color name="ColorSecondaryText">#727272</color>
     <color name="ColorIcons">#212121</color>
     <color name="ColorDivider">#B6B6B6</color>
+
+    <color name="window_background">#FFF5F5F5</color>
 </resources>

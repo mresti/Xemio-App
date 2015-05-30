@@ -1,6 +1,9 @@
 <resources>
-    <dimen name="margin_top_card">56dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
+
+    <dimen name="margin_top_card">56dp</dimen>
     <dimen name="btn_height">36dp</dimen>
     <dimen name="line_btn_height">48dp</dimen>
     <dimen name="margin_limits_components">8dp</dimen>

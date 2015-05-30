@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Theme.Xemio" parent="Base.Theme.Xemio">
+    </style>
+
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
-        <!-- Customize your theme here. -->
+    <style name="Base.Theme.Xemio" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/ColorPrimary</item>
         <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
         <item name="colorAccent">@color/ColorAccent</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- Customize your theme here. -->
         <item name="colorControlHighlight">@color/ColorPrimaryLight</item>
         <item name="colorButtonNormal">@color/ColorAccent</item>
     </style>
@@ -16,6 +20,14 @@
     <style name="TextAppearance.Xemio.FloatLabel" parent="android:TextAppearance.Small">
         <item name="android:textColor">@color/float_label</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
     </style>
 
 </resources>
