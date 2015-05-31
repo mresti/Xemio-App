@@ -12,42 +12,45 @@
         android:text="Mi calendario"
         android:id="@+id/textView1"
         android:textSize="24sp"
-        android:textColor="@color/theme_default_primary"
-        />
+        android:textColor="@color/theme_default_primary"/>
 
-    <es.mresti.xemio.app.view.widget.FloatLabelLayout
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:floatLabelTextAppearance="@style/TextAppearance.Xemio.FloatLabel">
+        android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/edit_username1"
+            android:id="@+id/edit_hello"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Texto 1"
-            android:singleLine="true"
-            android:inputType="textNoSuggestions"
-            android:imeOptions="actionNext"
-            android:nextFocusDown="@+id/edit_password" />
+            android:hint="Hello World!!"
+            android:singleLine="true"/>
 
-    </es.mresti.xemio.app.view.widget.FloatLabelLayout>
+    </android.support.design.widget.TextInputLayout>
 
-    <es.mresti.xemio.app.view.widget.FloatLabelLayout
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:floatLabelTextAppearance="@style/TextAppearance.Xemio.FloatLabel">
+        android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/edit_password1"
+            android:id="@+id/edit_hallo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:singleLine="true"
-            android:inputType="textNoSuggestions"
-            android:imeOptions="actionDone" />
+            android:hint="Hallo!!"
+            android:singleLine="true"/>
+        
+    </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <EditText
+            android:id="@+id/edit_hola"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hola Mundo!!"
+            android:singleLine="true"/>
 
-    </es.mresti.xemio.app.view.widget.FloatLabelLayout>
+    </android.support.design.widget.TextInputLayout>
 
 </LinearLayout>
