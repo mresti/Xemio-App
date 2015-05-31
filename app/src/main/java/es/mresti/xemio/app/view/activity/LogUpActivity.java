@@ -3,6 +3,7 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Button;
@@ -27,15 +28,17 @@ public class LogUpActivity extends BaseActivity {
   Button btn_save;
 
   // The input field where the user enters his email.
-  @InjectView(R.id.emailInput)
-  EditText mEmailText;
+  @InjectView(R.id.emailInput) EditText mEmailText;
+
+  @InjectView(R.id.emailInputLayout) TextInputLayout mEmailInputLayout;
 
   // The validator for the email input field.
   private EmailValidator mEmailValidator;
 
   // The input field where the user enters his alias.
-  @InjectView(R.id.aliasInput)
-  EditText mAliasText;
+  @InjectView(R.id.aliasInput) EditText mAliasText;
+
+  @InjectView(R.id.aliasInputLayout) TextInputLayout mAliasInputLayout;
 
   // The validator for the alias input field.
   private ContentValidator mContentValidator;
@@ -72,10 +75,10 @@ public class LogUpActivity extends BaseActivity {
   @OnClick(R.id.btn_save)
   void navigateToVerify() {
     if (!mEmailValidator.isValid()) {
-      mEmailText.setError(getText(R.string.error_email));
+      mEmailInputLayout.setError(getText(R.string.error_email));
       Log.w(mLOGTAG, "Not saving personal information: Invalid email");
     }else if(!mContentValidator.isValid()) {
-      mAliasText.setError(getText(R.string.error_empty));
+      mAliasInputLayout.setError(getText(R.string.error_empty));
       Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
     }else{
       this.mNavigator.navigateToVerify(this);
