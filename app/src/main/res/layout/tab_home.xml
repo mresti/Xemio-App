@@ -34,17 +34,6 @@
                 android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="8dp"
-            android:layout_marginRight="8dp"
-            android:src="@drawable/ic_add"
-            fab:fab_colorNormal="@color/ColorAccent"
-            fab:fab_colorPressed="@color/ColorPrimaryText"
-            fab:fab_colorRipple="@color/ColorSecondaryText"/>
     </FrameLayout>
 
 </LinearLayout>
