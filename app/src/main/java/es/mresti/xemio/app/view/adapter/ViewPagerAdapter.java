@@ -2,54 +2,37 @@ package es.mresti.xemio.app.view.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 
-import es.mresti.xemio.app.view.fragment.Tab1;
-import es.mresti.xemio.app.view.fragment.Tab2;
-import es.mresti.xemio.app.view.fragment.Tab3;
+import java.util.ArrayList;
+import java.util.List;
 
+public class ViewPagerAdapter extends FragmentPagerAdapter {
+  private final List<Fragment> mFragments = new ArrayList<>();
+  private final List<String> mFragmentTitles = new ArrayList<>();
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-  CharSequence Titles[]; // This will Store the Titles of the Tabs which are Going to be passed when ViewPagerAdapter is created
-  int NumbOfTabs; // Store the number of tabs, this will also be passed when the ViewPagerAdapter is created
-
-
-  // Build a Constructor and assign the passed Values to appropriate values in the class
-  public ViewPagerAdapter(FragmentManager fm,CharSequence mTitles[], int mNumbOfTabsumb) {
+  public ViewPagerAdapter(FragmentManager fm) {
     super(fm);
-
-    this.Titles = mTitles;
-    this.NumbOfTabs = mNumbOfTabsumb;
-
   }
 
-  //This method return the fragment for the every position in the View Pager
+  public void addFragment(Fragment fragment, String title) {
+    mFragments.add(fragment);
+    mFragmentTitles.add(title);
+  }
+
   @Override
   public Fragment getItem(int position) {
-
-    if(position == 0){
-      Tab1 tab1 = new Tab1();
-      return tab1;
-    }else if(position == 1){
-      Tab2 tab2 = new Tab2();
-      return tab2;
-    }else{
-      Tab3 tab3 = new Tab3();
-      return tab3;
-    }
+    return mFragments.get(position);
   }
-
-  // This method return the titles for the Tabs in the Tab Strip
-
-  @Override
-  public CharSequence getPageTitle(int position) {
-    return Titles[position];
-  }
-
-  // This method return the Number of tabs for the tabs Strip
 
   @Override
   public int getCount() {
-    return NumbOfTabs;
+    return mFragments.size();
+  }
+
+  @Override
+  public CharSequence getPageTitle(int position) {
+    return mFragmentTitles.get(position);
   }
 }
+
