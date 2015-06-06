@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import es.mresti.xemio.R;
 
-public class Tab1 extends Fragment {
+public class HomeTab extends Fragment {
 
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

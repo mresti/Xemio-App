@@ -14,43 +14,4 @@
         android:textSize="24sp"
         android:textColor="@color/theme_default_primary"/>
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/edit_hello"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Hello World!!"
-            android:singleLine="true"/>
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/edit_hallo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Hallo!!"
-            android:singleLine="true"/>
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/edit_hola"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Hola Mundo!!"
-            android:singleLine="true"/>
-
-    </android.support.design.widget.TextInputLayout>
-
 </LinearLayout>

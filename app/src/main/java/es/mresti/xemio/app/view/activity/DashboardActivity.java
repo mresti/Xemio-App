@@ -18,9 +18,9 @@ import butterknife.InjectView;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.adapter.ViewPagerAdapter;
-import es.mresti.xemio.app.view.fragment.Tab1;
-import es.mresti.xemio.app.view.fragment.Tab2;
-import es.mresti.xemio.app.view.fragment.Tab3;
+import es.mresti.xemio.app.view.fragment.HomeTab;
+import es.mresti.xemio.app.view.fragment.HistoryTab;
+import es.mresti.xemio.app.view.fragment.CalendarTab;
 
 public class DashboardActivity extends BaseActivity {
   private Navigator mNavigator;
@@ -91,9 +91,9 @@ public class DashboardActivity extends BaseActivity {
 
   private void setupViewPager(ViewPager viewPager) {
     ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-    adapter.addFragment(new Tab1(), "Inicio");
-    adapter.addFragment(new Tab2(), "Historial");
-    adapter.addFragment(new Tab3(), "Calendario");
+    adapter.addFragment(new HomeTab(), "Inicio");
+    adapter.addFragment(new HistoryTab(), "Historial");
+    adapter.addFragment(new CalendarTab(), "Calendario");
     viewPager.setAdapter(adapter);
   }
 
