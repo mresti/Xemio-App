@@ -2,11 +2,19 @@ package es.mresti.xemio.app.view.validator;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import java.util.regex.Pattern;
 
 /**
  * A validator for {@link android.widget.EditText}.
  */
-public class ContentValidator implements TextWatcher {
+public class AlphaNumericValidator implements TextWatcher {
+
+  /**
+   * Alphanumeric validation pattern.
+   */
+  public static final Pattern ALPHANUMERIC_PATTERN = Pattern.compile(
+          "^[a-zA-Z0-9\\s]+$"
+  );
 
   private boolean mIsValid = false;
 
@@ -15,13 +23,13 @@ public class ContentValidator implements TextWatcher {
   }
 
   /**
-   * Validates if the given input is not an empty string.
+   * Validates if the given input is an alphanumeric string.
    *
    * @param text The text to validate.
-   * @return {@code true} if the input is not an empty string. {@code false} otherwise.
+   * @return {@code true} if the input is a alphanumeric string. {@code false} otherwise.
    */
   public static boolean isValidText(CharSequence text) {
-    return text != null && !text.toString().isEmpty();
+    return text != null && ALPHANUMERIC_PATTERN.matcher(text).matches();
   }
 
   @Override

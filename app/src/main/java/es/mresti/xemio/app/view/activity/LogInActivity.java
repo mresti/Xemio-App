@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +15,7 @@ import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.validator.EmailValidator;
-import es.mresti.xemio.app.view.validator.ContentValidator;
+import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
 
 public class LogInActivity extends BaseActivity {
 
@@ -41,7 +40,7 @@ public class LogInActivity extends BaseActivity {
   @InjectView(R.id.aliasInputLayout) TextInputLayout mAliasInputLayout;
 
   // The validator for the alias input field.
-  private ContentValidator mContentValidator;
+  private AlphaNumericValidator mAlphaNumericValidator;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, LogInActivity.class);
@@ -65,8 +64,8 @@ public class LogInActivity extends BaseActivity {
     // Setup field validators.
     mEmailValidator = new EmailValidator();
     mEmailText.addTextChangedListener(mEmailValidator);
-    mContentValidator = new ContentValidator();
-    mAliasText.addTextChangedListener(mContentValidator);
+    mAlphaNumericValidator = new AlphaNumericValidator();
+    mAliasText.addTextChangedListener(mAlphaNumericValidator);
   }
 
   /**
@@ -77,7 +76,7 @@ public class LogInActivity extends BaseActivity {
     if (!mEmailValidator.isValid()) {
       mEmailInputLayout.setError(getText(R.string.error_email));
       Log.w(mLOGTAG, "Not saving personal information: Invalid email");
-    }else if(!mContentValidator.isValid()) {
+    }else if(!mAlphaNumericValidator.isValid()) {
       mAliasInputLayout.setError(getText(R.string.error_empty));
       Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
     }else{
