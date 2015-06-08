@@ -65,6 +65,10 @@
             android:theme="@style/Theme.Xemio">
         </activity>
 
+        <activity
+            android:name="es.mresti.xemio.app.view.activity.IncidenceActivity">
+        </activity>
+
     </application>
 
 </manifest>

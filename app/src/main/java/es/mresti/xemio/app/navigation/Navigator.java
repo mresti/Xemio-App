@@ -7,6 +7,7 @@ import es.mresti.xemio.app.view.activity.CancerActivity;
 import es.mresti.xemio.app.view.activity.ChemotherapyActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
 import es.mresti.xemio.app.view.activity.ExtraActivity;
+import es.mresti.xemio.app.view.activity.IncidenceActivity;
 import es.mresti.xemio.app.view.activity.LogInActivity;
 import es.mresti.xemio.app.view.activity.LogUpActivity;
 import es.mresti.xemio.app.view.activity.VerifiedActivity;
@@ -114,6 +115,18 @@ public class Navigator {
   public void navigateToExtra(Context context) {
     if (context != null){
       Intent intentToLaunch = ExtraActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  /**
+   * Goes to the new incidence screen.
+   *
+   * @param context A Context needed to open the destiny activity.
+   */
+  public void navigateToNewIncidence(Context context) {
+    if (context != null){
+      Intent intentToLaunch = IncidenceActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
