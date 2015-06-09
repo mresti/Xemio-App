@@ -62,6 +62,9 @@ public class DashboardActivity extends BaseActivity {
       setupViewPager(mViewPager);
     }
 
+
+    Snackbar.make(findViewById(R.id.main_content), "¡¡Bienvenido <alias>!!",
+        Snackbar.LENGTH_LONG).setAction("Action", null).show();
     /*
     fab.setOnClickListener(new View.OnClickListener() {
       @Override

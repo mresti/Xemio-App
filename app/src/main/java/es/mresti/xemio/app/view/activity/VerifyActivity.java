@@ -4,6 +4,7 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 
@@ -38,6 +39,8 @@ public class VerifyActivity extends BaseActivity {
    */
   private void initialize() {
     this.mNavigator = new Navigator();
+    Snackbar.make(findViewById(R.id.rootLayout), "Se le ha enviado un email",
+        Snackbar.LENGTH_LONG).setAction("Action", null).show(); // Do not forget to show!
   }
 
   /**
