@@ -73,13 +73,26 @@ public class LogInActivity extends BaseActivity {
    */
   @OnClick(R.id.btn_save)
   void navigateToDashboard() {
-    if (!mEmailValidator.isValid()) {
+    boolean emailValid = mEmailValidator.isValid();
+    boolean aliasValid = mAlphaNumericValidator.isValid();
+
+    if (!emailValid) {
+      mEmailInputLayout.setErrorEnabled(true);
       mEmailInputLayout.setError(getText(R.string.error_email));
       Log.w(mLOGTAG, "Not saving personal information: Invalid email");
-    }else if(!mAlphaNumericValidator.isValid()) {
+    }else{
+      mEmailInputLayout.setErrorEnabled(false);
+    }
+
+    if(!aliasValid) {
+      mAliasInputLayout.setErrorEnabled(true);
       mAliasInputLayout.setError(getText(R.string.error_empty));
       Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
     }else{
+      mAliasInputLayout.setErrorEnabled(false);
+    }
+
+    if(emailValid && aliasValid) {
       this.mNavigator.navigateToDashboard(this);
     }
   }

@@ -30,6 +30,7 @@
     <string name="element_prompt">Elige elemento</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_save">Guardar</string>
 
     <string name="new_incidence">Nueva indicencia</string>
 
@@ -46,7 +47,8 @@
 
     // error message
     <string name="error_email">Email inválido</string>
-    <string name="error_empty">Campo no vacío</string>
+    <string name="error_empty">No puede estar en blanco</string>
+    <string name="error_alias">Alias cannot be blank</string>
     <string name="error_age">Edad inválida</string>
 
 </resources>

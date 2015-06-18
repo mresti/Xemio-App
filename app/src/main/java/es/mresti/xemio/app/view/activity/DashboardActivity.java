@@ -20,6 +20,7 @@ import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.adapter.ViewPagerAdapter;
+import es.mresti.xemio.app.view.fragment.AdviceTab;
 import es.mresti.xemio.app.view.fragment.HomeTab;
 import es.mresti.xemio.app.view.fragment.HistoryTab;
 import es.mresti.xemio.app.view.fragment.CalendarTab;
@@ -82,7 +83,6 @@ public class DashboardActivity extends BaseActivity {
    */
   @OnClick(R.id.fab)
   void navigateToIncidence() {
-    Log.e(mLOGTAG, "Estoy en navigatetoincidence");
     this.mNavigator.navigateToNewIncidence(this);
   }
 
@@ -112,6 +112,7 @@ public class DashboardActivity extends BaseActivity {
   private void setupViewPager(ViewPager viewPager) {
     ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
     adapter.addFragment(new HomeTab(), "Inicio");
+    adapter.addFragment(new AdviceTab(), "Consejos");
     adapter.addFragment(new HistoryTab(), "Historial");
     adapter.addFragment(new CalendarTab(), "Calendario");
     viewPager.setAdapter(adapter);

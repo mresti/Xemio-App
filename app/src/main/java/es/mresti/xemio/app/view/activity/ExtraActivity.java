@@ -70,7 +70,9 @@ public class ExtraActivity extends BaseActivity {
    */
   @OnClick(R.id.btn_next)
   void navigateToVerified() {
-    if (!mNumericValidator.isValid()) {
+    boolean ageValid = mNumericValidator.isValid();
+
+    if (!ageValid) {
       mAgeInputLayout.setError(getText(R.string.error_age));
       Log.w(mLOGTAG, "Not saving personal information: Invalid age");
     }else{

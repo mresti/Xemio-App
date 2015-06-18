@@ -3,25 +3,20 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
-import es.mresti.xemio.app.navigation.Navigator;
 
-public class IncidenceActivity extends BaseActivity{
+
+public class CalendarDetailsActivity extends BaseActivity{
   private String EXTRA_NAME;
 
   @InjectView(R.id.datepicker) TextView mDateTextView;
-
-  @InjectView(R.id.toolbar) Toolbar mToolbar;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, IncidenceActivity.class);
@@ -32,20 +27,11 @@ public class IncidenceActivity extends BaseActivity{
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_incidence);
 
-    ButterKnife.inject(this);
-    this.initialize();
-  }
-
-  /**
-   * Initializes activity's private members.
-   */
-  private void initialize() {
-    setSupportActionBar(mToolbar);
-
     EXTRA_NAME = (String) getText(R.string.new_incidence);
 
     final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
+    getSupportActionBar().setTitle(EXTRA_NAME);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   }
 

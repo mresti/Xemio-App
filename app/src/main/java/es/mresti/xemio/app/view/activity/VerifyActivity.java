@@ -40,7 +40,7 @@ public class VerifyActivity extends BaseActivity {
   private void initialize() {
     this.mNavigator = new Navigator();
     Snackbar.make(findViewById(R.id.rootLayout), "Se le ha enviado un email",
-        Snackbar.LENGTH_LONG).setAction("Action", null).show(); 
+        Snackbar.LENGTH_LONG).setAction("Action", null).show();
   }
 
   /**
