@@ -2,23 +2,42 @@
 <resources>
     <string name="app_name">Xemio</string>
 
+    <string name="str_info_title">¡Bienvenida a la aplicación de Xemio!</string>
+    <string name="str_info_init">Bienvenida a Xemio App, la aplicación de Android para pacientes
+        de Quimioterapia de Cáncer de mama.</string>
+    <string name="str_info_init2">Esta aplicación te acompañará durante la quimioterapia para facilitarte
+        información, un punto de referencia que te sirva para disminuir la ansiedad que produce el tratamiento,
+        y para observar cómo les va a otras.</string>
+    <string name="str_info_init3">Para poder acompañarte necesitamos hacerte unas pocas preguntas.
+        ¿Quieres empezar la experiencia Xemio?</string>
+    <string name="btn_deny">Rechazar</string>
+    <string name="str_register_title">Rellena sus datos</string>
+    <string name="btn_text_signin">Entrar</string>
+    <string name="btn_text_register">Registrar</string>
+    <string name="form_email">Email</string>
+    <string name="form_alias">Nombre</string>
+    <string name="form_age">Edad</string>
+
+
+
+
+
+
+
+
+    // review strings
+
     <string name="title_history">Historial</string>
     <string name="title_incidence">Incidencias</string>
 
     // UI components text
-    <string name="btn_text_signin">Entrar</string>
-    <string name="btn_text_register">Registro</string>
     <string name="btn_text_check">Comprobar</string>
     <string name="btn_text_next">Siguiente</string>
 
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
 
-    <string name="form_email">Email</string>
-    <string name="form_alias">Alias</string>
-    <string name="form_age">Edad</string>
     <string name="form_extra">Otra información</string>
-
     <string name="activity_user_verify_text">Por favor, revise su correo electrónico para verificar su cuenta.</string>
     <string name="activity_user_verified_text">Gracias, estás verificado.</string>
     <string name="activity_user_type_cancer_text">Selecciona su tipo de cáncer</string>
