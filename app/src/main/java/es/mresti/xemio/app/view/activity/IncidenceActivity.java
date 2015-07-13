@@ -13,10 +13,12 @@ import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
+import java.util.Calendar;
 
-public class IncidenceActivity extends BaseActivity{
+public class IncidenceActivity extends BaseActivity implements DatePickerDialog.OnDateSetListener {
   private String EXTRA_NAME;
 
   @InjectView(R.id.datepicker) TextView mDateTextView;
@@ -49,18 +51,25 @@ public class IncidenceActivity extends BaseActivity{
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   }
 
+  @Override
+  public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+    String date = "You picked the following date: "+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
+    //dateTextView.setText(date);
+  }
+
   /**
    * Goes to the datepicker dialog.
    */
   @OnClick(R.id.datepicker)
   void setDate() {
-    AlertDialog.Builder builder =
-        new AlertDialog.Builder(this);
-    builder.setTitle("Dialog");
-    builder.setMessage("Lorem ipsum dolor ....");
-    builder.setPositiveButton("OK", null);
-    builder.setNegativeButton("Cancel", null);
-    builder.show();
+    Calendar now = Calendar.getInstance();
+    DatePickerDialog dpd = DatePickerDialog.newInstance(
+        IncidenceActivity.this,
+        now.get(Calendar.YEAR),
+        now.get(Calendar.MONTH),
+        now.get(Calendar.DAY_OF_MONTH)
+    );
+    dpd.show(getFragmentManager(), "Datepickerdialog");
   }
 
   @Override
