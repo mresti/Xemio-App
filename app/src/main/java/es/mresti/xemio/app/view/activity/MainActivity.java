@@ -17,7 +17,6 @@ public class MainActivity extends BaseActivity {
 
   private Navigator mNavigator;
 
-  @InjectView(R.id.btn_LogUp) Button mBtn_LogUp;
   @InjectView(R.id.btn_LogIn) Button mBtn_LogIn;
 
   @Override
@@ -32,17 +31,7 @@ public class MainActivity extends BaseActivity {
   /**
    * Initializes activity's private members.
    */
-  private void initialize() {
-    this.mNavigator = new Navigator();
-  }
-
-  /**
-   * Goes to the user LogUp screen.
-   */
-  @OnClick(R.id.btn_LogUp)
-  void navigateToLogUp() {
-    this.mNavigator.navigateToUserLogUp(this);
-  }
+  private void initialize() { this.mNavigator = new Navigator(); }
 
   /**
    * Goes to the user LogIn screen.

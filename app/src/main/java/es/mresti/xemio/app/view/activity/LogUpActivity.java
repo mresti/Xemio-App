@@ -93,7 +93,7 @@ public class LogUpActivity extends BaseActivity {
     }
 
     if(emailValid && aliasValid) {
-      this.mNavigator.navigateToDashboard(this);
+      this.mNavigator.navigateToVerify(this);
     }
   }
 }

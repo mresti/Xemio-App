@@ -1,7 +1,6 @@
 package es.mresti.xemio.app.presenter;
 
 import es.mresti.xemio.app.RegisterModel;
-import es.mresti.xemio.app.view.LogInView;
 
 public class LogInPresenter implements Presenter {
 
