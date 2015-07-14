@@ -18,6 +18,9 @@
     <string name="form_alias">Nombre</string>
     <string name="form_age">Edad</string>
 
+    <string name="lorem_title">Lorem ipsum dolor sit amet</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper nisl vel lorem placerat faucibus. Vivamus nisl elit, pretium nec nisl a, consequat dignissim sem. Phasellus convallis quam sit amet justo vulputate, ac luctus enim imperdiet. Nullam viverra est a leo congue molestie. Aenean vestibulum diam vel varius bibendum. Nullam porttitor augue sed rhoncus dapibus. Pellentesque bibendum odio non fermentum vestibulum. Cras ut purus nec nulla maximus finibus ac semper orci. Sed ultricies luctus felis, non viverra eros vulputate vitae. Integer eu mi ac dui porta laoreet quis blandit lacus. Ut placerat dapibus enim. Morbi nec efficitur diam, eu facilisis metus.</string>
+
 
 
 
