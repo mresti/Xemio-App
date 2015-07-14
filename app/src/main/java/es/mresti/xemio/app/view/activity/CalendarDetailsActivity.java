@@ -52,7 +52,7 @@ public class CalendarDetailsActivity extends BaseActivity{
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.menu_incidence, menu);
+    //getMenuInflater().inflate(R.menu.menu_incidence, menu);
     return true;
   }
 
@@ -68,10 +68,10 @@ public class CalendarDetailsActivity extends BaseActivity{
     }
 
     //noinspection SimplifiableIfStatement
-    if (id == R.id.action_save) {
+    //if (id == R.id.action_save) {
       //call function
-      return true;
-    }
+    //  return true;
+    //}
     return super.onOptionsItemSelected(item);
   }
 }

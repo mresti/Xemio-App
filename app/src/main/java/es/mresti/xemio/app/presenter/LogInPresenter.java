@@ -4,17 +4,6 @@ import es.mresti.xemio.app.RegisterModel;
 
 public class LogInPresenter implements Presenter {
 
-  private LogInView mLoginView;
-  private RegisterModel mRegisterModel;
-
-  public LogInPresenter(LogInView logInView, RegisterModel registerModel) {
-    if (logInView == null || registerModel == null) {
-      throw new IllegalArgumentException("Constructor parameters cannot be null!!!");
-    }
-    this.mLoginView = logInView;
-    this.mRegisterModel = registerModel;
-  }
-
   @Override public void resume() {}
 
   @Override public void pause() {}
