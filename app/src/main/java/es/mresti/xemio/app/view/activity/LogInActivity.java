@@ -16,6 +16,7 @@ import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
+import es.mresti.xemio.app.view.validator.NumericValidator;
 
 public class LogInActivity extends BaseActivity {
 
@@ -42,6 +43,16 @@ public class LogInActivity extends BaseActivity {
   // The validator for the alias input field.
   private AlphaNumericValidator mAlphaNumericValidator;
 
+  // The input field where the user enters his age.
+  @InjectView(R.id.ageInput)
+  EditText mAgeInput;
+
+  @InjectView(R.id.ageInputLayout)
+  TextInputLayout mAgeInputLayout;
+
+  // The validator for the age input field.
+  private NumericValidator mNumericValidator;
+
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, LogInActivity.class);
   }
@@ -66,6 +77,8 @@ public class LogInActivity extends BaseActivity {
     mEmailText.addTextChangedListener(mEmailValidator);
     mAlphaNumericValidator = new AlphaNumericValidator();
     mAliasText.addTextChangedListener(mAlphaNumericValidator);
+    mNumericValidator = new NumericValidator();
+    mAgeInput.addTextChangedListener(mNumericValidator);
   }
 
   /**
@@ -75,6 +88,7 @@ public class LogInActivity extends BaseActivity {
   void navigateToDashboard() {
     boolean emailValid = mEmailValidator.isValid();
     boolean aliasValid = mAlphaNumericValidator.isValid();
+    boolean ageValid = mNumericValidator.isValid();
 
     if (!emailValid) {
       mEmailInputLayout.setErrorEnabled(true);
@@ -92,7 +106,14 @@ public class LogInActivity extends BaseActivity {
       mAliasInputLayout.setErrorEnabled(false);
     }
 
-    if(emailValid && aliasValid) {
+    if (!ageValid) {
+      mAgeInputLayout.setError(getText(R.string.error_age));
+      Log.w(mLOGTAG, "Not saving personal information: Invalid age");
+    }else{
+      this.mNavigator.navigateToDashboard(this);
+    }
+
+    if(emailValid && aliasValid && ageValid) {
       this.mNavigator.navigateToDashboard(this);
     }
   }
