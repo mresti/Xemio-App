@@ -34,6 +34,7 @@
     <string name="str_cancer_title">Selecciona su tipo de cáncer</string>
     <string name="str_chemo_title">Selecciona su tipo de quimioterapia</string>
     <string name="btn_next">Siguiente</string>
+    <string name="element_prompt">Selecciona un elemento</string>
 
     // Pass activity
     <string name="str_pass_title">Último paso de seguridad</string>
@@ -43,7 +44,7 @@
 
     // Login activity
     <string name="str_login_title">Loguearse en Xemio</string>
-    
+
     // Dashboard Activity
     <string name="action_settings">Configuración</string>
     <string name="btn_info_cancer">Información cáncer de mama</string>
