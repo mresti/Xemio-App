@@ -43,9 +43,7 @@
 
     // Login activity
     <string name="str_login_title">Loguearse en Xemio</string>
-
-
-
+    
     // Dashboard Activity
     <string name="action_settings">Configuración</string>
     <string name="btn_info_cancer">Información cáncer de mama</string>
@@ -56,7 +54,6 @@
     // error message
     <string name="error_email">Email inválido</string>
     <string name="error_empty">No puede estar en blanco</string>
-    <string name="error_alias">Alias cannot be blank</string>
     <string name="error_age">Edad inválida</string>
 
     // tmp values
@@ -73,26 +70,12 @@
 
     // review strings
     <string name="btn_text_signin">Entrar</string>
-    <string name="str_dialog_logup">hemos creado su usuario, pero su cuenta no está activa. Revisa su cuenta de email para activar su usuario.</string>
-    <string name="str_reverify_logup">Revisa su cuenta email para activar su usuario. Podemos volver a enviarte el correo si lo prefieres</string>
     <string name="btn_check">Comprobar</string>
-    <string name="str_cancer_info">Selecciona ahora el tipo de cancer que tienes</string>
-    <string name="str_chemo_info">Selecciona ahora el tipo de quimioterapia que tienes</string>
-    <string name="title_history">Historial</string>
-    <string name="title_incidence">Incidencias</string>
 
     // UI components text
-    <string name="btn_text_check">Comprobar</string>
-    <string name="drawer_open">open</string>
-    <string name="drawer_close">close</string>
-    <string name="form_extra">Otra información</string>
-    <string name="activity_user_verify_text">Por favor, revise su correo electrónico para verificar su cuenta.</string>
-    <string name="activity_user_verified_text">Gracias, estás verificado.</string>
-    <string name="activity_user_type_cancer_text">Selecciona su tipo de cáncer</string>
     <string name="activity_user_type_chemotherapy_text">Selecciona su tipo de quimioterapia</string>
     <string name="activity_user_type_advice_text">Selecciona un consejo</string>
     <string name="string_content_description">Non accessible view</string>
-    <string name="element_prompt">Elige elemento</string>
     <string name="action_save">Guardar</string>
     <string name="new_incidence">Nueva indicencia</string>
 </resources>
