@@ -45,7 +45,6 @@ public class IncidenceActivity extends BaseActivity implements DatePickerDialog.
     setSupportActionBar(mToolbar);
 
     EXTRA_NAME = (String) getText(R.string.new_incidence);
-
     final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);

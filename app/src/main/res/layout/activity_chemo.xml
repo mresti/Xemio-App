@@ -44,7 +44,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:text="@string/str_cancer_title"
+                        android:text="@string/str_chemo_title"
                         android:textColor="@color/ColorAccent"
                         android:layout_marginBottom="@dimen/card_margin"
                         android:layout_marginLeft="@dimen/card_margin"

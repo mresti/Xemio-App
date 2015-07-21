@@ -24,34 +24,16 @@ public class LogInActivity extends BaseActivity {
 
   private Navigator mNavigator;
 
-  @InjectView(R.id.btn_save)
-  Button mBtn_save;
+  @InjectView(R.id.btn_save) Button mBtn_save;
+  @InjectView(R.id.btn_deny) Button mBtn_Deny;
 
-  // The input field where the user enters his email.
   @InjectView(R.id.emailInput) EditText mEmailText;
-
   @InjectView(R.id.emailInputLayout) TextInputLayout mEmailInputLayout;
-
-  // The validator for the email input field.
   private EmailValidator mEmailValidator;
 
-  // The input field where the user enters his alias.
-  @InjectView(R.id.aliasInput) EditText mAliasText;
-
-  @InjectView(R.id.aliasInputLayout) TextInputLayout mAliasInputLayout;
-
-  // The validator for the alias input field.
+  @InjectView(R.id.passInput) EditText mPassText;
+  @InjectView(R.id.passInputLayout) TextInputLayout mPassInputLayout;
   private AlphaNumericValidator mAlphaNumericValidator;
-
-  // The input field where the user enters his age.
-  @InjectView(R.id.ageInput)
-  EditText mAgeInput;
-
-  @InjectView(R.id.ageInputLayout)
-  TextInputLayout mAgeInputLayout;
-
-  // The validator for the age input field.
-  private NumericValidator mNumericValidator;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, LogInActivity.class);
@@ -60,7 +42,7 @@ public class LogInActivity extends BaseActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_register);
+    setContentView(R.layout.activity_login);
 
     ButterKnife.inject(this);
     this.initialize();
@@ -76,9 +58,7 @@ public class LogInActivity extends BaseActivity {
     mEmailValidator = new EmailValidator();
     mEmailText.addTextChangedListener(mEmailValidator);
     mAlphaNumericValidator = new AlphaNumericValidator();
-    mAliasText.addTextChangedListener(mAlphaNumericValidator);
-    mNumericValidator = new NumericValidator();
-    mAgeInput.addTextChangedListener(mNumericValidator);
+    mPassText.addTextChangedListener(mAlphaNumericValidator);
   }
 
   /**
@@ -87,8 +67,7 @@ public class LogInActivity extends BaseActivity {
   @OnClick(R.id.btn_save)
   void navigateToDashboard() {
     boolean emailValid = mEmailValidator.isValid();
-    boolean aliasValid = mAlphaNumericValidator.isValid();
-    boolean ageValid = mNumericValidator.isValid();
+    boolean passValid = mAlphaNumericValidator.isValid();
 
     if (!emailValid) {
       mEmailInputLayout.setErrorEnabled(true);
@@ -98,23 +77,24 @@ public class LogInActivity extends BaseActivity {
       mEmailInputLayout.setErrorEnabled(false);
     }
 
-    if(!aliasValid) {
-      mAliasInputLayout.setErrorEnabled(true);
-      mAliasInputLayout.setError(getText(R.string.error_empty));
+    if(!passValid) {
+      mPassInputLayout.setErrorEnabled(true);
+      mPassInputLayout.setError(getText(R.string.error_empty));
       Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
     }else{
-      mAliasInputLayout.setErrorEnabled(false);
+      mPassInputLayout.setErrorEnabled(false);
     }
 
-    if (!ageValid) {
-      mAgeInputLayout.setError(getText(R.string.error_age));
-      Log.w(mLOGTAG, "Not saving personal information: Invalid age");
-    }else{
+    if(emailValid && passValid) {
       this.mNavigator.navigateToDashboard(this);
     }
+  }
 
-    if(emailValid && aliasValid && ageValid) {
-      this.mNavigator.navigateToDashboard(this);
-    }
+  /**
+   * Goes to the user LogIn screen.
+   */
+  @OnClick(R.id.btn_deny)
+  void navigateToFinish() {
+    finish();
   }
 }

@@ -37,12 +37,6 @@
         </activity>
 
         <activity
-            android:name="es.mresti.xemio.app.view.activity.VerifiedActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Xemio">
-        </activity>
-
-        <activity
             android:name="es.mresti.xemio.app.view.activity.DashboardActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Xemio">
@@ -55,13 +49,13 @@
         </activity>
 
         <activity
-            android:name="es.mresti.xemio.app.view.activity.ChemotherapyActivity"
+            android:name="es.mresti.xemio.app.view.activity.ChemoActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Xemio">
         </activity>
 
         <activity
-            android:name="es.mresti.xemio.app.view.activity.ExtraActivity"
+            android:name="es.mresti.xemio.app.view.activity.PassActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Xemio">
         </activity>

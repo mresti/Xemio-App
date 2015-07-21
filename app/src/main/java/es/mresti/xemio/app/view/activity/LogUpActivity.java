@@ -15,7 +15,7 @@ import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
-
+import es.mresti.xemio.app.view.validator.NumericValidator;
 
 public class LogUpActivity extends BaseActivity {
 
@@ -23,24 +23,21 @@ public class LogUpActivity extends BaseActivity {
 
   private Navigator mNavigator;
 
-  @InjectView(R.id.btn_save)
-  Button btn_save;
+  @InjectView(R.id.btn_save) Button mBtn_save;
+  @InjectView(R.id.btn_deny) Button mBtn_deny;
+  @InjectView(R.id.btn_login) Button mBtn_login;
 
-  // The input field where the user enters his email.
   @InjectView(R.id.emailInput) EditText mEmailText;
-
   @InjectView(R.id.emailInputLayout) TextInputLayout mEmailInputLayout;
-
-  // The validator for the email input field.
   private EmailValidator mEmailValidator;
 
-  // The input field where the user enters his alias.
   @InjectView(R.id.aliasInput) EditText mAliasText;
-
   @InjectView(R.id.aliasInputLayout) TextInputLayout mAliasInputLayout;
-
-  // The validator for the alias input field.
   private AlphaNumericValidator mAlphaNumericValidator;
+
+  @InjectView(R.id.ageInput) EditText mAgeInput;
+  @InjectView(R.id.ageInputLayout) TextInputLayout mAgeInputLayout;
+  private NumericValidator mNumericValidator;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, LogUpActivity.class);
@@ -66,15 +63,18 @@ public class LogUpActivity extends BaseActivity {
     mEmailText.addTextChangedListener(mEmailValidator);
     mAlphaNumericValidator = new AlphaNumericValidator();
     mAliasText.addTextChangedListener(mAlphaNumericValidator);
+    mNumericValidator = new NumericValidator();
+    mAgeInput.addTextChangedListener(mNumericValidator);
   }
 
   /**
-   * Goes to the user verify screen.
+   * Goes to the dashboard screen.
    */
   @OnClick(R.id.btn_save)
-  void navigateToVerify() {
+  void navigateToDashboard() {
     boolean emailValid = mEmailValidator.isValid();
     boolean aliasValid = mAlphaNumericValidator.isValid();
+    boolean ageValid = mNumericValidator.isValid();
 
     if (!emailValid) {
       mEmailInputLayout.setErrorEnabled(true);
@@ -92,8 +92,32 @@ public class LogUpActivity extends BaseActivity {
       mAliasInputLayout.setErrorEnabled(false);
     }
 
-    if(emailValid && aliasValid) {
+    if (!ageValid) {
+      mAgeInputLayout.setErrorEnabled(true);
+      mAgeInputLayout.setError(getText(R.string.error_age));
+      Log.w(mLOGTAG, "Not saving personal information: Invalid age");
+    }else{
+      mAgeInputLayout.setErrorEnabled(false);
+    }
+
+    if(emailValid && aliasValid && ageValid) {
       this.mNavigator.navigateToVerify(this);
     }
+  }
+
+  /**
+   * Goes to the user LogIn screen.
+   */
+  @OnClick(R.id.btn_deny)
+  void navigateToFinish() {
+    finish();
+  }
+
+  /**
+   * Goes to the user LogIn screen.
+   */
+  @OnClick(R.id.btn_login)
+  void navigateToLogIn() {
+    this.mNavigator.navigateToUserLogIn(this);
   }
 }

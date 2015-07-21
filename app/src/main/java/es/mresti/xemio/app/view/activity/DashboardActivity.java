@@ -3,27 +3,21 @@ package es.mresti.xemio.app.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
+import android.widget.Button;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
-import es.mresti.xemio.app.view.adapter.ViewPagerAdapter;
-import es.mresti.xemio.app.view.fragment.AdviceTab;
-import es.mresti.xemio.app.view.fragment.HomeTab;
-import es.mresti.xemio.app.view.fragment.HistoryTab;
-import es.mresti.xemio.app.view.fragment.CalendarTab;
 
 public class DashboardActivity extends BaseActivity {
   private static final String mLOGTAG = "LogsAndroid";
@@ -32,11 +26,9 @@ public class DashboardActivity extends BaseActivity {
 
   @InjectView(R.id.toolbar) Toolbar mToolbar;
 
-  @InjectView(R.id.viewpager) ViewPager mViewPager;
+  @InjectView(R.id.fab) FloatingActionButton mFab;
 
-  @InjectView(R.id.fab) FloatingActionButton fab;
-
-  @InjectView(R.id.tabs) TabLayout mTabLayout;
+  @InjectView(R.id.btn_web) Button mBtn_web;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, DashboardActivity.class);
@@ -59,23 +51,16 @@ public class DashboardActivity extends BaseActivity {
     setSupportActionBar(mToolbar);
     Log.i(mLOGTAG, "estoy en el inicialize");
 
-    if (mViewPager != null) {
-      setupViewPager(mViewPager);
-    }
-
-
     Snackbar.make(findViewById(R.id.main_content), "¡¡Bienvenido <alias>!!",
         Snackbar.LENGTH_LONG).setAction("Action", null).show();
-    /*
-    fab.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-      }
-    });*/
+  }
 
-    mTabLayout.setupWithViewPager(mViewPager);
+  /**
+   * Goes to the dashboard screen.
+   */
+  @OnClick(R.id.btn_web)
+  void navigateToXemioWeb() {
+    this.mNavigator.navigateToXemioWeb(this);
   }
 
   /**
@@ -85,8 +70,6 @@ public class DashboardActivity extends BaseActivity {
   void navigateToIncidence() {
     this.mNavigator.navigateToNewIncidence(this);
   }
-
-
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,18 +87,9 @@ public class DashboardActivity extends BaseActivity {
 
     //noinspection SimplifiableIfStatement
     if (id == R.id.action_settings) {
+
       return true;
     }
     return super.onOptionsItemSelected(item);
   }
-
-  private void setupViewPager(ViewPager viewPager) {
-    ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-    adapter.addFragment(new HomeTab(), "Inicio");
-    adapter.addFragment(new AdviceTab(), "Consejos");
-    adapter.addFragment(new HistoryTab(), "Historial");
-    adapter.addFragment(new CalendarTab(), "Calendario");
-    viewPager.setAdapter(adapter);
-  }
-
 }

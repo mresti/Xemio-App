@@ -2,61 +2,64 @@
 <resources>
     <string name="app_name">Xemio</string>
 
+    // Main activity
     <string name="str_info_title">¡Bienvenida a la aplicación de Xemio!</string>
-    <string name="str_info_init">Bienvenida a Xemio App, la aplicación de Android para pacientes
-        de Quimioterapia de Cáncer de mama.</string>
+    <string name="str_info_init">Bienvenida a Xemio App, la aplicación de Android para pacientes de
+        Quimioterapia de Cáncer de mama.</string>
     <string name="str_info_init2">Esta aplicación te acompañará durante la quimioterapia para facilitarte
         información, un punto de referencia que te sirva para disminuir la ansiedad que produce el tratamiento,
         y para observar cómo les va a otras.</string>
-    <string name="str_info_init3">Para poder acompañarte necesitamos hacerte unas pocas preguntas.
+    <string name="str_info_init3">Para poder acompañarte necesitamos hacerte unas pocas preguntas
         ¿Quieres empezar la experiencia Xemio?</string>
     <string name="btn_deny">Rechazar</string>
-    <string name="str_register_title">Rellena sus datos</string>
-    <string name="btn_text_signin">Entrar</string>
-    <string name="btn_text_register">Registrar</string>
+    <string name="btn_begin">Empezar</string>
+
+    // Register Activity
+    <string name="str_register_title">Rellena sus datos para comenzar</string>
     <string name="form_email">Email</string>
     <string name="form_alias">Nombre</string>
     <string name="form_age">Edad</string>
+    <string name="str_login">Si ya tienes un usuario creado anteriormente, puedes loguearte.</string>
+    <string name="btn_text_register">Registrar</string>
+    <string name="btn_login_dialog">Loguearse</string>
 
-    <string name="lorem_title">Lorem ipsum dolor sit amet</string>
-    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper nisl vel lorem placerat faucibus. Vivamus nisl elit, pretium nec nisl a, consequat dignissim sem. Phasellus convallis quam sit amet justo vulputate, ac luctus enim imperdiet. Nullam viverra est a leo congue molestie. Aenean vestibulum diam vel varius bibendum. Nullam porttitor augue sed rhoncus dapibus. Pellentesque bibendum odio non fermentum vestibulum. Cras ut purus nec nulla maximus finibus ac semper orci. Sed ultricies luctus felis, non viverra eros vulputate vitae. Integer eu mi ac dui porta laoreet quis blandit lacus. Ut placerat dapibus enim. Morbi nec efficitur diam, eu facilisis metus.</string>
+    // Verify Activity
+    <string name="str_verigy_title_logup">Estado de su usuario</string>
+    <string name="str_verify_logup">Tu usuario ha sido creado, pero todavia no has podido validar tu cuenta. Revisa tu cuenta mail para activar tu usuario.</string>
+    <string name="str_reply_email">Si necesitas reenviar un nuevo código para activar su cuenta, pulse en "Volver a enviar"</string>
+    <string name="btn_retry_email">Volver a enviar</string>
+    <string name="str_dialog_reply">hemos creado su usuario, pero su cuenta no está activa. Deseas enviar un nuevo código de activación de su cuenta.</string>
 
+    // Cancer and Chemo Activity
+    <string name="str_cancer_title">Selecciona su tipo de cáncer</string>
+    <string name="str_chemo_title">Selecciona su tipo de quimioterapia</string>
+    <string name="btn_next">Siguiente</string>
 
+    // Pass activity
+    <string name="str_pass_title">Último paso de seguridad</string>
+    <string name="str_pass_info">Para asegurar una mayor seguridad de su usuario, necesitas crear una contraseña. Además, desde la aplicación podrás cambiar la contraseña.</string>
+    <string name="form_pass">Contraseña</string>
+    <string name="form_reply_pass">Repite Contraseña</string>
 
-
-
-
-
-
-    // review strings
-
-    <string name="title_history">Historial</string>
-    <string name="title_incidence">Incidencias</string>
-
-    // UI components text
-    <string name="btn_text_check">Comprobar</string>
-    <string name="btn_text_next">Siguiente</string>
-
-    <string name="drawer_open">open</string>
-    <string name="drawer_close">close</string>
-
-    <string name="form_extra">Otra información</string>
-    <string name="activity_user_verify_text">Por favor, revise su correo electrónico para verificar su cuenta.</string>
-    <string name="activity_user_verified_text">Gracias, estás verificado.</string>
-    <string name="activity_user_type_cancer_text">Selecciona su tipo de cáncer</string>
-    <string name="activity_user_type_chemotherapy_text">Selecciona su tipo de quimioterapia</string>
-    <string name="activity_user_type_advice_text">Selecciona un consejo</string>
+    // Login activity
+    <string name="str_login_title">Loguearse en Xemio</string>
 
 
-    <string name="string_content_description">Non accessible view</string>
-    <string name="element_prompt">Elige elemento</string>
 
-    <string name="action_settings">Settings</string>
-    <string name="action_save">Guardar</string>
+    // Dashboard Activity
+    <string name="action_settings">Configuración</string>
+    <string name="btn_info_cancer">Información cáncer de mama</string>
+    <string name="btn_info_trata">Información tratamientos</string>
+    <string name="btn_my_home">Mi espacio</string>
+    <string name="btn_web">La web</string>
 
-    <string name="new_incidence">Nueva indicencia</string>
+    // error message
+    <string name="error_email">Email inválido</string>
+    <string name="error_empty">No puede estar en blanco</string>
+    <string name="error_alias">Alias cannot be blank</string>
+    <string name="error_age">Edad inválida</string>
 
-    // temp
+    // tmp values
     <string-array name="element_arrays">
         <item>Element 1</item>
         <item>Element 2</item>
@@ -65,12 +68,31 @@
         <item>Element 5</item>
         <item>Element 6</item>
     </string-array>
+    <string name="lorem_title">Lorem ipsum dolor sit amet</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc semper nisl vel lorem placerat faucibus. Vivamus nisl elit, pretium nec nisl a, consequat dignissim sem. Phasellus convallis quam sit amet justo vulputate, ac luctus enim imperdiet. Nullam viverra est a leo congue molestie. Aenean vestibulum diam vel varius bibendum. Nullam porttitor augue sed rhoncus dapibus. Pellentesque bibendum odio non fermentum vestibulum. Cras ut purus nec nulla maximus finibus ac semper orci. Sed ultricies luctus felis, non viverra eros vulputate vitae. Integer eu mi ac dui porta laoreet quis blandit lacus. Ut placerat dapibus enim. Morbi nec efficitur diam, eu facilisis metus.</string>
 
+    // review strings
+    <string name="btn_text_signin">Entrar</string>
+    <string name="str_dialog_logup">hemos creado su usuario, pero su cuenta no está activa. Revisa su cuenta de email para activar su usuario.</string>
+    <string name="str_reverify_logup">Revisa su cuenta email para activar su usuario. Podemos volver a enviarte el correo si lo prefieres</string>
+    <string name="btn_check">Comprobar</string>
+    <string name="str_cancer_info">Selecciona ahora el tipo de cancer que tienes</string>
+    <string name="str_chemo_info">Selecciona ahora el tipo de quimioterapia que tienes</string>
+    <string name="title_history">Historial</string>
+    <string name="title_incidence">Incidencias</string>
 
-    // error message
-    <string name="error_email">Email inválido</string>
-    <string name="error_empty">No puede estar en blanco</string>
-    <string name="error_alias">Alias cannot be blank</string>
-    <string name="error_age">Edad inválida</string>
-
+    // UI components text
+    <string name="btn_text_check">Comprobar</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="form_extra">Otra información</string>
+    <string name="activity_user_verify_text">Por favor, revise su correo electrónico para verificar su cuenta.</string>
+    <string name="activity_user_verified_text">Gracias, estás verificado.</string>
+    <string name="activity_user_type_cancer_text">Selecciona su tipo de cáncer</string>
+    <string name="activity_user_type_chemotherapy_text">Selecciona su tipo de quimioterapia</string>
+    <string name="activity_user_type_advice_text">Selecciona un consejo</string>
+    <string name="string_content_description">Non accessible view</string>
+    <string name="element_prompt">Elige elemento</string>
+    <string name="action_save">Guardar</string>
+    <string name="new_incidence">Nueva indicencia</string>
 </resources>

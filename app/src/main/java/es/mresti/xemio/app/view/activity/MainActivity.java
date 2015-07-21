@@ -1,7 +1,6 @@
 package es.mresti.xemio.app.view.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 
 import butterknife.ButterKnife;
@@ -17,7 +16,8 @@ public class MainActivity extends BaseActivity {
 
   private Navigator mNavigator;
 
-  @InjectView(R.id.btn_LogIn) Button mBtn_LogIn;
+  @InjectView(R.id.btn_begin) Button mBtn_begin;
+  @InjectView(R.id.btn_deny) Button mBtn_deny;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,17 @@ public class MainActivity extends BaseActivity {
   /**
    * Goes to the user LogIn screen.
    */
-  @OnClick(R.id.btn_LogIn)
-  void navigateToLogIn() {
-    this.mNavigator.navigateToUserLogIn(this);
+  @OnClick(R.id.btn_begin)
+  void navigateToLogUp() {
+    this.mNavigator.navigateToUserLogUp(this);
+  }
+
+  /**
+   * Goes to the user LogIn screen.
+   */
+  @OnClick(R.id.btn_deny)
+  void navigateToFinish() {
+    finish();
   }
 
 }

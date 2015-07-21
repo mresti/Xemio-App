@@ -1,7 +1,5 @@
 package es.mresti.xemio.app.presenter;
 
-import es.mresti.xemio.app.RegisterModel;
-
 public class LogInPresenter implements Presenter {
 
   @Override public void resume() {}
