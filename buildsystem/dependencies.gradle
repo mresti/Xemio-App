@@ -1,8 +1,8 @@
 ext {
-  //Version
+  // Version
   supportLibrary = '22.2.0'
 
-  //Support Libraries dependencies
+  // Support Libraries dependencies
   supportDependencies = [
       design           :         "com.android.support:design:${supportLibrary}",
       recyclerView     :         "com.android.support:recyclerview-v7:${supportLibrary}",
@@ -10,4 +10,23 @@ ext {
       appCompat        :         "com.android.support:appcompat-v7:${supportLibrary}",
       supportAnnotation:         "com.android.support:support-annotations:${supportLibrary}",
   ]
+
+  // View Libraries dependencies
+  viewDependencies = [
+      butterknife      :         "com.jakewharton:butterknife:6.1.0",
+      materialDialogs  :         "com.afollestad:material-dialogs:0.7.6.0",
+  ]
+
+  // Testing Libraries dependencies
+  testingDependencies = [
+      junit           :         "junit:junit:4.12",
+      mockitoCore     :         "org.mockito:mockito-core:1.10.19",
+      hamcrest        :         "org.hamcrest:hamcrest-library:1.3",
+      runner          :         "com.android.support.test:runner:0.3",
+      rules           :         "com.android.support.test:rules:0.3",
+      espressoCore    :         "com.android.support.test.espresso:espresso-core:2.2",
+      espressoContrib :         "com.android.support.test.espresso:espresso-contrib:2.2",
+      espressoIntents :         "com.android.support.test.espresso:espresso-intents:2.2",
+  ]
+
 }
