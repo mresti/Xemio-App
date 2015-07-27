@@ -19,3 +19,12 @@ allprojects {
         jcenter()
     }
 }
+
+// Custom command adb
+task runUnitTests(dependsOn: [':app:test']) {
+    description 'Run unit tests for App.'
+}
+
+task runAcceptanceTests(dependsOn: [':app:connectedAndroidTest']) {
+    description 'Run application acceptance tests.'
+}
