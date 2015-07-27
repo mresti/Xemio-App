@@ -1,5 +1,6 @@
 package es.mresti.xemio.app.view.activity;
 
+
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -8,6 +9,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
+
 
 /**
  * Main application screen. This is the app entry point.

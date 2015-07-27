@@ -45,28 +45,6 @@ android:layout_height="match_parent">
         android:entries="@array/element_arrays"
         android:prompt="@string/element_prompt" />
 
-    <TextView
-        android:id="@+id/datepicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Selecciona fecha"
-        android:clickable="true"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:textColor="@color/ColorPrimaryText"
-        android:textSize="16sp"/>
-
-    <Button
-        android:id="@+id/btn_LogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_text_signin"
-        android:textColor="@color/color_white"/>
-
 </LinearLayout>
-
-
-
-
 
 </android.support.design.widget.CoordinatorLayout>

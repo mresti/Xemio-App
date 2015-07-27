@@ -1,8 +1,10 @@
 package es.mresti.xemio.app.view.validator;
 
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import java.util.regex.Pattern;
+
 
 /**
  * A validator for {@link android.widget.EditText}.

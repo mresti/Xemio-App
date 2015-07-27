@@ -9,31 +9,13 @@ public class LogInPresenter implements Presenter {
   /**
    * Initializes the presenter by start retrieving the user list.
    */
-  public void initialize() {
-    this.loadUserList();
-  }
+  public void initialize() { }
 
-  /**
-   * Loads all users.
-   */
-  private void loadUserList() {
-    this.hideViewRetry();
-    this.showViewLoading();
-  }
+  private void showViewLoading() { }
 
-  private void showViewLoading() {
+  private void hideViewLoading() { }
 
-  }
+  private void showViewRetry() { }
 
-  private void hideViewLoading() {
-
-  }
-
-  private void showViewRetry() {
-
-  }
-
-  private void hideViewRetry() {
-
-  }
+  private void hideViewRetry() { }
 }

@@ -1,6 +1,8 @@
 package es.mresti.xemio.app.view;
 
+
 import android.content.Context;
+
 
 /**
  * Interface representing a View that will use to load data.

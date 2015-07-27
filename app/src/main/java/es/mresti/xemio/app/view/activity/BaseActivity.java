@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+
 /**
  * Base {@link android.app.Activity} class for every Activity in this application.
  */

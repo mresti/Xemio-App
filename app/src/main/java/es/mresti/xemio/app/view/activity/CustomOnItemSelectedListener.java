@@ -3,7 +3,7 @@ package es.mresti.xemio.app.view.activity;
 
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toast;
+
 
 public class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
 

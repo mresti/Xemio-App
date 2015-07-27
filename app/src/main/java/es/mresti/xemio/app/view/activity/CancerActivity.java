@@ -16,6 +16,7 @@ import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 
+
 public class CancerActivity extends BaseActivity {
   private static final String mLOGTAG = "LogsAndroid";
 

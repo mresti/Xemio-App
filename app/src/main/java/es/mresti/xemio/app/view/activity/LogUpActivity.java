@@ -1,5 +1,6 @@
 package es.mresti.xemio.app.view.activity;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
 import es.mresti.xemio.app.view.validator.NumericValidator;
+
 
 public class LogUpActivity extends BaseActivity {
 

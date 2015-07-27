@@ -1,8 +1,10 @@
 package es.mresti.xemio.app.view.fragment;
 
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.widget.Toast;
+
 
 /**
  * Base {@link android.app.Fragment} class for every fragment in this application.
