@@ -71,7 +71,9 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/form_pass"
-                            android:password="true"
+                            android:inputType="textPassword"
+                            android:gravity="center"
+                            android:ellipsize="start"
                             android:singleLine="true"/>
 
                     </android.support.design.widget.TextInputLayout>
@@ -86,7 +88,9 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/form_reply_pass"
-                            android:password="true"
+                            android:inputType="textPassword"
+                            android:gravity="center"
+                            android:ellipsize="start"
                             android:singleLine="true"/>
 
                     </android.support.design.widget.TextInputLayout>
