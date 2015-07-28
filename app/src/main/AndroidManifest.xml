@@ -19,6 +19,12 @@
         </activity>
 
         <activity
+            android:name="es.mresti.xemio.app.view.activity.RegisterActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Xemio">
+        </activity>
+
+        <activity
             android:name="es.mresti.xemio.app.view.activity.LogInActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Xemio">

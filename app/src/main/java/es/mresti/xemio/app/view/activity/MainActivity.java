@@ -1,6 +1,5 @@
 package es.mresti.xemio.app.view.activity;
 
-
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -9,7 +8,6 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
-
 
 /**
  * Main application screen. This is the app entry point.
@@ -21,8 +19,7 @@ public class MainActivity extends BaseActivity {
   @InjectView(R.id.btn_begin) Button mBtn_begin;
   @InjectView(R.id.btn_deny) Button mBtn_deny;
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
@@ -33,22 +30,21 @@ public class MainActivity extends BaseActivity {
   /**
    * Initializes activity's private members.
    */
-  private void initialize() { this.mNavigator = new Navigator(); }
-
-  /**
-   * Goes to the user LogIn screen.
-   */
-  @OnClick(R.id.btn_begin)
-  void navigateToLogUp() {
-    this.mNavigator.navigateToUserLogUp(this);
+  private void initialize() {
+    this.mNavigator = new Navigator();
   }
 
   /**
    * Goes to the user LogIn screen.
    */
-  @OnClick(R.id.btn_deny)
-  void navigateToFinish() {
+  @OnClick(R.id.btn_begin) void navigateToLogUp() {
+    this.mNavigator.navigateToUserRegister(this);
+  }
+
+  /**
+   * Goes to the user LogIn screen.
+   */
+  @OnClick(R.id.btn_deny) void navigateToFinish() {
     finish();
   }
-
 }
