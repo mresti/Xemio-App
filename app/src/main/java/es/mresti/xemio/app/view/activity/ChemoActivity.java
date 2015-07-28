@@ -1,6 +1,5 @@
 package es.mresti.xemio.app.view.activity;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +11,7 @@ import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 
-
-public class ChemoActivity  extends BaseActivity {
+public class ChemoActivity extends BaseActivity {
   private static final String mLOGTAG = "LogsAndroid";
 
   private Navigator mNavigator;
@@ -26,8 +24,7 @@ public class ChemoActivity  extends BaseActivity {
     return new Intent(context, ChemoActivity.class);
   }
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_chemo);
 
@@ -50,8 +47,7 @@ public class ChemoActivity  extends BaseActivity {
   /**
    * Goes to the user chemo screen.
    */
-  @OnClick(R.id.btn_next)
-  void navigateToVerified() {
+  @OnClick(R.id.btn_next) void navigateToVerified() {
     this.mNavigator.navigateToPass(this);
   }
 }

@@ -1,6 +1,5 @@
 package es.mresti.xemio.app.view.activity;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
-
 
 public class PassActivity extends BaseActivity {
 
@@ -33,8 +31,7 @@ public class PassActivity extends BaseActivity {
     return new Intent(context, PassActivity.class);
   }
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_pass);
 
@@ -52,16 +49,14 @@ public class PassActivity extends BaseActivity {
   /**
    * Goes to the dashboard screen.
    */
-  @OnClick(R.id.btn_next)
-  void navigateToDashboard() {
+  @OnClick(R.id.btn_next) void navigateToDashboard() {
     this.mNavigator.navigateToDashboard(this);
   }
 
   /**
    * Goes to the user LogIn screen.
    */
-  @OnClick(R.id.btn_deny)
-  void navigateToFinish() {
+  @OnClick(R.id.btn_deny) void navigateToFinish() {
     finish();
   }
 }

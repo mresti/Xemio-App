@@ -1,6 +1,5 @@
 package es.mresti.xemio.app.view.activity;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +15,6 @@ import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
-
 
 public class LogInActivity extends BaseActivity {
 
@@ -39,8 +37,7 @@ public class LogInActivity extends BaseActivity {
     return new Intent(context, LogInActivity.class);
   }
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
 
@@ -64,8 +61,7 @@ public class LogInActivity extends BaseActivity {
   /**
    * Goes to the dashboard screen.
    */
-  @OnClick(R.id.btn_save)
-  void navigateToDashboard() {
+  @OnClick(R.id.btn_save) void navigateToDashboard() {
     boolean emailValid = mEmailValidator.isValid();
     boolean passValid = mAlphaNumericValidator.isValid();
 
@@ -73,19 +69,19 @@ public class LogInActivity extends BaseActivity {
       mEmailInputLayout.setErrorEnabled(true);
       mEmailInputLayout.setError(getText(R.string.error_email));
       Log.w(mLOGTAG, "Not saving personal information: Invalid email");
-    }else{
+    } else {
       mEmailInputLayout.setErrorEnabled(false);
     }
 
-    if(!passValid) {
+    if (!passValid) {
       mPassInputLayout.setErrorEnabled(true);
       mPassInputLayout.setError(getText(R.string.error_empty));
       Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
-    }else{
+    } else {
       mPassInputLayout.setErrorEnabled(false);
     }
 
-    if(emailValid && passValid) {
+    if (emailValid && passValid) {
       this.mNavigator.navigateToDashboard(this);
     }
   }
@@ -93,8 +89,7 @@ public class LogInActivity extends BaseActivity {
   /**
    * Goes to the user LogIn screen.
    */
-  @OnClick(R.id.btn_deny)
-  void navigateToFinish() {
+  @OnClick(R.id.btn_deny) void navigateToFinish() {
     finish();
   }
 }

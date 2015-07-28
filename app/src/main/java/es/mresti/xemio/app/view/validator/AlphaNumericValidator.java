@@ -1,10 +1,8 @@
 package es.mresti.xemio.app.view.validator;
 
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import java.util.regex.Pattern;
-
 
 /**
  * A validator for {@link android.widget.EditText}.
@@ -14,13 +12,11 @@ public class AlphaNumericValidator implements TextWatcher {
   /**
    * Alphanumeric validation pattern.
    */
-  public static final Pattern ALPHANUMERIC_PATTERN = Pattern.compile(
-          "^[a-zA-Z0-9\\s]+$"
-  );
+  public static final Pattern ALPHANUMERIC_PATTERN = Pattern.compile("^[a-zA-Z0-9\\s]+$");
 
   private boolean mIsValid = false;
 
-  public boolean isValid(){
+  public boolean isValid() {
     return mIsValid;
   }
 
@@ -34,14 +30,13 @@ public class AlphaNumericValidator implements TextWatcher {
     return text != null && ALPHANUMERIC_PATTERN.matcher(text).matches();
   }
 
-  @Override
-  final public void afterTextChanged(Editable editableText) {
+  @Override final public void afterTextChanged(Editable editableText) {
     mIsValid = isValidText(editableText);
   }
 
-  @Override
-  final public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+  @Override final public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+  }
 
-  @Override
-  final public void onTextChanged(CharSequence s, int start, int before, int count) { }
+  @Override final public void onTextChanged(CharSequence s, int start, int before, int count) {
+  }
 }

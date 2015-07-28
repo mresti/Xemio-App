@@ -1,6 +1,5 @@
 package es.mresti.xemio.app.view.activity;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +17,6 @@ import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
 import es.mresti.xemio.app.view.validator.NumericValidator;
 
-
 public class LogUpActivity extends BaseActivity {
 
   private static final String mLOGTAG = "LogsAndroid";
@@ -27,7 +25,6 @@ public class LogUpActivity extends BaseActivity {
 
   @InjectView(R.id.btn_save) Button mBtn_save;
   @InjectView(R.id.btn_deny) Button mBtn_deny;
-  @InjectView(R.id.btn_login) Button mBtn_login;
 
   @InjectView(R.id.emailInput) EditText mEmailText;
   @InjectView(R.id.emailInputLayout) TextInputLayout mEmailInputLayout;
@@ -45,10 +42,9 @@ public class LogUpActivity extends BaseActivity {
     return new Intent(context, LogUpActivity.class);
   }
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_register);
+    setContentView(R.layout.activity_logup);
 
     ButterKnife.inject(this);
     this.initialize();
@@ -72,8 +68,7 @@ public class LogUpActivity extends BaseActivity {
   /**
    * Goes to the dashboard screen.
    */
-  @OnClick(R.id.btn_save)
-  void navigateToDashboard() {
+  @OnClick(R.id.btn_save) void navigateToDashboard() {
     boolean emailValid = mEmailValidator.isValid();
     boolean aliasValid = mAlphaNumericValidator.isValid();
     boolean ageValid = mNumericValidator.isValid();
@@ -82,15 +77,15 @@ public class LogUpActivity extends BaseActivity {
       mEmailInputLayout.setErrorEnabled(true);
       mEmailInputLayout.setError(getText(R.string.error_email));
       Log.w(mLOGTAG, "Not saving personal information: Invalid email");
-    }else{
+    } else {
       mEmailInputLayout.setErrorEnabled(false);
     }
 
-    if(!aliasValid) {
+    if (!aliasValid) {
       mAliasInputLayout.setErrorEnabled(true);
       mAliasInputLayout.setError(getText(R.string.error_empty));
       Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
-    }else{
+    } else {
       mAliasInputLayout.setErrorEnabled(false);
     }
 
@@ -98,11 +93,11 @@ public class LogUpActivity extends BaseActivity {
       mAgeInputLayout.setErrorEnabled(true);
       mAgeInputLayout.setError(getText(R.string.error_age));
       Log.w(mLOGTAG, "Not saving personal information: Invalid age");
-    }else{
+    } else {
       mAgeInputLayout.setErrorEnabled(false);
     }
 
-    if(emailValid && aliasValid && ageValid) {
+    if (emailValid && aliasValid && ageValid) {
       this.mNavigator.navigateToVerify(this);
     }
   }
@@ -110,16 +105,7 @@ public class LogUpActivity extends BaseActivity {
   /**
    * Goes to the user LogIn screen.
    */
-  @OnClick(R.id.btn_deny)
-  void navigateToFinish() {
+  @OnClick(R.id.btn_deny) void navigateToFinish() {
     finish();
-  }
-
-  /**
-   * Goes to the user LogIn screen.
-   */
-  @OnClick(R.id.btn_login)
-  void navigateToLogIn() {
-    this.mNavigator.navigateToUserLogIn(this);
   }
 }

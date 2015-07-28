@@ -1,6 +1,5 @@
 package es.mresti.xemio.app.view.activity;
 
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +15,6 @@ import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 
-
 public class CancerActivity extends BaseActivity {
   private static final String mLOGTAG = "LogsAndroid";
 
@@ -30,8 +28,7 @@ public class CancerActivity extends BaseActivity {
     return new Intent(context, CancerActivity.class);
   }
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_cancer);
 
@@ -52,20 +49,18 @@ public class CancerActivity extends BaseActivity {
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
     builder.setTitle("Xemio");
     builder.setMessage("Esteban, su cuenta ha sido verificada.");
-    builder.setNeutralButton("OK",
-        new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int id) {
-            Log.w(mLOGTAG, "OK verificado pulsado");
-          }
-        });
+    builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+      public void onClick(DialogInterface dialog, int id) {
+        Log.w(mLOGTAG, "OK verificado pulsado");
+      }
+    });
     builder.show();
   }
 
   /**
    * Goes to the user chemo screen.
    */
-  @OnClick(R.id.btn_next)
-  void navigateToVerified() {
+  @OnClick(R.id.btn_next) void navigateToVerified() {
     this.mNavigator.navigateToChemo(this);
   }
 }

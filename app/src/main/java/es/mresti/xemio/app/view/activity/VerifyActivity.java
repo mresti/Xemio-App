@@ -1,6 +1,5 @@
 package es.mresti.xemio.app.view.activity;
 
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,7 +14,6 @@ import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 
-
 public class VerifyActivity extends BaseActivity {
   private static final String mLOGTAG = "LogsAndroid";
 
@@ -29,8 +27,7 @@ public class VerifyActivity extends BaseActivity {
     return new Intent(context, VerifyActivity.class);
   }
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_verify);
 
@@ -48,53 +45,48 @@ public class VerifyActivity extends BaseActivity {
   /**
    * Goes to the user verified screen.
    */
-  @OnClick(R.id.btn_verify)
-  void navigateToVerified() {
+  @OnClick(R.id.btn_verify) void navigateToVerified() {
     this.mNavigator.navigateToCancer(this);
   }
 
   /**
    * Goes to the user verified screen.
    */
-  @OnClick(R.id.btn_retry)
-  void retryNewEmail() {
+  @OnClick(R.id.btn_retry) void retryNewEmail() {
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
     builder.setTitle("Xemio");
     builder.setMessage("Esteban " + getText(R.string.str_dialog_reply));
-    builder.setPositiveButton("OK",
-        new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int id) {
-            positiveButton();
-          }
-        });
-    builder.setNegativeButton("CANCELAR",
-        new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int which) {
-            negativeButton();
-          }
+    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+      public void onClick(DialogInterface dialog, int id) {
+        positiveButton();
+      }
+    });
+    builder.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+      public void onClick(DialogInterface dialog, int which) {
+        negativeButton();
+      }
     });
     builder.show();
   }
 
-  public void positiveButton(){
+  public void positiveButton() {
     Log.w(mLOGTAG, "OK pulsado");
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
     builder.setTitle("Xemio");
-    builder.setMessage("Esteban ha sido enviado un email a su cuenta de correo con un nuevo código de activación.");
-    builder.setNeutralButton("OK",
-        new DialogInterface.OnClickListener() {
-          public void onClick(DialogInterface dialog, int id) {
-            Log.w(mLOGTAG, "OK verificado pulsado");
-          }
-        });
+    builder.setMessage(
+        "Esteban ha sido enviado un email a su cuenta de correo con un nuevo código de activación.");
+    builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+      public void onClick(DialogInterface dialog, int id) {
+        Log.w(mLOGTAG, "OK verificado pulsado");
+      }
+    });
     //builder.setPositiveButton("OK", null);
     //builder.setNegativeButton("CANCELAR", null);
     builder.show();
   }
 
-  public void negativeButton(){
+  public void negativeButton() {
     Log.w(mLOGTAG, "Cancel pulsado");
     finish();
   }
-
 }

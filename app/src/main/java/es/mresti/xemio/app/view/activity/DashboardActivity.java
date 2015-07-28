@@ -1,6 +1,5 @@
 package es.mresti.xemio.app.view.activity;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
-
 
 public class DashboardActivity extends BaseActivity {
   private static final String mLOGTAG = "LogsAndroid";
@@ -31,8 +29,7 @@ public class DashboardActivity extends BaseActivity {
     return new Intent(context, DashboardActivity.class);
   }
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_dashboard);
 
@@ -48,23 +45,22 @@ public class DashboardActivity extends BaseActivity {
     setSupportActionBar(mToolbar);
     Log.i(mLOGTAG, "estoy en el inicialize");
 
-    Snackbar.make(findViewById(R.id.main_content), "¡¡Bienvenido <alias>!!",
-        Snackbar.LENGTH_LONG).setAction("Action", null).show();
+    Snackbar.make(findViewById(R.id.main_content), "¡¡Bienvenido <alias>!!", Snackbar.LENGTH_LONG)
+        .setAction("Action", null)
+        .show();
   }
 
   /**
    * Goes to the xemio website.
    */
-  @OnClick(R.id.btn_web)
-  void navigateToXemioWeb() {
+  @OnClick(R.id.btn_web) void navigateToXemioWeb() {
     this.mNavigator.navigateToXemioWeb(this);
   }
 
   /**
    * Goes to the incidence screen.
    */
-  @OnClick(R.id.btn_inci)
-  void navigateToIncidence() {
+  @OnClick(R.id.btn_inci) void navigateToIncidence() {
     this.mNavigator.navigateToNewIncidence(this);
   }
 }
