@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Xemio" parent="Base.Theme.Xemio">
-    </style>
+
+  <style name="Theme.Xemio"
+      parent="Base.Theme.Xemio">
+  </style>
 </resources>
