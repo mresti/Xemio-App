@@ -25,7 +25,7 @@
       android:layout_weight="0.7"
       android:clipToPadding="false"
       android:paddingTop="120dp"
-      android:paddingBottom="54dp"
+      android:paddingBottom="64dp"
       >
 
     <LinearLayout
@@ -98,32 +98,53 @@
   </ScrollView>
 
   <LinearLayout
+      android:background="#00000000"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/abc_action_bar_default_height_material"
-      android:orientation="horizontal"
-      android:background="@color/color_white"
-      android:gravity="bottom|center_horizontal|end"
+      android:layout_height="64dp"
+      android:gravity="bottom"
       android:layout_gravity="bottom"
+      android:orientation="vertical"
       >
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/ColorDivider"
+        >
+    </TextView>
+    <LinearLayout
+        android:background="@color/color_white"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+      <Button
+          android:id="@+id/btn_deny"
+          android:layout_width="wrap_content"
+          android:layout_height="fill_parent"
+          android:text="@string/btn_deny"
+          android:layout_gravity="start"
+          style="?android:attr/borderlessButtonStyle"
+          android:layout_weight="0.2"
+          />
 
-    <Button
-        android:id="@+id/btn_deny"
-        android:layout_gravity="right|end"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_deny"
-        />
+      <FrameLayout
+          android:layout_width="wrap_content"
+          android:layout_height="fill_parent"
+          android:layout_weight="0.6"
+          android:layout_gravity="center"
+          />
 
-    <Button
-        android:id="@+id/btn_begin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_begin"
-        android:layout_gravity="right|end"
-        style="?android:attr/borderlessButtonStyle"
-        android:textColor="@color/ColorAccent"
-        />
-
+      <Button
+          android:id="@+id/btn_begin"
+          android:layout_width="wrap_content"
+          android:layout_height="fill_parent"
+          android:text="@string/btn_begin"
+          android:layout_gravity="start"
+          android:layout_weight="0.2"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorAccent"
+          />
+    </LinearLayout>
   </LinearLayout>
 </FrameLayout>
