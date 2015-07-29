@@ -87,7 +87,7 @@ public class LogInActivity extends BaseActivity {
   }
 
   /**
-   * Goes to the user LogIn screen.
+   * Goes to the finish activity.
    */
   @OnClick(R.id.btn_deny) void navigateToFinish() {
     finish();

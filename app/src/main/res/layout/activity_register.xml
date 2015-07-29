@@ -27,14 +27,14 @@
       android:layout_height="match_parent"
       android:orientation="vertical"
       android:background="@color/color_white"
-      android:layout_marginTop="200dp"
+      android:layout_marginTop="180dp"
       >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="@string/str_info_title"
+        android:text="@string/str_title_register"
         android:layout_marginBottom="@dimen/card_margin"
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin"
@@ -79,7 +79,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="1px"
-        android:background="#51129800"
+        android:background="@color/ColorDivider"
         >
     </TextView>
     <LinearLayout

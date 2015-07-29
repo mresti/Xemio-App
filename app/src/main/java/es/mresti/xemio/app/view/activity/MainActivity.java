@@ -35,14 +35,14 @@ public class MainActivity extends BaseActivity {
   }
 
   /**
-   * Goes to the user LogIn screen.
+   * Goes to the user register screen.
    */
-  @OnClick(R.id.btn_begin) void navigateToLogUp() {
+  @OnClick(R.id.btn_begin) void navigateToRegisterscreen() {
     this.mNavigator.navigateToUserRegister(this);
   }
 
   /**
-   * Goes to the user LogIn screen.
+   * Goes to the finish activity.
    */
   @OnClick(R.id.btn_deny) void navigateToFinish() {
     finish();

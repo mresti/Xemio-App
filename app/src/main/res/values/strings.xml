@@ -13,9 +13,11 @@
         ¿Quieres empezar la experiencia Xemio?</string>
   <string name="btn_deny">Rechazar</string>
   <string name="btn_begin">Empezar</string>
+  <string name="btn_back">Atrás</string>
 
   // Register Activity
   <string name="str_register_title">Rellena sus datos para comenzar</string>
+  <string name="str_title_register">Elige una opción:</string>
   <string name="form_email">Email</string>
   <string name="form_alias">Nombre</string>
   <string name="form_age">Edad</string>
