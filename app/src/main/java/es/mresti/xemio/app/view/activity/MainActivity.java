@@ -2,7 +2,6 @@ package es.mresti.xemio.app.view.activity;
 
 import android.os.Bundle;
 import android.widget.Button;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;

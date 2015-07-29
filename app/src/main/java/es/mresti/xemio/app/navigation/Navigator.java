@@ -11,6 +11,7 @@ import es.mresti.xemio.app.view.activity.IncidenceActivity;
 import es.mresti.xemio.app.view.activity.LogInActivity;
 import es.mresti.xemio.app.view.activity.LogUpActivity;
 import es.mresti.xemio.app.view.activity.PassActivity;
+import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.VerifyActivity;
 
 /**
@@ -23,17 +24,28 @@ public class Navigator {
   }
 
   /**
+   * Goes to the User register screen.
+   *
+   * @param context A Context needed to open the destiny activity.
+   */
+  public void navigateToUserRegister(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = RegisterActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  /**
    * Goes to the login screen.
    *
    * @param context A Context needed to open the destiny activity.
    */
   public void navigateToUserLogIn(Context context) {
-    if (context != null){
+    if (context != null) {
       Intent intentToLaunch = LogInActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
-
 
   /**
    * Goes to the logup screen.
@@ -41,7 +53,7 @@ public class Navigator {
    * @param context A Context needed to open the destiny activity.
    */
   public void navigateToUserLogUp(Context context) {
-    if (context != null){
+    if (context != null) {
       Intent intentToLaunch = LogUpActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
@@ -53,7 +65,7 @@ public class Navigator {
    * @param context A Context needed to open the destiny activity.
    */
   public void navigateToDashboard(Context context) {
-    if (context != null){
+    if (context != null) {
       Intent intentToLaunch = DashboardActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
@@ -65,7 +77,7 @@ public class Navigator {
    * @param context A Context needed to open the destiny activity.
    */
   public void navigateToVerify(Context context) {
-    if (context != null){
+    if (context != null) {
       Intent intentToLaunch = VerifyActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
@@ -77,7 +89,7 @@ public class Navigator {
    * @param context A Context needed to open the destiny activity.
    */
   public void navigateToCancer(Context context) {
-    if (context != null){
+    if (context != null) {
       Intent intentToLaunch = CancerActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
@@ -89,7 +101,7 @@ public class Navigator {
    * @param context A Context needed to open the destiny activity.
    */
   public void navigateToChemo(Context context) {
-    if (context != null){
+    if (context != null) {
       Intent intentToLaunch = ChemoActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
@@ -101,7 +113,7 @@ public class Navigator {
    * @param context A Context needed to open the destiny activity.
    */
   public void navigateToPass(Context context) {
-    if (context != null){
+    if (context != null) {
       Intent intentToLaunch = PassActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
@@ -113,7 +125,7 @@ public class Navigator {
    * @param context A Context needed to open the destiny activity.
    */
   public void navigateToNewIncidence(Context context) {
-    if (context != null){
+    if (context != null) {
       Intent intentToLaunch = IncidenceActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
@@ -125,7 +137,7 @@ public class Navigator {
    * @param context A Context needed to open the destiny activity.
    */
   public void navigateToXemioWeb(Context context) {
-    if (context != null){
+    if (context != null) {
       Intent intentToLaunch = new Intent(Intent.ACTION_VIEW);
       intentToLaunch.setData(Uri.parse("http://xemio.org"));
       context.startActivity(intentToLaunch);

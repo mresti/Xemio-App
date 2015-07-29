@@ -31,7 +31,7 @@
   <string name="str_verigy_title_logup">Estado de su usuario</string>
   <string name="str_verify_logup">Tu usuario ha sido creado, pero todavia no has podido validar tu cuenta. Revisa tu cuenta mail para activar tu usuario.</string>
   <string name="str_reply_email">Si necesitas reenviar un nuevo código para activar su cuenta, pulse en "Volver a enviar"</string>
-  <string name="btn_retry_email">Volver a enviar</string>
+  <string name="btn_retry_email">Nuevo email</string>
   <string name="str_dialog_reply">hemos creado su usuario, pero su cuenta no está activa. Deseas enviar un nuevo código de activación de su cuenta.</string>
 
   // Cancer and Chemo Activity
@@ -41,7 +41,7 @@
   <string name="element_prompt">Selecciona un elemento</string>
 
   // Pass activity
-  <string name="str_pass_title">Último paso de seguridad</string>
+  <string name="str_pass_title">Su seguridad</string>
   <string name="str_pass_info">Para asegurar una mayor seguridad de su usuario, necesitas crear una contraseña. Además, desde la aplicación podrás cambiar la contraseña.</string>
   <string name="form_pass">Contraseña</string>
   <string name="form_reply_pass">Repite Contraseña</string>

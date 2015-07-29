@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:background="@color/ColorPrimary"
     app:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:elevation="4dp"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
     android:paddingTop="@dimen/tool_bar_top_padding"
     android:layout_height="wrap_content"

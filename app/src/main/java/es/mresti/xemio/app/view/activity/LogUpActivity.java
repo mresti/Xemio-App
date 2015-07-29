@@ -7,14 +7,13 @@ import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
-import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
+import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.NumericValidator;
 
 public class LogUpActivity extends BaseActivity {
