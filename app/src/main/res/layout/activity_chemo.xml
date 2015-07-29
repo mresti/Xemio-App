@@ -69,6 +69,7 @@ android:background="?attr/colorPrimary"
     android:gravity="bottom"
     android:layout_alignParentBottom="true"
     android:orientation="vertical"
+    android:weightSum="1"
     >
     <TextView
         android:layout_width="fill_parent"
@@ -80,6 +81,7 @@ android:background="?attr/colorPrimary"
         android:background="@color/color_white"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:weightSum="1"
         android:layout_weight="1"
         android:orientation="horizontal"
         >
