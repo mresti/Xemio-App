@@ -41,31 +41,48 @@
         >
     </TextView>
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_gravity="center"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="30dp"
-        android:text="@string/btn_login_text"
-        android:layout_marginTop="@dimen/card_margin"
-        />
-
-    <Button
-        android:id="@+id/btn_logup"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_logup_text"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="@dimen/card_margin"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/color_white"
         android:layout_marginBottom="@dimen/card_margin"
-        />
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+        >
+
+      <Button
+          android:id="@+id/btn_login"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_login_text"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="30dp"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginTop="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_person_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorAccent"
+          />
+
+      <Button
+          android:id="@+id/btn_logup"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_logup_text"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="30dp"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginTop="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorAccent"
+          />
+
+    </LinearLayout>
 
   </LinearLayout>
-
 
   <LinearLayout
       android:background="#00000000"

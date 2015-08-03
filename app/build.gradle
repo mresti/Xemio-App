@@ -38,13 +38,14 @@ android {
 dependencies {
   // compile fileTree(dir: 'libs', include: ['*.jar'])
 
-  // Library dependencies
+  // Android dependencies
   compile supportDependencies.design
   compile supportDependencies.appCompat
   compile supportDependencies.cardView
   compile supportDependencies.recyclerView
   compile supportDependencies.supportAnnotation
-  // Library UI
+
+  // UI dependencies
   compile viewDependencies.butterknife
   compile viewDependencies.materialDialogs
   compile viewDependencies.materialSpinner
