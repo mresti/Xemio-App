@@ -33,21 +33,21 @@
 
     <Button
         android:layout_gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_info_cancer"
         />
 
     <Button
         android:layout_gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_info_trata"
         />
 
     <Button
         android:layout_gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_my_home"
         />
@@ -55,7 +55,7 @@
     <Button
         android:id="@+id/btn_web"
         android:layout_gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_web"
         />
@@ -63,7 +63,7 @@
     <Button
         android:id="@+id/btn_inci"
         android:layout_gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_incidences"
         />
