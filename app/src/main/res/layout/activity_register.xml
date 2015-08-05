@@ -9,7 +9,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      android:layout_marginTop="30dp"
+      android:layout_marginTop="40dp"
       android:background="#00000000"
       >
 
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/logo_xemio"
+        android:src="@drawable/xemio_icon_blanco"
         />
   </LinearLayout>
 
@@ -49,7 +49,7 @@
         android:layout_marginBottom="@dimen/card_margin"
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin"
-        android:layout_marginTop="@dimen/card_margin"
+        android:layout_marginTop="30dp"
         >
 
       <Button
@@ -63,7 +63,7 @@
           android:layout_marginTop="@dimen/card_margin"
           android:drawableTop="@drawable/ic_person_black_48dp"
           style="?android:attr/borderlessButtonStyle"
-          android:textColor="@color/ColorAccent"
+          android:textColor="@color/ColorPrimaryDark"
           />
 
       <Button
@@ -77,7 +77,7 @@
           android:layout_marginTop="@dimen/card_margin"
           android:drawableTop="@drawable/ic_person_add_black_48dp"
           style="?android:attr/borderlessButtonStyle"
-          android:textColor="@color/ColorAccent"
+          android:textColor="@color/ColorPrimaryDark"
           />
 
     </LinearLayout>

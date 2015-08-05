@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/logo_xemio"
+        android:src="@drawable/xemio_icon_blanco"
         />
   </LinearLayout>
 
@@ -129,6 +129,7 @@
           android:text="@string/btn_text_register"
           android:layout_gravity="start"
           android:layout_weight="0.2"
+          android:textColor="@color/color_white"
           />
     </LinearLayout>
   </LinearLayout>

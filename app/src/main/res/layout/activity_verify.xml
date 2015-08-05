@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/logo_xemio"
+        android:src="@drawable/xemio_icon_blanco"
         />
   </LinearLayout>
 
@@ -58,6 +58,7 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_check"
         android:layout_gravity="center"
+        android:textColor="@color/color_white"
         />
 
     <View
@@ -76,6 +77,7 @@
         android:layout_marginBottom="@dimen/card_margin"
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin"
+
         >
     </TextView>
 
@@ -85,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_retry_email"
+        android:textColor="@color/color_white"
         />
 
   </LinearLayout>
