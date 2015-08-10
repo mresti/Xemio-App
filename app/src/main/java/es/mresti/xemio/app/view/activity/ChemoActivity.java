@@ -3,28 +3,33 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
+import es.mresti.xemio.app.presenter.ChemoPresenter;
+import es.mresti.xemio.app.presenter.PresenterFactory;
+import es.mresti.xemio.app.view.ChemoView;
 import fr.ganfra.materialspinner.MaterialSpinner;
 
-public class ChemoActivity extends BaseActivity {
+public class ChemoActivity extends BaseActivity implements ChemoView {
+
   private static final String mLOGTAG = "LogsAndroid";
-
+  private ChemoPresenter presenter;
   private Navigator mNavigator;
-
   private static final String[] ITEMS =
       { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
-
   private ArrayAdapter<String> adapter1;
+  private MaterialSpinner spinner2;
 
-  MaterialSpinner spinner2;
-
+  // UI items
   @InjectView(R.id.btn_next) Button btn_next;
+  @InjectView(R.id.progress) ProgressBar mProgress;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, ChemoActivity.class);
@@ -36,6 +41,7 @@ public class ChemoActivity extends BaseActivity {
 
     ButterKnife.inject(this);
     this.initialize();
+    presenter = PresenterFactory.getChemoPresenter(this);
   }
 
   /**
@@ -59,11 +65,47 @@ public class ChemoActivity extends BaseActivity {
    * Goes to the user chemo screen.
    */
   @OnClick(R.id.btn_next) void navigateToVerified() {
-    this.mNavigator.navigateToPass(this);
+    presenter.setChemo();
   }
 
   private void initSpinner() {
     spinner2 = (MaterialSpinner) findViewById(R.id.spinner4);
     spinner2.setAdapter(adapter1);
+  }
+
+  @Override public void showProgress() {
+    mProgress.setVisibility(View.VISIBLE);
+  }
+
+  @Override public void hideProgress() {
+    mProgress.setVisibility(View.GONE);
+  }
+
+  @Override public void navigateToPassScreen() {
+    this.mNavigator.navigateToPass(this);
+  }
+
+  @Override public void showLoading() {
+
+  }
+
+  @Override public void hideLoading() {
+
+  }
+
+  @Override public void showRetry() {
+
+  }
+
+  @Override public void hideRetry() {
+
+  }
+
+  @Override public void showError(String message) {
+
+  }
+
+  @Override public Context getContext() {
+    return null;
   }
 }
