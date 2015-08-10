@@ -1,22 +1,57 @@
 package es.mresti.xemio.app.presenter;
 
+import es.mresti.xemio.app.interactor.LogupInteractor;
+import es.mresti.xemio.app.view.LogupView;
 
-public class LogUpPresenter implements Presenter {
+public class LogupPresenter implements Presenter {
+  private LogupView mLogupView;
+  private LogupInteractor mLogupInteractor;
 
-  @Override public void resume() {}
+  public static LogupPresenter newInstance(LogupView logupView, LogupInteractor logupInteractor) {
+    LogupPresenter presenter = new LogupPresenter(logupView, logupInteractor);
+    presenter.initialize();
+    return presenter;
+  }
 
-  @Override public void pause() {}
+  private LogupPresenter(LogupView logupView, LogupInteractor logupInteractor) {
+    this.mLogupView = logupView;
+    this.mLogupInteractor = logupInteractor;
+  }
 
   /**
    * Initializes the presenter by start retrieving the user list.
    */
-  public void initialize() { }
+  private void initialize() {
+    mLogupInteractor.setPresenter(this);
+  }
 
-  private void showViewLoading() { }
+  @Override public void resume() {
+  }
 
-  private void hideViewLoading() { }
+  @Override public void pause() {
+  }
 
-  private void showViewRetry() { }
+  public void setRegister(String username, String email, String age) {
+    mLogupView.showProgress();
+    mLogupInteractor.register(username, email, age);
+  }
 
-  private void hideViewRetry() { }
+  public void onUsernameError() {
+    mLogupView.setUsernameError();
+    mLogupView.hideProgress();
+  }
+
+  public void onEmailError() {
+    mLogupView.setEmailError();
+    mLogupView.hideProgress();
+  }
+
+  public void onAgeError() {
+    mLogupView.setAgeError();
+    mLogupView.hideProgress();
+  }
+
+  public void onSuccess() {
+    mLogupView.navigateToVerifyScreen();
+  }
 }

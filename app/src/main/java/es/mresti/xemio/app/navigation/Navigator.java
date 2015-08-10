@@ -2,14 +2,13 @@ package es.mresti.xemio.app.navigation;
 
 import android.content.Context;
 import android.content.Intent;
-
 import android.net.Uri;
 import es.mresti.xemio.app.view.activity.CancerActivity;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
 import es.mresti.xemio.app.view.activity.IncidenceActivity;
-import es.mresti.xemio.app.view.activity.LogInActivity;
-import es.mresti.xemio.app.view.activity.LogUpActivity;
+import es.mresti.xemio.app.view.activity.LoginActivity;
+import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.PassActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.VerifyActivity;
@@ -42,7 +41,7 @@ public class Navigator {
    */
   public void navigateToUserLogIn(Context context) {
     if (context != null) {
-      Intent intentToLaunch = LogInActivity.getCallingIntent(context);
+      Intent intentToLaunch = LoginActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
@@ -54,7 +53,7 @@ public class Navigator {
    */
   public void navigateToUserLogUp(Context context) {
     if (context != null) {
-      Intent intentToLaunch = LogUpActivity.getCallingIntent(context);
+      Intent intentToLaunch = LogupActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

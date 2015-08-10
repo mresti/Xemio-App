@@ -27,6 +27,7 @@
       android:orientation="vertical"
       android:background="@color/color_white"
       android:layout_marginTop="180dp"
+      android:weightSum="1"
       >
 
     <TextView
@@ -97,6 +98,16 @@
           />
 
     </android.support.design.widget.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+        android:visibility="gone"
+        />
 
   </LinearLayout>
 
