@@ -57,8 +57,18 @@
           android:layout_height="wrap_content"
           android:prompt="@string/element_prompt"
           />
+      <ProgressBar
+          android:id="@+id/progress"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginTop="@dimen/card_margin"
+          android:visibility="gone"
+          />
 
     </LinearLayout>
+
 
   </LinearLayout>
 
