@@ -1,25 +1,30 @@
 package es.mresti.xemio.app.view.activity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.widget.Button;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import com.afollestad.materialdialogs.MaterialDialog;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
+import es.mresti.xemio.app.presenter.PresenterFactory;
+import es.mresti.xemio.app.presenter.VerifyPresenter;
+import es.mresti.xemio.app.view.VerifyView;
 
-public class VerifyActivity extends BaseActivity {
+public class VerifyActivity extends BaseActivity implements VerifyView {
+
   private static final String mLOGTAG = "LogsAndroid";
-
   private Navigator mNavigator;
+  private VerifyPresenter presenter;
+  private MaterialDialog mDialog1;
+  private MaterialDialog mDialog2;
 
+  // UI items
   @InjectView(R.id.btn_verify) Button mBtn_verify;
-
   @InjectView(R.id.btn_retry) Button mBtn_retry;
 
   public static Intent getCallingIntent(Context context) {
@@ -32,6 +37,7 @@ public class VerifyActivity extends BaseActivity {
 
     ButterKnife.inject(this);
     this.initialize();
+    presenter = PresenterFactory.getVerifyPresenter(this);
   }
 
   /**
@@ -45,47 +51,93 @@ public class VerifyActivity extends BaseActivity {
    * Goes to the user verified screen.
    */
   @OnClick(R.id.btn_verify) void navigateToVerified() {
-    this.mNavigator.navigateToCancer(this);
+    //this.mNavigator.navigateToCancer(this);
+    presenter.getVerifyUser();
   }
 
   /**
    * Goes to the user verified screen.
    */
   @OnClick(R.id.btn_retry) void retryNewEmail() {
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    builder.setTitle("Xemio");
-    builder.setMessage("Esteban " + getText(R.string.str_dialog_reply));
-    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-      public void onClick(DialogInterface dialog, int id) {
-        positiveButton();
-      }
-    });
-    builder.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
-      public void onClick(DialogInterface dialog, int which) {
-        negativeButton();
-      }
-    });
-    builder.show();
+    MaterialDialog dialog = new MaterialDialog.Builder(this).title("Xemio")
+        .content("Esteban " + getText(R.string.str_dialog_reply))
+        .positiveText("OK")
+        .negativeText("CANCELAR")
+        .callback(new MaterialDialog.ButtonCallback() {
+          @Override public void onPositive(MaterialDialog dialog) {
+            presenter.sendEmail();
+          }
+
+          @Override public void onNegative(MaterialDialog dialog) {
+            Log.w(mLOGTAG, "Cancel pulsado");
+          }
+        })
+        .show();
   }
 
-  public void positiveButton() {
+  @Override public void showProgress() {
+    mDialog1 = new MaterialDialog.Builder(this).title(R.string.progress_dialog)
+        .content(R.string.please_wait)
+        .progress(true, 0)
+        .show();
+  }
+
+  @Override public void hideProgress() {
+    Log.w(mLOGTAG, "Cancel indeterminate progress dialog");
+    mDialog1.cancel();
+  }
+
+  @Override public void navigateToCancerScreen() {
+    this.mNavigator.navigateToCancer(this);
+  }
+
+  @Override public void showProgress2() {
+    mDialog2 = new MaterialDialog.Builder(this).title(R.string.progress_dialog)
+        .content(R.string.please_wait)
+        .progress(true, 0)
+        .show();
+  }
+
+  @Override public void hideProgress2() {
+    Log.w(mLOGTAG, "Cancel indeterminate progress dialog 2");
+    mDialog2.cancel();
+  }
+
+  @Override public void showDialogSuccess() {
+    MaterialDialog dialog = new MaterialDialog.Builder(this).title("Xemio")
+        .content(
+            "User ha sido enviado un email a su cuenta de correo con un nuevo código de activación.")
+        .neutralText("OK")
+        .callback(new MaterialDialog.ButtonCallback() {
+          @Override public void onNeutral(MaterialDialog dialog) {
+            Log.w(mLOGTAG, "OK verificado pulsado");
+          }
+        })
+        .show();
     Log.w(mLOGTAG, "OK pulsado");
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    builder.setTitle("Xemio");
-    builder.setMessage(
-        "Esteban ha sido enviado un email a su cuenta de correo con un nuevo código de activación.");
-    builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
-      public void onClick(DialogInterface dialog, int id) {
-        Log.w(mLOGTAG, "OK verificado pulsado");
-      }
-    });
-    //builder.setPositiveButton("OK", null);
-    //builder.setNegativeButton("CANCELAR", null);
-    builder.show();
   }
 
-  public void negativeButton() {
-    Log.w(mLOGTAG, "Cancel pulsado");
-    finish();
+  @Override public void showLoading() {
+
+  }
+
+  @Override public void hideLoading() {
+
+  }
+
+  @Override public void showRetry() {
+
+  }
+
+  @Override public void hideRetry() {
+
+  }
+
+  @Override public void showError(String message) {
+
+  }
+
+  @Override public Context getContext() {
+    return null;
   }
 }

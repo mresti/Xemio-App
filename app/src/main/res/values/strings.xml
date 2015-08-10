@@ -84,4 +84,7 @@
   <string name="string_content_description">Non accessible view</string>
   <string name="action_save">Guardar</string>
   <string name="new_incidence">Nueva indicencia</string>
+
+  <string name="progress_dialog">Progress Dialog</string>
+  <string name="please_wait">Please wait…</string>
 </resources>
