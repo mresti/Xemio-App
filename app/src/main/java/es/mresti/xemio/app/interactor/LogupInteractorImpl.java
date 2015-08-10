@@ -16,19 +16,19 @@ public class LogupInteractorImpl implements LogupInteractor {
     new Handler().postDelayed(new Runnable() {
       @Override public void run() {
         boolean error = false;
-        if (TextUtils.isEmpty(username)){
+        if (TextUtils.isEmpty(username)) {
           presenter.onUsernameError();
           error = true;
         }
-        if (TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)) {
           presenter.onEmailError();
           error = true;
         }
-        if (TextUtils.isEmpty(age)){
+        if (TextUtils.isEmpty(age)) {
           presenter.onAgeError();
           error = true;
         }
-        if (!error){
+        if (!error) {
           presenter.onSuccess();
         }
       }

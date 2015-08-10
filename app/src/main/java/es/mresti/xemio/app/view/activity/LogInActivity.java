@@ -87,7 +87,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     if (emailValid && passValid) {
-      presenter.validateCredentials(mEmailText.getText().toString(), mPassText.getText().toString());
+      presenter.validateCredentials(mEmailText.getText().toString(),
+          mPassText.getText().toString());
     }
   }
 

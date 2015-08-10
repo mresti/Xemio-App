@@ -11,21 +11,20 @@ public class LoginInteractorImpl implements LoginInteractor {
     this.presenter = presenter;
   }
 
-  @Override
-  public void login(final String username, final String password) {
+  @Override public void login(final String username, final String password) {
     // Mock login. I'm creating a handler to delay the answer a couple of seconds
     new Handler().postDelayed(new Runnable() {
       @Override public void run() {
         boolean error = false;
-        if (TextUtils.isEmpty(username)){
+        if (TextUtils.isEmpty(username)) {
           presenter.onUsernameError();
           error = true;
         }
-        if (TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(password)) {
           presenter.onPasswordError();
           error = true;
         }
-        if (!error){
+        if (!error) {
           presenter.onSuccess();
         }
       }

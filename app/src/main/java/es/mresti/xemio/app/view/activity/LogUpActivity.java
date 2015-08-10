@@ -14,7 +14,6 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
-import es.mresti.xemio.app.presenter.LoginPresenter;
 import es.mresti.xemio.app.presenter.LogupPresenter;
 import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.view.LogupView;
