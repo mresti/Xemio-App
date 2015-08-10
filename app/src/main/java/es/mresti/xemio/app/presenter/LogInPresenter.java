@@ -1,21 +1,52 @@
 package es.mresti.xemio.app.presenter;
 
-public class LogInPresenter implements Presenter {
+import es.mresti.xemio.app.interactor.LoginInteractor;
+import es.mresti.xemio.app.view.LoginView;
 
-  @Override public void resume() {}
+public class LoginPresenter implements Presenter {
+  private LoginView mLoginView;
+  private LoginInteractor mLoginInteractor;
 
-  @Override public void pause() {}
+  public static LoginPresenter newInstance(LoginView loginView, LoginInteractor loginInteractor) {
+    LoginPresenter presenter = new LoginPresenter(loginView, loginInteractor);
+    presenter.initialize();
+    return presenter;
+  }
+
+  private LoginPresenter(LoginView loginView, LoginInteractor loginInteractor) {
+    this.mLoginView = loginView;
+    this.mLoginInteractor = loginInteractor;
+  }
 
   /**
    * Initializes the presenter by start retrieving the user list.
    */
-  public void initialize() { }
+  private void initialize() {
+    mLoginInteractor.setPresenter(this);
+  }
 
-  private void showViewLoading() { }
+  @Override public void resume() {
+  }
 
-  private void hideViewLoading() { }
+  @Override public void pause() {
+  }
 
-  private void showViewRetry() { }
+  public void validateCredentials(String username, String password) {
+    mLoginView.showProgress();
+    mLoginInteractor.login(username, password);
+  }
 
-  private void hideViewRetry() { }
+  public void onUsernameError() {
+    mLoginView.setUsernameError();
+    mLoginView.hideProgress();
+  }
+
+  public void onPasswordError() {
+    mLoginView.setPasswordError();
+    mLoginView.hideProgress();
+  }
+
+  public void onSuccess() {
+    mLoginView.navigateToHome();
+  }
 }

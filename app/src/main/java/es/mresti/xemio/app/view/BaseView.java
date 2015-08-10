@@ -1,13 +1,11 @@
 package es.mresti.xemio.app.view;
 
-
 import android.content.Context;
-
 
 /**
  * Interface representing a View that will use to load data.
  */
-public interface LoadDataView {
+public interface BaseView {
   /**
    * Show a view with a progress bar indicating a loading process.
    */
