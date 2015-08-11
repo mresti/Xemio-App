@@ -29,7 +29,7 @@ public class PassInteractorImpl implements PassInteractor {
           error = true;
         }
 
-        if (pass1.equals(pass2)) {
+        if (!pass1.equals(pass2)) {
           presenter.onPassErrorDistinct();
           error = true;
         }

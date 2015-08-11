@@ -61,9 +61,9 @@ public class CancerActivity extends BaseActivity implements CancerView {
 
     initSpinner();
 
-    MaterialDialog dialog = new MaterialDialog.Builder(this).title("Xemio")
-        .content("User, su cuenta ha sido verificada.")
-        .neutralText("OK")
+    MaterialDialog dialog = new MaterialDialog.Builder(this).title(R.string.app_name)
+        .content(R.string.dialog_user_ok)
+        .neutralText(R.string.dialog_ok)
         .callback(new MaterialDialog.ButtonCallback() {
           @Override public void onNeutral(MaterialDialog dialog) {
             Log.w(mLOGTAG, "OK verificado pulsado");
@@ -81,7 +81,6 @@ public class CancerActivity extends BaseActivity implements CancerView {
 
   private void initSpinner() {
     spinner2 = (MaterialSpinner) findViewById(R.id.spinner4);
-    spinner2.setEnabled(false);
     spinner2.setAdapter(adapter1);
   }
 

@@ -59,10 +59,10 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
    * Goes to the user verified screen.
    */
   @OnClick(R.id.btn_retry) void retryNewEmail() {
-    MaterialDialog dialog = new MaterialDialog.Builder(this).title("Xemio")
+    MaterialDialog dialog = new MaterialDialog.Builder(this).title(R.string.app_name)
         .content("Esteban " + getText(R.string.str_dialog_reply))
-        .positiveText("OK")
-        .negativeText("CANCELAR")
+        .positiveText(R.string.dialog_ok)
+        .negativeText(R.string.dialog_cancel)
         .callback(new MaterialDialog.ButtonCallback() {
           @Override public void onPositive(MaterialDialog dialog) {
             presenter.sendEmail();
@@ -104,10 +104,10 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
   }
 
   @Override public void showDialogSuccess() {
-    MaterialDialog dialog = new MaterialDialog.Builder(this).title("Xemio")
+    MaterialDialog dialog = new MaterialDialog.Builder(this).title(R.string.app_name)
         .content(
             "User ha sido enviado un email a su cuenta de correo con un nuevo código de activación.")
-        .neutralText("OK")
+        .neutralText(R.string.dialog_ok)
         .callback(new MaterialDialog.ButtonCallback() {
           @Override public void onNeutral(MaterialDialog dialog) {
             Log.w(mLOGTAG, "OK verificado pulsado");

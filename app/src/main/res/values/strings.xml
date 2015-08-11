@@ -14,26 +14,38 @@
         ¿Quieres empezar la experiencia Xemio?</string>
   <string name="btn_deny">Rechazar</string>
   <string name="btn_begin">Empezar</string>
-  <string name="btn_back">Atrás</string>
 
   // Register Activity
-  <string name="str_register_title">Rellena sus datos para comenzar</string>
   <string name="str_title_register">Elige una opción:</string>
+  <string name="btn_login_text">Loguearse</string>
+  <string name="btn_logup_text">Registrar</string>
+
+  // Login Activity
+  <string name="str_login_title">Loguearse en Xemio</string>
+  <string name="btn_back">Atrás</string>
+  <string name="btn_goin">Entrar</string>
+
+  // Logup Activity
   <string name="form_email">Email</string>
   <string name="form_alias">Nombre</string>
   <string name="form_age">Edad</string>
   <string name="btn_text_register">Registrar</string>
-  <string name="btn_login_text">Loguearse</string>
-  <string name="btn_logup_text">Registrar</string>
+  <string name="str_register_title">Rellena sus datos para comenzar</string>
 
   // Verify Activity
   <string name="str_verigy_title_logup">Estado de su usuario</string>
   <string name="str_verify_logup">Tu usuario ha sido creado, pero todavia no has podido validar tu cuenta. Revisa tu cuenta mail para activar tu usuario.</string>
+  <string name="btn_check">Comprobar</string>
   <string name="str_reply_email">Si necesitas reenviar un nuevo código para activar su cuenta, pulse en "Volver a enviar"</string>
   <string name="btn_retry_email">Nuevo email</string>
   <string name="str_dialog_reply">hemos creado su usuario, pero su cuenta no está activa. Deseas enviar un nuevo código de activación de su cuenta.</string>
+  <string name="dialog_ok">ok</string>
+  <string name="dialog_cancel">cancelar</string>
+  <string name="progress_dialog">Solicitando petición</string>
+  <string name="please_wait">Espera por favor...</string>
 
   // Cancer and Chemo Activity
+  <string name="dialog_user_ok">"User, su cuenta ha sido verificada."</string>
   <string name="str_cancer_title">Selecciona su tipo de cáncer</string>
   <string name="str_chemo_title">Selecciona su tipo de quimioterapia</string>
   <string name="btn_next">Siguiente</string>
@@ -44,9 +56,6 @@
   <string name="str_pass_info">Para asegurar una mayor seguridad de su usuario, necesitas crear una contraseña. Además, desde la aplicación podrás cambiar la contraseña.</string>
   <string name="form_pass">Contraseña</string>
   <string name="form_reply_pass">Repite Contraseña</string>
-
-  // Login activity
-  <string name="str_login_title">Loguearse en Xemio</string>
 
   // Dashboard Activity
   <string name="action_settings">Configuración</string>
@@ -71,13 +80,8 @@
     <item>Element 6</item>
   </string-array>
 
-  // review strings
-  <string name="btn_check">Comprobar</string>
-
   // UI components text
   <string name="activity_user_type_advice_text">Selecciona un consejo</string>
   <string name="string_content_description">Non accessible view</string>
   <string name="new_incidence">Nueva indicencia</string>
-  <string name="progress_dialog">Progress Dialog</string>
-  <string name="please_wait">Please wait…</string>
 </resources>

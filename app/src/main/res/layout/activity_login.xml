@@ -138,7 +138,7 @@
           android:id="@+id/btn_save"
           android:layout_width="wrap_content"
           android:layout_height="fill_parent"
-          android:text="@string/btn_text_register"
+          android:text="@string/btn_goin"
           android:layout_gravity="start"
           android:layout_weight="0.2"
           android:textColor="@color/color_white"
