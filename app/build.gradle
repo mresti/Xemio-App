@@ -43,7 +43,7 @@ dependencies {
   compile supportDependencies.appCompat
   compile supportDependencies.cardView
   compile supportDependencies.recyclerView
-  compile supportDependencies.supportAnnotation
+  androidTestCompile supportDependencies.supportAnnotation
 
   // UI dependencies
   compile viewDependencies.butterknife
