@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Xemio</string>
+  <string name="logo_description">Logo de Xemio</string>
 
   // Main activity
   <string name="str_info_title">¡Bienvenida a la aplicación de Xemio!</string>
