@@ -4,11 +4,10 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import es.mresti.xemio.R;
-import es.mresti.xemio.app.view.activity.LogInActivity;
+import es.mresti.xemio.app.view.activity.LoginActivity;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -27,17 +26,17 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @LargeTest
 public class LogInActivityInstrumentationTest {
   private static final String EMAIL = "email@domain.com";
-  private static final String ALIAS = "Peter";
+  private static final String PASS = "1234asdf";
 
   @Rule
-  public ActivityTestRule<LogInActivity> mActivityRule = new ActivityTestRule<>(
-      LogInActivity.class);
+  public ActivityTestRule<LoginActivity> mActivityRule = new ActivityTestRule<>(
+      LoginActivity.class);
 
   @Test
   public void sayHello(){
     onView(withId(R.id.emailInput)).perform(typeText(EMAIL), closeSoftKeyboard());
-    onView(withId(R.id.aliasInput)).perform(typeText(ALIAS), closeSoftKeyboard());
-
+    onView(withId(R.id.passInput)).perform(typeText(PASS), closeSoftKeyboard());
     onView(withId(R.id.btn_save)).perform(click());
+    onView(withId(R.id.btn_web)).check(matches(withText("La web")));
   }
 }
