@@ -29,46 +29,56 @@
       android:layout_height="wrap_content"
       android:layout_weight="1"
       android:orientation="vertical"
-      android:paddingTop="80dp"
+      android:background="@color/color_white"
+      android:paddingTop="60dp"
       >
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="@dimen/card_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_margin="@dimen/card_margin"
+        android:gravity="center_horizontal"
         >
 
       <Button
           android:id="@+id/btn_info_cancer"
           android:layout_width="wrap_content"
-          android:layout_weight="0.6"
-          android:paddingTop="@dimen/card_margin"
-          android:paddingBottom="@dimen/card_margin"
           android:layout_height="wrap_content"
           android:text="@string/btn_info_cancer"
-          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="@dimen/card_margin"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginStart="@dimen/card_margin"
+          android:layout_marginEnd="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_info_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorPrimaryDark"
           />
 
       <Button
           android:id="@+id/btn_info_trata"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:paddingTop="@dimen/card_margin"
-          android:paddingBottom="@dimen/card_margin"
-          android:layout_weight="0.4"
           android:text="@string/btn_info_trata"
-          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="@dimen/card_margin"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginStart="@dimen/card_margin"
+          android:layout_marginEnd="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_assignment_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorPrimaryDark"
           />
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="@dimen/card_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_margin="@dimen/card_margin"
         >
 
       <Button
@@ -76,10 +86,14 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/btn_incidences"
-          android:layout_weight="0.3"
-          android:paddingTop="@dimen/card_margin"
-          android:paddingBottom="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="@dimen/card_margin"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginStart="@dimen/card_margin"
+          android:layout_marginEnd="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_add_circle_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorPrimaryDark"
           />
 
       <Button
@@ -87,20 +101,24 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/btn_history"
-          android:layout_weight="0.7"
-          android:paddingTop="@dimen/card_margin"
-          android:paddingBottom="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="@dimen/card_margin"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginStart="@dimen/card_margin"
+          android:layout_marginEnd="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_event_note_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorPrimaryDark"
           />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_margin="@dimen/card_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:layout_margin="@dimen/card_margin"
+        android:gravity="center_horizontal"
         >
 
       <Button
@@ -108,10 +126,14 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/btn_my_home"
-          android:layout_weight="0.5"
-          android:paddingTop="@dimen/card_margin"
-          android:paddingBottom="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="@dimen/card_margin"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginStart="@dimen/card_margin"
+          android:layout_marginEnd="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_settings_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorPrimaryDark"
           />
 
       <Button
@@ -119,10 +141,14 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/btn_web"
-          android:layout_weight="0.5"
-          android:paddingTop="@dimen/card_margin"
-          android:paddingBottom="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="@dimen/card_margin"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginStart="@dimen/card_margin"
+          android:layout_marginEnd="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_public_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorPrimaryDark"
           />
 
     </LinearLayout>

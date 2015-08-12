@@ -61,10 +61,13 @@
   <string name="action_settings">Configuración</string>
   <string name="btn_info_cancer">Información</string>
   <string name="btn_info_trata">Tratamientos</string>
-  <string name="btn_my_home">Mi espacio</string>
-  <string name="btn_web">La web</string>
-  <string name="btn_incidences">Nueva incidencia</string>
+  <string name="btn_my_home">Configuración</string>
+  <string name="btn_web">Web</string>
+  <string name="btn_incidences">Incidencia</string>
   <string name="btn_history">Historial</string>
+
+  // Incidence Activity
+  <string name="str_inci_title">Elige el tipo de incidencia:</string>
 
   // error message
   <string name="error_email">Email inválido</string>
