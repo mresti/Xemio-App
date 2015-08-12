@@ -25,49 +25,106 @@
   </android.support.design.widget.AppBarLayout>
 
   <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_marginTop="60dp"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
       android:orientation="vertical"
+      android:paddingTop="80dp"
       >
 
-    <Button
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_info_cancer"
-        />
+        android:layout_weight="1"
+        android:layout_margin="@dimen/card_margin"
+        android:orientation="horizontal"
+        >
 
-    <Button
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
+      <Button
+          android:id="@+id/btn_info_cancer"
+          android:layout_width="wrap_content"
+          android:layout_weight="0.6"
+          android:paddingTop="@dimen/card_margin"
+          android:paddingBottom="@dimen/card_margin"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_info_cancer"
+          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          />
+
+      <Button
+          android:id="@+id/btn_info_trata"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:paddingTop="@dimen/card_margin"
+          android:paddingBottom="@dimen/card_margin"
+          android:layout_weight="0.4"
+          android:text="@string/btn_info_trata"
+          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_info_trata"
-        />
+        android:layout_weight="1"
+        android:layout_margin="@dimen/card_margin"
+        android:orientation="horizontal"
+        >
 
-    <Button
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
+      <Button
+          android:id="@+id/btn_inci"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_incidences"
+          android:layout_weight="0.3"
+          android:paddingTop="@dimen/card_margin"
+          android:paddingBottom="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          />
+
+      <Button
+          android:id="@+id/btn_history"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_history"
+          android:layout_weight="0.7"
+          android:paddingTop="@dimen/card_margin"
+          android:paddingBottom="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_my_home"
-        />
+        android:layout_weight="1"
+        android:layout_margin="@dimen/card_margin"
+        android:orientation="horizontal"
+        >
 
-    <Button
-        android:id="@+id/btn_web"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_web"
-        />
+      <Button
+          android:id="@+id/btn_info_home"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_my_home"
+          android:layout_weight="0.5"
+          android:paddingTop="@dimen/card_margin"
+          android:paddingBottom="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          />
 
-    <Button
-        android:id="@+id/btn_inci"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_incidences"
-        />
+      <Button
+          android:id="@+id/btn_web"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_web"
+          android:layout_weight="0.5"
+          android:paddingTop="@dimen/card_margin"
+          android:paddingBottom="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          />
 
+    </LinearLayout>
   </LinearLayout>
-
 </android.support.design.widget.CoordinatorLayout>
