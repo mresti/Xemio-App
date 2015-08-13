@@ -40,8 +40,7 @@ public class DashboardActivity extends BaseActivity
 
   // UI items
   @InjectView(R.id.toolbar) Toolbar mToolbar;
-  //@InjectView(R.id.btn_inci) Button mBtn_inci;
-  //@InjectView(R.id.btn_web) Button mBtn_web;
+  @InjectView(R.id.dashboard_grid) GridView mGridView;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, DashboardActivity.class);
@@ -67,12 +66,11 @@ public class DashboardActivity extends BaseActivity
         .setAction("Action", null)
         .show();
 
-    GridView gridview = (GridView) findViewById(R.id.dashboard_grid);
-    gridview.setAdapter(new ImageAdapter(this));
-    gridview.setOnItemClickListener(this);
+    mGridView.setAdapter(new ImageAdapter(this));
+    mGridView.setOnItemClickListener(this);
 
     // Hack to disable GridView scrolling
-    gridview.setOnTouchListener(new View.OnTouchListener() {
+    mGridView.setOnTouchListener(new View.OnTouchListener() {
       @Override public boolean onTouch(View v, MotionEvent event) {
         return event.getAction() == MotionEvent.ACTION_MOVE;
       }
