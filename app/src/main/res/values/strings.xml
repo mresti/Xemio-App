@@ -39,7 +39,7 @@
   <string name="str_reply_email">Si necesitas reenviar un nuevo código para activar su cuenta, pulse en "Volver a enviar"</string>
   <string name="btn_retry_email">Nuevo email</string>
   <string name="str_dialog_reply">hemos creado su usuario, pero su cuenta no está activa. Deseas enviar un nuevo código de activación de su cuenta.</string>
-  <string name="dialog_ok">ok</string>
+  <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">cancelar</string>
   <string name="progress_dialog">Solicitando petición</string>
   <string name="please_wait">Espera por favor...</string>

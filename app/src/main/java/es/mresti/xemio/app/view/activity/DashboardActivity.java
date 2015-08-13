@@ -79,39 +79,11 @@ public class DashboardActivity extends BaseActivity
     });
   }
 
-  /**
-   * Goes to the xemio website.
-   */
-  //@OnClick(R.id.btn_web)
-  void navigateToXemioWeb() {
-    this.mNavigator.navigateToXemioWeb(this);
-  }
-
-  /**
-   * Goes to the incidence screen.
-   */
-  //@OnClick(R.id.btn_inci)
-  void navigateToIncidence() {
-    this.mNavigator.navigateToNewIncidence(this);
-  }
-
   @Override public void showProgress() {
 
   }
 
   @Override public void hideProgress() {
-
-  }
-
-  @Override public void setUsernameError() {
-
-  }
-
-  @Override public void setPasswordError() {
-
-  }
-
-  @Override public void navigateToHome() {
 
   }
 
@@ -148,6 +120,7 @@ public class DashboardActivity extends BaseActivity
       case 1:
         break;
       case 2:
+        //Goes to the incidence screen.
         this.mNavigator.navigateToNewIncidence(this);
         break;
       case 3:
@@ -155,6 +128,7 @@ public class DashboardActivity extends BaseActivity
       case 4:
         break;
       case 5:
+        // Goes to the xemio website.
         this.mNavigator.navigateToXemioWeb(this);
         break;
       default:
