@@ -6,12 +6,18 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import es.mresti.xemio.R;
+import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class IncidenceActivity extends BaseActivity {
   private String EXTRA_NAME;
+  private static final String[] ITEMS =
+      { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
+  private ArrayAdapter<String> adapter1;
+  private MaterialSpinner spinner2;
 
   @InjectView(R.id.toolbar) Toolbar mToolbar;
 
@@ -37,6 +43,21 @@ public class IncidenceActivity extends BaseActivity {
     final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    String[] ITEMS = {
+        "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 2", "Item 3", "Item 4", "Item 5",
+        "Item 6", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 6", "Item 2", "Item 3",
+        "Item 4", "Item 5", "Item 6", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"
+    };
+    adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
+    adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+    initSpinner();
+  }
+
+  private void initSpinner() {
+    spinner2 = (MaterialSpinner) findViewById(R.id.spinner4);
+    spinner2.setAdapter(adapter1);
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
