@@ -24,133 +24,24 @@
 
   </android.support.design.widget.AppBarLayout>
 
-  <LinearLayout
+  <RelativeLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
       android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_weight="1"
-      android:orientation="vertical"
-      android:background="@color/color_white"
-      android:paddingTop="60dp"
+      android:layout_height="fill_parent"
+      android:background="@android:color/white"
       >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_margin="@dimen/card_margin"
-        android:gravity="center_horizontal"
-        >
+    <GridView
+        android:id="@+id/dashboard_grid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@android:color/transparent"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="20dp"
+        android:paddingTop="60dp"
+        android:layout_centerInParent="true"
+        style="@style/dashboard"
+        />
 
-      <Button
-          android:id="@+id/btn_info_cancer"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/btn_info_cancer"
-          android:layout_marginBottom="@dimen/card_margin"
-          android:layout_marginLeft="@dimen/card_margin"
-          android:layout_marginRight="@dimen/card_margin"
-          android:layout_marginStart="@dimen/card_margin"
-          android:layout_marginEnd="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_info_black_48dp"
-          style="?android:attr/borderlessButtonStyle"
-          android:textColor="@color/ColorPrimaryDark"
-          />
-
-      <Button
-          android:id="@+id/btn_info_trata"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/btn_info_trata"
-          android:layout_marginBottom="@dimen/card_margin"
-          android:layout_marginLeft="@dimen/card_margin"
-          android:layout_marginRight="@dimen/card_margin"
-          android:layout_marginStart="@dimen/card_margin"
-          android:layout_marginEnd="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_assignment_black_48dp"
-          style="?android:attr/borderlessButtonStyle"
-          android:textColor="@color/ColorPrimaryDark"
-          />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_margin="@dimen/card_margin"
-        >
-
-      <Button
-          android:id="@+id/btn_inci"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/btn_incidences"
-          android:layout_marginBottom="@dimen/card_margin"
-          android:layout_marginLeft="@dimen/card_margin"
-          android:layout_marginRight="@dimen/card_margin"
-          android:layout_marginStart="@dimen/card_margin"
-          android:layout_marginEnd="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_add_circle_black_48dp"
-          style="?android:attr/borderlessButtonStyle"
-          android:textColor="@color/ColorPrimaryDark"
-          />
-
-      <Button
-          android:id="@+id/btn_history"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/btn_history"
-          android:layout_marginBottom="@dimen/card_margin"
-          android:layout_marginLeft="@dimen/card_margin"
-          android:layout_marginRight="@dimen/card_margin"
-          android:layout_marginStart="@dimen/card_margin"
-          android:layout_marginEnd="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_event_note_black_48dp"
-          style="?android:attr/borderlessButtonStyle"
-          android:textColor="@color/ColorPrimaryDark"
-          />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_margin="@dimen/card_margin"
-        android:gravity="center_horizontal"
-        >
-
-      <Button
-          android:id="@+id/btn_info_home"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/btn_my_home"
-          android:layout_marginBottom="@dimen/card_margin"
-          android:layout_marginLeft="@dimen/card_margin"
-          android:layout_marginRight="@dimen/card_margin"
-          android:layout_marginStart="@dimen/card_margin"
-          android:layout_marginEnd="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_settings_black_48dp"
-          style="?android:attr/borderlessButtonStyle"
-          android:textColor="@color/ColorPrimaryDark"
-          />
-
-      <Button
-          android:id="@+id/btn_web"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/btn_web"
-          android:layout_marginBottom="@dimen/card_margin"
-          android:layout_marginLeft="@dimen/card_margin"
-          android:layout_marginRight="@dimen/card_margin"
-          android:layout_marginStart="@dimen/card_margin"
-          android:layout_marginEnd="@dimen/card_margin"
-          android:drawableTop="@drawable/ic_public_black_48dp"
-          style="?android:attr/borderlessButtonStyle"
-          android:textColor="@color/ColorPrimaryDark"
-          />
-
-    </LinearLayout>
-  </LinearLayout>
+  </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

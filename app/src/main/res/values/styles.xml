@@ -5,6 +5,11 @@
       parent="Base.Theme.Xemio">
   </style>
 
+  <style name="dashboard"
+      parent="Base.Theme.Xemio">
+    <item name="android:numColumns">2</item>
+  </style>
+
   <!-- Base application theme. -->
   <style name="Base.Theme.Xemio"
       parent="Theme.AppCompat.Light.NoActionBar">
