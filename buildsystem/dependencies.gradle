@@ -16,6 +16,7 @@ ext {
       butterknife      :         "com.jakewharton:butterknife:6.1.0",
       materialDialogs  :         "com.afollestad:material-dialogs:0.7.8.1",
       materialSpinner  :         "com.github.ganfra:material-spinner:1.1.0",
+      materialPref     :         "com.github.AndroidDeveloperLB:MaterialPreferenceLibrary:4",
   ]
 
   // Testing Libraries dependencies

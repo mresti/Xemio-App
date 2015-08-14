@@ -49,6 +49,7 @@ dependencies {
   compile viewDependencies.butterknife
   compile viewDependencies.materialDialogs
   compile viewDependencies.materialSpinner
+  compile viewDependencies.materialPref
 
   // Unit testing dependencies
   testCompile testingDependencies.junit
