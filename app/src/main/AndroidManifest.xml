@@ -1,75 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="es.mresti.xemio" >
+    package="es.mresti.xemio"
+    >
 
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+  <application
+      android:allowBackup="true"
+      android:icon="@drawable/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/Theme.Xemio"
+      >
+
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.MainActivity"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Xemio" >
+        android:theme="@style/Theme.Xemio.Init"
+        >
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
 
-        <activity
-            android:name="es.mresti.xemio.app.view.activity.MainActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
 
-        <activity
-            android:name="es.mresti.xemio.app.view.activity.RegisterActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Xemio">
-        </activity>
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.RegisterActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+        >
+    </activity>
 
-        <activity
-            android:name=".app.view.activity.LoginActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Xemio">
-        </activity>
+    <activity
+        android:name=".app.view.activity.LoginActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+        >
+    </activity>
 
-        <activity
-            android:name=".app.view.activity.LogupActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Xemio">
-        </activity>
+    <activity
+        android:name=".app.view.activity.LogupActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+        >
+    </activity>
 
-        <activity
-            android:name="es.mresti.xemio.app.view.activity.VerifyActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Xemio">
-        </activity>
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.VerifyActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+        >
+    </activity>
 
-        <activity
-            android:name="es.mresti.xemio.app.view.activity.DashboardActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Xemio">
-        </activity>
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.DashboardActivity"
+        android:label="@string/app_name"
+        >
+    </activity>
 
-        <activity
-            android:name="es.mresti.xemio.app.view.activity.CancerActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Xemio">
-        </activity>
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.CancerActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+        >
+    </activity>
 
-        <activity
-            android:name="es.mresti.xemio.app.view.activity.ChemoActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Xemio">
-        </activity>
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.ChemoActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+        >
+    </activity>
 
-        <activity
-            android:name="es.mresti.xemio.app.view.activity.PassActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Xemio">
-        </activity>
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.PassActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+        >
+    </activity>
 
-        <activity
-            android:name="es.mresti.xemio.app.view.activity.IncidenceActivity">
-        </activity>
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.IncidenceActivity"
+        android:label="@string/toolbar_new_incidence">
+    </activity>
 
-    </application>
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.SettingsActivity"
+        android:label="@string/action_settings"
+        >
+    </activity>
+
+  </application>
 
 </manifest>

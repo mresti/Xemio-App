@@ -13,9 +13,6 @@ import es.mresti.xemio.R;
 import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class IncidenceActivity extends BaseActivity {
-  private String EXTRA_NAME;
-  private static final String[] ITEMS =
-      { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
   private ArrayAdapter<String> adapter1;
   private MaterialSpinner spinner2;
 
@@ -38,10 +35,6 @@ public class IncidenceActivity extends BaseActivity {
    */
   private void initialize() {
     setSupportActionBar(mToolbar);
-
-    EXTRA_NAME = (String) getText(R.string.new_incidence);
-    final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     String[] ITEMS = {

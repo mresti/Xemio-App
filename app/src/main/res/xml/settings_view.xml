@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/app_preferences">
+    <com.jenzz.materialpreference.Preference
+        android:key="alias_field"
+        android:summary="@string/field_alias"
+        android:title="@string/field_alias"
+        />
+    <com.jenzz.materialpreference.Preference
+        android:title="@string/field_pass"
+        />
+  </com.jenzz.materialpreference.PreferenceCategory>
+
+  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/about_preferences">
+    <com.jenzz.materialpreference.Preference
+        android:title="@string/versionTitle_preferences"
+        android:summary="v.0.6.123"
+        />
+    <com.jenzz.materialpreference.Preference
+        android:key="authorsPref"
+        android:title="@string/author_title_preferences"
+        />
+
+    <com.jenzz.materialpreference.Preference
+        android:key="ratePref"
+        android:summary="@string/marketTitle"
+        android:title="@string/rateTitle_menu"
+        />
+  </com.jenzz.materialpreference.PreferenceCategory>
+
+  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/user_preferences">
+    <com.jenzz.materialpreference.Preference
+        android:key="logOutPref"
+        android:summary="@string/logout_preferences"
+        android:title="@string/logout_title_preferences"
+        />
+  </com.jenzz.materialpreference.PreferenceCategory>
+
+</PreferenceScreen>

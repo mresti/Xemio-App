@@ -11,6 +11,7 @@ import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.PassActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
+import es.mresti.xemio.app.view.activity.SettingsActivity;
 import es.mresti.xemio.app.view.activity.VerifyActivity;
 
 /**
@@ -139,6 +140,13 @@ public class Navigator {
     if (context != null) {
       Intent intentToLaunch = new Intent(Intent.ACTION_VIEW);
       intentToLaunch.setData(Uri.parse("http://xemio.org"));
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  public void navigateToSettings(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = SettingsActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

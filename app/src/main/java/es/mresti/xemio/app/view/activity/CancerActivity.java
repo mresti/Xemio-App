@@ -24,8 +24,6 @@ public class CancerActivity extends BaseActivity implements CancerView {
   private static final String mLOGTAG = "LogsAndroid";
   private CancerPresenter presenter;
   private Navigator mNavigator;
-  private static final String[] ITEMS =
-      { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
   private ArrayAdapter<String> adapter1;
   private MaterialSpinner spinner2;
 

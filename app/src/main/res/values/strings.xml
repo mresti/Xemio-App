@@ -58,16 +58,29 @@
   <string name="form_reply_pass">Repite Contraseña</string>
 
   // Dashboard Activity
-  <string name="action_settings">Configuración</string>
+  <string name="action_settings">Ajustes</string>
   <string name="btn_info_cancer">Información</string>
   <string name="btn_info_trata">Tratamientos</string>
-  <string name="btn_my_home">Configuración</string>
   <string name="btn_web">Web</string>
   <string name="btn_incidences">Incidencia</string>
   <string name="btn_history">Historial</string>
 
   // Incidence Activity
+  <string name="toolbar_new_incidence">Nueva incidencia</string>
   <string name="str_inci_title">Elige el tipo de incidencia:</string>
+
+  // Settings Activity
+  <string name="app_preferences">Ajustes</string>
+  <string name="field_alias">Cambiar alias</string>
+  <string name="field_pass">Cambiar password</string>
+  <string name="user_preferences">Datos usuario</string>
+  <string name="logout_preferences">Cerrar Sesion en Xemio</string>
+  <string name="logout_title_preferences">Cerrar sesion</string>
+  <string name="about_preferences">App</string>
+  <string name="marketTitle">Google Play</string>
+  <string name="rateTitle_menu">Puntuacion</string>
+  <string name="author_title_preferences">Autores</string>
+  <string name="versionTitle_preferences">Version de la aplicacion</string>
 
   // error message
   <string name="error_email">Email inválido</string>
@@ -85,7 +98,5 @@
   </string-array>
 
   // UI components text
-  <string name="activity_user_type_advice_text">Selecciona un consejo</string>
   <string name="string_content_description">Non accessible view</string>
-  <string name="new_incidence">Nueva indicencia</string>
 </resources>
