@@ -42,7 +42,7 @@
   <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">cancelar</string>
   <string name="progress_dialog">Solicitando petición</string>
-  <string name="please_wait">Espera por favor...</string>
+  <string name="please_wait">Espera por favor&#8230;</string>
 
   // Cancer and Chemo Activity
   <string name="dialog_user_ok">"User, su cuenta ha sido verificada."</string>
