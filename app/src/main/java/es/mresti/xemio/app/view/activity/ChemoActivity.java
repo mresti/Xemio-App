@@ -85,14 +85,6 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
     this.mNavigator.navigateToPass(this);
   }
 
-  @Override public void showLoading() {
-
-  }
-
-  @Override public void hideLoading() {
-
-  }
-
   @Override public void showRetry() {
 
   }

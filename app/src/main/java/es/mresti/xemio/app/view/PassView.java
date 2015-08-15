@@ -1,15 +1,15 @@
 package es.mresti.xemio.app.view;
 
 public interface PassView extends BaseView {
-  public void showProgress();
+  void showProgress();
 
-  public void hideProgress();
+  void hideProgress();
 
-  public void setPass1Error();
+  void setPass1Error();
 
-  public void setPass2Error();
+  void setPass2Error();
 
-  public void setPassDistinctError();
+  void setPassDistinctError();
 
-  public void navigateToHome();
+  void navigateToHome();
 }

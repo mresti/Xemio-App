@@ -145,14 +145,6 @@ public class LogupActivity extends BaseActivity implements LogupView {
     finish();
   }
 
-  @Override public void showLoading() {
-
-  }
-
-  @Override public void hideLoading() {
-
-  }
-
   @Override public void showRetry() {
 
   }

@@ -1,15 +1,15 @@
 package es.mresti.xemio.app.view;
 
 public interface LogupView extends BaseView {
-  public void showProgress();
+  void showProgress();
 
-  public void hideProgress();
+  void hideProgress();
 
-  public void setUsernameError();
+  void setUsernameError();
 
-  public void setEmailError();
+  void setEmailError();
 
-  public void setAgeError();
+  void setAgeError();
 
-  public void navigateToVerifyScreen();
+  void navigateToVerifyScreen();
 }

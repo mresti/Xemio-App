@@ -11,14 +11,11 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import butterknife.InjectView;
 import es.mresti.xemio.R;
 
 public class SettingsActivity extends PreferenceActivity {
 
   private AppCompatDelegate mDelegate;
-
-  @InjectView(R.id.toolbar) Toolbar mToolbar;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, SettingsActivity.class);

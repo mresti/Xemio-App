@@ -1,9 +1,9 @@
 package es.mresti.xemio.app.view;
 
 public interface CancerView extends BaseView {
-  public void showProgress();
+  void showProgress();
 
-  public void hideProgress();
+  void hideProgress();
 
-  public void navigateToChemoScreen();
+  void navigateToChemoScreen();
 }

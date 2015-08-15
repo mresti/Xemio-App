@@ -128,14 +128,6 @@ public class PassActivity extends BaseActivity implements PassView {
     this.mNavigator.navigateToDashboard(this);
   }
 
-  @Override public void showLoading() {
-
-  }
-
-  @Override public void hideLoading() {
-
-  }
-
   @Override public void showRetry() {
 
   }

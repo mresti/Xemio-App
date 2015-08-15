@@ -1,13 +1,13 @@
 package es.mresti.xemio.app.view;
 
 public interface LoginView extends BaseView {
-  public void showProgress();
+  void showProgress();
 
-  public void hideProgress();
+  void hideProgress();
 
-  public void setUsernameError();
+  void setUsernameError();
 
-  public void setPasswordError();
+  void setPasswordError();
 
-  public void navigateToHome();
+  void navigateToHome();
 }
