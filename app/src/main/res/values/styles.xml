@@ -5,6 +5,11 @@
       parent="Base.Theme.Xemio">
   </style>
 
+  <style name="Theme.Xemio.Init"
+      parent="Base.Theme.Xemio">
+    <item name="android:windowBackground">@color/ColorPrimary</item>
+  </style>
+
   <style name="dashboard"
       parent="Base.Theme.Xemio">
     <item name="android:numColumns">2</item>

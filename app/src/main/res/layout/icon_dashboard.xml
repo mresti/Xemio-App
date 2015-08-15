@@ -13,6 +13,7 @@
       android:layout_width="fill_parent"
       android:layout_height="80dp"
       android:scaleType="fitCenter"
+      android:contentDescription="@string/string_content_description"
       />
 
   <TextView
