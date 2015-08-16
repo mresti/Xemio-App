@@ -6,15 +6,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class PassValidatorTest {
-  @Test
-  public void characterValidator_CorrectAlphaNumeric(){
-    assertTrue(PassValidator.isValidText("Hello world 2015"));
-  }
-
-  @Test
-  public void characterValidator_CorrectAllCharacters(){
-    assertTrue(PassValidator.isValidText("Hello world, 2015!!"));
-  }
 
   @Test
   public void characterValidator_CorrectAllCharacters_Pass_1(){
@@ -29,6 +20,16 @@ public class PassValidatorTest {
   @Test
   public void characterValidator_CorrectAllCharacters_Pass_3(){
     assertTrue(PassValidator.isValidText("asdASDn12$%&"));
+  }
+
+  @Test
+  public void characterValidator_InvalidAlphaNumeric(){
+    assertFalse(PassValidator.isValidText("Hello world 2015"));
+  }
+
+  @Test
+  public void characterValidator_InvalidAllCharacters(){
+    assertFalse(PassValidator.isValidText("Hello world, 2015!!"));
   }
 
   @Test
@@ -52,6 +53,11 @@ public class PassValidatorTest {
   }
 
   @Test
+  public void characterValidator_InvalidTooLong(){
+    assertFalse(PassValidator.isValidText("1234ab@1234ab@1234ab@1234ab@"));
+  }
+
+  @Test
   public void characterValidator_InvalidRequiredUppercaseCharacter(){
     assertFalse(PassValidator.isValidText("1234ab@"));
   }
@@ -64,6 +70,11 @@ public class PassValidatorTest {
   @Test
   public void characterValidator_InvalidRequiredSymbol(){
     assertFalse(PassValidator.isValidText("1234abA"));
+  }
+
+  @Test
+  public void characterValidator_InvalidSpaceaSymbol(){
+    assertFalse(PassValidator.isValidText("1234abA$v 1234abA$"));
   }
 
   @Test
