@@ -17,6 +17,7 @@ import es.mresti.xemio.app.presenter.PassPresenter;
 import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.view.PassView;
 import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
+import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class PassActivity extends BaseActivity implements PassView {
 
@@ -24,8 +25,8 @@ public class PassActivity extends BaseActivity implements PassView {
   private Navigator mNavigator;
   private PassPresenter presenter;
   private MaterialDialog mDialog;
-  private AlphaNumericValidator mAlphaNumericValidator1;
-  private AlphaNumericValidator mAlphaNumericValidator2;
+  private PassValidator mPassValidator1;
+  private PassValidator mPassValidator2;
 
   // UI items
   @InjectView(R.id.btn_next) Button mBtn_save;
@@ -54,18 +55,18 @@ public class PassActivity extends BaseActivity implements PassView {
   private void initialize() {
     this.mNavigator = new Navigator();
     // Setup field validators.
-    mAlphaNumericValidator1 = new AlphaNumericValidator();
-    mPassInput1.addTextChangedListener(mAlphaNumericValidator1);
-    mAlphaNumericValidator2 = new AlphaNumericValidator();
-    mPassInput2.addTextChangedListener(mAlphaNumericValidator2);
+    mPassValidator1 = new PassValidator();
+    mPassInput1.addTextChangedListener(mPassValidator1);
+    mPassValidator2 = new PassValidator();
+    mPassInput2.addTextChangedListener(mPassValidator2);
   }
 
   /**
    * Goes to the dashboard screen.
    */
   @OnClick(R.id.btn_next) void navigateToDashboard() {
-    boolean passValid1 = mAlphaNumericValidator1.isValid();
-    boolean passValid2 = mAlphaNumericValidator2.isValid();
+    boolean passValid1 = mPassValidator1.isValid();
+    boolean passValid2 = mPassValidator2.isValid();
 
     if (!passValid1) {
       mPassInputLayout1.setErrorEnabled(true);

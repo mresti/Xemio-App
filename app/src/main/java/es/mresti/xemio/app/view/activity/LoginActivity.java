@@ -19,6 +19,7 @@ import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.view.LoginView;
 import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
 import es.mresti.xemio.app.view.validator.EmailValidator;
+import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class LoginActivity extends BaseActivity implements LoginView {
 
@@ -26,7 +27,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
   private LoginPresenter presenter;
   private Navigator mNavigator;
   private EmailValidator mEmailValidator;
-  private AlphaNumericValidator mAlphaNumericValidator;
+  private PassValidator mPassValidator;
 
   // UI items
   @InjectView(R.id.btn_save) Button mBtn_save;
@@ -59,8 +60,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
     // Setup field validators.
     mEmailValidator = new EmailValidator();
     mEmailText.addTextChangedListener(mEmailValidator);
-    mAlphaNumericValidator = new AlphaNumericValidator();
-    mPassText.addTextChangedListener(mAlphaNumericValidator);
+    mPassValidator = new PassValidator();
+    mPassText.addTextChangedListener(mPassValidator);
   }
 
   /**
@@ -68,7 +69,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
    */
   @OnClick(R.id.btn_save) void navigateToDashboard() {
     boolean emailValid = mEmailValidator.isValid();
-    boolean passValid = mAlphaNumericValidator.isValid();
+    boolean passValid = mPassValidator.isValid();
 
     if (!emailValid) {
       mEmailInputLayout.setErrorEnabled(true);
