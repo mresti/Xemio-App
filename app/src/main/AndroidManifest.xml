@@ -80,12 +80,19 @@
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.IncidenceActivity"
-        android:label="@string/toolbar_new_incidence">
+        android:label="@string/toolbar_new_incidence"
+        >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.SettingsActivity"
         android:label="@string/action_settings"
+        >
+    </activity>
+
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.InfoActivity"
+        android:label="@string/info_title"
         >
     </activity>
 

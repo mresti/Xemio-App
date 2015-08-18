@@ -7,6 +7,7 @@ import es.mresti.xemio.app.view.activity.CancerActivity;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
 import es.mresti.xemio.app.view.activity.IncidenceActivity;
+import es.mresti.xemio.app.view.activity.InfoActivity;
 import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.PassActivity;
@@ -147,6 +148,13 @@ public class Navigator {
   public void navigateToSettings(Context context) {
     if (context != null) {
       Intent intentToLaunch = SettingsActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  public void navigateToInfo(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = InfoActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

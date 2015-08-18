@@ -106,6 +106,8 @@ public class DashboardActivity extends BaseActivity
     Log.w(mLOGTAG, Integer.toString(position));
     switch (position) {
       case 0:
+        //Goes to the info screen.
+        this.mNavigator.navigateToInfo(this);
         break;
       case 1:
         break;

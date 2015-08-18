@@ -82,6 +82,18 @@
   <string name="author_title_preferences">Autores</string>
   <string name="versionTitle_preferences">Version de la aplicacion</string>
 
+  // Info Activity
+  <string name="info_title">Información Cáncer de Mama</string>
+  <string name="info_1">1.- ¿Que es el cancer de mama?</string>
+  <string name="info_2">2.- ¿Que pruebas me van a realizar?</string>
+  <string name="info_3">3.- Tipos de celulas y tipos de tumores</string>
+  <string name="info_4">4.- ¿Como clasificamos el cancer de mama que me han diagnosticado?</string>
+  <string name="info_5">5.- Tipo de tratamiento</string>
+  <string name="info_6">6.- Otros aspectos a tener en cuenta</string>
+  <string name="info_7">7.- Otros sitios para consultar</string>
+
+
+
   // error message
   <string name="error_email">Email inválido</string>
   <string name="error_empty">No puede estar en blanco</string>
@@ -96,6 +108,7 @@
     <item>Element 5</item>
     <item>Element 6</item>
   </string-array>
+  <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel ligula eget ante aliquam viverra non quis est. Duis nunc orci, imperdiet eget fringilla vitae, bibendum non dui. Nulla feugiat commodo nisi, at pulvinar dolor sagittis id. Suspendisse potenti. Nunc sollicitudin, sapien sit amet varius convallis, augue mauris sagittis sapien, a hendrerit mi turpis eget leo. Integer viverra purus id erat euismod molestie eget non orci. Curabitur elementum ac nibh id dapibus. Vestibulum finibus ex in metus consequat vestibulum eget rhoncus lacus. Morbi eu egestas erat. Etiam nec blandit neque. Mauris id efficitur justo. Aenean posuere viverra nisi, sed ullamcorper nisl aliquam nec. Suspendisse imperdiet felis eu enim efficitur, quis pulvinar arcu porttitor. Etiam erat lorem, pellentesque sit amet urna vel, lobortis vulputate sem.</string>
 
   // UI components text
   <string name="string_content_description">Non accessible view</string>
