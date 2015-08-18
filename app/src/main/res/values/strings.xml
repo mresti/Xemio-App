@@ -32,29 +32,28 @@
   <string name="text_age">Edad</string>
 
   // Verify Activity
-  <string name="str_verigy_title_logup">Estado de su usuario</string>
-  <string name="str_verify_logup">Tu usuario ha sido creado, pero todavia no has podido validar tu cuenta. Revisa tu cuenta mail para activar tu usuario.</string>
+  <string name="title_verify">Estado de su usuario</string>
+  <string name="text_verify_logup">Tu usuario ha sido creado, pero todavia no has podido validar tu cuenta. Revisa tu cuenta mail para activar tu usuario.</string>
   <string name="btn_check">Comprobar</string>
-  <string name="str_reply_email">Si necesitas reenviar un nuevo código para activar su cuenta, pulse en "Volver a enviar"</string>
+  <string name="text_verify_email">Si necesitas reenviar un nuevo código para activar su cuenta, pulse en "Volver a enviar"</string>
   <string name="btn_retry_email">Nuevo email</string>
-  <string name="str_dialog_reply">hemos creado su usuario, pero su cuenta no está activa. Deseas enviar un nuevo código de activación de su cuenta.</string>
-  <string name="dialog_ok">OK</string>
-  <string name="dialog_cancel">cancelar</string>
-  <string name="progress_dialog">Solicitando petición</string>
-  <string name="please_wait">Espera por favor&#8230;</string>
+  <string name="dialog_verify_reply_text">hemos creado su usuario, pero su cuenta no está activa. Deseas enviar un nuevo código de activación de su cuenta.</string>
+  <string name="dialog_verify_pos">OK</string>
+  <string name="dialog_verify_neg">Cancelar</string>
+  <string name="dialog_progress_title">Solicitando petición</string>
+  <string name="dialog_progress_text">Espera por favor&#8230;</string>
 
   // Cancer and Chemo Activity
-  <string name="dialog_user_ok">"User, su cuenta ha sido verificada."</string>
-  <string name="str_cancer_title">Selecciona su tipo de cáncer</string>
-  <string name="str_chemo_title">Selecciona su tipo de quimioterapia</string>
+  <string name="dialog_user_success_text">User, su cuenta ha sido verificada.</string>
+  <string name="title_cancer">Selecciona su tipo de cáncer</string>
+  <string name="title_chemo">Selecciona su tipo de quimioterapia</string>
   <string name="btn_next">Siguiente</string>
-  <string name="element_prompt">Selecciona un elemento</string>
 
   // Pass activity
-  <string name="str_pass_title">Su seguridad</string>
-  <string name="str_pass_info">Para asegurar una mayor seguridad de su usuario, necesitas crear una contraseña. Además, desde la aplicación podrás cambiar la contraseña.</string>
-  <string name="form_pass">Contraseña</string>
-  <string name="form_reply_pass">Repite Contraseña</string>
+  <string name="title_pass">Su seguridad</string>
+  <string name="pass_text">Para asegurar una mayor seguridad de su usuario, necesitas crear una contraseña. Además, desde la aplicación podrás cambiar la contraseña.</string>
+  <string name="text_pass">Contraseña</string>
+  <string name="text_pass_reply">Repite Contraseña</string>
 
   // Dashboard Activity
   <string name="action_settings">Ajustes</string>
@@ -91,13 +90,13 @@
   <string name="info_6">6.- Otros aspectos a tener en cuenta</string>
   <string name="info_7">7.- Otros sitios para consultar</string>
 
-
   // error message
   <string name="error_email">Email inválido</string>
   <string name="error_empty">No puede estar en blanco</string>
   <string name="error_age">Edad inválida</string>
 
   // tmp values
+  <string name="element_prompt">Selecciona un elemento</string>
   <string-array name="element_arrays">
     <item>Element 1</item>
     <item>Element 2</item>

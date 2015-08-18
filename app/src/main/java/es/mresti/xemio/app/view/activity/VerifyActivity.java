@@ -59,9 +59,9 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
    */
   @OnClick(R.id.btn_retry) void retryNewEmail() {
     MaterialDialog dialog = new MaterialDialog.Builder(this).title(R.string.app_name)
-        .content("Esteban " + getText(R.string.str_dialog_reply))
-        .positiveText(R.string.dialog_ok)
-        .negativeText(R.string.dialog_cancel)
+        .content("Esteban " + getText(R.string.dialog_verify_reply_text))
+        .positiveText(R.string.dialog_verify_pos)
+        .negativeText(R.string.dialog_verify_neg)
         .callback(new MaterialDialog.ButtonCallback() {
           @Override public void onPositive(MaterialDialog dialog) {
             presenter.sendEmail();
@@ -75,8 +75,8 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
   }
 
   @Override public void showProgress() {
-    mDialog1 = new MaterialDialog.Builder(this).title(R.string.progress_dialog)
-        .content(R.string.please_wait)
+    mDialog1 = new MaterialDialog.Builder(this).title(R.string.dialog_progress_title)
+        .content(R.string.dialog_progress_text)
         .progress(true, 0)
         .show();
   }
@@ -91,8 +91,8 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
   }
 
   @Override public void showProgress2() {
-    mDialog2 = new MaterialDialog.Builder(this).title(R.string.progress_dialog)
-        .content(R.string.please_wait)
+    mDialog2 = new MaterialDialog.Builder(this).title(R.string.dialog_progress_title)
+        .content(R.string.dialog_progress_text)
         .progress(true, 0)
         .show();
   }
@@ -106,7 +106,7 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
     MaterialDialog dialog = new MaterialDialog.Builder(this).title(R.string.app_name)
         .content(
             "User ha sido enviado un email a su cuenta de correo con un nuevo código de activación.")
-        .neutralText(R.string.dialog_ok)
+        .neutralText(R.string.dialog_verify_pos)
         .callback(new MaterialDialog.ButtonCallback() {
           @Override public void onNeutral(MaterialDialog dialog) {
             Log.w(mLOGTAG, "OK verificado pulsado");

@@ -95,8 +95,8 @@ public class PassActivity extends BaseActivity implements PassView {
   }
 
   @Override public void showProgress() {
-    mDialog = new MaterialDialog.Builder(this).title(R.string.progress_dialog)
-        .content(R.string.please_wait)
+    mDialog = new MaterialDialog.Builder(this).title(R.string.dialog_progress_title)
+        .content(R.string.dialog_progress_text)
         .progress(true, 0)
         .show();
   }

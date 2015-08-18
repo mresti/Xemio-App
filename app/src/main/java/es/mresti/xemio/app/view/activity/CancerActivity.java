@@ -59,8 +59,8 @@ public class CancerActivity extends BaseActivity implements CancerView {
     initSpinner();
 
     MaterialDialog dialog = new MaterialDialog.Builder(this).title(R.string.app_name)
-        .content(R.string.dialog_user_ok)
-        .neutralText(R.string.dialog_ok)
+        .content(R.string.dialog_user_success_text)
+        .neutralText(R.string.dialog_verify_pos)
         .callback(new MaterialDialog.ButtonCallback() {
           @Override public void onNeutral(MaterialDialog dialog) {
             Log.w(mLOGTAG, "OK verificado pulsado");
