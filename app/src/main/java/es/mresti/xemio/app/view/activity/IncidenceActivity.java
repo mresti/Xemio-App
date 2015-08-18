@@ -7,8 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import es.mresti.xemio.R;
 import fr.ganfra.materialspinner.MaterialSpinner;
 
@@ -16,7 +16,7 @@ public class IncidenceActivity extends BaseActivity {
   private ArrayAdapter<String> adapter1;
   private MaterialSpinner spinner2;
 
-  @InjectView(R.id.toolbar) Toolbar mToolbar;
+  @Bind(R.id.toolbar) Toolbar mToolbar;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, IncidenceActivity.class);
@@ -25,8 +25,7 @@ public class IncidenceActivity extends BaseActivity {
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_incidence);
-
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     this.initialize();
   }
 

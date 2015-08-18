@@ -15,8 +15,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.DashboardView;
@@ -39,8 +39,8 @@ public class DashboardActivity extends BaseActivity
   };
 
   // UI items
-  @InjectView(R.id.toolbar) Toolbar mToolbar;
-  @InjectView(R.id.dashboard_grid) GridView mGridView;
+  @Bind(R.id.toolbar) Toolbar mToolbar;
+  @Bind(R.id.dashboard_grid) GridView mGridView;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, DashboardActivity.class);
@@ -49,8 +49,7 @@ public class DashboardActivity extends BaseActivity
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_dashboard);
-
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     this.initialize();
   }
 

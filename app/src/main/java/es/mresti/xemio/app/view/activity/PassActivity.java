@@ -7,8 +7,8 @@ import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import com.afollestad.materialdialogs.MaterialDialog;
 import es.mresti.xemio.R;
@@ -28,12 +28,12 @@ public class PassActivity extends BaseActivity implements PassView {
   private PassValidator mPassValidator2;
 
   // UI items
-  @InjectView(R.id.btn_next) Button mBtn_save;
-  @InjectView(R.id.btn_deny) Button mBtn_Deny;
-  @InjectView(R.id.passInput1) EditText mPassInput1;
-  @InjectView(R.id.passInputLayout1) TextInputLayout mPassInputLayout1;
-  @InjectView(R.id.passInput2) EditText mPassInput2;
-  @InjectView(R.id.passInputLayout2) TextInputLayout mPassInputLayout2;
+  @Bind(R.id.btn_next) Button mBtn_save;
+  @Bind(R.id.btn_deny) Button mBtn_Deny;
+  @Bind(R.id.passInput1) EditText mPassInput1;
+  @Bind(R.id.passInputLayout1) TextInputLayout mPassInputLayout1;
+  @Bind(R.id.passInput2) EditText mPassInput2;
+  @Bind(R.id.passInputLayout2) TextInputLayout mPassInputLayout2;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, PassActivity.class);
@@ -42,8 +42,7 @@ public class PassActivity extends BaseActivity implements PassView {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_pass);
-
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     this.initialize();
     presenter = PresenterFactory.getPassPresenter(this);
   }

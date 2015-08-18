@@ -8,8 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.view.adapter.ViewPagerAdapter;
@@ -17,11 +17,11 @@ import es.mresti.xemio.app.view.fragment.InfoFragment;
 
 public class InfoActivity extends BaseActivity {
 
-  @InjectView(R.id.toolbar) Toolbar mToolbar;
-  @InjectView(R.id.fab_next) FloatingActionButton mFABNext;
-  @InjectView(R.id.fab_back) FloatingActionButton mFABBack;
-  @InjectView(R.id.fab_end) FloatingActionButton mFABEnd;
-  @InjectView(R.id.pager) ViewPager mPager;
+  @Bind(R.id.toolbar) Toolbar mToolbar;
+  @Bind(R.id.fab_next) FloatingActionButton mFABNext;
+  @Bind(R.id.fab_back) FloatingActionButton mFABBack;
+  @Bind(R.id.fab_end) FloatingActionButton mFABEnd;
+  @Bind(R.id.pager) ViewPager mPager;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, InfoActivity.class);
@@ -30,8 +30,7 @@ public class InfoActivity extends BaseActivity {
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_info);
-
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     this.initialize();
   }
 

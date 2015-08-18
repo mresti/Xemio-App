@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import com.afollestad.materialdialogs.MaterialDialog;
 import es.mresti.xemio.R;
@@ -24,8 +24,8 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
   private MaterialDialog mDialog2;
 
   // UI items
-  @InjectView(R.id.btn_verify) Button mBtn_verify;
-  @InjectView(R.id.btn_retry) Button mBtn_retry;
+  @Bind(R.id.btn_verify) Button mBtn_verify;
+  @Bind(R.id.btn_retry) Button mBtn_retry;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, VerifyActivity.class);
@@ -34,8 +34,7 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_verify);
-
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     this.initialize();
     presenter = PresenterFactory.getVerifyPresenter(this);
   }

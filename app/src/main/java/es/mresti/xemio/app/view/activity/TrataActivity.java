@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import es.mresti.xemio.R;
 
 public class TrataActivity extends BaseActivity {
 
-  @InjectView(R.id.toolbar) Toolbar mToolbar;
+  @Bind(R.id.toolbar) Toolbar mToolbar;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, TrataActivity.class);
@@ -21,8 +21,7 @@ public class TrataActivity extends BaseActivity {
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_trata);
-
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     this.initialize();
   }
 

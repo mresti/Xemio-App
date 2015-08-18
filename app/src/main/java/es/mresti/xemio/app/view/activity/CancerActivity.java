@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import com.afollestad.materialdialogs.MaterialDialog;
 import es.mresti.xemio.R;
@@ -28,8 +28,8 @@ public class CancerActivity extends BaseActivity implements CancerView {
   private MaterialSpinner spinner2;
 
   // UI items
-  @InjectView(R.id.btn_next) Button mBtn_next;
-  @InjectView(R.id.progress) ProgressBar mProgress;
+  @Bind(R.id.btn_next) Button mBtn_next;
+  @Bind(R.id.progress) ProgressBar mProgress;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, CancerActivity.class);
@@ -38,8 +38,7 @@ public class CancerActivity extends BaseActivity implements CancerView {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_cancer);
-
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     this.initialize();
     presenter = PresenterFactory.getCancerPresenter(this);
   }

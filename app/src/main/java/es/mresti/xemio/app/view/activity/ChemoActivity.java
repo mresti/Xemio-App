@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
@@ -28,8 +28,8 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
   private MaterialSpinner spinner2;
 
   // UI items
-  @InjectView(R.id.btn_next) Button btn_next;
-  @InjectView(R.id.progress) ProgressBar mProgress;
+  @Bind(R.id.btn_next) Button btn_next;
+  @Bind(R.id.progress) ProgressBar mProgress;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, ChemoActivity.class);
@@ -38,8 +38,7 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_chemo);
-
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     this.initialize();
     presenter = PresenterFactory.getChemoPresenter(this);
   }

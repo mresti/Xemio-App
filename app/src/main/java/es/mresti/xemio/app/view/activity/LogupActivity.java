@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
@@ -32,15 +32,15 @@ public class LogupActivity extends BaseActivity implements LogupView {
   private NumericValidator mNumericValidator;
 
   // UI items
-  @InjectView(R.id.btn_save) Button mBtn_save;
-  @InjectView(R.id.btn_deny) Button mBtn_deny;
-  @InjectView(R.id.progress) ProgressBar mProgress;
-  @InjectView(R.id.emailInput) EditText mEmailText;
-  @InjectView(R.id.emailInputLayout) TextInputLayout mEmailInputLayout;
-  @InjectView(R.id.aliasInput) EditText mAliasText;
-  @InjectView(R.id.aliasInputLayout) TextInputLayout mAliasInputLayout;
-  @InjectView(R.id.ageInput) EditText mAgeInput;
-  @InjectView(R.id.ageInputLayout) TextInputLayout mAgeInputLayout;
+  @Bind(R.id.btn_save) Button mBtn_save;
+  @Bind(R.id.btn_deny) Button mBtn_deny;
+  @Bind(R.id.progress) ProgressBar mProgress;
+  @Bind(R.id.emailInput) EditText mEmailText;
+  @Bind(R.id.emailInputLayout) TextInputLayout mEmailInputLayout;
+  @Bind(R.id.aliasInput) EditText mAliasText;
+  @Bind(R.id.aliasInputLayout) TextInputLayout mAliasInputLayout;
+  @Bind(R.id.ageInput) EditText mAgeInput;
+  @Bind(R.id.ageInputLayout) TextInputLayout mAgeInputLayout;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, LogupActivity.class);
@@ -49,8 +49,7 @@ public class LogupActivity extends BaseActivity implements LogupView {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_logup);
-
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     this.initialize();
     presenter = PresenterFactory.getLogupPresenter(this);
   }
