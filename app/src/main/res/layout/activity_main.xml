@@ -11,8 +11,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center_horizontal"
-      android:layout_marginBottom="20dp"
-      android:layout_marginTop="20dp"
+      android:layout_marginBottom="@dimen/logo_margin"
+      android:layout_marginTop="@dimen/logo_margin"
       android:src="@drawable/xemio_icon_blanco"
       android:contentDescription="@string/string_content_description"
       />
@@ -21,8 +21,8 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      android:paddingTop="140dp"
-      android:paddingBottom="64dp"
+      android:paddingTop="@dimen/container_main_margin_top"
+      android:paddingBottom="?attr/actionBarSize"
       >
 
     <ScrollView
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:text="@string/str_info_title"
+                android:text="@string/title_main"
                 android:textColor="@color/ColorPrimaryDark"
                 android:layout_marginBottom="@dimen/card_margin"
                 android:layout_marginLeft="@dimen/card_margin"
@@ -70,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:text="@string/str_info_init"
+                android:text="@string/text_main_1"
                 android:layout_marginBottom="@dimen/card_margin"
                 android:layout_marginLeft="@dimen/card_margin"
                 android:layout_marginRight="@dimen/card_margin"
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:text="@string/str_info_init2"
+                android:text="@string/text_main_2"
                 android:layout_marginBottom="@dimen/card_margin"
                 android:layout_marginLeft="@dimen/card_margin"
                 android:layout_marginRight="@dimen/card_margin"
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:text="@string/str_info_init3"
+                android:text="@string/text_main_3"
                 android:layout_marginBottom="@dimen/card_margin"
                 android:layout_marginLeft="@dimen/card_margin"
                 android:layout_marginRight="@dimen/card_margin"
@@ -105,56 +105,6 @@
     </ScrollView>
   </LinearLayout>
 
-  <LinearLayout
-      android:background="#00000000"
-      android:layout_width="match_parent"
-      android:layout_height="64dp"
-      android:gravity="bottom"
-      android:layout_gravity="bottom"
-      android:orientation="vertical"
-      android:weightSum="1"
-      >
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:background="@color/ColorDivider"
-        >
-    </TextView>
-    <LinearLayout
-        android:background="@color/color_white"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:weightSum="1"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        >
-      <Button
-          android:id="@+id/btn_deny"
-          android:layout_width="wrap_content"
-          android:layout_height="fill_parent"
-          android:text="@string/btn_deny"
-          android:layout_gravity="start"
-          style="?android:attr/borderlessButtonStyle"
-          android:layout_weight="0.2"
-          />
+  <include layout="@layout/toolbar_bottom"/>
 
-      <FrameLayout
-          android:layout_width="wrap_content"
-          android:layout_height="fill_parent"
-          android:layout_weight="0.6"
-          android:layout_gravity="center"
-          />
-
-      <Button
-          android:id="@+id/btn_begin"
-          android:layout_width="wrap_content"
-          android:layout_height="fill_parent"
-          android:text="@string/btn_begin"
-          android:textColor="@color/ColorPrimaryDark"
-          android:layout_gravity="start"
-          android:layout_weight="0.2"
-          style="?android:attr/borderlessButtonStyle"
-          />
-    </LinearLayout>
-  </LinearLayout>
 </merge>

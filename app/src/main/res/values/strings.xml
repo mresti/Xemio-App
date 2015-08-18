@@ -4,26 +4,28 @@
   <string name="logo_description">Logo de Xemio</string>
 
   // Main activity
-  <string name="str_info_title">¡Bienvenida a la aplicación de Xemio!</string>
-  <string name="str_info_init">Bienvenida a Xemio App, la aplicación de Android para pacientes de
+  <string name="title_main">¡Bienvenida a la aplicación de Xemio!</string>
+  <string name="text_main_1">Bienvenida a Xemio App, la aplicación de Android para pacientes de
         Quimioterapia de Cáncer de mama.</string>
-  <string name="str_info_init2">Esta aplicación te acompañará durante la quimioterapia para facilitarte
+  <string name="text_main_2">Esta aplicación te acompañará durante la quimioterapia para facilitarte
         información, un punto de referencia que te sirva para disminuir la ansiedad que produce el tratamiento,
         y para observar cómo les va a otras.</string>
-  <string name="str_info_init3">Para poder acompañarte necesitamos hacerte unas pocas preguntas
+  <string name="text_main_3">Para poder acompañarte necesitamos hacerte unas pocas preguntas
         ¿Quieres empezar la experiencia Xemio?</string>
   <string name="btn_deny">Rechazar</string>
   <string name="btn_begin">Empezar</string>
 
   // Register Activity
-  <string name="str_title_register">Elige una opción:</string>
-  <string name="btn_login_text">Loguearse</string>
-  <string name="btn_logup_text">Registrar</string>
+  <string name="title_register">Elige una opción:</string>
+  <string name="btn_login">Entrar</string>
+  <string name="btn_logup">Register</string>
 
   // Login Activity
-  <string name="str_login_title">Loguearse en Xemio</string>
+  <string name="title_login">Loguearse en Xemio</string>
+  <string name="text_email">Email</string>
   <string name="btn_back">Atrás</string>
-  <string name="btn_goin">Entrar</string>
+  <string name="btn_go">Entrar</string>
+
 
   // Logup Activity
   <string name="form_email">Email</string>

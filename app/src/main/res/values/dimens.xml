@@ -1,3 +1,13 @@
 <resources>
+
   <dimen name="card_margin">16dp</dimen>
+
+  <dimen name="inputLayout_margin">30dp</dimen>
+
+  <dimen name="logo_margin">20dp</dimen>
+  <dimen name="logo_margin_top">40dp</dimen>
+
+  <dimen name="container_main_margin_top">140dp</dimen>
+  <dimen name="container_margin_top">180dp</dimen>
+  <dimen name="content_margin_30">30dp</dimen>
 </resources>
