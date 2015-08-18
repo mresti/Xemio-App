@@ -18,7 +18,7 @@
   // Register Activity
   <string name="title_register">Elige una opción:</string>
   <string name="btn_login">Entrar</string>
-  <string name="btn_logup">Register</string>
+  <string name="btn_logup">Registrar</string>
 
   // Login Activity
   <string name="title_login">Loguearse en Xemio</string>
@@ -26,13 +26,10 @@
   <string name="btn_back">Atrás</string>
   <string name="btn_go">Entrar</string>
 
-
   // Logup Activity
-  <string name="form_email">Email</string>
-  <string name="form_alias">Nombre</string>
-  <string name="form_age">Edad</string>
-  <string name="btn_text_register">Registrar</string>
-  <string name="str_register_title">Rellena sus datos para comenzar</string>
+  <string name="title_logup">Rellena sus datos para comenzar</string>
+  <string name="text_alias">Nombre</string>
+  <string name="text_age">Edad</string>
 
   // Verify Activity
   <string name="str_verigy_title_logup">Estado de su usuario</string>
