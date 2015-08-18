@@ -80,31 +80,31 @@
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.IncidenceActivity"
-        android:label="@string/toolbar_new_incidence"
+        android:label="@string/toolbar_title_incidence"
         >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.SettingsActivity"
-        android:label="@string/action_settings"
+        android:label="@string/toolbar_title_settings"
         >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.InfoActivity"
-        android:label="@string/info_title"
+        android:label="@string/toolbar_title_info"
         >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.TrataActivity"
-        android:label="Tratamientos"
+        android:label="@string/toolbar_title_trata"
         >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.HistoryActivity"
-        android:label="Historial"
+        android:label="@string/toolbar_title_history"
         >
     </activity>
 

@@ -7,4 +7,5 @@
   <dimen name="container_main_margin_top">140dp</dimen>
   <dimen name="container_margin_top">180dp</dimen>
   <dimen name="content_margin_30">30dp</dimen>
+  <dimen name="content_margin_top_80">80dp</dimen>
 </resources>

@@ -56,39 +56,48 @@
   <string name="text_pass_reply">Repite Contraseña</string>
 
   // Dashboard Activity
+  <string name="action_cancer">Información</string>
+  <string name="action_trata">Tratamientos</string>
+  <string name="action_incidence">Incidencia</string>
+  <string name="action_history">Historial</string>
   <string name="action_settings">Ajustes</string>
-  <string name="btn_info_cancer">Información</string>
-  <string name="btn_info_trata">Tratamientos</string>
-  <string name="btn_web">Web</string>
-  <string name="btn_incidences">Incidencia</string>
-  <string name="btn_history">Historial</string>
-
-  // Incidence Activity
-  <string name="toolbar_new_incidence">Nueva incidencia</string>
-  <string name="str_inci_title">Elige el tipo de incidencia:</string>
-
-  // Settings Activity
-  <string name="app_preferences">Ajustes</string>
-  <string name="field_alias">Cambiar alias</string>
-  <string name="field_pass">Cambiar password</string>
-  <string name="user_preferences">Datos usuario</string>
-  <string name="logout_preferences">Cerrar Sesion en Xemio</string>
-  <string name="logout_title_preferences">Cerrar sesion</string>
-  <string name="about_preferences">App</string>
-  <string name="marketTitle">Google Play</string>
-  <string name="rateTitle_menu">Puntuacion</string>
-  <string name="author_title_preferences">Autores</string>
-  <string name="versionTitle_preferences">Version de la aplicacion</string>
+  <string name="action_web">Web</string>
 
   // Info Activity
-  <string name="info_title">Información Cáncer de Mama</string>
-  <string name="info_1">1.- ¿Que es el cancer de mama?</string>
-  <string name="info_2">2.- ¿Que pruebas me van a realizar?</string>
-  <string name="info_3">3.- Tipos de celulas y tipos de tumores</string>
-  <string name="info_4">4.- ¿Como clasificamos el cancer de mama que me han diagnosticado?</string>
-  <string name="info_5">5.- Tipo de tratamiento</string>
-  <string name="info_6">6.- Otros aspectos a tener en cuenta</string>
-  <string name="info_7">7.- Otros sitios para consultar</string>
+  <string name="toolbar_title_info">Información Cáncer de Mama</string>
+  <string name="info_title_1">1.- ¿Qué es el cáncer de mama?</string>
+  <string name="info_title_2">2.- ¿Qué pruebas me van a realizar?</string>
+  <string name="info_title_3">3.- Tipos de células y tipos de tumores</string>
+  <string name="info_title_4">4.- ¿Cómo clasificamos el cáncer de mama que me han diagnosticado?</string>
+  <string name="info_title_5">5.- Tipo de tratamiento</string>
+  <string name="info_title_6">6.- Otros aspectos a tener en cuenta</string>
+  <string name="info_title_7">7.- Otros sitios para consultar</string>
+
+  // Trata Activity
+  <string name="toolbar_title_trata">Información Tratamientos</string>
+  <string name="text_trata">Texto.</string>
+
+  // Incidence Activity
+  <string name="toolbar_title_incidence">Nueva incidencia</string>
+  <string name="text_incidence">Elige el tipo de incidencia:</string>
+
+  // History Activity
+  <string name="toolbar_title_history">Información Tratamientos</string>
+  <string name="text_history">Texto.</string>
+
+  // Settings Activity
+  <string name="toolbar_title_settings">Ajustes</string>
+  <string name="category_user">Ajustes</string>
+  <string name="field_alias">Cambiar alias</string>
+  <string name="field_pass">Cambiar contraseña</string>
+  <string name="category_about">App</string>
+  <string name="field_market">Google Play</string>
+  <string name="field_rate">Puntuación</string>
+  <string name="field_authors">Autores</string>
+  <string name="field_version">Version de la aplicación</string>
+  <string name="category_data">Datos usuario</string>
+  <string name="field_logout_title">Cerrar sesión</string>
+  <string name="field_logout_text">Salir de la App</string>
 
   // error message
   <string name="error_email">Email inválido</string>

@@ -42,13 +42,13 @@ public class InfoActivity extends BaseActivity {
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     final ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_1)));
-    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_2)));
-    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_3)));
-    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_4)));
-    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_5)));
-    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_6)));
-    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_7)));
+    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_title_1)));
+    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_title_2)));
+    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_title_3)));
+    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_title_4)));
+    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_title_5)));
+    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_title_6)));
+    adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_title_7)));
     mPager.setAdapter(adapter);
 
     mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

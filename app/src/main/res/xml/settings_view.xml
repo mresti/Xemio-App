@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/app_preferences">
+  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/category_user">
     <com.jenzz.materialpreference.Preference
         android:key="alias_field"
         android:summary="@string/field_alias"
@@ -13,28 +13,28 @@
         />
   </com.jenzz.materialpreference.PreferenceCategory>
 
-  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/about_preferences">
+  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/category_about">
     <com.jenzz.materialpreference.Preference
-        android:title="@string/versionTitle_preferences"
+        android:title="@string/field_version"
         android:summary="v.0.6.123"
         />
     <com.jenzz.materialpreference.Preference
         android:key="authorsPref"
-        android:title="@string/author_title_preferences"
+        android:title="@string/field_authors"
         />
 
     <com.jenzz.materialpreference.Preference
         android:key="ratePref"
-        android:summary="@string/marketTitle"
-        android:title="@string/rateTitle_menu"
+        android:summary="@string/field_market"
+        android:title="@string/field_rate"
         />
   </com.jenzz.materialpreference.PreferenceCategory>
 
-  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/user_preferences">
+  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/category_data">
     <com.jenzz.materialpreference.Preference
         android:key="logOutPref"
-        android:summary="@string/logout_preferences"
-        android:title="@string/logout_title_preferences"
+        android:summary="@string/field_logout_text"
+        android:title="@string/field_logout_title"
         />
   </com.jenzz.materialpreference.PreferenceCategory>
 
