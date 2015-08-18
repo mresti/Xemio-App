@@ -3,6 +3,7 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -13,13 +14,13 @@ import es.mresti.xemio.app.view.RegisterView;
 
 public class RegisterActivity extends BaseActivity implements RegisterView {
 
-  private static final String mLOGTAG = "LogsAndroid";
   private Navigator mNavigator;
 
   // UI items
   @Bind(R.id.btn_login) Button mBtn_login;
   @Bind(R.id.btn_logup) Button mBtn_logup;
   @Bind(R.id.btn_deny) Button mBtn_deny;
+  @Bind(R.id.btn_begin) Button mBtn_begin;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, RegisterActivity.class);
@@ -37,6 +38,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
    */
   private void initialize() {
     this.mNavigator = new Navigator();
+    mBtn_begin.setVisibility(View.GONE);
   }
 
   /**
