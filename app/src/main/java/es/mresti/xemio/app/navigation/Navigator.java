@@ -6,6 +6,7 @@ import android.net.Uri;
 import es.mresti.xemio.app.view.activity.CancerActivity;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
+import es.mresti.xemio.app.view.activity.HistoryActivity;
 import es.mresti.xemio.app.view.activity.IncidenceActivity;
 import es.mresti.xemio.app.view.activity.InfoActivity;
 import es.mresti.xemio.app.view.activity.LoginActivity;
@@ -13,6 +14,7 @@ import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.PassActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
+import es.mresti.xemio.app.view.activity.TrataActivity;
 import es.mresti.xemio.app.view.activity.VerifyActivity;
 
 /**
@@ -155,6 +157,20 @@ public class Navigator {
   public void navigateToInfo(Context context) {
     if (context != null) {
       Intent intentToLaunch = InfoActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  public void navigateToTrata(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = TrataActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  public void navigateToHistory(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = HistoryActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

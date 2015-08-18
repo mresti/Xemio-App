@@ -96,6 +96,18 @@
         >
     </activity>
 
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.TrataActivity"
+        android:label="Tratamientos"
+        >
+    </activity>
+
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.HistoryActivity"
+        android:label="Historial"
+        >
+    </activity>
+
   </application>
 
 </manifest>

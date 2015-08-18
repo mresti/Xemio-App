@@ -110,12 +110,16 @@ public class DashboardActivity extends BaseActivity
         this.mNavigator.navigateToInfo(this);
         break;
       case 1:
+        //Goes to the trata screen.
+        this.mNavigator.navigateToTrata(this);
         break;
       case 2:
         //Goes to the incidence screen.
         this.mNavigator.navigateToNewIncidence(this);
         break;
       case 3:
+        //Goes to the history screen.
+        this.mNavigator.navigateToHistory(this);
         break;
       case 4:
         //Goes to the settings screen.

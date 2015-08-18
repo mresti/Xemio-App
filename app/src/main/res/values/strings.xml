@@ -93,7 +93,6 @@
   <string name="info_7">7.- Otros sitios para consultar</string>
 
 
-
   // error message
   <string name="error_email">Email inválido</string>
   <string name="error_empty">No puede estar en blanco</string>

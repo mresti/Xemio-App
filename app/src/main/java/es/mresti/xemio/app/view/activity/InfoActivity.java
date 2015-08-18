@@ -69,9 +69,11 @@ public class InfoActivity extends BaseActivity {
         }
       }
 
-      @Override public void onPageSelected(int position) { }
+      @Override public void onPageSelected(int position) {
+      }
 
-      @Override public void onPageScrollStateChanged(int state) { }
+      @Override public void onPageScrollStateChanged(int state) {
+      }
     });
   }
 
