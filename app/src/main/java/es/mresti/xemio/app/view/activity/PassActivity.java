@@ -16,7 +16,6 @@ import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.PassPresenter;
 import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.view.PassView;
-import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
 import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class PassActivity extends BaseActivity implements PassView {

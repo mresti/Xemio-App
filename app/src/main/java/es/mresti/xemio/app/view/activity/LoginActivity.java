@@ -17,7 +17,6 @@ import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.LoginPresenter;
 import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.view.LoginView;
-import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
 import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.PassValidator;
 
