@@ -24,7 +24,8 @@ Libraries used on the project
 * [Support Library][11]
 * [Butterknife][12]
 * [Material Dialogs][13]
-* [MaterialSpinner][16]
+* [Material Spinner][17]
+* [Material Preference][19]
 * [JUnit][14]
 * [Mockito][15]
 * [Espresso][16]
@@ -35,7 +36,7 @@ Resources
 * [From Legacy to Hexagonal - Ruben Serrano][0]
 * [Architecting Android... The clean way - Fernando Cejas][1]
 * [MVP Android - Antonio Leiva][2]
-* [Effective Android UI][3]
+* [Effective Android UI - Pedro Vicente Gómez Sánchez][3]
 * [The clean architecture] [4]
 * [A useful stack on android #1, architecture - Saul Molinero] [5]
 * [Droidcon ES - What's new in Android Testing 2015 - Jose Alcerreca][6]
@@ -86,3 +87,4 @@ License
 [15]: https://github.com/mockito/mockito
 [16]: https://developer.android.com/tools/testing-support-library/index.html
 [17]: https://github.com/ganfra/MaterialSpinner
+[18]: https://github.com/jenzz/Android-MaterialPreference
