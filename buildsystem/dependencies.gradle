@@ -1,6 +1,6 @@
 ext {
   // Version
-  supportLibrary = '22.2.1'
+  supportLibrary = '23.0.0'
 
   // Support Libraries dependencies
   supportDependencies = [
