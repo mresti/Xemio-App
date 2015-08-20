@@ -30,7 +30,7 @@
       android:layout_height="match_parent"
       android:orientation="vertical"
       android:background="@color/color_white"
-      android:layout_marginTop="@dimen/content_margin_top_80"
+      android:layout_marginTop="?attr/actionBarSize"
       >
 
     <android.support.v7.widget.RecyclerView

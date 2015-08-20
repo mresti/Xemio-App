@@ -11,9 +11,11 @@
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_weight="1"
-      android:textSize="20sp"
-      android:padding="30dp"
-      android:fontFamily="sans-serif-light"
+      android:textAppearance="@style/TextAppearance.AppCompat.Title"
+      android:textColor="@color/ColorPrimaryDark"
+      android:layout_marginBottom="@dimen/card_margin"
+      android:layout_marginLeft="@dimen/card_margin"
+      android:layout_marginRight="@dimen/card_margin"
       tools:text="Sample text"
       />
 

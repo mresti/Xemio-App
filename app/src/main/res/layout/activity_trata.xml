@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,20 +30,16 @@
       android:layout_height="match_parent"
       android:orientation="vertical"
       android:background="@color/color_white"
-      android:layout_marginTop="@dimen/content_margin_top_80"
+      android:layout_marginTop="?attr/actionBarSize"
       >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="@string/text_history"
-        android:layout_marginBottom="@dimen/card_margin"
-        android:layout_marginLeft="@dimen/card_margin"
-        android:layout_marginRight="@dimen/card_margin"
-        android:layout_marginTop="@dimen/card_margin"
-        >
-    </TextView>
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/recycler_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:scrollbars="vertical"
+          tools:listitem="@layout/list_trata_item"
+          />
 
 
   </LinearLayout>
