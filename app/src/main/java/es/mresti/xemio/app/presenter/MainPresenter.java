@@ -1,5 +1,6 @@
 package es.mresti.xemio.app.presenter;
 
+import android.content.Context;
 import es.mresti.xemio.app.interactor.MainInteractor;
 import es.mresti.xemio.app.view.MainView;
 
@@ -35,7 +36,7 @@ public class MainPresenter implements Presenter {
     mMainView.navigateToVerifyScreen();
   }
 
-  public void getUserStatus() {
-    mMainInteractor.userStatus();
+  public void getUserStatus(Context c) {
+    mMainInteractor.userStatus(c);
   }
 }

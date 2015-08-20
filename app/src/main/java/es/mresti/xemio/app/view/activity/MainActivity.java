@@ -29,6 +29,7 @@ public class MainActivity extends BaseActivity implements MainView {
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
     this.initialize();
+    //Firebase.setAndroidContext(this);
     mPresenter = PresenterFactory.getMainPresenter(this);
   }
 
@@ -43,7 +44,7 @@ public class MainActivity extends BaseActivity implements MainView {
    * Goes to the user register screen.
    */
   @OnClick(R.id.btn_begin) void navigateToRegisterscreen() {
-    this.mPresenter.getUserStatus();
+    this.mPresenter.getUserStatus(getContext());
     this.mNavigator.navigateToUserRegister(this);
     finish();
   }
@@ -90,6 +91,6 @@ public class MainActivity extends BaseActivity implements MainView {
   }
 
   @Override public Context getContext() {
-    return null;
+    return getApplicationContext();
   }
 }
