@@ -25,7 +25,7 @@ Libraries used on the project
 * [Butterknife][12]
 * [Material Dialogs][13]
 * [Material Spinner][17]
-* [Material Preference][19]
+* [Material Preference][18]
 * [JUnit][14]
 * [Mockito][15]
 * [Espresso][16]

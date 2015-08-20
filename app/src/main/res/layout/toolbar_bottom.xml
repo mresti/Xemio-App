@@ -27,8 +27,8 @@
         android:layout_height="fill_parent"
         android:text="@string/btn_deny"
         android:layout_gravity="start"
-        android:layout_weight="0.2"
         style="?android:attr/borderlessButtonStyle"
+        android:layout_weight="0.2"
         />
 
     <View

@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      android:layout_marginTop="@dimen/logo_margin_top"
-      android:background="@color/color_alpha"
-      >
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/xemio_icon_blanco"
-        android:contentDescription="@string/logo_description"
-        />
-  </LinearLayout>
+    <include layout="@layout/container_logo"/>
 
   <LinearLayout
       android:layout_width="match_parent"
@@ -93,55 +78,5 @@
 
   </LinearLayout>
 
-  <LinearLayout
-      android:background="@color/color_alpha"
-      android:layout_width="match_parent"
-      android:layout_height="?attr/actionBarSize"
-      android:gravity="bottom"
-      android:layout_alignParentBottom="true"
-      android:orientation="vertical"
-      android:weightSum="1"
-      >
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:background="@color/ColorDivider"
-        >
-    </TextView>
-    <LinearLayout
-        android:background="@color/color_white"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:weightSum="1"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        >
-      <Button
-          android:id="@+id/btn_deny"
-          android:layout_width="wrap_content"
-          android:layout_height="fill_parent"
-          android:text="@string/btn_back"
-          android:layout_gravity="start"
-          style="?android:attr/borderlessButtonStyle"
-          android:layout_weight="0.2"
-          />
-
-      <FrameLayout
-          android:layout_width="wrap_content"
-          android:layout_height="fill_parent"
-          android:layout_weight="0.6"
-          android:layout_gravity="center"
-          />
-
-      <Button
-          android:id="@+id/btn_save"
-          android:layout_width="wrap_content"
-          android:layout_height="fill_parent"
-          android:text="@string/btn_go"
-          android:layout_gravity="start"
-          android:layout_weight="0.2"
-          android:textColor="@color/color_white"
-          />
-    </LinearLayout>
-  </LinearLayout>
-</RelativeLayout>
+    <include layout="@layout/toolbar_bottom_btn"/>
+</merge>
