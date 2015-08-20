@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     >
 
-    <include layout="@layout/container_logo"/>
+  <include layout="@layout/container_logo"/>
 
   <LinearLayout
       android:layout_width="match_parent"
