@@ -19,6 +19,11 @@ ext {
       materialPref     :         "com.jenzz:materialpreference:1.3",
   ]
 
+  // Datasource Library dependencies
+  datasourceDependencies = [
+      firebase        :         "com.firebase:firebase-client-android:2.3.1+",
+  ]
+
   // Testing Libraries dependencies
   testingDependencies = [
       junit           :         "junit:junit:4.12",
