@@ -3,12 +3,15 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.view.adapter.HistoryRecyclerAdapter;
 
 public class HistoryActivity extends BaseActivity {
 
@@ -31,6 +34,18 @@ public class HistoryActivity extends BaseActivity {
   private void initialize() {
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    // RecyclerView
+    final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+    recyclerView.setHasFixedSize(true);
+
+    // RecyclerView layout manager
+    final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+    recyclerView.setLayoutManager(mLayoutManager);
+
+    // RecyclerView adapter
+    final HistoryRecyclerAdapter historyRecyclerAdapter = new HistoryRecyclerAdapter();
+    recyclerView.setAdapter(historyRecyclerAdapter);
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
