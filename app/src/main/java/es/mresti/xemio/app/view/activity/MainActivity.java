@@ -9,6 +9,7 @@ import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.MainPresenter;
+import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.view.MainView;
 
 /**
@@ -28,6 +29,7 @@ public class MainActivity extends BaseActivity implements MainView {
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
     this.initialize();
+    mPresenter = PresenterFactory.getMainPresenter(this);
   }
 
   /**
@@ -41,6 +43,7 @@ public class MainActivity extends BaseActivity implements MainView {
    * Goes to the user register screen.
    */
   @OnClick(R.id.btn_begin) void navigateToRegisterscreen() {
+    this.mPresenter.getUserStatus();
     this.mNavigator.navigateToUserRegister(this);
     finish();
   }

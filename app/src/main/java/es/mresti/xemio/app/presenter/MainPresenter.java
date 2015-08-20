@@ -34,4 +34,8 @@ public class MainPresenter implements Presenter {
   public void onSuccess() {
     mMainView.navigateToVerifyScreen();
   }
+
+  public void getUserStatus() {
+    mMainInteractor.userStatus();
+  }
 }
