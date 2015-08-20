@@ -25,7 +25,6 @@ public class CancerActivity extends BaseActivity implements CancerView {
   private CancerPresenter presenter;
   private Navigator mNavigator;
   private ArrayAdapter<String> adapter1;
-  private MaterialSpinner spinner2;
 
   // UI items
   @Bind(R.id.btn_next) Button mBtn_next;
@@ -77,7 +76,7 @@ public class CancerActivity extends BaseActivity implements CancerView {
   }
 
   private void initSpinner() {
-    spinner2 = (MaterialSpinner) findViewById(R.id.spinner4);
+    MaterialSpinner spinner2 = (MaterialSpinner) findViewById(R.id.spinner4);
     spinner2.setAdapter(adapter1);
   }
 

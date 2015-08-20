@@ -28,8 +28,7 @@ public class PassActivity extends BaseActivity implements PassView {
   private PassValidator mPassValidator2;
 
   // UI items
-  @Bind(R.id.btn_next) Button mBtn_save;
-  @Bind(R.id.btn_deny) Button mBtn_Deny;
+  @Bind(R.id.btn_next) Button mBtn_next;
   @Bind(R.id.passInput1) EditText mPassInput1;
   @Bind(R.id.passInputLayout1) TextInputLayout mPassInputLayout1;
   @Bind(R.id.passInput2) EditText mPassInput2;
@@ -85,13 +84,6 @@ public class PassActivity extends BaseActivity implements PassView {
     if (passValid1 && passValid2) {
       presenter.validatePass(mPassInput1.getText().toString(), mPassInput2.getText().toString());
     }
-  }
-
-  /**
-   * Goes to the user LogIn screen.
-   */
-  @OnClick(R.id.btn_deny) void navigateToFinish() {
-    finish();
   }
 
   @Override public void showProgress() {

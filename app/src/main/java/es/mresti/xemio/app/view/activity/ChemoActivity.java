@@ -22,13 +22,10 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
   private static final String mLOGTAG = "LogsAndroid";
   private ChemoPresenter presenter;
   private Navigator mNavigator;
-  private static final String[] ITEMS =
-      { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
   private ArrayAdapter<String> adapter1;
-  private MaterialSpinner spinner2;
 
   // UI items
-  @Bind(R.id.btn_next) Button btn_next;
+  @Bind(R.id.btn_next) Button mBtn_next;
   @Bind(R.id.progress) ProgressBar mProgress;
 
   public static Intent getCallingIntent(Context context) {
@@ -68,7 +65,7 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
   }
 
   private void initSpinner() {
-    spinner2 = (MaterialSpinner) findViewById(R.id.spinner4);
+    MaterialSpinner spinner2 = (MaterialSpinner) findViewById(R.id.spinner4);
     spinner2.setAdapter(adapter1);
   }
 
