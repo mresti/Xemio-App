@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.mresti.xemio.R;
-import es.mresti.xemio.app.view.adapter.HistoryRecyclerAdapter;
 import es.mresti.xemio.app.view.adapter.TrataRecyclerAdapter;
 
 public class TrataActivity extends BaseActivity {

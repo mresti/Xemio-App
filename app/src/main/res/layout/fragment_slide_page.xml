@@ -17,8 +17,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="@dimen/card_margin"
-        android:layout_marginBottom="?attr/actionBarSize"
-        android:paddingBottom="?attr/actionBarSize"
+        android:layout_marginBottom="?android:attr/actionBarSize"
+        android:paddingBottom="?android:attr/actionBarSize"
         >
 
       <android.support.v7.widget.CardView

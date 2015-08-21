@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingTop="@dimen/container_main_margin_top"
-    android:paddingBottom="?attr/actionBarSize"
+    android:paddingBottom="?android:attr/actionBarSize"
     >
 
   <ScrollView
