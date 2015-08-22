@@ -53,6 +53,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
    */
   @OnClick(R.id.btn_login) void navigateToLogIn() {
     this.mNavigator.navigateToUserLogIn(this);
+    finish();
   }
 
   /**
@@ -60,6 +61,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
    */
   @OnClick(R.id.btn_logup) void navigateToLogUp() {
     this.mNavigator.navigateToUserLogUp(this);
+    finish();
   }
 
   @Override public void showProgress() {
@@ -83,6 +85,6 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
   }
 
   @Override public Context getContext() {
-    return null;
+    return getApplicationContext();
   }
 }

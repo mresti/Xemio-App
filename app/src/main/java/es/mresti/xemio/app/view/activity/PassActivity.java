@@ -127,6 +127,6 @@ public class PassActivity extends BaseActivity implements PassView {
   }
 
   @Override public Context getContext() {
-    return null;
+    return getApplicationContext();
   }
 }

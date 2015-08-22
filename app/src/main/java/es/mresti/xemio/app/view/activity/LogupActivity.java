@@ -107,6 +107,7 @@ public class LogupActivity extends BaseActivity implements LogupView {
    * Goes to the finish activity.
    */
   @OnClick(R.id.btn_deny) void navigateToFinish() {
+    this.mNavigator.navigateToUserRegister(this);
     finish();
   }
 
@@ -151,6 +152,6 @@ public class LogupActivity extends BaseActivity implements LogupView {
   }
 
   @Override public Context getContext() {
-    return null;
+    return getApplicationContext();
   }
 }

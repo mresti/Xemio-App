@@ -102,6 +102,6 @@ public class CancerActivity extends BaseActivity implements CancerView {
   }
 
   @Override public Context getContext() {
-    return null;
+    return getApplicationContext();
   }
 }

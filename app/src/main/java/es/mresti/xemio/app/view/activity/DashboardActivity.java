@@ -94,7 +94,7 @@ public class DashboardActivity extends BaseActivity
   }
 
   @Override public Context getContext() {
-    return null;
+    return getApplicationContext();
   }
 
   @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

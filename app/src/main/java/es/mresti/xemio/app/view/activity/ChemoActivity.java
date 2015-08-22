@@ -93,6 +93,6 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
   }
 
   @Override public Context getContext() {
-    return null;
+    return getApplicationContext();
   }
 }

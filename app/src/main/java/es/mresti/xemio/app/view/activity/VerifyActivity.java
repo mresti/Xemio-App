@@ -121,6 +121,6 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
   }
 
   @Override public Context getContext() {
-    return null;
+    return getApplicationContext();
   }
 }
