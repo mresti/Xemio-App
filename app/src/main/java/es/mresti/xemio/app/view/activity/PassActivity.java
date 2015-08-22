@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import butterknife.Bind;
@@ -20,7 +19,6 @@ import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class PassActivity extends BaseActivity implements PassView {
 
-  private static final String mLOGTAG = "LogsAndroid";
   private Navigator mNavigator;
   private PassPresenter presenter;
   private MaterialDialog mDialog;
@@ -68,7 +66,6 @@ public class PassActivity extends BaseActivity implements PassView {
     if (!passValid1) {
       mPassInputLayout1.setErrorEnabled(true);
       mPassInputLayout1.setError(getText(R.string.error_empty));
-      Log.w(mLOGTAG, "Not saving personal information: Invalid pass1");
     } else {
       mPassInputLayout1.setErrorEnabled(false);
     }
@@ -76,7 +73,6 @@ public class PassActivity extends BaseActivity implements PassView {
     if (!passValid2) {
       mPassInputLayout2.setErrorEnabled(true);
       mPassInputLayout2.setError(getText(R.string.error_empty));
-      Log.w(mLOGTAG, "Not saving personal information: Invalid pass2");
     } else {
       mPassInputLayout2.setErrorEnabled(false);
     }
@@ -94,7 +90,6 @@ public class PassActivity extends BaseActivity implements PassView {
   }
 
   @Override public void hideProgress() {
-    Log.w(mLOGTAG, "Cancel indeterminate progress dialog 2");
     mDialog.cancel();
   }
 

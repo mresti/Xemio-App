@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +21,6 @@ import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class LoginActivity extends BaseActivity implements LoginView {
 
-  private static final String mLOGTAG = "LoginActivity";
   private LoginPresenter presenter;
   private Navigator mNavigator;
   private EmailValidator mEmailValidator;
@@ -72,7 +70,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
     if (!emailValid) {
       mEmailInputLayout.setErrorEnabled(true);
       mEmailInputLayout.setError(getText(R.string.error_email));
-      Log.w(mLOGTAG, "Not saving personal information: Invalid email");
     } else {
       mEmailInputLayout.setErrorEnabled(false);
     }
@@ -80,7 +77,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
     if (!passValid) {
       mPassInputLayout.setErrorEnabled(true);
       mPassInputLayout.setError(getText(R.string.error_empty));
-      Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
     } else {
       mPassInputLayout.setErrorEnabled(false);
     }

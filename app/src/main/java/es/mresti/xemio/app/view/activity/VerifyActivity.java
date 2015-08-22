@@ -3,7 +3,6 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -17,7 +16,6 @@ import es.mresti.xemio.app.view.VerifyView;
 
 public class VerifyActivity extends BaseActivity implements VerifyView {
 
-  private static final String mLOGTAG = "LogsAndroid";
   private Navigator mNavigator;
   private VerifyPresenter presenter;
   private MaterialDialog mDialog1;
@@ -50,7 +48,6 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
    * Goes to the user verified screen.
    */
   @OnClick(R.id.btn_verify) void navigateToVerified() {
-    //this.mNavigator.navigateToCancer(this);
     presenter.getVerifyUser();
   }
 
@@ -68,7 +65,6 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
           }
 
           @Override public void onNegative(MaterialDialog dialog) {
-            Log.w(mLOGTAG, "Cancel pulsado");
           }
         })
         .show();
@@ -82,7 +78,6 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
   }
 
   @Override public void hideProgress() {
-    Log.w(mLOGTAG, "Cancel indeterminate progress dialog");
     mDialog1.cancel();
   }
 
@@ -98,7 +93,6 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
   }
 
   @Override public void hideProgress2() {
-    Log.w(mLOGTAG, "Cancel indeterminate progress dialog 2");
     mDialog2.cancel();
   }
 
@@ -109,11 +103,9 @@ public class VerifyActivity extends BaseActivity implements VerifyView {
         .neutralText(R.string.dialog_verify_pos)
         .callback(new MaterialDialog.ButtonCallback() {
           @Override public void onNeutral(MaterialDialog dialog) {
-            Log.w(mLOGTAG, "OK verificado pulsado");
           }
         })
         .show();
-    Log.w(mLOGTAG, "OK pulsado");
   }
 
   @Override public void showRetry() {

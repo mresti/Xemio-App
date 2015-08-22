@@ -19,7 +19,6 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 
 public class ChemoActivity extends BaseActivity implements ChemoView {
 
-  private static final String mLOGTAG = "LogsAndroid";
   private ChemoPresenter presenter;
   private Navigator mNavigator;
   private ArrayAdapter<String> adapter1;

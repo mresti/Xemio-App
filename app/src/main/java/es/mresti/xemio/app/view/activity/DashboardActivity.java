@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,9 +22,8 @@ import es.mresti.xemio.app.view.DashboardView;
 
 public class DashboardActivity extends BaseActivity
     implements DashboardView, AdapterView.OnItemClickListener {
-  private static final String mLOGTAG = "LogsAndroid";
+
   private Navigator mNavigator;
-  static final String EXTRA_MAP = "map";
   static final LauncherIcon[] ICONS = {
       new LauncherIcon(R.drawable.ic_info_black_48dp, "Información", "ic_info_black_48dp.png"),
       new LauncherIcon(R.drawable.ic_assignment_black_48dp, "Tratamientos",
@@ -59,7 +57,6 @@ public class DashboardActivity extends BaseActivity
   private void initialize() {
     this.mNavigator = new Navigator();
     setSupportActionBar(mToolbar);
-    Log.i(mLOGTAG, "estoy en el inicialize");
 
     Snackbar.make(findViewById(R.id.main_content), "¡¡Bienvenido <alias>!!", Snackbar.LENGTH_LONG)
         .setAction("Action", null)
@@ -101,8 +98,6 @@ public class DashboardActivity extends BaseActivity
   }
 
   @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    Log.w(mLOGTAG, "item pulsado");
-    Log.w(mLOGTAG, Integer.toString(position));
     switch (position) {
       case 0:
         //Goes to the info screen.

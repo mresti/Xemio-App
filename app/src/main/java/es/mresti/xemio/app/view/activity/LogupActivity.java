@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +22,6 @@ import es.mresti.xemio.app.view.validator.NumericValidator;
 
 public class LogupActivity extends BaseActivity implements LogupView {
 
-  private static final String mLOGTAG = "LogsAndroid";
   private LogupPresenter presenter;
   private Navigator mNavigator;
   private ProgressBar progressBar;
@@ -81,7 +79,6 @@ public class LogupActivity extends BaseActivity implements LogupView {
     if (!emailValid) {
       mEmailInputLayout.setErrorEnabled(true);
       mEmailInputLayout.setError(getText(R.string.error_email));
-      Log.w(mLOGTAG, "Not saving personal information: Invalid email");
     } else {
       mEmailInputLayout.setErrorEnabled(false);
     }
@@ -89,7 +86,6 @@ public class LogupActivity extends BaseActivity implements LogupView {
     if (!aliasValid) {
       mAliasInputLayout.setErrorEnabled(true);
       mAliasInputLayout.setError(getText(R.string.error_empty));
-      Log.w(mLOGTAG, "Not saving personal information: Invalid alias");
     } else {
       mAliasInputLayout.setErrorEnabled(false);
     }
@@ -97,13 +93,11 @@ public class LogupActivity extends BaseActivity implements LogupView {
     if (!ageValid) {
       mAgeInputLayout.setErrorEnabled(true);
       mAgeInputLayout.setError(getText(R.string.error_age));
-      Log.w(mLOGTAG, "Not saving personal information: Invalid age");
     } else {
       mAgeInputLayout.setErrorEnabled(false);
     }
 
     if (emailValid && aliasValid && ageValid) {
-      //this.mNavigator.navigateToVerify(this);
       presenter.setRegister(mAliasText.getText().toString(), mEmailText.getText().toString(),
           mAgeInput.getText().toString());
     }
