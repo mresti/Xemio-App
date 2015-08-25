@@ -1,7 +1,8 @@
 package es.mresti.xemio.app.interactor;
 
 import android.content.Context;
-import com.firebase.client.Firebase;
+import es.mresti.xemio.app.datasource.ApiData;
+import es.mresti.xemio.app.datasource.ApiDataImpl;
 import es.mresti.xemio.app.presenter.MainPresenter;
 
 public class MainInteractorImpl implements MainInteractor {
@@ -12,9 +13,8 @@ public class MainInteractorImpl implements MainInteractor {
   }
 
   @Override public void userStatus(Context c) {
-    Firebase.setAndroidContext(c);
-    Firebase myFirebaseRef = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com/");
-    myFirebaseRef.child("message").setValue("Do you have data? You'll love Firebasasase.");
+    ApiData api = new ApiDataImpl(c);
+    api.addIncidence("hola", "hola");
     // show dashboardActivity
 
     // show verifyActivity

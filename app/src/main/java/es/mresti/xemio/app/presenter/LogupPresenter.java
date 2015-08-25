@@ -36,12 +36,10 @@ public class LogupPresenter implements Presenter {
     mLogupInteractor.register(email, password1, password2);
   }
 
-
   public void onEmailError() {
     mLogupView.setEmailError();
     mLogupView.hideProgress();
   }
-
 
   public void onPassError1() {
     mLogupView.setPass1Error();
