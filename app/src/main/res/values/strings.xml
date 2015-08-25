@@ -89,6 +89,7 @@
   <string name="toolbar_title_settings">Ajustes</string>
   <string name="category_user">Ajustes</string>
   <string name="field_alias">Cambiar alias</string>
+  <string name="field_age">Cambiar edad</string>
   <string name="field_pass">Cambiar contraseña</string>
   <string name="category_about">App</string>
   <string name="field_market">Google Play</string>

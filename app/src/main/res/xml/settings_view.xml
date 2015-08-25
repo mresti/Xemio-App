@@ -9,6 +9,9 @@
         android:title="@string/field_alias"
         />
     <com.jenzz.materialpreference.Preference
+        android:title="@string/field_age"
+        />
+    <com.jenzz.materialpreference.Preference
         android:title="@string/field_pass"
         />
   </com.jenzz.materialpreference.PreferenceCategory>
@@ -16,7 +19,7 @@
   <com.jenzz.materialpreference.PreferenceCategory android:title="@string/category_about">
     <com.jenzz.materialpreference.Preference
         android:title="@string/field_version"
-        android:summary="v.0.6.123"
+        android:summary="v.0.7.23"
         />
     <com.jenzz.materialpreference.Preference
         android:key="authorsPref"
