@@ -33,7 +33,7 @@ public class MainPresenter implements Presenter {
   }
 
   public void onSuccess() {
-    mMainView.navigateToVerifyScreen();
+    mMainView.navigateToDashboardScreen();
   }
 
   public void getUserStatus(Context c) {

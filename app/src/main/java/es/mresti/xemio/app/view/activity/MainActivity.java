@@ -69,15 +69,6 @@ public class MainActivity extends BaseActivity implements MainView {
     finish();
   }
 
-  @Override public void navigateToVerifyScreen() {
-    this.mNavigator.navigateToVerify(this);
-    finish();
-  }
-
-  @Override public void navigateToInitScreen() {
-    // Show view components
-  }
-
   @Override public void showRetry() {
 
   }

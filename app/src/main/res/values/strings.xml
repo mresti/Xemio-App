@@ -28,6 +28,12 @@
 
   // Logup Activity
   <string name="title_logup">Rellena sus datos para comenzar</string>
+  <string name="pass_text">Para asegurar una mayor seguridad de su usuario, necesitas crear una contraseña. Además, desde la aplicación podrás cambiar la contraseña.</string>
+  <string name="text_pass">Contraseña</string>
+  <string name="text_pass_reply">Repite Contraseña</string>
+
+  // Extra Activity
+  <string name="title_extra">Rellena sus datos para comenzar</string>
   <string name="text_alias">Nombre</string>
   <string name="text_age">Edad</string>
 
@@ -48,12 +54,6 @@
   <string name="title_cancer">Selecciona su tipo de cáncer</string>
   <string name="title_chemo">Selecciona su tipo de quimioterapia</string>
   <string name="btn_next">Siguiente</string>
-
-  // Pass activity
-  <string name="title_pass">Su seguridad</string>
-  <string name="pass_text">Para asegurar una mayor seguridad de su usuario, necesitas crear una contraseña. Además, desde la aplicación podrás cambiar la contraseña.</string>
-  <string name="text_pass">Contraseña</string>
-  <string name="text_pass_reply">Repite Contraseña</string>
 
   // Dashboard Activity
   <string name="action_cancer">Información</string>

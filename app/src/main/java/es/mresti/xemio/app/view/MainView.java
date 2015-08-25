@@ -6,8 +6,4 @@ public interface MainView extends BaseView {
   void hideProgress();
 
   void navigateToDashboardScreen();
-
-  void navigateToVerifyScreen();
-
-  void navigateToInitScreen();
 }

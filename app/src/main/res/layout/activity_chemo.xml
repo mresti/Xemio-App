@@ -37,7 +37,7 @@
         >
 
       <fr.ganfra.materialspinner.MaterialSpinner
-          android:id="@+id/spinner4"
+          android:id="@+id/spinner"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
           android:prompt="@string/element_prompt"

@@ -6,16 +6,15 @@ import android.net.Uri;
 import es.mresti.xemio.app.view.activity.CancerActivity;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
+import es.mresti.xemio.app.view.activity.ExtraActivity;
 import es.mresti.xemio.app.view.activity.HistoryActivity;
 import es.mresti.xemio.app.view.activity.IncidenceActivity;
 import es.mresti.xemio.app.view.activity.InfoActivity;
 import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
-import es.mresti.xemio.app.view.activity.PassActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
 import es.mresti.xemio.app.view.activity.TrataActivity;
-import es.mresti.xemio.app.view.activity.VerifyActivity;
 
 /**
  * Class used to navigate through the application.
@@ -62,26 +61,9 @@ public class Navigator {
     }
   }
 
-  /**
-   * Goes to the dashboard screen.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
-  public void navigateToDashboard(Context context) {
+  public void navigateToExtra(Context context) {
     if (context != null) {
-      Intent intentToLaunch = DashboardActivity.getCallingIntent(context);
-      context.startActivity(intentToLaunch);
-    }
-  }
-
-  /**
-   * Goes to the user verify screen.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
-  public void navigateToVerify(Context context) {
-    if (context != null) {
-      Intent intentToLaunch = VerifyActivity.getCallingIntent(context);
+      Intent intentToLaunch = ExtraActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
@@ -111,45 +93,13 @@ public class Navigator {
   }
 
   /**
-   * Goes to the pass screen.
+   * Goes to the dashboard screen.
    *
    * @param context A Context needed to open the destiny activity.
    */
-  public void navigateToPass(Context context) {
+  public void navigateToDashboard(Context context) {
     if (context != null) {
-      Intent intentToLaunch = PassActivity.getCallingIntent(context);
-      context.startActivity(intentToLaunch);
-    }
-  }
-
-  /**
-   * Goes to the new incidence screen.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
-  public void navigateToNewIncidence(Context context) {
-    if (context != null) {
-      Intent intentToLaunch = IncidenceActivity.getCallingIntent(context);
-      context.startActivity(intentToLaunch);
-    }
-  }
-
-  /**
-   * Goes to the xemio website.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
-  public void navigateToXemioWeb(Context context) {
-    if (context != null) {
-      Intent intentToLaunch = new Intent(Intent.ACTION_VIEW);
-      intentToLaunch.setData(Uri.parse("http://xemio.org"));
-      context.startActivity(intentToLaunch);
-    }
-  }
-
-  public void navigateToSettings(Context context) {
-    if (context != null) {
-      Intent intentToLaunch = SettingsActivity.getCallingIntent(context);
+      Intent intentToLaunch = DashboardActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
@@ -168,9 +118,36 @@ public class Navigator {
     }
   }
 
+  public void navigateToNewIncidence(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = IncidenceActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
   public void navigateToHistory(Context context) {
     if (context != null) {
       Intent intentToLaunch = HistoryActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  public void navigateToSettings(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = SettingsActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  /**
+   * Goes to the xemio website.
+   *
+   * @param context A Context needed to open the destiny activity.
+   */
+  public void navigateToXemioWeb(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = new Intent(Intent.ACTION_VIEW);
+      intentToLaunch.setData(Uri.parse("http://xemio.org"));
       context.startActivity(intentToLaunch);
     }
   }

@@ -31,27 +31,34 @@ public class LogupPresenter implements Presenter {
   @Override public void pause() {
   }
 
-  public void setRegister(String username, String email, String age) {
+  public void setRegister(String email, String password1, String password2) {
     mLogupView.showProgress();
-    mLogupInteractor.register(username, email, age);
+    mLogupInteractor.register(email, password1, password2);
   }
 
-  public void onUsernameError() {
-    mLogupView.setUsernameError();
-    mLogupView.hideProgress();
-  }
 
   public void onEmailError() {
     mLogupView.setEmailError();
     mLogupView.hideProgress();
   }
 
-  public void onAgeError() {
-    mLogupView.setAgeError();
+
+  public void onPassError1() {
+    mLogupView.setPass1Error();
+    mLogupView.hideProgress();
+  }
+
+  public void onPassError2() {
+    mLogupView.setPass2Error();
+    mLogupView.hideProgress();
+  }
+
+  public void onPassErrorDistinct() {
+    mLogupView.setPassDistinctError();
     mLogupView.hideProgress();
   }
 
   public void onSuccess() {
-    mLogupView.navigateToVerifyScreen();
+    mLogupView.navigateToExtraScreen();
   }
 }

@@ -21,11 +21,12 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
 
   private ChemoPresenter presenter;
   private Navigator mNavigator;
-  private ArrayAdapter<String> adapter1;
+  private ArrayAdapter<String> adapter;
 
   // UI items
   @Bind(R.id.btn_next) Button mBtn_next;
   @Bind(R.id.progress) ProgressBar mProgress;
+  @Bind(R.id.spinner) MaterialSpinner mSpinner;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, ChemoActivity.class);
@@ -50,10 +51,9 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
         "Item 6", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 6", "Item 2", "Item 3",
         "Item 4", "Item 5", "Item 6", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"
     };
-    adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
-    adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-    initSpinner();
+    adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    mSpinner.setAdapter(adapter);
   }
 
   /**
@@ -61,11 +61,6 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
    */
   @OnClick(R.id.btn_next) void navigateToVerified() {
     presenter.setChemo();
-  }
-
-  private void initSpinner() {
-    MaterialSpinner spinner2 = (MaterialSpinner) findViewById(R.id.spinner4);
-    spinner2.setAdapter(adapter1);
   }
 
   @Override public void showProgress() {
@@ -77,7 +72,7 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
   }
 
   @Override public void navigateToPassScreen() {
-    this.mNavigator.navigateToPass(this);
+    this.mNavigator.navigateToDashboard(this);
   }
 
   @Override public void showRetry() {

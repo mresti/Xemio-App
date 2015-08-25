@@ -12,6 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.view.adapter.TrataRecyclerAdapter;
+import es.mresti.xemio.app.view.utils.DataDivider;
 
 public class TrataActivity extends BaseActivity {
 
@@ -41,6 +42,10 @@ public class TrataActivity extends BaseActivity {
     // RecyclerView layout manager
     final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
     recyclerView.setLayoutManager(mLayoutManager);
+
+    // RecyclerView ItemDecoration (divider)
+    final RecyclerView.ItemDecoration itemDecoration = new DataDivider(this);
+    recyclerView.addItemDecoration(itemDecoration);
 
     // RecyclerView adapter
     final TrataRecyclerAdapter trataRecyclerAdapter = new TrataRecyclerAdapter();

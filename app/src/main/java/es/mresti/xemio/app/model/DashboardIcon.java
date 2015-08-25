@@ -1,10 +1,9 @@
 package es.mresti.xemio.app.model;
 
-
 public class DashboardIcon {
-  final String text;
-  final int imgId;
-  final String map;
+  public final String text;
+  public final int imgId;
+  public final String map;
 
   public DashboardIcon(int imgId, String text, String map) {
     super();

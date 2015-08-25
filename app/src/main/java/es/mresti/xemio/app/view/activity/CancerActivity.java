@@ -10,7 +10,6 @@ import android.widget.ProgressBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.afollestad.materialdialogs.MaterialDialog;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.CancerPresenter;
@@ -22,11 +21,12 @@ public class CancerActivity extends BaseActivity implements CancerView {
 
   private CancerPresenter presenter;
   private Navigator mNavigator;
-  private ArrayAdapter<String> adapter1;
+  private ArrayAdapter<String> adapter;
 
   // UI items
   @Bind(R.id.btn_next) Button mBtn_next;
   @Bind(R.id.progress) ProgressBar mProgress;
+  @Bind(R.id.spinner) MaterialSpinner mSpinner;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, CancerActivity.class);
@@ -50,19 +50,9 @@ public class CancerActivity extends BaseActivity implements CancerView {
         "Item 6", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 6", "Item 2", "Item 3",
         "Item 4", "Item 5", "Item 6", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"
     };
-    adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
-    adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-    initSpinner();
-
-    MaterialDialog dialog = new MaterialDialog.Builder(this).title(R.string.app_name)
-        .content(R.string.dialog_user_success_text)
-        .neutralText(R.string.dialog_verify_pos)
-        .callback(new MaterialDialog.ButtonCallback() {
-          @Override public void onNeutral(MaterialDialog dialog) {
-          }
-        })
-        .show();
+    adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    mSpinner.setAdapter(adapter);
   }
 
   /**
@@ -70,11 +60,6 @@ public class CancerActivity extends BaseActivity implements CancerView {
    */
   @OnClick(R.id.btn_next) void navigateToVerified() {
     presenter.setCancer();
-  }
-
-  private void initSpinner() {
-    MaterialSpinner spinner2 = (MaterialSpinner) findViewById(R.id.spinner4);
-    spinner2.setAdapter(adapter1);
   }
 
   @Override public void showProgress() {

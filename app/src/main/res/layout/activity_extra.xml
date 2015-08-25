@@ -12,12 +12,14 @@
       android:orientation="vertical"
       android:background="@color/color_white"
       android:layout_marginTop="@dimen/container_margin_top"
+      android:weightSum="1"
       >
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="@string/title_pass"
+        android:text="@string/title_logup"
         android:layout_marginBottom="@dimen/card_margin"
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin"
@@ -26,7 +28,7 @@
     </TextView>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/passInputLayout1"
+        android:id="@+id/aliasInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/inputLayout_margin"
@@ -34,19 +36,17 @@
         >
 
       <EditText
-          android:id="@+id/passInput1"
+          android:id="@+id/aliasInput"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:hint="@string/text_pass"
-          android:inputType="textPassword"
-          android:ellipsize="start"
+          android:hint="@string/text_alias"
           android:singleLine="true"
           />
 
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/passInputLayout2"
+        android:id="@+id/ageInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/inputLayout_margin"
@@ -54,12 +54,12 @@
         >
 
       <EditText
-          android:id="@+id/passInput2"
+          android:id="@+id/ageInput"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:hint="@string/text_pass_reply"
-          android:inputType="textPassword"
-          android:ellipsize="start"
+          android:hint="@string/text_age"
+          android:inputType="number"
+          android:maxLength="2"
           android:singleLine="true"
           />
 
@@ -75,21 +75,8 @@
         android:visibility="gone"
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-        android:text="@string/pass_text"
-        android:layout_marginBottom="@dimen/card_margin"
-        android:layout_marginLeft="@dimen/card_margin"
-        android:layout_marginRight="@dimen/card_margin"
-        android:layout_marginTop="@dimen/card_margin"
-        >
-    </TextView>
-
-
   </LinearLayout>
 
-  <include layout="@layout/toolbar_bottom_next"/>
+  <include layout="@layout/toolbar_bottom_btn"/>
 
 </merge>

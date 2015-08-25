@@ -5,11 +5,13 @@ public interface LogupView extends BaseView {
 
   void hideProgress();
 
-  void setUsernameError();
-
   void setEmailError();
 
-  void setAgeError();
+  void setPass1Error();
 
-  void navigateToVerifyScreen();
+  void setPass2Error();
+
+  void setPassDistinctError();
+
+  void navigateToExtraScreen();
 }

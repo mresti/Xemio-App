@@ -16,18 +16,16 @@ import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.LogupPresenter;
 import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.view.LogupView;
-import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
 import es.mresti.xemio.app.view.validator.EmailValidator;
-import es.mresti.xemio.app.view.validator.NumericValidator;
+import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class LogupActivity extends BaseActivity implements LogupView {
 
   private LogupPresenter presenter;
   private Navigator mNavigator;
-  private ProgressBar progressBar;
   private EmailValidator mEmailValidator;
-  private AlphaNumericValidator mAlphaNumericValidator;
-  private NumericValidator mNumericValidator;
+  private PassValidator mPassValidator1;
+  private PassValidator mPassValidator2;
 
   // UI items
   @Bind(R.id.btn_save) Button mBtn_save;
@@ -35,10 +33,10 @@ public class LogupActivity extends BaseActivity implements LogupView {
   @Bind(R.id.progress) ProgressBar mProgress;
   @Bind(R.id.emailInput) EditText mEmailText;
   @Bind(R.id.emailInputLayout) TextInputLayout mEmailInputLayout;
-  @Bind(R.id.aliasInput) EditText mAliasText;
-  @Bind(R.id.aliasInputLayout) TextInputLayout mAliasInputLayout;
-  @Bind(R.id.ageInput) EditText mAgeInput;
-  @Bind(R.id.ageInputLayout) TextInputLayout mAgeInputLayout;
+  @Bind(R.id.passInput1) EditText mPassInput1;
+  @Bind(R.id.passInputLayout1) TextInputLayout mPassInputLayout1;
+  @Bind(R.id.passInput2) EditText mPassInput2;
+  @Bind(R.id.passInputLayout2) TextInputLayout mPassInputLayout2;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, LogupActivity.class);
@@ -57,15 +55,14 @@ public class LogupActivity extends BaseActivity implements LogupView {
    */
   private void initialize() {
     this.mNavigator = new Navigator();
-    progressBar = (ProgressBar) findViewById(R.id.progress);
 
     // Setup field validators.
     mEmailValidator = new EmailValidator();
     mEmailText.addTextChangedListener(mEmailValidator);
-    mAlphaNumericValidator = new AlphaNumericValidator();
-    mAliasText.addTextChangedListener(mAlphaNumericValidator);
-    mNumericValidator = new NumericValidator();
-    mAgeInput.addTextChangedListener(mNumericValidator);
+    mPassValidator1 = new PassValidator();
+    mPassInput1.addTextChangedListener(mPassValidator1);
+    mPassValidator2 = new PassValidator();
+    mPassInput2.addTextChangedListener(mPassValidator2);
   }
 
   /**
@@ -73,8 +70,8 @@ public class LogupActivity extends BaseActivity implements LogupView {
    */
   @OnClick(R.id.btn_save) void navigateToDashboard() {
     boolean emailValid = mEmailValidator.isValid();
-    boolean aliasValid = mAlphaNumericValidator.isValid();
-    boolean ageValid = mNumericValidator.isValid();
+    boolean passValid1 = mPassValidator1.isValid();
+    boolean passValid2 = mPassValidator2.isValid();
 
     if (!emailValid) {
       mEmailInputLayout.setErrorEnabled(true);
@@ -83,23 +80,23 @@ public class LogupActivity extends BaseActivity implements LogupView {
       mEmailInputLayout.setErrorEnabled(false);
     }
 
-    if (!aliasValid) {
-      mAliasInputLayout.setErrorEnabled(true);
-      mAliasInputLayout.setError(getText(R.string.error_empty));
+    if (!passValid1) {
+      mPassInputLayout1.setErrorEnabled(true);
+      mPassInputLayout1.setError(getText(R.string.error_empty));
     } else {
-      mAliasInputLayout.setErrorEnabled(false);
+      mPassInputLayout1.setErrorEnabled(false);
     }
 
-    if (!ageValid) {
-      mAgeInputLayout.setErrorEnabled(true);
-      mAgeInputLayout.setError(getText(R.string.error_age));
+    if (!passValid2) {
+      mPassInputLayout2.setErrorEnabled(true);
+      mPassInputLayout2.setError(getText(R.string.error_empty));
     } else {
-      mAgeInputLayout.setErrorEnabled(false);
+      mPassInputLayout2.setErrorEnabled(false);
     }
 
-    if (emailValid && aliasValid && ageValid) {
-      presenter.setRegister(mAliasText.getText().toString(), mEmailText.getText().toString(),
-          mAgeInput.getText().toString());
+    if (emailValid && passValid1 && passValid2) {
+      presenter.setRegister(mEmailText.getText().toString(), mPassInput1.getText().toString(),
+          mPassInput2.getText().toString());
     }
   }
 
@@ -119,23 +116,30 @@ public class LogupActivity extends BaseActivity implements LogupView {
     mProgress.setVisibility(View.GONE);
   }
 
-  @Override public void setUsernameError() {
-    mAliasInputLayout.setErrorEnabled(true);
-    mAliasInputLayout.setError(getString(R.string.error_empty));
-  }
-
   @Override public void setEmailError() {
     mEmailInputLayout.setErrorEnabled(true);
     mEmailInputLayout.setError(getString(R.string.error_email));
   }
 
-  @Override public void setAgeError() {
-    mAgeInputLayout.setErrorEnabled(true);
-    mAgeInputLayout.setError(getString(R.string.error_age));
+  @Override public void setPass1Error() {
+    mPassInputLayout1.setErrorEnabled(true);
+    mPassInputLayout1.setError(getText(R.string.error_empty));
   }
 
-  @Override public void navigateToVerifyScreen() {
-    this.mNavigator.navigateToVerify(this);
+  @Override public void setPass2Error() {
+    mPassInputLayout2.setErrorEnabled(true);
+    mPassInputLayout2.setError(getText(R.string.error_empty));
+  }
+
+  @Override public void setPassDistinctError() {
+    mPassInputLayout1.setErrorEnabled(true);
+    mPassInputLayout1.setError(getText(R.string.error_empty));
+    mPassInputLayout2.setErrorEnabled(true);
+    mPassInputLayout2.setError(getText(R.string.error_empty));
+  }
+
+  @Override public void navigateToExtraScreen() {
+    this.mNavigator.navigateToExtra(this);
     finish();
   }
 
