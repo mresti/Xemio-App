@@ -1,4 +1,4 @@
-package es.mresti.xemio.app.datasource;
+package es.mresti.xemio.app.model;
 
 public class SampleModel {
   private String mText;

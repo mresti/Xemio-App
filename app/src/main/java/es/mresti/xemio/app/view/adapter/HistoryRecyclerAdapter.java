@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.datasource.DataTestApp;
-import es.mresti.xemio.app.datasource.SampleModel;
+import es.mresti.xemio.app.model.SampleModel;
 import java.util.ArrayList;
 
 public class HistoryRecyclerAdapter

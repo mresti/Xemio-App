@@ -1,5 +1,6 @@
 package es.mresti.xemio.app.datasource;
 
+import es.mresti.xemio.app.model.SampleModel;
 import java.util.ArrayList;
 
 public class DataTestApp {
