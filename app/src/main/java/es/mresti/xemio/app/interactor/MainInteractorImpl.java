@@ -8,15 +8,16 @@ import es.mresti.xemio.app.presenter.MainPresenter;
 
 public class MainInteractorImpl implements MainInteractor {
   private MainPresenter presenter;
+  private Firebase mFirebaseRef;
 
   @Override public void setPresenter(MainPresenter presenter) {
     this.presenter = presenter;
   }
 
   @Override public void userStatus(Context c) {
-    Firebase ref = new Firebase(c.getResources().getString(R.string.firebase_url));
+    mFirebaseRef = new Firebase(c.getResources().getString(R.string.firebase_url));
 
-    AuthData authData = ref.getAuth();
+    AuthData authData = mFirebaseRef.getAuth();
     if (authData != null) {
       // user authenticated
       // show dashboardActivity
@@ -26,5 +27,9 @@ public class MainInteractorImpl implements MainInteractor {
       // show mainActivity
       presenter.onFailAuth();
     }
+  }
+
+  @Override public void nextStatus(Context c) {
+    mFirebaseRef.child("Treatment").setValue("hello1");
   }
 }

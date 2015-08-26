@@ -41,11 +41,13 @@ public class MainPresenter implements Presenter {
     mMainView.showProgress();
   }
 
-  public void onSuccess() {
-    mMainView.navigateToDashboardScreen();
+  public void getUserStatus(Context c) {
+    mMainView.hideProgress();
+    mMainInteractor.userStatus(c);
   }
 
-  public void getUserStatus(Context c) {
-    mMainInteractor.userStatus(c);
+  public void nextStatus(Context c) {
+    mMainView.hideProgress();
+    mMainInteractor.nextStatus(c);
   }
 }
