@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.mresti.xemio.R;
@@ -50,6 +54,39 @@ public class TrataActivity extends BaseActivity {
     // RecyclerView adapter
     final TrataRecyclerAdapter trataRecyclerAdapter = new TrataRecyclerAdapter();
     recyclerView.setAdapter(trataRecyclerAdapter);
+
+    final GestureDetector mGestureDetector = new GestureDetector(TrataActivity.this, new GestureDetector.SimpleOnGestureListener() {
+
+      @Override public boolean onSingleTapUp(MotionEvent e) {
+        return true;
+      }
+
+    });
+
+    recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+      @Override
+      public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+        View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+
+        if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
+          Toast.makeText(TrataActivity.this,
+              "The Item Clicked is: " + recyclerView.getChildLayoutPosition(child),
+              Toast.LENGTH_SHORT).show();
+
+          return true;
+        }
+
+        return false;
+      }
+
+      @Override public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+
+      }
+
+      @Override public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+      }
+    });
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
