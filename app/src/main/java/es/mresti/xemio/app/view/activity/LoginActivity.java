@@ -95,8 +95,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
     finish();
   }
 
-  //TODO: check theses methods
-
   @Override public void showProgress() {
     mProgress.setVisibility(View.VISIBLE);
   }

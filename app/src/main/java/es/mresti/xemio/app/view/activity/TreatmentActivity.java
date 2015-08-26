@@ -7,28 +7,28 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.mresti.xemio.R;
-import es.mresti.xemio.app.view.adapter.TrataRecyclerAdapter;
+import es.mresti.xemio.app.view.adapter.TreatmentRecyclerAdapter;
 import es.mresti.xemio.app.view.utils.DataDivider;
 
-public class TrataActivity extends BaseActivity {
+public class TreatmentActivity extends BaseActivity {
 
   @Bind(R.id.toolbar) Toolbar mToolbar;
 
   public static Intent getCallingIntent(Context context) {
-    return new Intent(context, TrataActivity.class);
+    return new Intent(context, TreatmentActivity.class);
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_trata);
+    setContentView(R.layout.activity_treatment);
     ButterKnife.bind(this);
     this.initialize();
   }
@@ -52,16 +52,16 @@ public class TrataActivity extends BaseActivity {
     recyclerView.addItemDecoration(itemDecoration);
 
     // RecyclerView adapter
-    final TrataRecyclerAdapter trataRecyclerAdapter = new TrataRecyclerAdapter();
-    recyclerView.setAdapter(trataRecyclerAdapter);
+    final TreatmentRecyclerAdapter treatmentRecyclerAdapter = new TreatmentRecyclerAdapter();
+    recyclerView.setAdapter(treatmentRecyclerAdapter);
 
-    final GestureDetector mGestureDetector = new GestureDetector(TrataActivity.this, new GestureDetector.SimpleOnGestureListener() {
+    final GestureDetector mGestureDetector =
+        new GestureDetector(TreatmentActivity.this, new GestureDetector.SimpleOnGestureListener() {
 
-      @Override public boolean onSingleTapUp(MotionEvent e) {
-        return true;
-      }
-
-    });
+          @Override public boolean onSingleTapUp(MotionEvent e) {
+            return true;
+          }
+        });
 
     recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
       @Override
@@ -69,7 +69,7 @@ public class TrataActivity extends BaseActivity {
         View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
 
         if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
-          Toast.makeText(TrataActivity.this,
+          Toast.makeText(TreatmentActivity.this,
               "The Item Clicked is: " + recyclerView.getChildLayoutPosition(child),
               Toast.LENGTH_SHORT).show();
 

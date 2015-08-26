@@ -2,7 +2,9 @@ package es.mresti.xemio.app.view.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,6 +25,8 @@ public class MainActivity extends BaseActivity implements MainView {
   // UI items
   @Bind(R.id.btn_begin) Button mBtn_begin;
   @Bind(R.id.btn_deny) Button mBtn_deny;
+  @Bind(R.id.container_main) LinearLayout mLayoutContainer;
+  @Bind(R.id.toolbar_bottom) LinearLayout mLayoutToolbar;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -57,11 +61,13 @@ public class MainActivity extends BaseActivity implements MainView {
   }
 
   @Override public void showProgress() {
-
+    mLayoutContainer.setVisibility(View.VISIBLE);
+    mLayoutToolbar.setVisibility(View.VISIBLE);
   }
 
   @Override public void hideProgress() {
-
+    mLayoutContainer.setVisibility(View.GONE);
+    mLayoutToolbar.setVisibility(View.GONE);
   }
 
   @Override public void navigateToDashboardScreen() {

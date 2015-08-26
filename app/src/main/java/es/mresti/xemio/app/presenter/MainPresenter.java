@@ -32,6 +32,15 @@ public class MainPresenter implements Presenter {
   @Override public void pause() {
   }
 
+  public void onSuccessAuth() {
+    mMainView.hideProgress();
+    mMainView.navigateToDashboardScreen();
+  }
+
+  public void onFailAuth() {
+    mMainView.showProgress();
+  }
+
   public void onSuccess() {
     mMainView.navigateToDashboardScreen();
   }

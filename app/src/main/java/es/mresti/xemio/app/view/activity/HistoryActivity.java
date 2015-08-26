@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.view.adapter.HistoryRecyclerAdapter;
 import es.mresti.xemio.app.view.utils.DataDivider;
@@ -56,13 +56,13 @@ public class HistoryActivity extends BaseActivity {
     final HistoryRecyclerAdapter historyRecyclerAdapter = new HistoryRecyclerAdapter();
     recyclerView.setAdapter(historyRecyclerAdapter);
 
-    final GestureDetector mGestureDetector = new GestureDetector(HistoryActivity.this, new GestureDetector.SimpleOnGestureListener() {
+    final GestureDetector mGestureDetector =
+        new GestureDetector(HistoryActivity.this, new GestureDetector.SimpleOnGestureListener() {
 
-      @Override public boolean onSingleTapUp(MotionEvent e) {
-        return true;
-      }
-
-    });
+          @Override public boolean onSingleTapUp(MotionEvent e) {
+            return true;
+          }
+        });
 
     recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
       @Override
@@ -71,8 +71,8 @@ public class HistoryActivity extends BaseActivity {
 
         if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
           Toast.makeText(HistoryActivity.this,
-              "The Item Clicked is: " + recyclerView.getChildLayoutPosition(child), Toast.LENGTH_SHORT)
-              .show();
+              "The Item Clicked is: " + recyclerView.getChildLayoutPosition(child),
+              Toast.LENGTH_SHORT).show();
 
           return true;
         }
@@ -88,7 +88,6 @@ public class HistoryActivity extends BaseActivity {
 
       }
     });
-
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {

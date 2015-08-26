@@ -10,7 +10,8 @@ import es.mresti.xemio.app.datasource.DataTestApp;
 import es.mresti.xemio.app.model.SampleModel;
 import java.util.ArrayList;
 
-public class TrataRecyclerAdapter extends RecyclerView.Adapter<TrataRecyclerAdapter.ViewHolder> {
+public class TreatmentRecyclerAdapter
+    extends RecyclerView.Adapter<TreatmentRecyclerAdapter.ViewHolder> {
   private final ArrayList<SampleModel> sampleData = DataTestApp.getSampleData(12);
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parentViewGroup, int i) {

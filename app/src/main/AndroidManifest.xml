@@ -82,7 +82,7 @@
     </activity>
 
     <activity
-        android:name="es.mresti.xemio.app.view.activity.TrataActivity"
+        android:name=".app.view.activity.TreatmentActivity"
         android:label="@string/toolbar_title_trata"
         >
     </activity>

@@ -14,7 +14,7 @@ import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
-import es.mresti.xemio.app.view.activity.TrataActivity;
+import es.mresti.xemio.app.view.activity.TreatmentActivity;
 
 /**
  * Class used to navigate through the application.
@@ -113,7 +113,7 @@ public class Navigator {
 
   public void navigateToTrata(Context context) {
     if (context != null) {
-      Intent intentToLaunch = TrataActivity.getCallingIntent(context);
+      Intent intentToLaunch = TreatmentActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
