@@ -84,7 +84,13 @@
 
     <activity
         android:name=".app.view.activity.TreatmentActivity"
-        android:label="@string/toolbar_title_trata"
+        android:label="@string/toolbar_title_treatment"
+        >
+    </activity>
+
+    <activity
+        android:name=".app.view.activity.TreatmentDetailsActivity"
+        android:label="@string/toolbar_title_treatment_detail"
         >
     </activity>
 

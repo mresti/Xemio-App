@@ -73,9 +73,15 @@
   <string name="info_title_6">6.- Otros aspectos a tener en cuenta</string>
   <string name="info_title_7">7.- Otros sitios para consultar</string>
 
-  // Trata Activity
-  <string name="toolbar_title_trata">Información Tratamientos</string>
+  // Treatment Activity
+  <string name="toolbar_title_treatment">Información Tratamientos</string>
   <string name="text_trata">Texto.</string>
+
+  // Treatment Details Activity
+  <string name="toolbar_title_treatment_detail">Tratamiento detallado</string>
+  <string name="text_treatment_title">Agentes alquilantes</string>
+  <string name="text_treatment_items">Tratamientos:</string>
+  <string name="text_treatment_item">Item</string>
 
   // Incidence Activity
   <string name="toolbar_title_incidence">Nueva incidencia</string>

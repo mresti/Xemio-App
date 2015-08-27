@@ -3,28 +3,24 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.mresti.xemio.R;
-import es.mresti.xemio.app.view.adapter.TreatmentRecyclerAdapter;
-import es.mresti.xemio.app.view.utils.DataDivider;
 
-public class TreatmentActivity extends BaseActivity {
+public class TreatmentDetailsActivity extends BaseActivity {
 
   @Bind(R.id.toolbar) Toolbar mToolbar;
 
   public static Intent getCallingIntent(Context context) {
-    return new Intent(context, TreatmentActivity.class);
+    return new Intent(context, TreatmentDetailsActivity.class);
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_treatment);
+    setContentView(R.layout.activity_details_treatment);
     ButterKnife.bind(this);
     this.initialize();
   }
@@ -35,21 +31,6 @@ public class TreatmentActivity extends BaseActivity {
   private void initialize() {
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    // RecyclerView
-    final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-    recyclerView.setHasFixedSize(true);
-
-    // RecyclerView layout manager
-    final LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-    recyclerView.setLayoutManager(mLayoutManager);
-
-    // RecyclerView ItemDecoration (divider)
-    final RecyclerView.ItemDecoration itemDecoration = new DataDivider(this);
-    recyclerView.addItemDecoration(itemDecoration);
-
-    // RecyclerView adapter
-    final TreatmentRecyclerAdapter treatmentRecyclerAdapter = new TreatmentRecyclerAdapter();
-    recyclerView.setAdapter(treatmentRecyclerAdapter);
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,6 +48,12 @@ public class TreatmentActivity extends BaseActivity {
     if (id == android.R.id.home) {
       finish();
     }
+
+    //noinspection SimplifiableIfStatement
+    //if (id == R.id.action_save) {
+    //call function
+    //  return true;
+    //}
     return super.onOptionsItemSelected(item);
   }
 }
