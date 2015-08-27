@@ -7,6 +7,4 @@ public interface MainInteractor {
   void setPresenter(MainPresenter presenter);
 
   void userStatus(Context c);
-
-  void nextStatus(Context c);
 }

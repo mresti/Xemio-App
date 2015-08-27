@@ -4,6 +4,4 @@ import es.mresti.xemio.app.presenter.RegisterPresenter;
 
 public interface RegisterInteractor {
   void setPresenter(RegisterPresenter presenter);
-
-  void showData();
 }

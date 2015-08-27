@@ -9,7 +9,4 @@ public class RegisterInteractorImpl implements RegisterInteractor {
     this.presenter = presenter;
   }
 
-  @Override public void showData() {
-    //presenter.onSuccess();
-  }
 }

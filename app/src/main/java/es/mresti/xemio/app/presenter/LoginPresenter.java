@@ -1,11 +1,13 @@
 package es.mresti.xemio.app.presenter;
 
+import android.content.Context;
 import es.mresti.xemio.app.interactor.LoginInteractor;
 import es.mresti.xemio.app.view.LoginView;
 
 public class LoginPresenter implements Presenter {
   private LoginView mLoginView;
   private LoginInteractor mLoginInteractor;
+  private Context mContext;
 
   public static LoginPresenter newInstance(LoginView loginView, LoginInteractor loginInteractor) {
     LoginPresenter presenter = new LoginPresenter(loginView, loginInteractor);
@@ -33,7 +35,7 @@ public class LoginPresenter implements Presenter {
 
   public void validateCredentials(String username, String password) {
     mLoginView.showProgress();
-    mLoginInteractor.login(username, password);
+    mLoginInteractor.login(this.mContext, username, password);
   }
 
   public void onUsernameError() {
@@ -48,5 +50,9 @@ public class LoginPresenter implements Presenter {
 
   public void onSuccess() {
     mLoginView.navigateToHome();
+  }
+
+  public void initializeContext(Context c) {
+    this.mContext = c;
   }
 }

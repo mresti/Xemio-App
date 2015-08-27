@@ -1,11 +1,13 @@
 package es.mresti.xemio.app.presenter;
 
+import android.content.Context;
 import es.mresti.xemio.app.interactor.LogupInteractor;
 import es.mresti.xemio.app.view.LogupView;
 
 public class LogupPresenter implements Presenter {
   private LogupView mLogupView;
   private LogupInteractor mLogupInteractor;
+  private Context mContext;
 
   public static LogupPresenter newInstance(LogupView logupView, LogupInteractor logupInteractor) {
     LogupPresenter presenter = new LogupPresenter(logupView, logupInteractor);
@@ -33,7 +35,7 @@ public class LogupPresenter implements Presenter {
 
   public void setRegister(String email, String password1, String password2) {
     mLogupView.showProgress();
-    mLogupInteractor.register(email, password1, password2);
+    mLogupInteractor.register(this.mContext, email, password1, password2);
   }
 
   public void onEmailError() {
@@ -58,5 +60,9 @@ public class LogupPresenter implements Presenter {
 
   public void onSuccess() {
     mLogupView.navigateToExtraScreen();
+  }
+
+  public void initializeContext(Context c) {
+    this.mContext = c;
   }
 }

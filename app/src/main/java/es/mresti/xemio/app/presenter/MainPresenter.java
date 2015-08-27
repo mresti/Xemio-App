@@ -7,6 +7,7 @@ import es.mresti.xemio.app.view.MainView;
 public class MainPresenter implements Presenter {
   private MainView mMainView;
   private MainInteractor mMainInteractor;
+  private Context mContext;
 
   public static MainPresenter newInstance(MainView mainView, MainInteractor mainInteractor) {
     MainPresenter presenter = new MainPresenter(mainView, mainInteractor);
@@ -26,6 +27,10 @@ public class MainPresenter implements Presenter {
     mMainInteractor.setPresenter(this);
   }
 
+  public void initializeContext(Context c){
+    this.mContext = c;
+  }
+
   @Override public void resume() {
   }
 
@@ -41,13 +46,13 @@ public class MainPresenter implements Presenter {
     mMainView.showProgress();
   }
 
-  public void getUserStatus(Context c) {
+  public void getUserStatus() {
     mMainView.hideProgress();
-    mMainInteractor.userStatus(c);
+    mMainInteractor.userStatus(this.mContext);
   }
 
-  public void nextStatus(Context c) {
+  public void nextStatus() {
     mMainView.hideProgress();
-    mMainInteractor.nextStatus(c);
+    mMainInteractor.nextStatus(this.mContext);
   }
 }

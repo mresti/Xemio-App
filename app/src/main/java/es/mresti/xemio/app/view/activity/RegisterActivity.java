@@ -10,11 +10,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
+import es.mresti.xemio.app.presenter.MainPresenter;
+import es.mresti.xemio.app.presenter.PresenterFactory;
+import es.mresti.xemio.app.presenter.RegisterPresenter;
 import es.mresti.xemio.app.view.RegisterView;
 
 public class RegisterActivity extends BaseActivity implements RegisterView {
 
   private Navigator mNavigator;
+  private RegisterPresenter mPresenter;
 
   // UI items
   @Bind(R.id.btn_login) Button mBtn_login;
@@ -31,6 +35,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     setContentView(R.layout.activity_register);
     ButterKnife.bind(this);
     this.initialize();
+    mPresenter = PresenterFactory.getRegisterPresenter(this);
   }
 
   /**

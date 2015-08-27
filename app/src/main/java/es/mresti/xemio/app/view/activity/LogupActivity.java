@@ -21,7 +21,7 @@ import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class LogupActivity extends BaseActivity implements LogupView {
 
-  private LogupPresenter presenter;
+  private LogupPresenter mPresenter;
   private Navigator mNavigator;
   private EmailValidator mEmailValidator;
   private PassValidator mPassValidator1;
@@ -47,7 +47,8 @@ public class LogupActivity extends BaseActivity implements LogupView {
     setContentView(R.layout.activity_logup);
     ButterKnife.bind(this);
     this.initialize();
-    presenter = PresenterFactory.getLogupPresenter(this);
+    this.mPresenter = PresenterFactory.getLogupPresenter(this);
+    this.mPresenter.initializeContext(this.getContext());
   }
 
   /**
@@ -95,7 +96,7 @@ public class LogupActivity extends BaseActivity implements LogupView {
     }
 
     if (emailValid && passValid1 && passValid2) {
-      presenter.setRegister(mEmailText.getText().toString(), mPassInput1.getText().toString(),
+      this.mPresenter.setRegister(mEmailText.getText().toString(), mPassInput1.getText().toString(),
           mPassInput2.getText().toString());
     }
   }

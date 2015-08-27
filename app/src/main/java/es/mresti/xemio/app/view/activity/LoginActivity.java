@@ -21,7 +21,7 @@ import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class LoginActivity extends BaseActivity implements LoginView {
 
-  private LoginPresenter presenter;
+  private LoginPresenter mPresenter;
   private Navigator mNavigator;
   private EmailValidator mEmailValidator;
   private PassValidator mPassValidator;
@@ -44,7 +44,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
     setContentView(R.layout.activity_login);
     ButterKnife.bind(this);
     this.initialize();
-    presenter = PresenterFactory.getLoginPresenter(this);
+    this.mPresenter = PresenterFactory.getLoginPresenter(this);
+    this.mPresenter.initializeContext(this.getContext());
   }
 
   /**
@@ -82,7 +83,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     if (emailValid && passValid) {
-      presenter.validateCredentials(mEmailText.getText().toString(),
+      mPresenter.validateCredentials(mEmailText.getText().toString(),
           mPassText.getText().toString());
     }
   }
