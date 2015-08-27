@@ -3,6 +3,7 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -11,11 +12,18 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.view.utils.Preferences;
 
 public class SettingsActivity extends PreferenceActivity {
 
   private AppCompatDelegate mDelegate;
+
+  /**
+   * Log out Preference
+   */
+  private static Preference logOutPref;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, SettingsActivity.class);
@@ -27,6 +35,23 @@ public class SettingsActivity extends PreferenceActivity {
     super.onCreate(savedInstanceState);
     setToolbar();
     addPreferencesFromResource(R.xml.settings_view);
+
+    logOutPref = findPreference(Preferences.LOGOUTPREF);
+
+    logOutPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+
+      @Override public boolean onPreferenceClick(Preference preference) {
+        Firebase mFirebaseRef = new Firebase(getString(R.string.firebase_url));
+        mFirebaseRef.unauth();
+
+        startActivity(new Intent(getBaseContext(), MainActivity.class).addFlags(
+            Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            .putExtra("fromPreference", true));
+
+        finish();
+        return true;
+      }
+    });
   }
 
   @Override protected void onPostCreate(Bundle savedInstanceState) {

@@ -8,5 +8,4 @@ public class RegisterInteractorImpl implements RegisterInteractor {
   @Override public void setPresenter(RegisterPresenter presenter) {
     this.presenter = presenter;
   }
-
 }

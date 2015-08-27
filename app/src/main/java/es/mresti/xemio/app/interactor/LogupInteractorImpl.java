@@ -1,7 +1,6 @@
 package es.mresti.xemio.app.interactor;
 
 import android.content.Context;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import com.firebase.client.AuthData;
@@ -19,10 +18,10 @@ public class LogupInteractorImpl implements LogupInteractor {
     this.presenter = presenter;
   }
 
-  @Override public void register(Context c, final String email, final String pass1, final String pass2) {
+  @Override
+  public void register(Context c, final String email, final String pass1, final String pass2) {
     Context mContext = c;
-    Firebase mFirebaseRef =
-        new Firebase(mContext.getResources().getString(R.string.firebase_url));
+    Firebase mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
 
     boolean error = false;
     if (TextUtils.isEmpty(email)) {
@@ -47,8 +46,7 @@ public class LogupInteractorImpl implements LogupInteractor {
       error = true;
     }
     if (!error) {
-      mFirebaseRef.createUser(email, pass1,
-          new Firebase.ValueResultHandler<Map<String, Object>>() {
+      mFirebaseRef.createUser(email, pass1, new Firebase.ValueResultHandler<Map<String, Object>>() {
             @Override public void onSuccess(Map<String, Object> result) {
               Log.w("creater user",
                   "Successfully created user account with uid: " + result.get("uid"));
@@ -59,15 +57,13 @@ public class LogupInteractorImpl implements LogupInteractor {
               Log.e("creater user", "Error al crear user");
             }
           });
-      mFirebaseRef =
-          new Firebase(mContext.getResources().getString(R.string.firebase_url));
+      mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
       final Firebase finalMFirebaseRef = mFirebaseRef;
-      mFirebaseRef.authWithPassword(email, pass1,
-          new Firebase.AuthResultHandler() {
+      mFirebaseRef.authWithPassword(email, pass1, new Firebase.AuthResultHandler() {
             @Override public void onAuthenticated(AuthData authData) {
               Map<String, String> map = new HashMap<String, String>();
               map.put("provider", authData.getProvider());
-              if(authData.getProviderData().containsKey("displayName")) {
+              if (authData.getProviderData().containsKey("displayName")) {
                 map.put("displayName", authData.getProviderData().get("displayName").toString());
               }
               finalMFirebaseRef.child("users").child(authData.getUid()).setValue(map);
@@ -78,8 +74,7 @@ public class LogupInteractorImpl implements LogupInteractor {
 
             @Override public void onAuthenticationError(FirebaseError error) {
               // there was an error
-              Log.e("logged user",
-                  "Error al logged user");
+              Log.e("logged user", "Error al logged user");
               switch (error.getCode()) {
                 case FirebaseError.USER_DOES_NOT_EXIST:
                   // handle a non existing user

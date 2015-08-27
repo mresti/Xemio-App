@@ -27,7 +27,7 @@ public class MainPresenter implements Presenter {
     mMainInteractor.setPresenter(this);
   }
 
-  public void initializeContext(Context c){
+  public void initializeContext(Context c) {
     this.mContext = c;
   }
 
@@ -49,10 +49,5 @@ public class MainPresenter implements Presenter {
   public void getUserStatus() {
     mMainView.hideProgress();
     mMainInteractor.userStatus(this.mContext);
-  }
-
-  public void nextStatus() {
-    mMainView.hideProgress();
-    mMainInteractor.nextStatus(this.mContext);
   }
 }
