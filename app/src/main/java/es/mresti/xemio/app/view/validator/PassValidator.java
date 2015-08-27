@@ -11,8 +11,7 @@ public class PassValidator implements TextWatcher {
   /**
    * Alphanumeric validation pattern.
    */
-  public static final Pattern ALL_CHARACTER_PATTERN =
-      Pattern.compile("^((?!.*\\s).{6,20})$");
+  public static final Pattern ALL_CHARACTER_PATTERN = Pattern.compile("^((?!.*\\s).{6,20})$");
 
   private boolean mIsValid = false;
 

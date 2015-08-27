@@ -13,6 +13,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
+import es.mresti.xemio.app.presenter.DashboardPresenter;
+import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.view.DashboardView;
 import es.mresti.xemio.app.view.adapter.DashboardIconAdapter;
 
@@ -20,6 +22,7 @@ public class DashboardActivity extends BaseActivity
     implements DashboardView, AdapterView.OnItemClickListener {
 
   private Navigator mNavigator;
+  private DashboardPresenter mPresenter;
 
   // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
@@ -34,6 +37,9 @@ public class DashboardActivity extends BaseActivity
     setContentView(R.layout.activity_dashboard);
     ButterKnife.bind(this);
     this.initialize();
+    this.mPresenter = PresenterFactory.getDashboardPresenter(this);
+    this.mPresenter.initializeContext(this.getContext());
+    this.mPresenter.getUserStatus();
   }
 
   /**
@@ -43,7 +49,7 @@ public class DashboardActivity extends BaseActivity
     this.mNavigator = new Navigator();
     setSupportActionBar(mToolbar);
 
-    Snackbar.make(findViewById(R.id.main_content), "¡¡Bienvenido <alias>!!", Snackbar.LENGTH_LONG)
+    Snackbar.make(findViewById(R.id.main_content), "¡¡Bienvenida!!", Snackbar.LENGTH_LONG)
         .show();
 
     mGridView.setAdapter(new DashboardIconAdapter(this));
@@ -63,6 +69,11 @@ public class DashboardActivity extends BaseActivity
 
   @Override public void hideProgress() {
 
+  }
+
+  @Override public void navigateToMainScreen() {
+    this.mNavigator.navigateToMain(this);
+    finish();
   }
 
   @Override public void showRetry() {

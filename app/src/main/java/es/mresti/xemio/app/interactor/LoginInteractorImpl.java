@@ -1,9 +1,12 @@
 package es.mresti.xemio.app.interactor;
 
 import android.content.Context;
-import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
+import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import es.mresti.xemio.R;
 import es.mresti.xemio.app.presenter.LoginPresenter;
 
 public class LoginInteractorImpl implements LoginInteractor {
@@ -16,22 +19,39 @@ public class LoginInteractorImpl implements LoginInteractor {
 
   @Override public void login(Context c, final String username, final String password) {
     Context mContext = c;
-    // Mock login. I'm creating a handler to delay the answer a couple of seconds
-    new Handler().postDelayed(new Runnable() {
-      @Override public void run() {
-        boolean error = false;
-        if (TextUtils.isEmpty(username)) {
-          presenter.onUsernameError();
-          error = true;
-        }
-        if (TextUtils.isEmpty(password)) {
-          presenter.onPasswordError();
-          error = true;
-        }
-        if (!error) {
-          presenter.onSuccess();
-        }
-      }
-    }, 2000);
+    Firebase mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+
+    boolean error = false;
+    if (TextUtils.isEmpty(username)) {
+      presenter.onUsernameError();
+      error = true;
+    }
+    if (TextUtils.isEmpty(password)) {
+      presenter.onPasswordError();
+      error = true;
+    }
+    if (!error) {
+      mFirebaseRef.authWithPassword(username, password, new Firebase.AuthResultHandler() {
+            @Override public void onAuthenticated(AuthData authData) {
+              presenter.onSuccess();
+            }
+
+            @Override public void onAuthenticationError(FirebaseError error) {
+              // there was an error
+              Log.e("logged user", "Error al logged user");
+              switch (error.getCode()) {
+                case FirebaseError.USER_DOES_NOT_EXIST:
+                  // handle a non existing user
+                  break;
+                case FirebaseError.INVALID_PASSWORD:
+                  // handle an invalid password
+                  break;
+                default:
+                  // handle other errors
+                  break;
+              }
+            }
+          });
+    }
   }
 }

@@ -11,6 +11,7 @@ import es.mresti.xemio.app.view.activity.IncidenceActivity;
 import es.mresti.xemio.app.view.activity.InfoActivity;
 import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
+import es.mresti.xemio.app.view.activity.MainActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
 import es.mresti.xemio.app.view.activity.TreatmentActivity;
@@ -23,6 +24,13 @@ public class Navigator {
 
   public void Navigator() {
     //empty
+  }
+
+  public void navigateToMain(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = MainActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
   }
 
   /**

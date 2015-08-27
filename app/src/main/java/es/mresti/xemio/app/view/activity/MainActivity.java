@@ -1,6 +1,7 @@
 package es.mresti.xemio.app.view.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,10 @@ public class MainActivity extends BaseActivity implements MainView {
   @Bind(R.id.btn_deny) Button mBtn_deny;
   @Bind(R.id.container_main) LinearLayout mLayoutContainer;
   @Bind(R.id.toolbar_bottom) LinearLayout mLayoutToolbar;
+
+  public static Intent getCallingIntent(Context context) {
+    return new Intent(context, MainActivity.class);
+  }
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

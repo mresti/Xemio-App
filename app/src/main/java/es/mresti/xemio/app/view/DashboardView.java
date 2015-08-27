@@ -4,4 +4,6 @@ public interface DashboardView extends BaseView {
   void showProgress();
 
   void hideProgress();
+
+  void navigateToMainScreen();
 }
