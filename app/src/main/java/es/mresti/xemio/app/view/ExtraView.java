@@ -9,6 +9,6 @@ public interface ExtraView extends BaseView {
 
   void setAgeError();
 
-  void navigateToCancerScreen();
+  void navigateToChemoScreen();
 }
 

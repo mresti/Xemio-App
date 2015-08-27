@@ -44,6 +44,6 @@ public class ExtraPresenter implements Presenter {
   }
 
   public void onSuccess() {
-    mExtraView.navigateToCancerScreen();
+    mExtraView.navigateToChemoScreen();
   }
 }

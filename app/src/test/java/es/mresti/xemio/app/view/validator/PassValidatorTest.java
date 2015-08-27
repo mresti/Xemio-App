@@ -19,24 +19,36 @@ public class PassValidatorTest {
     assertTrue(PassValidator.isValidText("asdASDn12$%&"));
   }
 
-  @Test public void characterValidator_InvalidAlphaNumeric() {
+  @Test public void characterValidator_CorrectLowersCharacters() {
+    assertTrue(PassValidator.isValidText("asdASDn12$%&"));
+  }
+
+  @Test public void characterValidator_CorrectUppersCharacters() {
+    assertTrue(PassValidator.isValidText("asdASDn12$%&"));
+  }
+
+  @Test public void characterValidator_CorrectCharacters() {
+    assertTrue(PassValidator.isValidText("asdASDn12$%&"));
+  }
+
+  @Test public void characterValidator_CorrectNumeric() {
+    assertTrue(PassValidator.isValidText("123456"));
+  }
+
+  @Test public void characterValidator_CorrectSymbol() {
+    assertTrue(PassValidator.isValidText("!#$%&/"));
+  }
+
+  @Test public void characterValidator_CorrectAlphaNumeric() {
+    assertTrue(PassValidator.isValidText("123owSM"));
+  }
+
+  @Test public void characterValidator_InvalidAlphaNumericSpace() {
     assertFalse(PassValidator.isValidText("Hello world 2015"));
   }
 
-  @Test public void characterValidator_InvalidAllCharacters() {
+  @Test public void characterValidator_InvalidAllCharactersSpace() {
     assertFalse(PassValidator.isValidText("Hello world, 2015!!"));
-  }
-
-  @Test public void characterValidator_InvalidAlpha() {
-    assertFalse(PassValidator.isValidText("Helloworld"));
-  }
-
-  @Test public void characterValidator_InvalidNumeric() {
-    assertFalse(PassValidator.isValidText("123456"));
-  }
-
-  @Test public void characterValidator_InvalidSymbol() {
-    assertFalse(PassValidator.isValidText("!#$%&/"));
   }
 
   @Test public void characterValidator_InvalidTooShort() {
@@ -45,18 +57,6 @@ public class PassValidatorTest {
 
   @Test public void characterValidator_InvalidTooLong() {
     assertFalse(PassValidator.isValidText("1234ab@1234ab@1234ab@1234ab@"));
-  }
-
-  @Test public void characterValidator_InvalidRequiredUppercaseCharacter() {
-    assertFalse(PassValidator.isValidText("1234ab@"));
-  }
-
-  @Test public void characterValidator_InvalidRequiredLowercaseCharacter() {
-    assertFalse(PassValidator.isValidText("1234AB@"));
-  }
-
-  @Test public void characterValidator_InvalidRequiredSymbol() {
-    assertFalse(PassValidator.isValidText("1234abA"));
   }
 
   @Test public void characterValidator_InvalidSpaceaSymbol() {

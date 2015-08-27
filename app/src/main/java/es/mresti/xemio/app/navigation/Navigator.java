@@ -3,7 +3,6 @@ package es.mresti.xemio.app.navigation;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import es.mresti.xemio.app.view.activity.CancerActivity;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
 import es.mresti.xemio.app.view.activity.ExtraActivity;
@@ -65,18 +64,6 @@ public class Navigator {
   public void navigateToExtra(Context context) {
     if (context != null) {
       Intent intentToLaunch = ExtraActivity.getCallingIntent(context);
-      context.startActivity(intentToLaunch);
-    }
-  }
-
-  /**
-   * Goes to the cancer screen.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
-  public void navigateToCancer(Context context) {
-    if (context != null) {
-      Intent intentToLaunch = CancerActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

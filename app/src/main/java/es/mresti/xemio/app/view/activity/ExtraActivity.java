@@ -114,8 +114,8 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
     mAgeInputLayout.setError(getString(R.string.error_age));
   }
 
-  @Override public void navigateToCancerScreen() {
-    this.mNavigator.navigateToCancer(this);
+  @Override public void navigateToChemoScreen() {
+    this.mNavigator.navigateToChemo(this);
     finish();
   }
 

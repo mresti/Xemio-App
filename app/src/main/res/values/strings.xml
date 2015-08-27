@@ -27,7 +27,7 @@
   <string name="btn_go">Entrar</string>
 
   // Logup Activity
-  <string name="title_logup">Rellena sus datos para comenzar</string>
+  <string name="title_logup">Rellena los datos para comenzar</string>
   <string name="pass_text">Para asegurar una mayor seguridad de su usuario, necesitas crear una contraseña. Además, desde la aplicación podrás cambiar la contraseña.</string>
   <string name="text_pass">Contraseña</string>
   <string name="text_pass_reply">Repite Contraseña</string>
@@ -49,9 +49,7 @@
   <string name="dialog_progress_title">Solicitando petición</string>
   <string name="dialog_progress_text">Espera por favor&#8230;</string>
 
-  // Cancer and Chemo Activity
-  <string name="dialog_user_success_text">User, su cuenta ha sido verificada.</string>
-  <string name="title_cancer">Selecciona su tipo de cáncer</string>
+  // Chemo Activity
   <string name="title_chemo">Selecciona su tipo de quimioterapia</string>
   <string name="btn_next">Siguiente</string>
 

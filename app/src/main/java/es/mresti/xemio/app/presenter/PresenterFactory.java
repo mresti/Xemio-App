@@ -1,7 +1,5 @@
 package es.mresti.xemio.app.presenter;
 
-import es.mresti.xemio.app.interactor.CancerInteractor;
-import es.mresti.xemio.app.interactor.CancerInteractorImpl;
 import es.mresti.xemio.app.interactor.ChemoInteractor;
 import es.mresti.xemio.app.interactor.ChemoInteractorImpl;
 import es.mresti.xemio.app.interactor.ExtraInteractor;
@@ -14,7 +12,6 @@ import es.mresti.xemio.app.interactor.MainInteractor;
 import es.mresti.xemio.app.interactor.MainInteractorImpl;
 import es.mresti.xemio.app.interactor.RegisterInteractor;
 import es.mresti.xemio.app.interactor.RegisterInteractorImpl;
-import es.mresti.xemio.app.view.CancerView;
 import es.mresti.xemio.app.view.ChemoView;
 import es.mresti.xemio.app.view.ExtraView;
 import es.mresti.xemio.app.view.LoginView;
@@ -46,11 +43,6 @@ public class PresenterFactory {
   public static ExtraPresenter getExtraPresenter(ExtraView view) {
     ExtraInteractor interactor = new ExtraInteractorImpl();
     return ExtraPresenter.newInstance(view, interactor);
-  }
-
-  public static CancerPresenter getCancerPresenter(CancerView view) {
-    CancerInteractor interactor = new CancerInteractorImpl();
-    return CancerPresenter.newInstance(view, interactor);
   }
 
   public static ChemoPresenter getChemoPresenter(ChemoView view) {

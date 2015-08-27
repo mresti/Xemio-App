@@ -47,47 +47,47 @@ public class LogupInteractorImpl implements LogupInteractor {
     }
     if (!error) {
       mFirebaseRef.createUser(email, pass1, new Firebase.ValueResultHandler<Map<String, Object>>() {
-            @Override public void onSuccess(Map<String, Object> result) {
-              Log.w("creater user",
-                  "Successfully created user account with uid: " + result.get("uid"));
-            }
+        @Override public void onSuccess(Map<String, Object> result) {
+          Log.w("creater user", "Successfully created user account with uid: " + result.get("uid"));
+        }
 
-            @Override public void onError(FirebaseError firebaseError) {
-              // there was an error
-              Log.e("creater user", "Error al crear user");
-            }
-          });
+        @Override public void onError(FirebaseError firebaseError) {
+          // there was an error
+          Log.e("creater user", "Error al crear user");
+        }
+      });
       mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
       final Firebase finalMFirebaseRef = mFirebaseRef;
       mFirebaseRef.authWithPassword(email, pass1, new Firebase.AuthResultHandler() {
-            @Override public void onAuthenticated(AuthData authData) {
-              Map<String, String> map = new HashMap<String, String>();
-              map.put("provider", authData.getProvider());
-              if (authData.getProviderData().containsKey("displayName")) {
-                map.put("displayName", authData.getProviderData().get("displayName").toString());
-              }
-              finalMFirebaseRef.child("users").child(authData.getUid()).setValue(map);
-              Log.w("logged user",
-                  "User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
-              presenter.onSuccess();
-            }
+        @Override public void onAuthenticated(AuthData authData) {
 
-            @Override public void onAuthenticationError(FirebaseError error) {
-              // there was an error
-              Log.e("logged user", "Error al logged user");
-              switch (error.getCode()) {
-                case FirebaseError.USER_DOES_NOT_EXIST:
-                  // handle a non existing user
-                  break;
-                case FirebaseError.INVALID_PASSWORD:
-                  // handle an invalid password
-                  break;
-                default:
-                  // handle other errors
-                  break;
-              }
-            }
-          });
+          Map<String, String> map = new HashMap<String, String>();
+          map.put("provider", authData.getProvider());
+          if (authData.getProviderData().containsKey("displayName")) {
+            map.put("displayName", authData.getProviderData().get("displayName").toString());
+          }
+          finalMFirebaseRef.child("users").child(authData.getUid()).setValue(map);
+          Log.w("logged user",
+              "User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+          presenter.onSuccess();
+        }
+
+        @Override public void onAuthenticationError(FirebaseError error) {
+          // there was an error
+          Log.e("logged user", "Error al logged user");
+          switch (error.getCode()) {
+            case FirebaseError.USER_DOES_NOT_EXIST:
+              // handle a non existing user
+              break;
+            case FirebaseError.INVALID_PASSWORD:
+              // handle an invalid password
+              break;
+            default:
+              // handle other errors
+              break;
+          }
+        }
+      });
     }
   }
 }
