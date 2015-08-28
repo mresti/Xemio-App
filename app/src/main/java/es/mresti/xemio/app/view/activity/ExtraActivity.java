@@ -21,7 +21,7 @@ import es.mresti.xemio.app.view.validator.NumericValidator;
 
 public class ExtraActivity extends BaseActivity implements ExtraView {
 
-  private ExtraPresenter presenter;
+  private ExtraPresenter mPresenter;
   private Navigator mNavigator;
   private ProgressBar progressBar;
   private AlphaNumericValidator mAlphaNumericValidator;
@@ -45,7 +45,8 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
     setContentView(R.layout.activity_extra);
     ButterKnife.bind(this);
     this.initialize();
-    presenter = PresenterFactory.getExtraPresenter(this);
+    this.mPresenter = PresenterFactory.getExtraPresenter(this);
+    this.mPresenter.initializeContext(this.getContext());
   }
 
   /**
@@ -84,7 +85,7 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
     }
 
     if (aliasValid && ageValid) {
-      presenter.setRegister(mAliasText.getText().toString(), mAgeInput.getText().toString());
+      this.mPresenter.setRegister(mAliasText.getText().toString(), mAgeInput.getText().toString());
     }
   }
 

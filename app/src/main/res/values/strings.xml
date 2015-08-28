@@ -105,8 +105,8 @@
   <string name="field_logout_text">Salir de la App</string>
 
   // error message
-  <string name="error_email">Email inválido</string>
-  <string name="error_empty">No puede estar en blanco</string>
+  <string name="error_email">Introduce un email válido</string>
+  <string name="error_empty">Mínimo 6 caracteres sin espacios</string>
   <string name="error_age">Edad inválida</string>
 
   // tmp values

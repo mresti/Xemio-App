@@ -31,27 +31,29 @@ public class LoginInteractorImpl implements LoginInteractor {
       error = true;
     }
     if (!error) {
-      mFirebaseRef.authWithPassword(username, password, new Firebase.AuthResultHandler() {
-            @Override public void onAuthenticated(AuthData authData) {
-              presenter.onSuccess();
-            }
+      final Firebase firebaseRef =
+          new Firebase(mContext.getResources().getString(R.string.firebase_url));
+      firebaseRef.authWithPassword(username, password, new Firebase.AuthResultHandler() {
+        @Override public void onAuthenticated(AuthData authData) {
+          presenter.onSuccess();
+        }
 
-            @Override public void onAuthenticationError(FirebaseError error) {
-              // there was an error
-              Log.e("logged user", "Error al logged user");
-              switch (error.getCode()) {
-                case FirebaseError.USER_DOES_NOT_EXIST:
-                  // handle a non existing user
-                  break;
-                case FirebaseError.INVALID_PASSWORD:
-                  // handle an invalid password
-                  break;
-                default:
-                  // handle other errors
-                  break;
-              }
-            }
-          });
+        @Override public void onAuthenticationError(FirebaseError error) {
+          // there was an error
+          Log.e("logged user", "Error al logged user");
+          switch (error.getCode()) {
+            case FirebaseError.USER_DOES_NOT_EXIST:
+              // handle a non existing user
+              break;
+            case FirebaseError.INVALID_PASSWORD:
+              // handle an invalid password
+              break;
+            default:
+              // handle other errors
+              break;
+          }
+        }
+      });
     }
   }
 }

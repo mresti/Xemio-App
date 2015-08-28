@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,17 +8,15 @@
     >
 
   <TextView
-      android:id="@+id/textViewSample"
+      android:id="@+id/board_title"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_weight="1"
       android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-      android:textColor="@color/ColorPrimaryDark"
       android:layout_marginBottom="@dimen/card_margin"
       android:layout_marginLeft="@dimen/card_margin"
       android:layout_marginRight="@dimen/card_margin"
       android:layout_marginTop="@dimen/card_margin"
-      tools:text="Sample text"
       />
 
 </LinearLayout>

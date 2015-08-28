@@ -49,8 +49,7 @@ public class DashboardActivity extends BaseActivity
     this.mNavigator = new Navigator();
     setSupportActionBar(mToolbar);
 
-    Snackbar.make(findViewById(R.id.main_content), "¡¡Bienvenida!!", Snackbar.LENGTH_LONG)
-        .show();
+    Snackbar.make(findViewById(R.id.main_content), "¡¡Bienvenida!!", Snackbar.LENGTH_LONG).show();
 
     mGridView.setAdapter(new DashboardIconAdapter(this));
     mGridView.setOnItemClickListener(this);

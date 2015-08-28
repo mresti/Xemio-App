@@ -1,11 +1,13 @@
 package es.mresti.xemio.app.presenter;
 
+import android.content.Context;
 import es.mresti.xemio.app.interactor.ExtraInteractor;
 import es.mresti.xemio.app.view.ExtraView;
 
 public class ExtraPresenter implements Presenter {
   private ExtraView mExtraView;
   private ExtraInteractor mExtraInteractor;
+  private Context mContext;
 
   public static ExtraPresenter newInstance(ExtraView extraView, ExtraInteractor extraInteractor) {
     ExtraPresenter presenter = new ExtraPresenter(extraView, extraInteractor);
@@ -30,7 +32,7 @@ public class ExtraPresenter implements Presenter {
 
   public void setRegister(String username, String age) {
     mExtraView.showProgress();
-    mExtraInteractor.saveExtraData(username, age);
+    mExtraInteractor.saveExtraData(this.mContext, username, age);
   }
 
   public void onUsernameError() {
@@ -45,5 +47,9 @@ public class ExtraPresenter implements Presenter {
 
   public void onSuccess() {
     mExtraView.navigateToChemoScreen();
+  }
+
+  public void initializeContext(Context c) {
+    this.mContext = c;
   }
 }

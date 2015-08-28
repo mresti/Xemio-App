@@ -56,9 +56,10 @@ public class LogupInteractorImpl implements LogupInteractor {
           Log.e("creater user", "Error al crear user");
         }
       });
-      mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
-      final Firebase finalMFirebaseRef = mFirebaseRef;
-      mFirebaseRef.authWithPassword(email, pass1, new Firebase.AuthResultHandler() {
+
+      final Firebase firebaseRef =
+          new Firebase(mContext.getResources().getString(R.string.firebase_url));
+      firebaseRef.authWithPassword(email, pass1, new Firebase.AuthResultHandler() {
         @Override public void onAuthenticated(AuthData authData) {
 
           Map<String, String> map = new HashMap<String, String>();
@@ -66,9 +67,10 @@ public class LogupInteractorImpl implements LogupInteractor {
           if (authData.getProviderData().containsKey("displayName")) {
             map.put("displayName", authData.getProviderData().get("displayName").toString());
           }
-          finalMFirebaseRef.child("users").child(authData.getUid()).setValue(map);
+          firebaseRef.child("users").child(authData.getUid()).setValue(map);
           Log.w("logged user",
               "User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+
           presenter.onSuccess();
         }
 
