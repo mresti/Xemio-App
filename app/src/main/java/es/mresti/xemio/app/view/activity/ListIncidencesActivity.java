@@ -18,17 +18,17 @@ import es.mresti.xemio.R;
 import es.mresti.xemio.app.view.adapter.HistoryRecyclerAdapter;
 import es.mresti.xemio.app.view.utils.DataDivider;
 
-public class HistoryActivity extends BaseActivity {
+public class ListIncidencesActivity extends BaseActivity {
 
   @Bind(R.id.toolbar) Toolbar mToolbar;
 
   public static Intent getCallingIntent(Context context) {
-    return new Intent(context, HistoryActivity.class);
+    return new Intent(context, ListIncidencesActivity.class);
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_history);
+    setContentView(R.layout.activity_list_incidences);
     ButterKnife.bind(this);
     this.initialize();
   }
@@ -56,8 +56,8 @@ public class HistoryActivity extends BaseActivity {
     final HistoryRecyclerAdapter historyRecyclerAdapter = new HistoryRecyclerAdapter();
     recyclerView.setAdapter(historyRecyclerAdapter);
 
-    final GestureDetector mGestureDetector =
-        new GestureDetector(HistoryActivity.this, new GestureDetector.SimpleOnGestureListener() {
+    final GestureDetector mGestureDetector = new GestureDetector(ListIncidencesActivity.this,
+        new GestureDetector.SimpleOnGestureListener() {
 
           @Override public boolean onSingleTapUp(MotionEvent e) {
             return true;
@@ -70,7 +70,7 @@ public class HistoryActivity extends BaseActivity {
         View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
 
         if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
-          Toast.makeText(HistoryActivity.this,
+          Toast.makeText(ListIncidencesActivity.this,
               "The Item Clicked is: " + recyclerView.getChildLayoutPosition(child),
               Toast.LENGTH_SHORT).show();
 

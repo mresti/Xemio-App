@@ -24,7 +24,7 @@
 
   <include
       android:id="@+id/toolbar_bottom"
-      layout="@layout/toolbar_bottom"
+      layout="@layout/container_toolbar"
       />
 
 </merge>

@@ -6,12 +6,12 @@ import android.net.Uri;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
 import es.mresti.xemio.app.view.activity.ExtraActivity;
-import es.mresti.xemio.app.view.activity.HistoryActivity;
-import es.mresti.xemio.app.view.activity.IncidenceActivity;
 import es.mresti.xemio.app.view.activity.InfoActivity;
+import es.mresti.xemio.app.view.activity.ListIncidencesActivity;
 import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.MainActivity;
+import es.mresti.xemio.app.view.activity.NewIncidenceActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
 import es.mresti.xemio.app.view.activity.TreatmentActivity;
@@ -114,23 +114,23 @@ public class Navigator {
     }
   }
 
-  public void navigateToTrataDetails(Context context) {
+  public void navigateToTrataDetails(Context context, String key) {
     if (context != null) {
-      Intent intentToLaunch = TreatmentDetailsActivity.getCallingIntent(context);
+      Intent intentToLaunch = TreatmentDetailsActivity.getCallingIntent(context, key);
       context.startActivity(intentToLaunch);
     }
   }
 
   public void navigateToNewIncidence(Context context) {
     if (context != null) {
-      Intent intentToLaunch = IncidenceActivity.getCallingIntent(context);
+      Intent intentToLaunch = NewIncidenceActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
 
   public void navigateToHistory(Context context) {
     if (context != null) {
-      Intent intentToLaunch = HistoryActivity.getCallingIntent(context);
+      Intent intentToLaunch = ListIncidencesActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

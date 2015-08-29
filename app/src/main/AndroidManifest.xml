@@ -88,13 +88,13 @@
     </activity>
 
     <activity
-        android:name="es.mresti.xemio.app.view.activity.IncidenceActivity"
+        android:name=".app.view.activity.NewIncidenceActivity"
         android:label="@string/toolbar_title_incidence"
         >
     </activity>
 
     <activity
-        android:name="es.mresti.xemio.app.view.activity.HistoryActivity"
+        android:name=".app.view.activity.ListIncidencesActivity"
         android:label="@string/toolbar_title_history"
         >
     </activity>

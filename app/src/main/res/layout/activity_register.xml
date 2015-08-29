@@ -73,5 +73,5 @@
 
   </LinearLayout>
 
-  <include layout="@layout/toolbar_bottom"/>
+  <include layout="@layout/container_toolbar"/>
 </merge>

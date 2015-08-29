@@ -98,6 +98,6 @@
 
   </LinearLayout>
 
-  <include layout="@layout/toolbar_bottom_btn"/>
+  <include layout="@layout/container_toolbar_theme_btn"/>
 
 </merge>
