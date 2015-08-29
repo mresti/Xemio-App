@@ -14,11 +14,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.view.utils.Preferences;
 
 public class SettingsActivity extends PreferenceActivity {
 
   private AppCompatDelegate mDelegate;
+  private Navigator mNavigator;
 
   /**
    * Log out Preference
@@ -30,6 +32,7 @@ public class SettingsActivity extends PreferenceActivity {
   }
 
   @Override protected void onCreate(Bundle savedInstanceState) {
+    this.mNavigator = new Navigator();
     getDelegate().installViewFactory();
     getDelegate().onCreate(savedInstanceState);
     super.onCreate(savedInstanceState);
@@ -52,6 +55,12 @@ public class SettingsActivity extends PreferenceActivity {
         return true;
       }
     });
+  }
+
+  @Override public void onBackPressed() {
+    // Return to previous page when we press back button
+    this.mNavigator.navigateToDashboard(this);
+    finish();
   }
 
   @Override protected void onPostCreate(Bundle savedInstanceState) {
