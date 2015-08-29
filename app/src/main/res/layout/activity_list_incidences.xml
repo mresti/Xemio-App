@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        tools:listitem="@layout/list_trata_item"
+        tools:listitem="@layout/list_history_item"
         />
 
 

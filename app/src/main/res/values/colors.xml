@@ -10,4 +10,5 @@
   <color name="window_background">#FFF5F5F5</color>
   <color name="fab_back_gray">#999999</color>
   <color name="fab_next_gray">#00BCD4</color>
+  <color name="fab_delete_red">#F44336</color>
 </resources>

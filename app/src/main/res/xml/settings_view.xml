@@ -2,25 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-  <com.jenzz.materialpreference.PreferenceCategory android:title="@string/category_user">
-    <com.jenzz.materialpreference.Preference
-        android:key="alias_field"
-        android:summary="@string/field_alias"
-        android:title="@string/field_alias"
-        />
-    <com.jenzz.materialpreference.Preference
-        android:title="@string/field_age"
-        />
-    <com.jenzz.materialpreference.Preference
-        android:title="@string/field_pass"
-        />
-  </com.jenzz.materialpreference.PreferenceCategory>
-
   <com.jenzz.materialpreference.PreferenceCategory android:title="@string/category_about">
-    <com.jenzz.materialpreference.Preference
-        android:title="@string/field_version"
-        android:summary="v.0.7.23"
-        />
     <com.jenzz.materialpreference.Preference
         android:key="authorsPref"
         android:title="@string/field_authors"

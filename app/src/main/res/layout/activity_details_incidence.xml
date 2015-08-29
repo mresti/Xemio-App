@@ -37,8 +37,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="@dimen/card_margin"
-        android:layout_marginBottom="?android:attr/actionBarSize"
-        android:paddingBottom="@dimen/card_margin"
+        android:paddingBottom="?android:attr/actionBarSize"
         >
 
       <android.support.v7.widget.CardView
@@ -80,44 +79,34 @@
               >
           </TextView>
 
-          <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textAppearance="@style/TextAppearance.AppCompat.Title"
-              android:text="@string/text_treatment_items"
-              android:layout_marginBottom="@dimen/card_margin"
-              android:layout_marginLeft="@dimen/card_margin"
-              android:layout_marginRight="@dimen/card_margin"
-              android:layout_marginTop="@dimen/card_margin"
-              >
-          </TextView>
-
-          <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-              android:text="@string/text_treatment_item"
-              android:layout_marginBottom="@dimen/card_margin"
-              android:layout_marginLeft="@dimen/card_margin"
-              android:layout_marginRight="@dimen/card_margin"
-              android:layout_marginTop="@dimen/card_margin"
-              >
-          </TextView>
-
-          <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-              android:text="@string/text_treatment_item"
-              android:layout_marginBottom="@dimen/card_margin"
-              android:layout_marginLeft="@dimen/card_margin"
-              android:layout_marginRight="@dimen/card_margin"
-              android:layout_marginTop="@dimen/card_margin"
-              >
-          </TextView>
-
         </LinearLayout>
       </android.support.v7.widget.CardView>
     </LinearLayout>
   </ScrollView>
+
+  <android.support.design.widget.FloatingActionButton
+      android:id="@+id/fab_end"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_anchor="@id/content"
+      app:layout_anchorGravity="bottom|right|end"
+      android:src="@drawable/ic_delete_white_24dp"
+      android:layout_margin="@dimen/card_margin"
+      android:clickable="true"
+      app:fabSize="normal"
+      app:backgroundTint="@color/fab_delete_red"
+      />
+
+  <android.support.design.widget.FloatingActionButton
+      android:id="@+id/fab_back"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_anchor="@id/content"
+      app:layout_anchorGravity="bottom|left|start"
+      android:src="@drawable/ic_arrow_back_white_24dp"
+      android:layout_margin="@dimen/card_margin"
+      android:clickable="true"
+      app:fabSize="normal"
+      app:backgroundTint="@color/fab_back_gray"
+      />
 </android.support.design.widget.CoordinatorLayout>
