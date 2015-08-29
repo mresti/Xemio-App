@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -26,7 +27,7 @@ public class MainActivity extends BaseActivity implements MainView {
   // UI items
   @Bind(R.id.btn_begin) Button mBtn_begin;
   @Bind(R.id.btn_deny) Button mBtn_deny;
-  @Bind(R.id.container_main) LinearLayout mLayoutContainer;
+  @Bind(R.id.container_main) ScrollView mLayoutContainer;
   @Bind(R.id.toolbar_bottom) LinearLayout mLayoutToolbar;
 
   public static Intent getCallingIntent(Context context) {
