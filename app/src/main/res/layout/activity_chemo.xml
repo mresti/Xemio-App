@@ -36,22 +36,21 @@
         android:paddingTop="@dimen/card_margin"
         >
 
-      <fr.ganfra.materialspinner.MaterialSpinner
-          android:id="@+id/spinner"
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:prompt="@string/element_prompt"
-          />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          android:background="@color/color_white"
+          android:layout_marginBottom="?android:attr/actionBarSize"
+          >
 
-      <ProgressBar
-          android:id="@+id/progress"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:layout_marginBottom="@dimen/card_margin"
-          android:layout_marginTop="@dimen/card_margin"
-          android:visibility="gone"
-          />
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listChemo"
+            />
+
+      </LinearLayout>
 
     </LinearLayout>
 

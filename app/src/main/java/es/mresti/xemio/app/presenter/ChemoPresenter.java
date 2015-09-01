@@ -1,6 +1,7 @@
 package es.mresti.xemio.app.presenter;
 
 import android.content.Context;
+import com.firebase.client.Firebase;
 import es.mresti.xemio.app.interactor.ChemoInteractor;
 import es.mresti.xemio.app.view.ChemoView;
 
@@ -9,20 +10,17 @@ public class ChemoPresenter implements Presenter {
   private ChemoInteractor mChemoInteractor;
   private Context mContext;
 
-  public static ChemoPresenter newInstance(ChemoView chemoView, ChemoInteractor chemoInteractor) {
-    ChemoPresenter presenter = new ChemoPresenter(chemoView, chemoInteractor);
+  public static ChemoPresenter newInstance(ChemoView view, ChemoInteractor interactor) {
+    ChemoPresenter presenter = new ChemoPresenter(view, interactor);
     presenter.initialize();
     return presenter;
   }
 
-  private ChemoPresenter(ChemoView chemoView, ChemoInteractor chemoInteractor) {
-    this.mChemoView = chemoView;
-    this.mChemoInteractor = chemoInteractor;
+  private ChemoPresenter(ChemoView view, ChemoInteractor interactor) {
+    mChemoView = view;
+    mChemoInteractor = interactor;
   }
 
-  /**
-   * Initializes the presenter by start retrieving the user list.
-   */
   private void initialize() {
     mChemoInteractor.setPresenter(this);
   }
@@ -33,17 +31,20 @@ public class ChemoPresenter implements Presenter {
   @Override public void pause() {
   }
 
-  public void setChemo() {
-    mChemoView.showProgress();
-    mChemoInteractor.setChemo(this.mContext);
+  public void setChemo(String key) {
+    mChemoInteractor.setChemo(key);
   }
 
   public void onSuccess() {
-    mChemoView.hideProgress();
-    mChemoView.navigateToPassScreen();
+    mChemoView.navigateToDashboardScreen();
   }
 
   public void initializeContext(Context c) {
-    this.mContext = c;
+    mContext = c;
+    mChemoInteractor.initialize(mContext);
+  }
+
+  public Firebase getRef() {
+    return mChemoInteractor.getChemoRef();
   }
 }

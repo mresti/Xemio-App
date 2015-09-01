@@ -6,7 +6,7 @@ public class User {
   private String pass;
   private String fullName;
   private int age;
-  private int idChemo;
+  private String idChemo;
   private String provider;
 
   private String displayName;
@@ -35,7 +35,7 @@ public class User {
     return age;
   }
 
-  public int getIdChemo() {
+  public String getIdChemo() {
     return idChemo;
   }
 

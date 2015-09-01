@@ -2,31 +2,35 @@ package es.mresti.xemio.app.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ProgressBar;
+import android.widget.ListView;
+import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.ChemoPresenter;
 import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.view.ChemoView;
-import fr.ganfra.materialspinner.MaterialSpinner;
+import es.mresti.xemio.app.view.adapter.FirebaseListAdapter;
+import java.util.HashMap;
 
 public class ChemoActivity extends BaseActivity implements ChemoView {
 
-  private ChemoPresenter presenter;
+  public static final String TAG = "ChemoActivity";
   private Navigator mNavigator;
-  private ArrayAdapter<String> adapter;
+  private Firebase mChemoDatasRef;
+  private FirebaseListAdapter<HashMap> mChemoListAdapter;
+  private ChemoPresenter mPresenter;
 
   // UI items
   @Bind(R.id.btn_next) Button mBtn_next;
-  @Bind(R.id.progress) ProgressBar mProgress;
-  @Bind(R.id.spinner) MaterialSpinner mSpinner;
+  @Bind(R.id.listChemo) ListView mChemoList;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, ChemoActivity.class);
@@ -36,58 +40,73 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_chemo);
     ButterKnife.bind(this);
+    mPresenter = PresenterFactory.getChemoPresenter(this);
+    mNavigator = new Navigator();
     this.initialize();
-    presenter = PresenterFactory.getChemoPresenter(this);
   }
 
   /**
    * Initializes activity's private members.
    */
   private void initialize() {
-    this.mNavigator = new Navigator();
-
-    String[] ITEMS = {
-        "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 2", "Item 3", "Item 4", "Item 5",
-        "Item 6", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 6", "Item 2", "Item 3",
-        "Item 4", "Item 5", "Item 6", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"
-    };
-    adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
-    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    mSpinner.setAdapter(adapter);
+    mBtn_next.setVisibility(View.GONE);
+    mPresenter.initializeContext(this.getContext());
+    mChemoDatasRef = mPresenter.getRef();
   }
 
-  /**
-   * Goes to the user chemo screen.
-   */
-  @OnClick(R.id.btn_next) void navigateToVerified() {
-    presenter.setChemo();
+  @Override protected void onStart() {
+    super.onStart();
+
+    mChemoListAdapter =
+        new FirebaseListAdapter<HashMap>(mChemoDatasRef, HashMap.class, R.layout.item_list_1_tv,
+            this) {
+
+          @Override protected void populateView(View v, final HashMap model) {
+            final String key = ChemoActivity.this.mChemoListAdapter.getModelKey(model);
+            ((TextView) v.findViewById(R.id.item_title)).setText(model.get("chemo").toString());
+            v.setClickable(true);
+            v.setOnClickListener(new View.OnClickListener() {
+              @Override public void onClick(View v) {
+                selectChemoItem(key, model.get("chemo").toString());
+              }
+            });
+          }
+        };
+    mChemoList.setAdapter(mChemoListAdapter);
+    mChemoListAdapter.registerDataSetObserver(new DataSetObserver() {
+      @Override public void onChanged() {
+        super.onChanged();
+        mChemoList.setSelection(mChemoListAdapter.getCount() - 1);
+      }
+    });
   }
 
-  @Override public void showProgress() {
-    mProgress.setVisibility(View.VISIBLE);
+  @Override protected void onStop() {
+    super.onStop();
+    mChemoListAdapter.cleanup();
   }
 
-  @Override public void hideProgress() {
-    mProgress.setVisibility(View.GONE);
-  }
+  private void selectChemoItem(final String key, String chemo) {
+    MaterialDialog dialog = new MaterialDialog.Builder(this).title(R.string.dialog_select_chemo)
+        .content(chemo)
+        .positiveText(android.R.string.ok)
+        .negativeText(android.R.string.cancel)
+        .callback(new MaterialDialog.ButtonCallback() {
+          @Override public void onPositive(MaterialDialog dialog) {
+            mPresenter.setChemo(key);
+          }
 
-  @Override public void navigateToPassScreen() {
-    this.mNavigator.navigateToDashboard(this);
-  }
-
-  @Override public void showRetry() {
-
-  }
-
-  @Override public void hideRetry() {
-
-  }
-
-  @Override public void showError(String message) {
-
+          @Override public void onNegative(MaterialDialog dialog) {
+          }
+        })
+        .show();
   }
 
   @Override public Context getContext() {
     return getApplicationContext();
+  }
+
+  @Override public void navigateToDashboardScreen() {
+    this.mNavigator.navigateToDashboard(this);
   }
 }
