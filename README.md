@@ -1,5 +1,7 @@
 # Xemio Android App
 
+[![Build Status](https://travis-ci.org/mresti/Xemio-App.svg?branch=master)](https://travis-ci.org/mresti/Xemio-App)
+
 
 Local Development
 -----------------
@@ -24,7 +26,6 @@ Libraries used on the project
 * [Support Library][11]
 * [Butterknife][12]
 * [Material Dialogs][13]
-* [Material Spinner][17]
 * [Material Preference][18]
 * [JUnit][14]
 * [Mockito][15]
@@ -51,6 +52,8 @@ Contributors
 ------------
 
 * Tom Evans
+
+
 
 
 License
@@ -86,5 +89,4 @@ License
 [14]: https://github.com/junit-team/junit
 [15]: https://github.com/mockito/mockito
 [16]: https://developer.android.com/tools/testing-support-library/index.html
-[17]: https://github.com/ganfra/MaterialSpinner
 [18]: https://github.com/jenzz/Android-MaterialPreference
