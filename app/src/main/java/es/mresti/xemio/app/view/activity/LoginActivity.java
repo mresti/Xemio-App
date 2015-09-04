@@ -21,6 +21,7 @@ import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class LoginActivity extends BaseActivity implements LoginView {
 
+  public static final String TAG = "LoginActivity";
   private LoginPresenter mPresenter;
   private Navigator mNavigator;
   private EmailValidator mEmailValidator;
@@ -44,15 +45,15 @@ public class LoginActivity extends BaseActivity implements LoginView {
     setContentView(R.layout.activity_login);
     ButterKnife.bind(this);
     this.initialize();
-    this.mPresenter = PresenterFactory.getLoginPresenter(this);
-    this.mPresenter.initializeContext(this.getContext());
   }
 
   /**
    * Initializes activity's private members.
    */
   private void initialize() {
-    this.mNavigator = new Navigator();
+    mPresenter = PresenterFactory.getLoginPresenter(this);
+    mPresenter.initializeContext(this.getContext());
+    mNavigator = new Navigator();
 
     // Setup field validators.
     mEmailValidator = new EmailValidator();
@@ -77,7 +78,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     if (!passValid) {
       mPassInputLayout.setErrorEnabled(true);
-      mPassInputLayout.setError(getText(R.string.error_empty));
+      mPassInputLayout.setError(getText(R.string.error_pass));
     } else {
       mPassInputLayout.setErrorEnabled(false);
     }
@@ -92,7 +93,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
    * Goes to the finish activity.
    */
   @OnClick(R.id.btn_deny) void navigateToFinish() {
-    this.mNavigator.navigateToUserRegister(this);
+    mNavigator.navigateToUserRegister(this);
     finish();
   }
 
@@ -111,24 +112,12 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
   @Override public void setPasswordError() {
     mPassInputLayout.setErrorEnabled(true);
-    mPassInputLayout.setError(getText(R.string.error_empty));
+    mPassInputLayout.setError(getText(R.string.error_pass));
   }
 
   @Override public void navigateToHome() {
-    this.mNavigator.navigateToDashboard(this);
+    mNavigator.navigateToDashboard(this);
     finish();
-  }
-
-  @Override public void showRetry() {
-
-  }
-
-  @Override public void hideRetry() {
-
-  }
-
-  @Override public void showError(String message) {
-
   }
 
   @Override public Context getContext() {

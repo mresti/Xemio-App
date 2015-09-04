@@ -21,6 +21,7 @@ import es.mresti.xemio.app.view.validator.PassValidator;
 
 public class LogupActivity extends BaseActivity implements LogupView {
 
+  public static final String TAG = "LogupActivity";
   private LogupPresenter mPresenter;
   private Navigator mNavigator;
   private EmailValidator mEmailValidator;
@@ -47,15 +48,15 @@ public class LogupActivity extends BaseActivity implements LogupView {
     setContentView(R.layout.activity_logup);
     ButterKnife.bind(this);
     this.initialize();
-    this.mPresenter = PresenterFactory.getLogupPresenter(this);
-    this.mPresenter.initializeContext(this.getContext());
   }
 
   /**
    * Initializes activity's private members.
    */
   private void initialize() {
-    this.mNavigator = new Navigator();
+    mPresenter = PresenterFactory.getLogupPresenter(this);
+    mPresenter.initializeContext(this.getContext());
+    mNavigator = new Navigator();
 
     // Setup field validators.
     mEmailValidator = new EmailValidator();
@@ -83,20 +84,20 @@ public class LogupActivity extends BaseActivity implements LogupView {
 
     if (!passValid1) {
       mPassInputLayout1.setErrorEnabled(true);
-      mPassInputLayout1.setError(getText(R.string.error_empty));
+      mPassInputLayout1.setError(getText(R.string.error_pass));
     } else {
       mPassInputLayout1.setErrorEnabled(false);
     }
 
     if (!passValid2) {
       mPassInputLayout2.setErrorEnabled(true);
-      mPassInputLayout2.setError(getText(R.string.error_empty));
+      mPassInputLayout2.setError(getText(R.string.error_pass));
     } else {
       mPassInputLayout2.setErrorEnabled(false);
     }
 
     if (emailValid && passValid1 && passValid2) {
-      this.mPresenter.setRegister(mEmailText.getText().toString(), mPassInput1.getText().toString(),
+      mPresenter.setRegister(mEmailText.getText().toString(), mPassInput1.getText().toString(),
           mPassInput2.getText().toString());
     }
   }
@@ -105,7 +106,7 @@ public class LogupActivity extends BaseActivity implements LogupView {
    * Goes to the finish activity.
    */
   @OnClick(R.id.btn_deny) void navigateToFinish() {
-    this.mNavigator.navigateToUserRegister(this);
+    mNavigator.navigateToUserRegister(this);
     finish();
   }
 
@@ -124,36 +125,24 @@ public class LogupActivity extends BaseActivity implements LogupView {
 
   @Override public void setPass1Error() {
     mPassInputLayout1.setErrorEnabled(true);
-    mPassInputLayout1.setError(getText(R.string.error_empty));
+    mPassInputLayout1.setError(getText(R.string.error_pass));
   }
 
   @Override public void setPass2Error() {
     mPassInputLayout2.setErrorEnabled(true);
-    mPassInputLayout2.setError(getText(R.string.error_empty));
+    mPassInputLayout2.setError(getText(R.string.error_pass));
   }
 
   @Override public void setPassDistinctError() {
     mPassInputLayout1.setErrorEnabled(true);
-    mPassInputLayout1.setError(getText(R.string.error_empty));
+    mPassInputLayout1.setError(getText(R.string.error_pass_diff));
     mPassInputLayout2.setErrorEnabled(true);
-    mPassInputLayout2.setError(getText(R.string.error_empty));
+    mPassInputLayout2.setError(getText(R.string.error_pass_diff));
   }
 
   @Override public void navigateToExtraScreen() {
-    this.mNavigator.navigateToExtra(this);
+    mNavigator.navigateToExtra(this);
     finish();
-  }
-
-  @Override public void showRetry() {
-
-  }
-
-  @Override public void hideRetry() {
-
-  }
-
-  @Override public void showError(String message) {
-
   }
 
   @Override public Context getContext() {

@@ -55,4 +55,14 @@ public class LoginPresenter implements Presenter {
   public void initializeContext(Context c) {
     this.mContext = c;
   }
+
+  public void onUserNotExistError() {
+  }
+
+  public void onInvalidPasswordError() {
+  }
+
+  public void onAuthenticationError() {
+
+  }
 }

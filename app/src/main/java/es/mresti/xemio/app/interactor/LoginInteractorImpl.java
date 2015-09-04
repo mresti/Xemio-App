@@ -44,12 +44,15 @@ public class LoginInteractorImpl implements LoginInteractor {
           switch (error.getCode()) {
             case FirebaseError.USER_DOES_NOT_EXIST:
               // handle a non existing user
+              presenter.onUserNotExistError();
               break;
             case FirebaseError.INVALID_PASSWORD:
               // handle an invalid password
+              presenter.onInvalidPasswordError();
               break;
             default:
               // handle other errors
+              presenter.onAuthenticationError();
               break;
           }
         }
