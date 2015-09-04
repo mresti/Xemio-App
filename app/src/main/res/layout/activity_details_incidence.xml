@@ -56,11 +56,10 @@
             >
 
           <TextView
-              android:id="@+id/tvTitle"
+              android:id="@+id/tvSubject"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:textAppearance="@style/TextAppearance.AppCompat.Title"
-              android:text="@string/text_treatment_title"
               android:layout_marginBottom="@dimen/card_margin"
               android:layout_marginLeft="@dimen/card_margin"
               android:layout_marginRight="@dimen/card_margin"
@@ -69,10 +68,10 @@
           </TextView>
 
           <TextView
+              android:id="@+id/tvDesc"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-              android:text="@string/lorem"
               android:layout_marginBottom="@dimen/card_margin"
               android:layout_marginLeft="@dimen/card_margin"
               android:layout_marginRight="@dimen/card_margin"
@@ -85,7 +84,7 @@
   </ScrollView>
 
   <android.support.design.widget.FloatingActionButton
-      android:id="@+id/fab_end"
+      android:id="@+id/fab_del"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:layout_anchor="@id/content"
