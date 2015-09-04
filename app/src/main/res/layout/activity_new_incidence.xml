@@ -45,7 +45,7 @@
           android:id="@+id/subInput"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:hint="Asunto"
+          android:hint="@string/form_text_subject"
           android:singleLine="true"
           />
     </android.support.design.widget.TextInputLayout>
@@ -64,23 +64,13 @@
           android:inputType="textMultiLine"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:hint="Descripcion"
+          android:hint="@string/form_text_description"
           android:singleLine="false"
           android:lines="6"
           android:minLines="6"
           android:scrollbars="vertical"
           />
     </android.support.design.widget.TextInputLayout>
-
-      <ProgressBar
-          android:id="@+id/progress"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:layout_marginBottom="@dimen/card_margin"
-          android:layout_marginTop="@dimen/card_margin"
-          android:visibility="gone"
-          />
 
   </LinearLayout>
 
