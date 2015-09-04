@@ -21,6 +21,7 @@ import es.mresti.xemio.app.view.MainView;
  */
 public class MainActivity extends BaseActivity implements MainView {
 
+  public static final String TAG = "MainActivity";
   private Navigator mNavigator;
   private MainPresenter mPresenter;
 
@@ -39,23 +40,23 @@ public class MainActivity extends BaseActivity implements MainView {
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
     this.initialize();
-    this.mPresenter = PresenterFactory.getMainPresenter(this);
-    this.mPresenter.initializeContext(this.getContext());
-    this.mPresenter.getUserStatus();
   }
 
   /**
    * Initializes activity's private members.
    */
   private void initialize() {
-    this.mNavigator = new Navigator();
+    mNavigator = new Navigator();
+    mPresenter = PresenterFactory.getMainPresenter(this);
+    mPresenter.initializeContext(this.getContext());
+    mPresenter.getUserStatus();
   }
 
   /**
    * Goes to the user register screen.
    */
   @OnClick(R.id.btn_begin) void navigateToRegisterscreen() {
-    this.mNavigator.navigateToUserRegister(this);
+    mNavigator.navigateToUserRegister(this);
     finish();
   }
 
@@ -77,20 +78,8 @@ public class MainActivity extends BaseActivity implements MainView {
   }
 
   @Override public void navigateToDashboardScreen() {
-    this.mNavigator.navigateToDashboard(this);
+    mNavigator.navigateToDashboard(this);
     finish();
-  }
-
-  @Override public void showRetry() {
-
-  }
-
-  @Override public void hideRetry() {
-
-  }
-
-  @Override public void showError(String message) {
-
   }
 
   @Override public Context getContext() {

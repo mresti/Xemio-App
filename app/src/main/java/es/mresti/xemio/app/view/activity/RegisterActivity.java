@@ -16,6 +16,7 @@ import es.mresti.xemio.app.view.RegisterView;
 
 public class RegisterActivity extends BaseActivity implements RegisterView {
 
+  public static final String TAG = "RegisterActivity";
   private Navigator mNavigator;
   private RegisterPresenter mPresenter;
 
@@ -34,14 +35,14 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     setContentView(R.layout.activity_register);
     ButterKnife.bind(this);
     this.initialize();
-    mPresenter = PresenterFactory.getRegisterPresenter(this);
   }
 
   /**
    * Initializes activity's private members.
    */
   private void initialize() {
-    this.mNavigator = new Navigator();
+    mPresenter = PresenterFactory.getRegisterPresenter(this);
+    mNavigator = new Navigator();
     mBtn_begin.setVisibility(View.GONE);
   }
 
@@ -56,7 +57,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
    * Goes to the user LogIn screen.
    */
   @OnClick(R.id.btn_login) void navigateToLogIn() {
-    this.mNavigator.navigateToUserLogIn(this);
+    mNavigator.navigateToUserLogIn(this);
     finish();
   }
 
@@ -64,7 +65,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
    * Goes to the user LogUp screen.
    */
   @OnClick(R.id.btn_logup) void navigateToLogUp() {
-    this.mNavigator.navigateToUserLogUp(this);
+    mNavigator.navigateToUserLogUp(this);
     finish();
   }
 
@@ -73,18 +74,6 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
   }
 
   @Override public void hideProgress() {
-
-  }
-
-  @Override public void showRetry() {
-
-  }
-
-  @Override public void hideRetry() {
-
-  }
-
-  @Override public void showError(String message) {
 
   }
 

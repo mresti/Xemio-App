@@ -19,6 +19,7 @@ import es.mresti.xemio.app.view.utils.Preferences;
 
 public class SettingsActivity extends PreferenceActivity {
 
+  public static final String TAG = "SettingsActivity";
   private AppCompatDelegate mDelegate;
   private Navigator mNavigator;
 
@@ -59,7 +60,7 @@ public class SettingsActivity extends PreferenceActivity {
 
   @Override public void onBackPressed() {
     // Return to previous page when we press back button
-    this.mNavigator.navigateToDashboard(this);
+    mNavigator.navigateToDashboard(this);
     finish();
   }
 

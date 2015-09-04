@@ -40,8 +40,6 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_chemo);
     ButterKnife.bind(this);
-    mPresenter = PresenterFactory.getChemoPresenter(this);
-    mNavigator = new Navigator();
     this.initialize();
   }
 
@@ -49,6 +47,8 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
    * Initializes activity's private members.
    */
   private void initialize() {
+    mPresenter = PresenterFactory.getChemoPresenter(this);
+    mNavigator = new Navigator();
     mBtn_next.setVisibility(View.GONE);
     mPresenter.initializeContext(this.getContext());
     mChemoDatasRef = mPresenter.getRef();
@@ -107,6 +107,6 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
   }
 
   @Override public void navigateToDashboardScreen() {
-    this.mNavigator.navigateToDashboard(this);
+    mNavigator.navigateToDashboard(this);
   }
 }

@@ -28,7 +28,6 @@
 
   // Logup Activity
   <string name="title_logup">Rellena los datos para comenzar</string>
-  <string name="pass_text">Para asegurar una mayor seguridad de su usuario, necesitas crear una contraseña. Además, desde la aplicación podrás cambiar la contraseña.</string>
   <string name="text_pass">Contraseña</string>
   <string name="text_pass_reply">Repite Contraseña</string>
 
@@ -37,29 +36,12 @@
   <string name="text_alias">Nombre</string>
   <string name="text_age">Edad</string>
 
-  // Verify Activity
-  <string name="title_verify">Estado de su usuario</string>
-  <string name="text_verify_logup">Tu usuario ha sido creado, pero todavia no has podido validar tu cuenta. Revisa tu cuenta mail para activar tu usuario.</string>
-  <string name="btn_check">Comprobar</string>
-  <string name="text_verify_email">Si necesitas reenviar un nuevo código para activar su cuenta, pulse en "Volver a enviar"</string>
-  <string name="btn_retry_email">Nuevo email</string>
-  <string name="dialog_verify_reply_text">hemos creado su usuario, pero su cuenta no está activa. Deseas enviar un nuevo código de activación de su cuenta.</string>
-  <string name="dialog_verify_pos">OK</string>
-  <string name="dialog_verify_neg">Cancelar</string>
-  <string name="dialog_progress_title">Solicitando petición</string>
-  <string name="dialog_progress_text">Espera por favor&#8230;</string>
-
   // Chemo Activity
   <string name="title_chemo">Selecciona su tipo de quimioterapia</string>
   <string name="btn_next">Siguiente</string>
+  <string name="dialog_select_chemo">Quimio seleccionada</string>
 
   // Dashboard Activity
-  <string name="action_cancer">Información</string>
-  <string name="action_trata">Tratamientos</string>
-  <string name="action_incidence">Incidencia</string>
-  <string name="action_history">Historial</string>
-  <string name="action_settings">Ajustes</string>
-  <string name="action_web">Web</string>
 
   // Info Activity
   <string name="toolbar_title_info">Información Cáncer de Mama</string>
@@ -73,21 +55,31 @@
 
   // Treatment Activity
   <string name="toolbar_title_treatment">Información Tratamientos</string>
-  <string name="text_trata">Texto.</string>
 
-  // Treatment Details Activity
+  // Details Treatment Activity
   <string name="toolbar_title_treatment_detail">Tratamiento detallado</string>
-  <string name="text_treatment_title">Agentes alquilantes</string>
   <string name="text_treatment_items">Tratamientos:</string>
-  <string name="text_treatment_item">Item</string>
 
   // Incidence Activity
   <string name="toolbar_title_incidence">Nueva incidencia</string>
-  <string name="text_incidence">Elige el tipo de incidencia:</string>
+  <string name="form_text_subject">Asunto</string>
+  <string name="form_text_description">Descripción</string>
+  <string name="dialog_title_new_incidence">Incidencia creada</string>
+  <string name="dialog_message_new_incidence">Puedes ver su incidencia en su historial</string>
 
   // History Activity
-  <string name="toolbar_title_history">Información Tratamientos</string>
-  <string name="text_history">Texto.</string>
+  <string name="toolbar_title_history">Historial</string>
+  <string name="not_items">No hay incidencias para ver.</string>
+
+  // Details Incidence Activity
+  <string name="toolbar_title_incidence_detail">Incidencia detallada</string>
+  <string name="dialog_title_detail_incidence">Incidencia</string>
+  <string name="dialog_message_detail_incidence">¿Deseas eliminar la incidencia?</string>
+
+  // Details Effects Activity
+  <string name="text_effect_item_title">Tratamiento</string>
+  <string name="text_effect_item_category">Categoría</string>
+  <string name="text_effect_item_advice">Consejo</string>
 
   // Settings Activity
   <string name="toolbar_title_settings">Ajustes</string>
@@ -106,20 +98,15 @@
 
   // error message
   <string name="error_email">Introduce un email válido</string>
-  <string name="error_empty">Mínimo 6 caracteres sin espacios</string>
+  <string name="error_pass">Mínimo 6 caracteres sin espacios</string>
   <string name="error_age">Edad inválida</string>
+  <string name="error_empty_field">Campo no vacío</string>
+  <string name="error_pass_diff">Contraseñas deben ser iguales</string>
 
   // tmp values
   <string name="element_prompt">Selecciona un elemento</string>
-  <string-array name="element_arrays">
-    <item>Element 1</item>
-    <item>Element 2</item>
-    <item>Element 3</item>
-    <item>Element 4</item>
-    <item>Element 5</item>
-    <item>Element 6</item>
-  </string-array>
   <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel ligula eget ante aliquam viverra non quis est. Duis nunc orci, imperdiet eget fringilla vitae, bibendum non dui. Nulla feugiat commodo nisi, at pulvinar dolor sagittis id. Suspendisse potenti. Nunc sollicitudin, sapien sit amet varius convallis, augue mauris sagittis sapien, a hendrerit mi turpis eget leo. Integer viverra purus id erat euismod molestie eget non orci. Curabitur elementum ac nibh id dapibus. Vestibulum finibus ex in metus consequat vestibulum eget rhoncus lacus. Morbi eu egestas erat. Etiam nec blandit neque. Mauris id efficitur justo. Aenean posuere viverra nisi, sed ullamcorper nisl aliquam nec. Suspendisse imperdiet felis eu enim efficitur, quis pulvinar arcu porttitor. Etiam erat lorem, pellentesque sit amet urna vel, lobortis vulputate sem.</string>
+  <string name="action_settings">settings</string>
 
   // UI components text
   <string name="string_content_description">Non accessible view</string>

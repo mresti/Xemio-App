@@ -17,6 +17,9 @@ import es.mresti.xemio.app.view.fragment.InfoFragment;
 
 public class InfoActivity extends BaseActivity {
 
+  public static final String TAG = "InfoActivity";
+
+  // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
   @Bind(R.id.fab_next) FloatingActionButton mFABNext;
   @Bind(R.id.fab_back) FloatingActionButton mFABBack;
@@ -93,7 +96,7 @@ public class InfoActivity extends BaseActivity {
     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
   }
 
-  @OnClick(R.id.fab_end) void navigateToDashboard() {
+  @OnClick(R.id.fab_end) void navigateToDashboardScreen() {
     finish();
   }
 
@@ -112,12 +115,6 @@ public class InfoActivity extends BaseActivity {
     if (id == android.R.id.home) {
       finish();
     }
-
-    //noinspection SimplifiableIfStatement
-    //if (id == R.id.action_save) {
-    //call function
-    //  return true;
-    //}
     return super.onOptionsItemSelected(item);
   }
 }
