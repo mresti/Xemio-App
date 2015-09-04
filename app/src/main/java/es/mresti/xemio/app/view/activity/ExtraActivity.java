@@ -21,9 +21,9 @@ import es.mresti.xemio.app.view.validator.NumericValidator;
 
 public class ExtraActivity extends BaseActivity implements ExtraView {
 
+  public static final String TAG = "ExtraActivity";
   private ExtraPresenter mPresenter;
   private Navigator mNavigator;
-  private ProgressBar progressBar;
   private AlphaNumericValidator mAlphaNumericValidator;
   private NumericValidator mNumericValidator;
 
@@ -45,16 +45,15 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
     setContentView(R.layout.activity_extra);
     ButterKnife.bind(this);
     this.initialize();
-    this.mPresenter = PresenterFactory.getExtraPresenter(this);
-    this.mPresenter.initializeContext(this.getContext());
   }
 
   /**
    * Initializes activity's private members.
    */
   private void initialize() {
-    this.mNavigator = new Navigator();
-    progressBar = (ProgressBar) findViewById(R.id.progress);
+    mPresenter = PresenterFactory.getExtraPresenter(this);
+    mPresenter.initializeContext(this.getContext());
+    mNavigator = new Navigator();
 
     // Setup field validators.
     mAlphaNumericValidator = new AlphaNumericValidator();
@@ -72,7 +71,7 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
 
     if (!aliasValid) {
       mAliasInputLayout.setErrorEnabled(true);
-      mAliasInputLayout.setError(getText(R.string.error_empty));
+      mAliasInputLayout.setError(getText(R.string.error_empty_field));
     } else {
       mAliasInputLayout.setErrorEnabled(false);
     }
@@ -85,7 +84,7 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
     }
 
     if (aliasValid && ageValid) {
-      this.mPresenter.setRegister(mAliasText.getText().toString(), mAgeInput.getText().toString());
+      mPresenter.setRegister(mAliasText.getText().toString(), mAgeInput.getText().toString());
     }
   }
 
@@ -93,7 +92,7 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
    * Goes to the finish activity.
    */
   @OnClick(R.id.btn_deny) void navigateToFinish() {
-    this.mNavigator.navigateToUserRegister(this);
+    mNavigator.navigateToUserRegister(this);
     finish();
   }
 
@@ -107,7 +106,7 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
 
   @Override public void setUsernameError() {
     mAliasInputLayout.setErrorEnabled(true);
-    mAliasInputLayout.setError(getString(R.string.error_empty));
+    mAliasInputLayout.setError(getString(R.string.error_empty_field));
   }
 
   @Override public void setAgeError() {
@@ -116,20 +115,8 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
   }
 
   @Override public void navigateToChemoScreen() {
-    this.mNavigator.navigateToChemo(this);
+    mNavigator.navigateToChemo(this);
     finish();
-  }
-
-  @Override public void showRetry() {
-
-  }
-
-  @Override public void hideRetry() {
-
-  }
-
-  @Override public void showError(String message) {
-
   }
 
   @Override public Context getContext() {

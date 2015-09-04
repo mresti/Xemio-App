@@ -11,14 +11,14 @@ import java.util.Map;
 
 public class ExtraInteractorImpl implements ExtraInteractor {
   private ExtraPresenter presenter;
+  private Context mContext;
+  private Firebase mFirebaseRef;
 
   @Override public void setPresenter(ExtraPresenter presenter) {
     this.presenter = presenter;
   }
 
-  @Override public void saveExtraData(Context c, final String username, final String age) {
-    Context mContext = c;
-    Firebase mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  @Override public void saveExtraData(final String username, final String age) {
     boolean error = false;
     if (TextUtils.isEmpty(username)) {
       presenter.onUsernameError();
@@ -39,5 +39,10 @@ public class ExtraInteractorImpl implements ExtraInteractor {
 
       presenter.onSuccess();
     }
+  }
+
+  @Override public void initialize(Context c) {
+    mContext = c;
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
   }
 }

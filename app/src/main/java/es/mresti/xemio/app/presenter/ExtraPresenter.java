@@ -30,9 +30,14 @@ public class ExtraPresenter implements Presenter {
   @Override public void pause() {
   }
 
+  public void initializeContext(Context c) {
+    mContext = c;
+    mExtraInteractor.initialize(mContext);
+  }
+
   public void setRegister(String username, String age) {
     mExtraView.showProgress();
-    mExtraInteractor.saveExtraData(this.mContext, username, age);
+    mExtraInteractor.saveExtraData(username, age);
   }
 
   public void onUsernameError() {
@@ -47,9 +52,5 @@ public class ExtraPresenter implements Presenter {
 
   public void onSuccess() {
     mExtraView.navigateToChemoScreen();
-  }
-
-  public void initializeContext(Context c) {
-    this.mContext = c;
   }
 }
