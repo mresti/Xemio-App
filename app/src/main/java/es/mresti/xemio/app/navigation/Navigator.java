@@ -5,17 +5,18 @@ import android.content.Intent;
 import android.net.Uri;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
+import es.mresti.xemio.app.view.activity.DetailsTreatmentActivity;
 import es.mresti.xemio.app.view.activity.ExtraActivity;
 import es.mresti.xemio.app.view.activity.InfoActivity;
+import es.mresti.xemio.app.view.activity.ListEffectsActivity;
 import es.mresti.xemio.app.view.activity.ListIncidencesActivity;
+import es.mresti.xemio.app.view.activity.ListTreatmentActivity;
 import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.MainActivity;
 import es.mresti.xemio.app.view.activity.NewIncidenceActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
-import es.mresti.xemio.app.view.activity.TreatmentActivity;
-import es.mresti.xemio.app.view.activity.TreatmentDetailsActivity;
 
 /**
  * Class used to navigate through the application.
@@ -107,16 +108,16 @@ public class Navigator {
     }
   }
 
-  public void navigateToTrata(Context context) {
+  public void navigateToTreatment(Context context) {
     if (context != null) {
-      Intent intentToLaunch = TreatmentActivity.getCallingIntent(context);
+      Intent intentToLaunch = ListTreatmentActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
 
-  public void navigateToTrataDetails(Context context, String key) {
+  public void navigateToTreatmentDetails(Context context, String key) {
     if (context != null) {
-      Intent intentToLaunch = TreatmentDetailsActivity.getCallingIntent(context, key);
+      Intent intentToLaunch = DetailsTreatmentActivity.getCallingIntent(context, key);
       context.startActivity(intentToLaunch);
     }
   }
@@ -151,6 +152,13 @@ public class Navigator {
     if (context != null) {
       Intent intentToLaunch = new Intent(Intent.ACTION_VIEW);
       intentToLaunch.setData(Uri.parse("http://xemio.org"));
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  public void navigateToEffect(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = ListEffectsActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

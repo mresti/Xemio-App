@@ -53,7 +53,7 @@ public class ListEffectsActivity extends BaseActivity implements ListEffectView 
 
 
 
-  
+
 
   @Override public Context getContext() {
     return getApplicationContext();

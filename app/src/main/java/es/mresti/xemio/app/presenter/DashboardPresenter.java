@@ -9,16 +9,15 @@ public class DashboardPresenter implements Presenter {
   private DashboardInteractor mDashboardInteractor;
   private Context mContext;
 
-  public static DashboardPresenter newInstance(DashboardView dashboardView,
-      DashboardInteractor dashboardInteractor) {
-    DashboardPresenter presenter = new DashboardPresenter(dashboardView, dashboardInteractor);
+  public static DashboardPresenter newInstance(DashboardView view, DashboardInteractor interactor) {
+    DashboardPresenter presenter = new DashboardPresenter(view, interactor);
     presenter.initialize();
     return presenter;
   }
 
-  private DashboardPresenter(DashboardView dashboardView, DashboardInteractor dashboardInteractor) {
-    this.mDashboardView = dashboardView;
-    this.mDashboardInteractor = dashboardInteractor;
+  private DashboardPresenter(DashboardView view, DashboardInteractor interactor) {
+    this.mDashboardView = view;
+    this.mDashboardInteractor = interactor;
   }
 
   /**
@@ -28,25 +27,22 @@ public class DashboardPresenter implements Presenter {
     mDashboardInteractor.setPresenter(this);
   }
 
-  public void initializeContext(Context c) {
-    this.mContext = c;
-  }
-
   @Override public void resume() {
   }
 
   @Override public void pause() {
   }
 
-  public void onSuccessAuth() {
-  }
-
   public void onFailAuth() {
     mDashboardView.navigateToMainScreen();
   }
 
+  public void initializeContext(Context c) {
+    mContext = c;
+    mDashboardInteractor.initialize(mContext);
+  }
+
   public void getUserStatus() {
-    mDashboardView.hideProgress();
-    mDashboardInteractor.userStatus(this.mContext);
+    mDashboardInteractor.userStatus();
   }
 }

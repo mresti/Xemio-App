@@ -6,6 +6,8 @@ import es.mresti.xemio.app.presenter.DashboardPresenter;
 public interface DashboardInteractor {
   void setPresenter(DashboardPresenter presenter);
 
-  void userStatus(Context c);
+  void userStatus();
+
+  void initialize(Context c);
 }
 
