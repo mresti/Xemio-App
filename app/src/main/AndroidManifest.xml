@@ -76,13 +76,13 @@
     </activity>
 
     <activity
-        android:name=".app.view.activity.TreatmentActivity"
+        android:name=".app.view.activity.ListTreatmentActivity"
         android:label="@string/toolbar_title_treatment"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.TreatmentDetailsActivity"
+        android:name=".app.view.activity.DetailsTreatmentActivity"
         android:label="@string/toolbar_title_treatment_detail"
         >
     </activity>
@@ -96,6 +96,12 @@
     <activity
         android:name=".app.view.activity.ListIncidencesActivity"
         android:label="@string/toolbar_title_history"
+        >
+    </activity>
+
+    <activity
+        android:name=".app.view.activity.DetailsIncidenceActivity"
+        android:label="@string/toolbar_title_incidence_detail"
         >
     </activity>
 
