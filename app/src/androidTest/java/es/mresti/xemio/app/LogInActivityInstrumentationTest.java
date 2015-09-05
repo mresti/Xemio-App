@@ -19,7 +19,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class) @LargeTest public class LogInActivityInstrumentationTest {
   private static final String EMAIL = "email@domain.com";
-  private static final String PASS = "1234asdf";
+  private static final String PASS = "123456";
 
   @Rule public ActivityTestRule<LoginActivity> mActivityRule =
       new ActivityTestRule<>(LoginActivity.class);

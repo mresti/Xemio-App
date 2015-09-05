@@ -60,6 +60,12 @@
   <string name="toolbar_title_treatment_detail">Tratamiento detallado</string>
   <string name="text_treatment_items">Tratamientos:</string>
 
+  // Effect Activity
+  <string name="toolbar_title_effect">Efectos Secundarios</string>
+
+  // Details Effect Activity
+  <string name="toolbar_title_effect_detail">Efecto Secundario Detallado</string>
+
   // Incidence Activity
   <string name="toolbar_title_incidence">Nueva incidencia</string>
   <string name="form_text_subject">Asunto</string>

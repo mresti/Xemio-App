@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,15 +49,16 @@ public class ListEffectsActivity extends BaseActivity implements ListEffectView 
    */
   private void initialize() {
     mPresenter = PresenterFactory.getListEffectsPresenter(this);
+    mPresenter.initializeContext(this.getContext());
     mNavigator = new Navigator();
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    mPresenter.initializeContext(this.getContext());
     mEffectsDatasRef = mPresenter.getRef();
   }
 
   @Override protected void onStart() {
     super.onStart();
+
     mEffectsListAdapter =
         new FirebaseListAdapter<HashMap>(mEffectsDatasRef, HashMap.class, R.layout.item_list_1_tv,
             this) {
