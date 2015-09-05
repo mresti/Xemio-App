@@ -17,12 +17,13 @@ public class DashboardIconAdapter extends BaseAdapter {
       new DashboardIcon(R.drawable.ic_info_black_48dp, "Información", "ic_info_black_48dp.png"),
       new DashboardIcon(R.drawable.ic_assignment_black_48dp, "Tratamientos",
           "ic_assignment_black_48dp.png"),
+      new DashboardIcon(R.drawable.ic_assignment_late_black_48dp, "Efectos",
+          "ic_assignment_late_black_48dp.png"),
       new DashboardIcon(R.drawable.ic_add_circle_black_48dp, "Incidencia",
           "ic_add_circle_black_48dp.png"),
       new DashboardIcon(R.drawable.ic_event_note_black_48dp, "Historial",
           "ic_event_note_black_48dp.png"),
       new DashboardIcon(R.drawable.ic_settings_black_48dp, "Ajustes", "ic_settings_black_48dp.png"),
-      new DashboardIcon(R.drawable.ic_public_black_48dp, "Web", "ic_public_black_48dp.png"),
   };
 
   public DashboardIconAdapter(Context c) {

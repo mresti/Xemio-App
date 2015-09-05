@@ -88,6 +88,12 @@
     </activity>
 
     <activity
+        android:name=".app.view.activity.ListEffectsActivity"
+        android:label="@string/toolbar_title_treatment"
+        >
+    </activity>
+
+    <activity
         android:name=".app.view.activity.NewIncidenceActivity"
         android:label="@string/toolbar_title_incidence"
         >

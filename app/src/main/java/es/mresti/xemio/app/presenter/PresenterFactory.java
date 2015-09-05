@@ -10,6 +10,8 @@ import es.mresti.xemio.app.interactor.DetailTreatmentInteractor;
 import es.mresti.xemio.app.interactor.DetailTreatmentInteractorImpl;
 import es.mresti.xemio.app.interactor.ExtraInteractor;
 import es.mresti.xemio.app.interactor.ExtraInteractorImpl;
+import es.mresti.xemio.app.interactor.ListEffectsInteractor;
+import es.mresti.xemio.app.interactor.ListEffectsInteractorImpl;
 import es.mresti.xemio.app.interactor.ListIncidencesInteractor;
 import es.mresti.xemio.app.interactor.ListIncidencesInteractorImpl;
 import es.mresti.xemio.app.interactor.ListTreatmentsInteractor;
@@ -29,6 +31,7 @@ import es.mresti.xemio.app.view.DashboardView;
 import es.mresti.xemio.app.view.DetailIncidenceView;
 import es.mresti.xemio.app.view.DetailTreatmentView;
 import es.mresti.xemio.app.view.ExtraView;
+import es.mresti.xemio.app.view.ListEffectView;
 import es.mresti.xemio.app.view.ListIncidencesView;
 import es.mresti.xemio.app.view.ListTreatmentView;
 import es.mresti.xemio.app.view.LoginView;
@@ -36,7 +39,6 @@ import es.mresti.xemio.app.view.LogupView;
 import es.mresti.xemio.app.view.MainView;
 import es.mresti.xemio.app.view.NewIncidenceView;
 import es.mresti.xemio.app.view.RegisterView;
-import es.mresti.xemio.app.view.activity.ListEffectsActivity;
 
 public class PresenterFactory {
   public static MainPresenter getMainPresenter(MainView view) {
@@ -99,8 +101,8 @@ public class PresenterFactory {
     return ListTreatmentsPresenter.newInstance(view, interactor);
   }
 
-  public static ListEffectsPresenter getListEffectsPresenter(
-      ListEffectsActivity listEffectsActivity) {
-    return null;
+  public static ListEffectsPresenter getListEffectsPresenter(ListEffectView view) {
+    ListEffectsInteractor interactor = new ListEffectsInteractorImpl();
+    return ListEffectsPresenter.newInstance(view, interactor);
   }
 }

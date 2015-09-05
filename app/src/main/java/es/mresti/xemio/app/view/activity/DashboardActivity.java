@@ -94,10 +94,6 @@ public class DashboardActivity extends BaseActivity
         mNavigator.navigateToSettings(this);
         finish();
         break;
-      case 6:
-        // Goes to the xemio website.
-        mNavigator.navigateToXemioWeb(this);
-        break;
       default:
         break;
     }

@@ -9,14 +9,19 @@ public class User {
   private String idChemo;
   private String provider;
 
-  private String displayName;
-
   public User() {
   }
 
   public User(String email, String pass) {
     this.email = email;
     this.pass = pass;
+  }
+
+  public User(String fullName, int age, String idChemo, String provider) {
+    this.fullName = fullName;
+    this.age = age;
+    this.idChemo = idChemo;
+    this.provider = provider;
   }
 
   public String getEmail() {
@@ -37,10 +42,6 @@ public class User {
 
   public String getIdChemo() {
     return idChemo;
-  }
-
-  public String getDisplayName() {
-    return displayName;
   }
 
   public String getProvider() {

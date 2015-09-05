@@ -2,9 +2,14 @@ package es.mresti.xemio.app.view.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.firebase.client.Firebase;
@@ -25,7 +30,7 @@ public class ListEffectsActivity extends BaseActivity implements ListEffectView 
 
   // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
-  @Bind(R.id.listTreatment) ListView mEffectsList;
+  @Bind(R.id.listEffect) ListView mEffectsList;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, ListEffectsActivity.class);
@@ -33,7 +38,7 @@ public class ListEffectsActivity extends BaseActivity implements ListEffectView 
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_list_incidences);
+    setContentView(R.layout.activity_list_effects);
     ButterKnife.bind(this);
     this.initialize();
   }
@@ -50,10 +55,60 @@ public class ListEffectsActivity extends BaseActivity implements ListEffectView 
     mEffectsDatasRef = mPresenter.getRef();
   }
 
+  @Override protected void onStart() {
+    super.onStart();
+    mEffectsListAdapter =
+        new FirebaseListAdapter<HashMap>(mEffectsDatasRef, HashMap.class, R.layout.item_list_1_tv,
+            this) {
+          @Override protected void populateView(View v, final HashMap model) {
+            final String key = ListEffectsActivity.this.mEffectsListAdapter.getModelKey(model);
+            ((TextView) v.findViewById(R.id.item_title)).setText(model.get("advice").toString());
+            v.setClickable(true);
+            v.setOnClickListener(new View.OnClickListener() {
+              @Override public void onClick(View v) {
+                selectIncidenceItem(key);
+              }
+            });
+          }
+        };
+    mEffectsList.setAdapter(mEffectsListAdapter);
+    mEffectsListAdapter.registerDataSetObserver(new DataSetObserver() {
+      @Override public void onChanged() {
+        super.onChanged();
+        mEffectsList.setSelection(mEffectsListAdapter.getCount() - 1);
+      }
+    });
+  }
 
+  @Override protected void onStop() {
+    super.onStop();
+    mEffectsListAdapter.cleanup();
+  }
 
+  private void selectIncidenceItem(String key) {
+    //Intent intent = new Intent(this.getContext(), DetailsIncidenceActivity.class);
+    //intent.putExtra("INCIDENCE_ID", key);
+    //startActivity(intent);
+    //finish();
+  }
 
+  @Override public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    //getMenuInflater().inflate(R.menu.menu_incidence, menu);
+    return true;
+  }
 
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long
+    // as you specify a parent activity in AndroidManifest.xml.
+    int id = item.getItemId();
+
+    if (id == android.R.id.home) {
+      finish();
+    }
+    return super.onOptionsItemSelected(item);
+  }
 
   @Override public Context getContext() {
     return getApplicationContext();
