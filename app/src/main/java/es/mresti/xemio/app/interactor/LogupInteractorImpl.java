@@ -12,37 +12,40 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LogupInteractorImpl implements LogupInteractor {
-  private LogupPresenter presenter;
+  private LogupPresenter mPresenter;
+  private Context mContext;
+  private Firebase mFirebaseRef;
 
   @Override public void setPresenter(LogupPresenter presenter) {
-    this.presenter = presenter;
+    mPresenter = presenter;
   }
 
-  @Override
-  public void register(Context c, final String email, final String pass1, final String pass2) {
-    Context mContext = c;
-    Firebase mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  @Override public void initialize(Context c) {
+    mContext = c;
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  }
 
+  @Override public void register(final String email, final String pass1, final String pass2) {
     boolean error = false;
     if (TextUtils.isEmpty(email)) {
-      presenter.onEmailError();
+      mPresenter.onEmailError();
       error = true;
     }
     if (TextUtils.isEmpty(pass1)) {
-      presenter.onPassError1();
+      mPresenter.onPassError1();
       error = true;
     }
     if (TextUtils.isEmpty(pass2)) {
-      presenter.onPassError2();
+      mPresenter.onPassError2();
       error = true;
     }
     if (pass1.length() != pass2.length()) {
-      presenter.onPassErrorDistinct();
+      mPresenter.onPassErrorDistinct();
       error = true;
     }
 
     if (!pass1.equals(pass2)) {
-      presenter.onPassErrorDistinct();
+      mPresenter.onPassErrorDistinct();
       error = true;
     }
     if (!error) {
@@ -57,8 +60,7 @@ public class LogupInteractorImpl implements LogupInteractor {
         }
       });
 
-      final Firebase firebaseRef =
-          new Firebase(mContext.getResources().getString(R.string.firebase_url));
+      final Firebase firebaseRef = mFirebaseRef;
       firebaseRef.authWithPassword(email, pass1, new Firebase.AuthResultHandler() {
         @Override public void onAuthenticated(AuthData authData) {
 
@@ -71,7 +73,7 @@ public class LogupInteractorImpl implements LogupInteractor {
           Log.w("logged user",
               "User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
 
-          presenter.onSuccess();
+          mPresenter.onSuccess();
         }
 
         @Override public void onAuthenticationError(FirebaseError error) {
@@ -80,15 +82,15 @@ public class LogupInteractorImpl implements LogupInteractor {
           switch (error.getCode()) {
             case FirebaseError.USER_DOES_NOT_EXIST:
               // handle a non existing user
-              presenter.onUserNotExistError();
+              mPresenter.onUserNotExistError();
               break;
             case FirebaseError.INVALID_PASSWORD:
               // handle an invalid password
-              presenter.onInvalidPasswordError();
+              mPresenter.onInvalidPasswordError();
               break;
             default:
               // handle other errors
-              presenter.onAuthenticationError();
+              mPresenter.onAuthenticationError();
               break;
           }
         }

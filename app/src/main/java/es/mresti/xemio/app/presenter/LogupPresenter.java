@@ -33,9 +33,14 @@ public class LogupPresenter implements Presenter {
   @Override public void pause() {
   }
 
+  public void initializeContext(Context c) {
+    mContext = c;
+    mLogupInteractor.initialize(mContext);
+  }
+
   public void setRegister(String email, String password1, String password2) {
     mLogupView.showProgress();
-    mLogupInteractor.register(this.mContext, email, password1, password2);
+    mLogupInteractor.register(email, password1, password2);
   }
 
   public void onEmailError() {
@@ -60,10 +65,6 @@ public class LogupPresenter implements Presenter {
 
   public void onSuccess() {
     mLogupView.navigateToExtraScreen();
-  }
-
-  public void initializeContext(Context c) {
-    this.mContext = c;
   }
 
   public void onUserNotExistError() {

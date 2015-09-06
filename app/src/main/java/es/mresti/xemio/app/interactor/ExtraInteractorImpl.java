@@ -10,22 +10,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ExtraInteractorImpl implements ExtraInteractor {
-  private ExtraPresenter presenter;
+  private ExtraPresenter mPresenter;
   private Context mContext;
   private Firebase mFirebaseRef;
 
   @Override public void setPresenter(ExtraPresenter presenter) {
-    this.presenter = presenter;
+    mPresenter = presenter;
+  }
+
+  @Override public void initialize(Context c) {
+    mContext = c;
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
   }
 
   @Override public void saveExtraData(final String username, final String age) {
     boolean error = false;
     if (TextUtils.isEmpty(username)) {
-      presenter.onUsernameError();
+      mPresenter.onUsernameError();
       error = true;
     }
     if (TextUtils.isEmpty(age)) {
-      presenter.onAgeError();
+      mPresenter.onAgeError();
       error = true;
     }
     if (!error) {
@@ -37,12 +42,7 @@ public class ExtraInteractorImpl implements ExtraInteractor {
       person.put("age", age);
       userRef.updateChildren(person);
 
-      presenter.onSuccess();
+      mPresenter.onSuccess();
     }
-  }
-
-  @Override public void initialize(Context c) {
-    mContext = c;
-    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
   }
 }

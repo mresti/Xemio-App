@@ -14,13 +14,15 @@ public class NewIncidenceInteractorImpl implements NewIncidenceInteractor {
   private Context mContext;
 
   @Override public void setPresenter(NewIncidencePresenter presenter) {
-    this.mPresenter = presenter;
+    mPresenter = presenter;
   }
 
-  @Override public void register(Context c, String subject, String description) {
-    Context mContext = c;
-    Firebase mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  @Override public void initialize(Context c) {
+    mContext = c;
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  }
 
+  @Override public void register(String subject, String description) {
     boolean error = false;
     if (TextUtils.isEmpty(subject)) {
       mPresenter.onSubjectError();

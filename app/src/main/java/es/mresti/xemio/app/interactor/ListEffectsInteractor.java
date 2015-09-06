@@ -8,7 +8,7 @@ public interface ListEffectsInteractor {
 
   void setPresenter(ListEffectsPresenter presenter);
 
-  Firebase getEffectListRef();
+  void initialize(Context c);
 
-  void initialize(Context mContext);
+  Firebase getEffectListRef();
 }

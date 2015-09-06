@@ -31,17 +31,17 @@ public class ChemoPresenter implements Presenter {
   @Override public void pause() {
   }
 
+  public void initializeContext(Context c) {
+    mContext = c;
+    mChemoInteractor.initialize(mContext);
+  }
+
   public void setChemo(String key) {
     mChemoInteractor.setChemo(key);
   }
 
   public void onSuccess() {
     mChemoView.navigateToDashboardScreen();
-  }
-
-  public void initializeContext(Context c) {
-    mContext = c;
-    mChemoInteractor.initialize(mContext);
   }
 
   public Firebase getRef() {

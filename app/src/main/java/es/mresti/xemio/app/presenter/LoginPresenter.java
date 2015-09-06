@@ -33,9 +33,14 @@ public class LoginPresenter implements Presenter {
   @Override public void pause() {
   }
 
+  public void initializeContext(Context c) {
+    mContext = c;
+    mLoginInteractor.initialize(mContext);
+  }
+
   public void validateCredentials(String username, String password) {
     mLoginView.showProgress();
-    mLoginInteractor.login(this.mContext, username, password);
+    mLoginInteractor.login(username, password);
   }
 
   public void onUsernameError() {
@@ -50,10 +55,6 @@ public class LoginPresenter implements Presenter {
 
   public void onSuccess() {
     mLoginView.navigateToHome();
-  }
-
-  public void initializeContext(Context c) {
-    this.mContext = c;
   }
 
   public void onUserNotExistError() {

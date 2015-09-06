@@ -7,7 +7,7 @@ import es.mresti.xemio.app.presenter.ListIncidencesPresenter;
 public interface ListIncidencesInteractor {
   void setPresenter(ListIncidencesPresenter presenter);
 
-  Firebase getIncidenceListRef();
-
   void initialize(Context c);
+
+  Firebase getIncidenceListRef();
 }

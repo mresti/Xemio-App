@@ -10,32 +10,34 @@ import es.mresti.xemio.R;
 import es.mresti.xemio.app.presenter.LoginPresenter;
 
 public class LoginInteractorImpl implements LoginInteractor {
-  private LoginPresenter presenter;
+  private LoginPresenter mPresenter;
+  private Context mContext;
   private Firebase mFirebaseRef;
 
   @Override public void setPresenter(LoginPresenter presenter) {
-    this.presenter = presenter;
+    mPresenter = presenter;
   }
 
-  @Override public void login(Context c, final String username, final String password) {
-    Context mContext = c;
-    Firebase mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  @Override public void initialize(Context c) {
+    mContext = c;
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  }
 
+  @Override public void login(final String username, final String password) {
     boolean error = false;
     if (TextUtils.isEmpty(username)) {
-      presenter.onUsernameError();
+      mPresenter.onUsernameError();
       error = true;
     }
     if (TextUtils.isEmpty(password)) {
-      presenter.onPasswordError();
+      mPresenter.onPasswordError();
       error = true;
     }
     if (!error) {
-      final Firebase firebaseRef =
-          new Firebase(mContext.getResources().getString(R.string.firebase_url));
+      final Firebase firebaseRef = mFirebaseRef;
       firebaseRef.authWithPassword(username, password, new Firebase.AuthResultHandler() {
         @Override public void onAuthenticated(AuthData authData) {
-          presenter.onSuccess();
+          mPresenter.onSuccess();
         }
 
         @Override public void onAuthenticationError(FirebaseError error) {
@@ -44,15 +46,15 @@ public class LoginInteractorImpl implements LoginInteractor {
           switch (error.getCode()) {
             case FirebaseError.USER_DOES_NOT_EXIST:
               // handle a non existing user
-              presenter.onUserNotExistError();
+              mPresenter.onUserNotExistError();
               break;
             case FirebaseError.INVALID_PASSWORD:
               // handle an invalid password
-              presenter.onInvalidPasswordError();
+              mPresenter.onInvalidPasswordError();
               break;
             default:
               // handle other errors
-              presenter.onAuthenticationError();
+              mPresenter.onAuthenticationError();
               break;
           }
         }

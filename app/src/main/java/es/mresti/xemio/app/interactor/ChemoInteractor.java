@@ -7,9 +7,9 @@ import es.mresti.xemio.app.presenter.ChemoPresenter;
 public interface ChemoInteractor {
   void setPresenter(ChemoPresenter presenter);
 
-  Firebase getChemoRef();
-
   void initialize(Context c);
+
+  Firebase getChemoRef();
 
   void setChemo(String key);
 }

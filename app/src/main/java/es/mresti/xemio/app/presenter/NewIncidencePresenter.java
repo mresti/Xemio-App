@@ -38,8 +38,13 @@ public class NewIncidencePresenter implements Presenter {
 
   }
 
+  public void initializeContext(Context c) {
+    mContext = c;
+    mNewIncidenceInteractor.initialize(mContext);
+  }
+
   public void addIncidence(String sub, String desc) {
-    mNewIncidenceInteractor.register(this.mContext, sub, desc);
+    mNewIncidenceInteractor.register(sub, desc);
   }
 
   public void onSubjectError() {
@@ -52,9 +57,5 @@ public class NewIncidencePresenter implements Presenter {
 
   public void onSuccess() {
     mNewIncidenceView.showNotificationCreated();
-  }
-
-  public void initializeContext(Context c) {
-    this.mContext = c;
   }
 }

@@ -17,13 +17,13 @@ public class ChemoInteractorImpl implements ChemoInteractor {
     mPresenter = presenter;
   }
 
-  @Override public Firebase getChemoRef() {
-    return mFirebaseRef.child("chemo");
-  }
-
   @Override public void initialize(Context c) {
     mContext = c;
     mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  }
+
+  @Override public Firebase getChemoRef() {
+    return mFirebaseRef.child("chemo");
   }
 
   @Override public void setChemo(String key) {

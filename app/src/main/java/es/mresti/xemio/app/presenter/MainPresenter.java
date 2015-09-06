@@ -27,14 +27,15 @@ public class MainPresenter implements Presenter {
     mMainInteractor.setPresenter(this);
   }
 
-  public void initializeContext(Context c) {
-    this.mContext = c;
-  }
-
   @Override public void resume() {
   }
 
   @Override public void pause() {
+  }
+
+  public void initializeContext(Context c) {
+    mContext = c;
+    mMainInteractor.initialize(mContext);
   }
 
   public void onSuccessAuth() {
@@ -48,6 +49,6 @@ public class MainPresenter implements Presenter {
 
   public void getUserStatus() {
     mMainView.hideProgress();
-    mMainInteractor.userStatus(this.mContext);
+    mMainInteractor.userStatus();
   }
 }

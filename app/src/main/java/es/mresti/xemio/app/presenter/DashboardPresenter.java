@@ -33,13 +33,13 @@ public class DashboardPresenter implements Presenter {
   @Override public void pause() {
   }
 
-  public void onFailAuth() {
-    mDashboardView.navigateToMainScreen();
-  }
-
   public void initializeContext(Context c) {
     mContext = c;
     mDashboardInteractor.initialize(mContext);
+  }
+
+  public void onFailAuth() {
+    mDashboardView.navigateToMainScreen();
   }
 
   public void getUserStatus() {

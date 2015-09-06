@@ -6,5 +6,7 @@ import es.mresti.xemio.app.presenter.LoginPresenter;
 public interface LoginInteractor {
   void setPresenter(LoginPresenter presenter);
 
-  void login(Context c, String username, String password);
+  void initialize(Context c);
+
+  void login(String username, String password);
 }

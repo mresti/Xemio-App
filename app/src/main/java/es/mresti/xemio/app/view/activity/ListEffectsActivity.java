@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -64,7 +63,7 @@ public class ListEffectsActivity extends BaseActivity implements ListEffectView 
             this) {
           @Override protected void populateView(View v, final HashMap model) {
             final String key = ListEffectsActivity.this.mEffectsListAdapter.getModelKey(model);
-            ((TextView) v.findViewById(R.id.item_title)).setText(model.get("advice").toString());
+            ((TextView) v.findViewById(R.id.item_title)).setText(model.get("effect").toString());
             v.setClickable(true);
             v.setOnClickListener(new View.OnClickListener() {
               @Override public void onClick(View v) {
@@ -88,10 +87,10 @@ public class ListEffectsActivity extends BaseActivity implements ListEffectView 
   }
 
   private void selectIncidenceItem(String key) {
-    //Intent intent = new Intent(this.getContext(), DetailsIncidenceActivity.class);
-    //intent.putExtra("INCIDENCE_ID", key);
-    //startActivity(intent);
-    //finish();
+    Intent intent = new Intent(this.getContext(), DetailsEffectActivity.class);
+    intent.putExtra("EFFECT_ID", key);
+    startActivity(intent);
+    finish();
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {

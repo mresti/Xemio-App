@@ -6,5 +6,7 @@ import es.mresti.xemio.app.presenter.LogupPresenter;
 public interface LogupInteractor {
   void setPresenter(LogupPresenter presenter);
 
-  void register(Context c, String email, String pass1, String pass2);
+  void initialize(Context c);
+
+  void register(String email, String pass1, String pass2);
 }
