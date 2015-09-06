@@ -94,6 +94,12 @@
     </activity>
 
     <activity
+        android:name=".app.view.activity.DetailsEffectActivity"
+        android:label="@string/toolbar_title_effect_detail"
+        >
+    </activity>
+
+    <activity
         android:name=".app.view.activity.NewIncidenceActivity"
         android:label="@string/toolbar_title_incidence"
         >

@@ -4,6 +4,8 @@ import es.mresti.xemio.app.interactor.ChemoInteractor;
 import es.mresti.xemio.app.interactor.ChemoInteractorImpl;
 import es.mresti.xemio.app.interactor.DashboardInteractor;
 import es.mresti.xemio.app.interactor.DashboardInteractorImpl;
+import es.mresti.xemio.app.interactor.DetailEffectInteractor;
+import es.mresti.xemio.app.interactor.DetailEffectInteractorImpl;
 import es.mresti.xemio.app.interactor.DetailIncidenceInteractor;
 import es.mresti.xemio.app.interactor.DetailIncidenceInteractorImpl;
 import es.mresti.xemio.app.interactor.DetailTreatmentInteractor;
@@ -28,6 +30,7 @@ import es.mresti.xemio.app.interactor.RegisterInteractor;
 import es.mresti.xemio.app.interactor.RegisterInteractorImpl;
 import es.mresti.xemio.app.view.ChemoView;
 import es.mresti.xemio.app.view.DashboardView;
+import es.mresti.xemio.app.view.DetailEffectView;
 import es.mresti.xemio.app.view.DetailIncidenceView;
 import es.mresti.xemio.app.view.DetailTreatmentView;
 import es.mresti.xemio.app.view.ExtraView;
@@ -104,5 +107,10 @@ public class PresenterFactory {
   public static ListEffectsPresenter getListEffectsPresenter(ListEffectView view) {
     ListEffectsInteractor interactor = new ListEffectsInteractorImpl();
     return ListEffectsPresenter.newInstance(view, interactor);
+  }
+
+  public static DetailEffectPresenter getDetailEffectPresenter(DetailEffectView view) {
+    DetailEffectInteractor interactor = new DetailEffectInteractorImpl();
+    return DetailEffectPresenter.newInstance(view, interactor);
   }
 }

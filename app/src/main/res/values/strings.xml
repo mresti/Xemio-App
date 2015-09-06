@@ -65,6 +65,9 @@
 
   // Details Effect Activity
   <string name="toolbar_title_effect_detail">Efecto Secundario Detallado</string>
+  <string name="text_effect_item">Efecto:</string>
+  <string name="text_category_item">Categoría:</string>
+  <string name="text_advice_item">Consejo:</string>
 
   // Incidence Activity
   <string name="toolbar_title_incidence">Nueva incidencia</string>
@@ -116,4 +119,5 @@
 
   // UI components text
   <string name="string_content_description">Non accessible view</string>
+
 </resources>
