@@ -8,7 +8,7 @@ public class Advice {
   public Advice() {
   }
 
-  public Advice(String category,String effect, String advice) {
+  public Advice(String category, String effect, String advice) {
     this.category = category;
     this.advice = advice;
     this.effect = effect;
