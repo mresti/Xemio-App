@@ -3,59 +3,40 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuInflater;
+import android.view.Menu;
 import android.view.MenuItem;
-import com.firebase.client.Firebase;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
-import es.mresti.xemio.app.view.utils.Preferences;
 
-public class SettingsActivity extends PreferenceActivity {
+public class SettingsActivity extends BaseActivity {
 
   public static final String TAG = "SettingsActivity";
-  private AppCompatDelegate mDelegate;
   private Navigator mNavigator;
 
-  /**
-   * Log out Preference
-   */
-  private static Preference logOutPref;
+  // UI items
+  @Bind(R.id.toolbar) Toolbar mToolbar;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, SettingsActivity.class);
   }
 
   @Override protected void onCreate(Bundle savedInstanceState) {
-    this.mNavigator = new Navigator();
-    getDelegate().installViewFactory();
-    getDelegate().onCreate(savedInstanceState);
     super.onCreate(savedInstanceState);
-    setToolbar();
-    addPreferencesFromResource(R.xml.settings_view);
+    setContentView(R.layout.activity_settings);
+    ButterKnife.bind(this);
+    this.initialize();
+  }
 
-    logOutPref = findPreference(Preferences.LOGOUTPREF);
-
-    logOutPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-
-      @Override public boolean onPreferenceClick(Preference preference) {
-        Firebase mFirebaseRef = new Firebase(getString(R.string.firebase_url));
-        mFirebaseRef.unauth();
-
-        startActivity(new Intent(getBaseContext(), MainActivity.class).addFlags(
-            Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            .putExtra("fromPreference", true));
-
-        finish();
-        return true;
-      }
-    });
+  /**
+   * Initializes activity's private members.
+   */
+  private void initialize() {
+    setSupportActionBar(mToolbar);
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    mNavigator = new Navigator();
   }
 
   @Override public void onBackPressed() {
@@ -64,13 +45,9 @@ public class SettingsActivity extends PreferenceActivity {
     finish();
   }
 
-  @Override protected void onPostCreate(Bundle savedInstanceState) {
-    super.onPostCreate(savedInstanceState);
-    getDelegate().onPostCreate(savedInstanceState);
-  }
-
-  @Override public MenuInflater getMenuInflater() {
-    return getDelegate().getMenuInflater();
+  @Override public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    return true;
   }
 
   @Override public boolean onOptionsItemSelected(MenuItem item) {
@@ -79,54 +56,5 @@ public class SettingsActivity extends PreferenceActivity {
       return true;
     }
     return super.onOptionsItemSelected(item);
-  }
-
-  @Override public void setContentView(@LayoutRes int layoutResID) {
-    getDelegate().setContentView(layoutResID);
-  }
-
-  @Override public void onResume() {
-    super.onResume();
-  }
-
-  @Override public void onPause() {
-    super.onPause();
-  }
-
-  @Override protected void onPostResume() {
-    super.onPostResume();
-    getDelegate().onPostResume();
-  }
-
-  @Override protected void onStop() {
-    super.onStop();
-    getDelegate().onStop();
-  }
-
-  @Override protected void onDestroy() {
-    super.onDestroy();
-    getDelegate().onDestroy();
-  }
-
-  private void setToolbar() {
-    setContentView(R.layout.activity_settings);
-    setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-    getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME |
-        ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_TITLE);
-  }
-
-  private ActionBar getSupportActionBar() {
-    return getDelegate().getSupportActionBar();
-  }
-
-  private void setSupportActionBar(@Nullable Toolbar toolbar) {
-    getDelegate().setSupportActionBar(toolbar);
-  }
-
-  private AppCompatDelegate getDelegate() {
-    if (mDelegate == null) {
-      mDelegate = AppCompatDelegate.create(this, null);
-    }
-    return mDelegate;
   }
 }

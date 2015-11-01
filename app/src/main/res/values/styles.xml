@@ -24,6 +24,7 @@
     <item name="android:windowBackground">@color/window_background</item>
     <item name="colorControlHighlight">@color/ColorPrimaryLight</item>
     <item name="colorButtonNormal">@color/ColorPrimaryDark</item>
+    <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
   </style>
 
   <style name="Widget.CardContent"

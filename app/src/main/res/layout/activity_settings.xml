@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
-  <android.support.v7.widget.Toolbar
-      android:id="@+id/toolbar"
+  <android.support.design.widget.AppBarLayout
+      android:id="@+id/appbar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:minHeight="?android:attr/actionBarSize"
-      android:background="@color/ColorPrimary"
-      android:theme="@style/ThemeOverlay.AppCompat.Dark"
-      android:visibility="visible"
-      app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-      app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-      />
+      android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+      >
 
-  <ListView
-      android:id="@android:id/list"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/ColorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
+
+  </android.support.design.widget.AppBarLayout>
+
+  <LinearLayout
+      android:id="@+id/layout_list"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      />
-</LinearLayout>
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:background="@color/color_white"
+      android:layout_marginTop="?android:attr/actionBarSize"
+      >
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="es.mresti.xemio.app.view.fragment.SettingsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+  </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
