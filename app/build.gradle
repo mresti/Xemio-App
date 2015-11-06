@@ -54,7 +54,6 @@ dependencies {
   // UI dependencies
   compile viewDependencies.butterknife
   compile viewDependencies.materialDialogs
-  compile viewDependencies.materialPref
 
   // Unit testing dependencies
   testCompile testingDependencies.junit

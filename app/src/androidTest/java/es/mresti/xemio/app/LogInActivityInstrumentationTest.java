@@ -28,6 +28,5 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
     onView(withId(R.id.emailInput)).perform(typeText(EMAIL), closeSoftKeyboard());
     onView(withId(R.id.passInput)).perform(typeText(PASS), closeSoftKeyboard());
     onView(withId(R.id.btn_save)).perform(click());
-    onView(withId(R.id.btn_web)).check(matches(withText("La web")));
   }
 }

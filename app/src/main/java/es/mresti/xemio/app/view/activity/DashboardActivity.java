@@ -4,12 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.DashboardPresenter;
@@ -90,12 +93,45 @@ public class DashboardActivity extends BaseActivity
         mNavigator.navigateToHistory(this);
         break;
       case 5:
-        //Goes to the settings screen.
-        mNavigator.navigateToSettings(this);
-        finish();
         break;
       default:
         break;
     }
+  }
+
+  @Override public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.menu_main, menu);
+    return true;
+  }
+
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long
+    // as you specify a parent activity in AndroidManifest.xml.
+    int id = item.getItemId();
+
+    //noinspection SimplifiableIfStatement
+    if (id == R.id.action_logout) {
+      //Goes to the settings screen.
+      Firebase mFirebaseRef = new Firebase(getString(R.string.firebase_url));
+      mFirebaseRef.unauth();
+
+      startActivity(new Intent(getContext(), MainActivity.class).addFlags(
+          Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)
+          .putExtra("fromDashboard", true));
+      finish();
+      return true;
+    }
+
+    //noinspection SimplifiableIfStatement
+    if (id == R.id.action_settings) {
+      //Goes to the settings screen.
+      mNavigator.navigateToSettings(this);
+      finish();
+      return true;
+    }
+
+    return super.onOptionsItemSelected(item);
   }
 }

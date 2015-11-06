@@ -16,14 +16,4 @@
 
   </PreferenceCategory>
 
-  <PreferenceCategory android:title="@string/category_data">
-
-    <Preference
-        android:key="logOutPref"
-        android:summary="@string/field_logout_text"
-        android:title="@string/field_logout_title"
-        />
-
-  </PreferenceCategory>
-
 </PreferenceScreen>

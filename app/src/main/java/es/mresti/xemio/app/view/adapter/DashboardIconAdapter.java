@@ -23,7 +23,7 @@ public class DashboardIconAdapter extends BaseAdapter {
           "ic_add_circle_black_48dp.png"),
       new DashboardIcon(R.drawable.ic_event_note_black_48dp, "Historial",
           "ic_event_note_black_48dp.png"),
-      new DashboardIcon(R.drawable.ic_settings_black_48dp, "Ajustes", "ic_settings_black_48dp.png"),
+      new DashboardIcon(R.drawable.ic_settings_black_48dp, "Web", "ic_settings_black_48dp.png"),
   };
 
   public DashboardIconAdapter(Context c) {

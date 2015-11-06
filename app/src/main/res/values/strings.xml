@@ -42,6 +42,8 @@
   <string name="dialog_select_chemo">Quimio seleccionada</string>
 
   // Dashboard Activity
+  <string name="action_settings">settings</string>
+  <string name="action_logout">Cerrar sesión</string>
 
   // Info Activity
   <string name="toolbar_title_info">Información Cáncer de Mama</string>
@@ -115,7 +117,6 @@
   // tmp values
   <string name="element_prompt">Selecciona un elemento</string>
   <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel ligula eget ante aliquam viverra non quis est. Duis nunc orci, imperdiet eget fringilla vitae, bibendum non dui. Nulla feugiat commodo nisi, at pulvinar dolor sagittis id. Suspendisse potenti. Nunc sollicitudin, sapien sit amet varius convallis, augue mauris sagittis sapien, a hendrerit mi turpis eget leo. Integer viverra purus id erat euismod molestie eget non orci. Curabitur elementum ac nibh id dapibus. Vestibulum finibus ex in metus consequat vestibulum eget rhoncus lacus. Morbi eu egestas erat. Etiam nec blandit neque. Mauris id efficitur justo. Aenean posuere viverra nisi, sed ullamcorper nisl aliquam nec. Suspendisse imperdiet felis eu enim efficitur, quis pulvinar arcu porttitor. Etiam erat lorem, pellentesque sit amet urna vel, lobortis vulputate sem.</string>
-  <string name="action_settings">settings</string>
 
   // UI components text
   <string name="string_content_description">Non accessible view</string>
