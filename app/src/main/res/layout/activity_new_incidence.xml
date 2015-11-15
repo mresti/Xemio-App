@@ -47,6 +47,7 @@
           android:layout_height="wrap_content"
           android:hint="@string/form_text_subject"
           android:singleLine="true"
+          android:theme="@style/MyEditText"
           />
     </android.support.design.widget.TextInputLayout>
 
@@ -69,6 +70,7 @@
           android:lines="6"
           android:minLines="6"
           android:scrollbars="vertical"
+          style="@style/FullWidthEditText"
           />
     </android.support.design.widget.TextInputLayout>
 

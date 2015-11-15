@@ -42,6 +42,7 @@
           android:layout_height="wrap_content"
           android:hint="@string/text_email"
           android:singleLine="true"
+          android:theme="@style/MyEditText"
           />
 
     </android.support.design.widget.TextInputLayout>
@@ -62,6 +63,7 @@
           android:inputType="textPassword"
           android:ellipsize="start"
           android:singleLine="true"
+          android:theme="@style/MyEditText"
           />
 
     </android.support.design.widget.TextInputLayout>
@@ -82,6 +84,7 @@
           android:inputType="textPassword"
           android:ellipsize="start"
           android:singleLine="true"
+          android:theme="@style/MyEditText"
           />
 
     </android.support.design.widget.TextInputLayout>
