@@ -44,6 +44,7 @@ dependencies {
   compile supportDependencies.appCompat
   compile supportDependencies.cardView
   compile supportDependencies.recyclerView
+  compile supportDependencies.support
   compile supportDependencies.preferenceV7
   compile supportDependencies.preferenceV14
   androidTestCompile supportDependencies.supportAnnotation
