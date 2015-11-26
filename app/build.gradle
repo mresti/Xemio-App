@@ -74,4 +74,5 @@ dependencies {
   // LeakCanary Library
   debugCompile testingDependencies.leakCanaryDebug
   releaseCompile testingDependencies.leakCanaryRel
+  compile 'com.android.support.test.espresso:espresso-core:2.2.1'
 }

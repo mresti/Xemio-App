@@ -1,41 +1,25 @@
 package es.mresti.xemio.app.presenter;
 
 import android.content.Context;
-import es.mresti.xemio.app.interactor.RegisterInteractor;
-import es.mresti.xemio.app.view.RegisterView;
+import android.support.annotation.NonNull;
+import com.firebase.client.Firebase;
+import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.RegisterContract;
 
-public class RegisterPresenter implements Presenter {
-  private RegisterView mRegisterView;
-  private RegisterInteractor mRegisterInteractor;
+import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
+
+public class RegisterPresenter implements RegisterContract.UserActionsListener {
+
+  private Firebase mFirebaseRef;
   private Context mContext;
+  private final RegisterContract.View mRegisterView;
 
-  public static RegisterPresenter newInstance(RegisterView registerView,
-      RegisterInteractor registerInteractor) {
-    RegisterPresenter presenter = new RegisterPresenter(registerView, registerInteractor);
-    presenter.initialize();
-    return presenter;
+  public RegisterPresenter(@NonNull RegisterContract.View registerView) {
+    mRegisterView = checkNotNull(registerView, "notesView cannot be null!");
   }
 
-  private RegisterPresenter(RegisterView registerView, RegisterInteractor registerInteractor) {
-    this.mRegisterView = registerView;
-    this.mRegisterInteractor = registerInteractor;
-  }
-
-  /**
-   * Initializes the presenter by start retrieving the user list.
-   */
-  private void initialize() {
-    mRegisterInteractor.setPresenter(this);
-  }
-
-  @Override public void resume() {
-  }
-
-  @Override public void pause() {
-  }
-
-  public void initializeContext(Context c) {
+  @Override public void initializeActions(Context c) {
     mContext = c;
-    mRegisterInteractor.initialize(mContext);
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
   }
 }

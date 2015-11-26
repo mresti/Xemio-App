@@ -9,16 +9,14 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.RegisterContract;
 import es.mresti.xemio.app.navigation.Navigator;
-import es.mresti.xemio.app.presenter.PresenterFactory;
 import es.mresti.xemio.app.presenter.RegisterPresenter;
-import es.mresti.xemio.app.view.RegisterView;
 
-public class RegisterActivity extends BaseActivity implements RegisterView {
+public class RegisterActivity extends BaseActivity implements RegisterContract.View {
 
-  public static final String TAG = "RegisterActivity";
+  private RegisterContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
-  private RegisterPresenter mPresenter;
 
   // UI items
   @Bind(R.id.btn_login) Button mBtn_login;
@@ -37,47 +35,48 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
-    mPresenter = PresenterFactory.getRegisterPresenter(this);
     mNavigator = new Navigator();
+    mActionsListener = new RegisterPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
     mBtn_begin.setVisibility(View.GONE);
-  }
-
-  /**
-   * Goes to the finish activity.
-   */
-  @OnClick(R.id.btn_deny) void navigateToFinish() {
-    finish();
-  }
-
-  /**
-   * Goes to the user LogIn screen.
-   */
-  @OnClick(R.id.btn_login) void navigateToLogIn() {
-    mNavigator.navigateToUserLogIn(this);
-    finish();
-  }
-
-  /**
-   * Goes to the user LogUp screen.
-   */
-  @OnClick(R.id.btn_logup) void navigateToLogUp() {
-    mNavigator.navigateToUserLogUp(this);
-    finish();
-  }
-
-  @Override public void showProgress() {
-
-  }
-
-  @Override public void hideProgress() {
-
   }
 
   @Override public Context getContext() {
     return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
+  }
+
+  @Override public void openLogin() {
+    mNavigator.navigateToUserLogIn(this);
+    finish();
+  }
+
+  @Override public void openLogup() {
+    mNavigator.navigateToUserLogUp(this);
+    finish();
+  }
+
+  @Override public void closeApp() {
+    finish();
+  }
+
+  @OnClick(R.id.btn_deny) void navigateToFinish() {
+    this.closeApp();
+  }
+
+  @OnClick(R.id.btn_login) void navigateToLogIn() {
+    this.openLogin();
+  }
+
+  @OnClick(R.id.btn_logup) void navigateToLogUp() {
+    this.openLogup();
   }
 }

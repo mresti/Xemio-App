@@ -1,54 +1,52 @@
 package es.mresti.xemio.app.presenter;
 
 import android.content.Context;
-import es.mresti.xemio.app.interactor.MainInteractor;
-import es.mresti.xemio.app.view.MainView;
+import android.support.annotation.NonNull;
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.MainContract;
 
-public class MainPresenter implements Presenter {
-  private MainView mMainView;
-  private MainInteractor mMainInteractor;
+import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
+
+public class MainPresenter implements MainContract.UserActionsListener {
+  private Firebase mFirebaseRef;
   private Context mContext;
+  private final MainContract.View mMainView;
 
-  public static MainPresenter newInstance(MainView mainView, MainInteractor mainInteractor) {
-    MainPresenter presenter = new MainPresenter(mainView, mainInteractor);
-    presenter.initialize();
-    return presenter;
+  public MainPresenter(@NonNull MainContract.View mainView) {
+    mMainView = checkNotNull(mainView, "notesView cannot be null!");
   }
 
-  private MainPresenter(MainView mainView, MainInteractor mainInteractor) {
-    this.mMainView = mainView;
-    this.mMainInteractor = mainInteractor;
-  }
-
-  /**
-   * Initializes the presenter by start retrieving the user list.
-   */
-  private void initialize() {
-    mMainInteractor.setPresenter(this);
-  }
-
-  @Override public void resume() {
-  }
-
-  @Override public void pause() {
-  }
-
-  public void initializeContext(Context c) {
+  @Override public void initializeActions(Context c) {
     mContext = c;
-    mMainInteractor.initialize(mContext);
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
   }
 
-  public void onSuccessAuth() {
+  @Override public void getUserStatus() {
     mMainView.hideProgress();
-    mMainView.navigateToDashboardScreen();
+    this.userStatus();
   }
 
-  public void onFailAuth() {
+  private void onSuccessAuth() {
+    mMainView.hideProgress();
+    mMainView.openDashboard();
+  }
+
+  private void onFailAuth() {
     mMainView.showProgress();
   }
 
-  public void getUserStatus() {
-    mMainView.hideProgress();
-    mMainInteractor.userStatus();
+  private void userStatus() {
+    AuthData authData = mFirebaseRef.getAuth();
+    if (authData != null) {
+      // user authenticated
+      // show dashboardActivity
+      this.onSuccessAuth();
+    } else {
+      // no user authenticated
+      // show mainActivity
+      this.onFailAuth();
+    }
   }
 }

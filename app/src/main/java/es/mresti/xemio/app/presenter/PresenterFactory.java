@@ -22,12 +22,8 @@ import es.mresti.xemio.app.interactor.LoginInteractor;
 import es.mresti.xemio.app.interactor.LoginInteractorImpl;
 import es.mresti.xemio.app.interactor.LogupInteractor;
 import es.mresti.xemio.app.interactor.LogupInteractorImpl;
-import es.mresti.xemio.app.interactor.MainInteractor;
-import es.mresti.xemio.app.interactor.MainInteractorImpl;
 import es.mresti.xemio.app.interactor.NewIncidenceInteractor;
 import es.mresti.xemio.app.interactor.NewIncidenceInteractorImpl;
-import es.mresti.xemio.app.interactor.RegisterInteractor;
-import es.mresti.xemio.app.interactor.RegisterInteractorImpl;
 import es.mresti.xemio.app.view.ChemoView;
 import es.mresti.xemio.app.view.DashboardView;
 import es.mresti.xemio.app.view.DetailEffectView;
@@ -39,21 +35,9 @@ import es.mresti.xemio.app.view.ListIncidencesView;
 import es.mresti.xemio.app.view.ListTreatmentView;
 import es.mresti.xemio.app.view.LoginView;
 import es.mresti.xemio.app.view.LogupView;
-import es.mresti.xemio.app.view.MainView;
 import es.mresti.xemio.app.view.NewIncidenceView;
-import es.mresti.xemio.app.view.RegisterView;
 
 public class PresenterFactory {
-  public static MainPresenter getMainPresenter(MainView view) {
-    MainInteractor interactor = new MainInteractorImpl();
-    return MainPresenter.newInstance(view, interactor);
-  }
-
-  public static RegisterPresenter getRegisterPresenter(RegisterView view) {
-    RegisterInteractor interactor = new RegisterInteractorImpl();
-    return RegisterPresenter.newInstance(view, interactor);
-  }
-
   public static LoginPresenter getLoginPresenter(LoginView view) {
     LoginInteractor interactor = new LoginInteractorImpl();
     return LoginPresenter.newInstance(view, interactor);
