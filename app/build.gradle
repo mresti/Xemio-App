@@ -11,6 +11,7 @@ android {
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testApplicationId "es.mresti.xemio.test"
   }
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_7
