@@ -94,7 +94,7 @@ public class TreatmentsActivity extends BaseActivity implements TreatmentsContra
   }
 
   private void selectIncidenceItem(String key) {
-    Intent intent = new Intent(this.getContext(), DetailsTreatmentActivity.class);
+    Intent intent = new Intent(this.getContext(), TreatmentDetailActivity.class);
     intent.putExtra("TREATMENT_ID", key);
     startActivity(intent);
     finish();

@@ -95,7 +95,7 @@ public class EffectsActivity extends BaseActivity implements EffectsContract.Vie
   }
 
   private void selectIncidenceItem(String key) {
-    Intent intent = new Intent(this.getContext(), DetailsEffectActivity.class);
+    Intent intent = new Intent(this.getContext(), EffectDetailActivity.class);
     intent.putExtra("EFFECT_ID", key);
     startActivity(intent);
     finish();

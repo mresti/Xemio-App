@@ -105,7 +105,7 @@ public class IncidencesActivity extends BaseActivity implements IncidencesContra
   }
 
   private void selectIncidenceItem(String key) {
-    Intent intent = new Intent(this.getContext(), DetailsIncidenceActivity.class);
+    Intent intent = new Intent(this.getContext(), IncidenceDetailActivity.class);
     intent.putExtra("INCIDENCE_ID", key);
     startActivity(intent);
     finish();

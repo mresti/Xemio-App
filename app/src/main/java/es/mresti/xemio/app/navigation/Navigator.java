@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
-import es.mresti.xemio.app.view.activity.DetailsTreatmentActivity;
 import es.mresti.xemio.app.view.activity.EffectsActivity;
 import es.mresti.xemio.app.view.activity.ExtraActivity;
 import es.mresti.xemio.app.view.activity.IncidencesActivity;
@@ -16,6 +15,7 @@ import es.mresti.xemio.app.view.activity.MainActivity;
 import es.mresti.xemio.app.view.activity.NewIncidenceActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
+import es.mresti.xemio.app.view.activity.TreatmentDetailActivity;
 import es.mresti.xemio.app.view.activity.TreatmentsActivity;
 
 /**
@@ -117,7 +117,7 @@ public class Navigator {
 
   public void navigateToTreatmentDetails(Context context, String key) {
     if (context != null) {
-      Intent intentToLaunch = DetailsTreatmentActivity.getCallingIntent(context, key);
+      Intent intentToLaunch = TreatmentDetailActivity.getCallingIntent(context, key);
       context.startActivity(intentToLaunch);
     }
   }
