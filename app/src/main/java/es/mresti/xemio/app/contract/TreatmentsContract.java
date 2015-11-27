@@ -1,19 +1,16 @@
 package es.mresti.xemio.app.contract;
 
+import com.firebase.client.Firebase;
+
 /**
  * This specifies the contract between the view and the presenter.
  */
-public interface RegisterContract {
+public interface TreatmentsContract {
 
   interface View extends BaseContract.BaseView {
-
-    void openLogin();
-
-    void openLogup();
-
-    void closeApp();
   }
 
   interface UserActionsListener extends BaseContract.BaseActions {
+    Firebase getTreatmentListRef();
   }
 }

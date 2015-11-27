@@ -16,20 +16,18 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.IncidencesContract;
 import es.mresti.xemio.app.navigation.Navigator;
-import es.mresti.xemio.app.presenter.ListIncidencesPresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.ListIncidencesView;
+import es.mresti.xemio.app.presenter.IncidencesPresenter;
 import es.mresti.xemio.app.view.adapter.FirebaseListAdapter;
 import java.util.HashMap;
 
-public class ListIncidencesActivity extends BaseActivity implements ListIncidencesView {
+public class IncidencesActivity extends BaseActivity implements IncidencesContract.View {
 
-  public static final String TAG = "ListIncidencesActivity";
+  private IncidencesContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
   private Firebase mIncidencesDatasRef;
   private FirebaseListAdapter<HashMap> mIncidencesListAdapter;
-  private ListIncidencesPresenter mPresenter;
 
   // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
@@ -38,7 +36,7 @@ public class ListIncidencesActivity extends BaseActivity implements ListIncidenc
   @Bind(R.id.listIncidence) ListView mIncidenceList;
 
   public static Intent getCallingIntent(Context context) {
-    return new Intent(context, ListIncidencesActivity.class);
+    return new Intent(context, IncidencesActivity.class);
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
@@ -48,16 +46,25 @@ public class ListIncidencesActivity extends BaseActivity implements ListIncidenc
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
-    mPresenter = PresenterFactory.getListIncidencesPresenter(this);
     mNavigator = new Navigator();
+    mActionsListener = new IncidencesPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    mPresenter.initializeContext(this.getContext());
-    mIncidencesDatasRef = mPresenter.getRef();
+    mIncidencesDatasRef = mActionsListener.getIncidenceListRef();
+  }
+
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
   }
 
   @Override protected void onStart() {
@@ -66,7 +73,7 @@ public class ListIncidencesActivity extends BaseActivity implements ListIncidenc
     mIncidencesListAdapter = new FirebaseListAdapter<HashMap>(mIncidencesDatasRef, HashMap.class,
         R.layout.item_list_1_tv, this) {
       @Override protected void populateView(View v, final HashMap model) {
-        final String key = ListIncidencesActivity.this.mIncidencesListAdapter.getModelKey(model);
+        final String key = IncidencesActivity.this.mIncidencesListAdapter.getModelKey(model);
         ((TextView) v.findViewById(R.id.item_title)).setText(model.get("subject").toString());
         v.setClickable(true);
         v.setOnClickListener(new View.OnClickListener() {
@@ -121,8 +128,6 @@ public class ListIncidencesActivity extends BaseActivity implements ListIncidenc
     }
     return super.onOptionsItemSelected(item);
   }
-
-  @Override public Context getContext() {
-    return getApplicationContext();
-  }
 }
+
+

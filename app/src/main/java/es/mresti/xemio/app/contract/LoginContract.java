@@ -3,7 +3,7 @@ package es.mresti.xemio.app.contract;
 /**
  * This specifies the contract between the view and the presenter.
  */
-public interface MainContract {
+public interface LoginContract {
 
   interface View extends BaseContract.BaseView {
 
@@ -11,14 +11,16 @@ public interface MainContract {
 
     void hideProgress();
 
-    void openRegister();
+    void setUsernameError();
+
+    void setPasswordError();
 
     void openDashboard();
 
-    void closeApp();
+    void getBackApp();
   }
 
   interface UserActionsListener extends BaseContract.BaseActions {
-    void getUserStatus();
+    void validateCredentials(String username, String password);
   }
 }

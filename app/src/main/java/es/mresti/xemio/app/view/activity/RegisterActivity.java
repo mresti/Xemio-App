@@ -68,15 +68,15 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
     finish();
   }
 
-  @OnClick(R.id.btn_deny) void navigateToFinish() {
+  @OnClick(R.id.btn_deny) void closeMainActivity() {
     this.closeApp();
   }
 
-  @OnClick(R.id.btn_login) void navigateToLogIn() {
+  @OnClick(R.id.btn_login) void openLoginActivity() {
     this.openLogin();
   }
 
-  @OnClick(R.id.btn_logup) void navigateToLogUp() {
+  @OnClick(R.id.btn_logup) void openLogupActivity() {
     this.openLogup();
   }
 }

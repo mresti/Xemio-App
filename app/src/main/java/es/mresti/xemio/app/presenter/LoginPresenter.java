@@ -1,69 +1,96 @@
 package es.mresti.xemio.app.presenter;
 
 import android.content.Context;
-import es.mresti.xemio.app.interactor.LoginInteractor;
-import es.mresti.xemio.app.view.LoginView;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.LoginContract;
 
-public class LoginPresenter implements Presenter {
-  private LoginView mLoginView;
-  private LoginInteractor mLoginInteractor;
+import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
+
+public class LoginPresenter implements LoginContract.UserActionsListener {
+
+  private Firebase mFirebaseRef;
   private Context mContext;
+  private final LoginContract.View mLoginView;
 
-  public static LoginPresenter newInstance(LoginView loginView, LoginInteractor loginInteractor) {
-    LoginPresenter presenter = new LoginPresenter(loginView, loginInteractor);
-    presenter.initialize();
-    return presenter;
+  public LoginPresenter(@NonNull LoginContract.View loginView) {
+    mLoginView = checkNotNull(loginView, "loginView cannot be null!");
   }
 
-  private LoginPresenter(LoginView loginView, LoginInteractor loginInteractor) {
-    this.mLoginView = loginView;
-    this.mLoginInteractor = loginInteractor;
-  }
-
-  /**
-   * Initializes the presenter by start retrieving the user list.
-   */
-  private void initialize() {
-    mLoginInteractor.setPresenter(this);
-  }
-
-  @Override public void resume() {
-  }
-
-  @Override public void pause() {
-  }
-
-  public void initializeContext(Context c) {
-    mContext = c;
-    mLoginInteractor.initialize(mContext);
-  }
-
-  public void validateCredentials(String username, String password) {
+  @Override public void validateCredentials(String username, String password) {
     mLoginView.showProgress();
-    mLoginInteractor.login(username, password);
+    this.login(username, password);
   }
 
-  public void onUsernameError() {
+  @Override public void initializeActions(Context c) {
+    mContext = c;
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  }
+
+  public void login(final String username, final String password) {
+    boolean error = false;
+    if (TextUtils.isEmpty(username)) {
+      this.onUsernameError();
+      error = true;
+    }
+    if (TextUtils.isEmpty(password)) {
+      this.onPasswordError();
+      error = true;
+    }
+    if (!error) {
+      final Firebase firebaseRef = mFirebaseRef;
+      firebaseRef.authWithPassword(username, password, new Firebase.AuthResultHandler() {
+        @Override public void onAuthenticated(AuthData authData) {
+          onSuccess();
+        }
+
+        @Override public void onAuthenticationError(FirebaseError error) {
+          // there was an error
+          Log.e("logged user", "Error al logged user");
+          switch (error.getCode()) {
+            case FirebaseError.USER_DOES_NOT_EXIST:
+              // handle a non existing user
+              //onUserNotExistError();
+              break;
+            case FirebaseError.INVALID_PASSWORD:
+              // handle an invalid password
+              //onInvalidPasswordError();
+              break;
+            default:
+              // handle other errors
+              //onAuthenticationError();
+              break;
+          }
+        }
+      });
+    }
+  }
+
+  private void onUsernameError() {
     mLoginView.setUsernameError();
     mLoginView.hideProgress();
   }
 
-  public void onPasswordError() {
+  private void onPasswordError() {
     mLoginView.setPasswordError();
     mLoginView.hideProgress();
   }
 
-  public void onSuccess() {
-    mLoginView.navigateToHome();
+  private void onSuccess() {
+    mLoginView.openDashboard();
   }
 
-  public void onUserNotExistError() {
+  private void onUserNotExistError() {
   }
 
-  public void onInvalidPasswordError() {
+  private void onInvalidPasswordError() {
   }
 
-  public void onAuthenticationError() {
-
+  private void onAuthenticationError() {
   }
 }

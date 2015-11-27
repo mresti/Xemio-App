@@ -6,17 +6,17 @@ import android.net.Uri;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
 import es.mresti.xemio.app.view.activity.DetailsTreatmentActivity;
+import es.mresti.xemio.app.view.activity.EffectsActivity;
 import es.mresti.xemio.app.view.activity.ExtraActivity;
+import es.mresti.xemio.app.view.activity.IncidencesActivity;
 import es.mresti.xemio.app.view.activity.InfoActivity;
-import es.mresti.xemio.app.view.activity.ListEffectsActivity;
-import es.mresti.xemio.app.view.activity.ListIncidencesActivity;
-import es.mresti.xemio.app.view.activity.ListTreatmentActivity;
 import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.MainActivity;
 import es.mresti.xemio.app.view.activity.NewIncidenceActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
+import es.mresti.xemio.app.view.activity.TreatmentsActivity;
 
 /**
  * Class used to navigate through the application.
@@ -110,7 +110,7 @@ public class Navigator {
 
   public void navigateToTreatment(Context context) {
     if (context != null) {
-      Intent intentToLaunch = ListTreatmentActivity.getCallingIntent(context);
+      Intent intentToLaunch = TreatmentsActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
@@ -131,7 +131,7 @@ public class Navigator {
 
   public void navigateToHistory(Context context) {
     if (context != null) {
-      Intent intentToLaunch = ListIncidencesActivity.getCallingIntent(context);
+      Intent intentToLaunch = IncidencesActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }
@@ -158,7 +158,7 @@ public class Navigator {
 
   public void navigateToEffect(Context context) {
     if (context != null) {
-      Intent intentToLaunch = ListEffectsActivity.getCallingIntent(context);
+      Intent intentToLaunch = EffectsActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

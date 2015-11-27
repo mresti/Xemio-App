@@ -15,7 +15,7 @@ public class MainPresenter implements MainContract.UserActionsListener {
   private final MainContract.View mMainView;
 
   public MainPresenter(@NonNull MainContract.View mainView) {
-    mMainView = checkNotNull(mainView, "notesView cannot be null!");
+    mMainView = checkNotNull(mainView, "mainView cannot be null!");
   }
 
   @Override public void initializeActions(Context c) {

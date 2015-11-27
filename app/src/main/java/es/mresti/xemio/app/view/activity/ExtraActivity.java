@@ -12,24 +12,21 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.ExtraContract;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.ExtraPresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.ExtraView;
 import es.mresti.xemio.app.view.validator.AlphaNumericValidator;
 import es.mresti.xemio.app.view.validator.NumericValidator;
 
-public class ExtraActivity extends BaseActivity implements ExtraView {
+public class ExtraActivity extends BaseActivity implements ExtraContract.View {
 
-  public static final String TAG = "ExtraActivity";
-  private ExtraPresenter mPresenter;
+  private ExtraContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
   private AlphaNumericValidator mAlphaNumericValidator;
   private NumericValidator mNumericValidator;
 
   // UI items
   @Bind(R.id.btn_save) Button mBtn_save;
-  @Bind(R.id.btn_deny) Button mBtn_deny;
   @Bind(R.id.progress) ProgressBar mProgress;
   @Bind(R.id.aliasInput) EditText mAliasText;
   @Bind(R.id.aliasInputLayout) TextInputLayout mAliasInputLayout;
@@ -47,13 +44,10 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
-    mPresenter = PresenterFactory.getExtraPresenter(this);
-    mPresenter.initializeContext(this.getContext());
     mNavigator = new Navigator();
+    mActionsListener = new ExtraPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
 
     // Setup field validators.
     mAlphaNumericValidator = new AlphaNumericValidator();
@@ -62,10 +56,42 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
     mAgeInput.addTextChangedListener(mNumericValidator);
   }
 
-  /**
-   * Goes to the dashboard screen.
-   */
-  @OnClick(R.id.btn_save) void navigateToDashboard() {
+  @Override public void showProgress() {
+    mProgress.setVisibility(View.VISIBLE);
+  }
+
+  @Override public void hideProgress() {
+    mProgress.setVisibility(View.GONE);
+  }
+
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
+  }
+
+  @Override public void openChemo() {
+    mNavigator.navigateToChemo(this);
+    finish();
+  }
+
+  @Override public void setUsernameError() {
+    mAliasInputLayout.setErrorEnabled(true);
+    mAliasInputLayout.setError(getString(R.string.error_empty_field));
+  }
+
+  @Override public void setAgeError() {
+    mAgeInputLayout.setErrorEnabled(true);
+    mAgeInputLayout.setError(getString(R.string.error_age));
+  }
+
+  @OnClick(R.id.btn_save) void navigateToChemo() {
     boolean aliasValid = mAlphaNumericValidator.isValid();
     boolean ageValid = mNumericValidator.isValid();
 
@@ -84,42 +110,7 @@ public class ExtraActivity extends BaseActivity implements ExtraView {
     }
 
     if (aliasValid && ageValid) {
-      mPresenter.setRegister(mAliasText.getText().toString(), mAgeInput.getText().toString());
+      mActionsListener.setRegister(mAliasText.getText().toString(), mAgeInput.getText().toString());
     }
-  }
-
-  /**
-   * Goes to the finish activity.
-   */
-  @OnClick(R.id.btn_deny) void navigateToFinish() {
-    mNavigator.navigateToUserRegister(this);
-    finish();
-  }
-
-  @Override public void showProgress() {
-    mProgress.setVisibility(View.VISIBLE);
-  }
-
-  @Override public void hideProgress() {
-    mProgress.setVisibility(View.GONE);
-  }
-
-  @Override public void setUsernameError() {
-    mAliasInputLayout.setErrorEnabled(true);
-    mAliasInputLayout.setError(getString(R.string.error_empty_field));
-  }
-
-  @Override public void setAgeError() {
-    mAgeInputLayout.setErrorEnabled(true);
-    mAgeInputLayout.setError(getString(R.string.error_age));
-  }
-
-  @Override public void navigateToChemoScreen() {
-    mNavigator.navigateToChemo(this);
-    finish();
-  }
-
-  @Override public Context getContext() {
-    return getApplicationContext();
   }
 }

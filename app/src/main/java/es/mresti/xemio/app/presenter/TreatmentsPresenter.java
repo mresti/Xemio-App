@@ -4,22 +4,26 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
-import es.mresti.xemio.app.contract.RegisterContract;
+import es.mresti.xemio.app.contract.TreatmentsContract;
 
 import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
 
-public class RegisterPresenter implements RegisterContract.UserActionsListener {
+public class TreatmentsPresenter implements TreatmentsContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
   private Context mContext;
-  private final RegisterContract.View mRegisterView;
+  private final TreatmentsContract.View mTreatmentView;
 
-  public RegisterPresenter(@NonNull RegisterContract.View registerView) {
-    mRegisterView = checkNotNull(registerView, "registerView cannot be null!");
+  public TreatmentsPresenter(@NonNull TreatmentsContract.View treatmentsView) {
+    mTreatmentView = checkNotNull(treatmentsView, "treatmentsView cannot be null!");
   }
 
   @Override public void initializeActions(Context c) {
     mContext = c;
     mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  }
+
+  @Override public Firebase getTreatmentListRef() {
+    return mFirebaseRef.child("treatments");
   }
 }

@@ -1,50 +1,46 @@
 package es.mresti.xemio.app.presenter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
-import es.mresti.xemio.app.interactor.ChemoInteractor;
-import es.mresti.xemio.app.view.ChemoView;
+import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.ChemoContract;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ChemoPresenter implements Presenter {
-  private ChemoView mChemoView;
-  private ChemoInteractor mChemoInteractor;
+import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
+
+public class ChemoPresenter implements ChemoContract.UserActionsListener {
+  private Firebase mFirebaseRef;
   private Context mContext;
+  private final ChemoContract.View mChemoView;
 
-  public static ChemoPresenter newInstance(ChemoView view, ChemoInteractor interactor) {
-    ChemoPresenter presenter = new ChemoPresenter(view, interactor);
-    presenter.initialize();
-    return presenter;
+  public ChemoPresenter(@NonNull ChemoContract.View chemoView) {
+    mChemoView = checkNotNull(chemoView, "chemoView cannot be null!");
   }
 
-  private ChemoPresenter(ChemoView view, ChemoInteractor interactor) {
-    mChemoView = view;
-    mChemoInteractor = interactor;
-  }
-
-  private void initialize() {
-    mChemoInteractor.setPresenter(this);
-  }
-
-  @Override public void resume() {
-  }
-
-  @Override public void pause() {
-  }
-
-  public void initializeContext(Context c) {
+  @Override public void initializeActions(Context c) {
     mContext = c;
-    mChemoInteractor.initialize(mContext);
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
   }
 
-  public void setChemo(String key) {
-    mChemoInteractor.setChemo(key);
+  @Override public Firebase getChemoRef() {
+    return mFirebaseRef.child("chemo");
   }
 
-  public void onSuccess() {
-    mChemoView.navigateToDashboardScreen();
+  @Override public void setChemo(String key) {
+    AuthData authData = mFirebaseRef.getAuth();
+    Firebase userRef = mFirebaseRef.child("users").child(authData.getUid());
+
+    Map<String, Object> person = new HashMap<String, Object>();
+    person.put("idChemo", key);
+    userRef.updateChildren(person);
+
+    this.onSuccess();
   }
 
-  public Firebase getRef() {
-    return mChemoInteractor.getChemoRef();
+  private void onSuccess() {
+    mChemoView.openDashboard();
   }
 }

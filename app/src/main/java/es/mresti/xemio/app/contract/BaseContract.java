@@ -23,4 +23,8 @@ public interface BaseContract {
      */
     void pause();
   }
+
+  interface BaseActions {
+    void initializeActions(Context c);
+  }
 }

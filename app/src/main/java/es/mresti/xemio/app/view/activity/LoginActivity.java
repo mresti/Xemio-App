@@ -12,17 +12,15 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.LoginContract;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.LoginPresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.LoginView;
 import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.PassValidator;
 
-public class LoginActivity extends BaseActivity implements LoginView {
+public class LoginActivity extends BaseActivity implements LoginContract.View {
 
-  public static final String TAG = "LoginActivity";
-  private LoginPresenter mPresenter;
+  private LoginContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
   private EmailValidator mEmailValidator;
   private PassValidator mPassValidator;
@@ -47,13 +45,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
-    mPresenter = PresenterFactory.getLoginPresenter(this);
-    mPresenter.initializeContext(this.getContext());
     mNavigator = new Navigator();
+    mActionsListener = new LoginPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
 
     // Setup field validators.
     mEmailValidator = new EmailValidator();
@@ -62,9 +57,46 @@ public class LoginActivity extends BaseActivity implements LoginView {
     mPassText.addTextChangedListener(mPassValidator);
   }
 
-  /**
-   * Goes to the dashboard screen.
-   */
+  @Override public void showProgress() {
+    mProgress.setVisibility(View.VISIBLE);
+  }
+
+  @Override public void hideProgress() {
+    mProgress.setVisibility(View.GONE);
+  }
+
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
+  }
+
+  @Override public void openDashboard() {
+    mNavigator.navigateToDashboard(this);
+    finish();
+  }
+
+  @Override public void getBackApp() {
+    mNavigator.navigateToUserRegister(this);
+    finish();
+  }
+
+  @Override public void setUsernameError() {
+    mEmailInputLayout.setErrorEnabled(true);
+    mEmailInputLayout.setError(getString(R.string.error_email));
+  }
+
+  @Override public void setPasswordError() {
+    mPassInputLayout.setErrorEnabled(true);
+    mPassInputLayout.setError(getText(R.string.error_pass));
+  }
+
   @OnClick(R.id.btn_save) void navigateToDashboard() {
     boolean emailValid = mEmailValidator.isValid();
     boolean passValid = mPassValidator.isValid();
@@ -84,43 +116,12 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     if (emailValid && passValid) {
-      mPresenter.validateCredentials(mEmailText.getText().toString(),
+      mActionsListener.validateCredentials(mEmailText.getText().toString(),
           mPassText.getText().toString());
     }
   }
 
-  /**
-   * Goes to the finish activity.
-   */
-  @OnClick(R.id.btn_deny) void navigateToFinish() {
-    mNavigator.navigateToUserRegister(this);
-    finish();
-  }
-
-  @Override public void showProgress() {
-    mProgress.setVisibility(View.VISIBLE);
-  }
-
-  @Override public void hideProgress() {
-    mProgress.setVisibility(View.GONE);
-  }
-
-  @Override public void setUsernameError() {
-    mEmailInputLayout.setErrorEnabled(true);
-    mEmailInputLayout.setError(getString(R.string.error_email));
-  }
-
-  @Override public void setPasswordError() {
-    mPassInputLayout.setErrorEnabled(true);
-    mPassInputLayout.setError(getText(R.string.error_pass));
-  }
-
-  @Override public void navigateToHome() {
-    mNavigator.navigateToDashboard(this);
-    finish();
-  }
-
-  @Override public Context getContext() {
-    return getApplicationContext();
+  @OnClick(R.id.btn_deny) void navigateToRegister() {
+    this.getBackApp();
   }
 }

@@ -13,20 +13,18 @@ import butterknife.ButterKnife;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.ChemoContract;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.ChemoPresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.ChemoView;
 import es.mresti.xemio.app.view.adapter.FirebaseListAdapter;
 import java.util.HashMap;
 
-public class ChemoActivity extends BaseActivity implements ChemoView {
+public class ChemoActivity extends BaseActivity implements ChemoContract.View {
 
-  public static final String TAG = "ChemoActivity";
+  private ChemoContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
   private Firebase mChemoDatasRef;
   private FirebaseListAdapter<HashMap> mChemoListAdapter;
-  private ChemoPresenter mPresenter;
 
   // UI items
   @Bind(R.id.btn_next) Button mBtn_next;
@@ -43,15 +41,24 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
-    mPresenter = PresenterFactory.getChemoPresenter(this);
     mNavigator = new Navigator();
+    mActionsListener = new ChemoPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
     mBtn_next.setVisibility(View.GONE);
-    mPresenter.initializeContext(this.getContext());
-    mChemoDatasRef = mPresenter.getRef();
+    mChemoDatasRef = mActionsListener.getChemoRef();
+  }
+
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
   }
 
   @Override protected void onStart() {
@@ -93,7 +100,7 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
         .negativeText(android.R.string.cancel)
         .callback(new MaterialDialog.ButtonCallback() {
           @Override public void onPositive(MaterialDialog dialog) {
-            mPresenter.setChemo(key);
+            mActionsListener.setChemo(key);
           }
 
           @Override public void onNegative(MaterialDialog dialog) {
@@ -102,11 +109,8 @@ public class ChemoActivity extends BaseActivity implements ChemoView {
         .show();
   }
 
-  @Override public Context getContext() {
-    return getApplicationContext();
-  }
-
-  @Override public void navigateToDashboardScreen() {
+  @Override public void openDashboard() {
     mNavigator.navigateToDashboard(this);
+    finish();
   }
 }

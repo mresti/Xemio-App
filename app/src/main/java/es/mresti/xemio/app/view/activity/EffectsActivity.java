@@ -14,81 +14,89 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.EffectsContract;
 import es.mresti.xemio.app.navigation.Navigator;
-import es.mresti.xemio.app.presenter.ListTreatmentsPresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.ListTreatmentView;
+import es.mresti.xemio.app.presenter.EffectsPresenter;
 import es.mresti.xemio.app.view.adapter.FirebaseListAdapter;
 import java.util.HashMap;
 
-public class ListTreatmentActivity extends BaseActivity implements ListTreatmentView {
+public class EffectsActivity extends BaseActivity implements EffectsContract.View {
 
-  public static final String TAG = "kListTreatmentActivity";
+  private EffectsContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
-  private Firebase mTreatmentsDatasRef;
-  private FirebaseListAdapter<HashMap> mTreatmentsListAdapter;
-  private ListTreatmentsPresenter mPresenter;
+  private Firebase mEffectsDatasRef;
+  private FirebaseListAdapter<HashMap> mEffectsListAdapter;
 
   // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
-  @Bind(R.id.listTreatment) ListView mTreatmentList;
+  @Bind(R.id.listEffect) ListView mEffectsList;
 
   public static Intent getCallingIntent(Context context) {
-    return new Intent(context, ListTreatmentActivity.class);
+    return new Intent(context, EffectsActivity.class);
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_list_treatments);
+    setContentView(R.layout.activity_list_effects);
     ButterKnife.bind(this);
-    this.mPresenter = PresenterFactory.getListTreatmentPresenter(this);
-    this.mNavigator = new Navigator();
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
+    mNavigator = new Navigator();
+    mActionsListener = new EffectsPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    mPresenter.initializeContext(this.getContext());
-    mTreatmentsDatasRef = mPresenter.getRef();
+    mEffectsDatasRef = mActionsListener.getEffectListRef();
+  }
+
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
   }
 
   @Override protected void onStart() {
     super.onStart();
-    mTreatmentsListAdapter = new FirebaseListAdapter<HashMap>(mTreatmentsDatasRef, HashMap.class,
-        R.layout.item_list_1_tv, this) {
 
-      @Override protected void populateView(View v, HashMap model) {
-        final String key = ListTreatmentActivity.this.mTreatmentsListAdapter.getModelKey(model);
-        ((TextView) v.findViewById(R.id.item_title)).setText(model.get("title").toString());
-        v.setClickable(true);
-        v.setOnClickListener(new View.OnClickListener() {
-          @Override public void onClick(View v) {
-            selectIncidenceItem(key);
+    mEffectsListAdapter =
+        new FirebaseListAdapter<HashMap>(mEffectsDatasRef, HashMap.class, R.layout.item_list_1_tv,
+            this) {
+          @Override protected void populateView(View v, final HashMap model) {
+            final String key = EffectsActivity.this.mEffectsListAdapter.getModelKey(model);
+            ((TextView) v.findViewById(R.id.item_title)).setText(model.get("effect").toString());
+            v.setClickable(true);
+            v.setOnClickListener(new View.OnClickListener() {
+              @Override public void onClick(View v) {
+                selectIncidenceItem(key);
+              }
+            });
           }
-        });
-      }
-    };
-    mTreatmentList.setAdapter(mTreatmentsListAdapter);
-    mTreatmentsListAdapter.registerDataSetObserver(new DataSetObserver() {
+        };
+    mEffectsList.setAdapter(mEffectsListAdapter);
+    mEffectsListAdapter.registerDataSetObserver(new DataSetObserver() {
       @Override public void onChanged() {
         super.onChanged();
-        mTreatmentList.setSelection(mTreatmentsListAdapter.getCount() - 1);
+        mEffectsList.setSelection(mEffectsListAdapter.getCount() - 1);
       }
     });
   }
 
   @Override protected void onStop() {
     super.onStop();
-    mTreatmentsListAdapter.cleanup();
+    mEffectsListAdapter.cleanup();
   }
 
   private void selectIncidenceItem(String key) {
-    Intent intent = new Intent(this.getContext(), DetailsTreatmentActivity.class);
-    intent.putExtra("TREATMENT_ID", key);
+    Intent intent = new Intent(this.getContext(), DetailsEffectActivity.class);
+    intent.putExtra("EFFECT_ID", key);
     startActivity(intent);
     finish();
   }
@@ -109,9 +117,5 @@ public class ListTreatmentActivity extends BaseActivity implements ListTreatment
       finish();
     }
     return super.onOptionsItemSelected(item);
-  }
-
-  @Override public Context getContext() {
-    return getApplicationContext();
   }
 }

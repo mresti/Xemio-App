@@ -1,79 +1,142 @@
 package es.mresti.xemio.app.presenter;
 
 import android.content.Context;
-import es.mresti.xemio.app.interactor.LogupInteractor;
-import es.mresti.xemio.app.view.LogupView;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.LogupContract;
+import java.util.HashMap;
+import java.util.Map;
 
-public class LogupPresenter implements Presenter {
-  private LogupView mLogupView;
-  private LogupInteractor mLogupInteractor;
+import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
+
+public class LogupPresenter implements LogupContract.UserActionsListener {
+
+  private Firebase mFirebaseRef;
   private Context mContext;
+  private final LogupContract.View mLogupView;
 
-  public static LogupPresenter newInstance(LogupView logupView, LogupInteractor logupInteractor) {
-    LogupPresenter presenter = new LogupPresenter(logupView, logupInteractor);
-    presenter.initialize();
-    return presenter;
+  public LogupPresenter(@NonNull LogupContract.View logupView) {
+    mLogupView = checkNotNull(logupView, "logupView cannot be null!");
   }
 
-  private LogupPresenter(LogupView logupView, LogupInteractor logupInteractor) {
-    this.mLogupView = logupView;
-    this.mLogupInteractor = logupInteractor;
-  }
-
-  /**
-   * Initializes the presenter by start retrieving the user list.
-   */
-  private void initialize() {
-    mLogupInteractor.setPresenter(this);
-  }
-
-  @Override public void resume() {
-  }
-
-  @Override public void pause() {
-  }
-
-  public void initializeContext(Context c) {
+  @Override public void initializeActions(Context c) {
     mContext = c;
-    mLogupInteractor.initialize(mContext);
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
   }
 
-  public void setRegister(String email, String password1, String password2) {
+  @Override public void setRegister(String email, String password1, String password2) {
     mLogupView.showProgress();
-    mLogupInteractor.register(email, password1, password2);
+    this.register(email, password1, password2);
   }
 
-  public void onEmailError() {
+  private void register(final String email, final String pass1, final String pass2) {
+    boolean error = false;
+    if (TextUtils.isEmpty(email)) {
+      this.onEmailError();
+      error = true;
+    }
+    if (TextUtils.isEmpty(pass1)) {
+      this.onPassError1();
+      error = true;
+    }
+    if (TextUtils.isEmpty(pass2)) {
+      this.onPassError2();
+      error = true;
+    }
+    if (pass1.length() != pass2.length()) {
+      this.onPassErrorDistinct();
+      error = true;
+    }
+
+    if (!pass1.equals(pass2)) {
+      this.onPassErrorDistinct();
+      error = true;
+    }
+    if (!error) {
+      mFirebaseRef.createUser(email, pass1, new Firebase.ValueResultHandler<Map<String, Object>>() {
+        @Override public void onSuccess(Map<String, Object> result) {
+          Log.w("creater user", "Successfully created user account with uid: " + result.get("uid"));
+        }
+
+        @Override public void onError(FirebaseError firebaseError) {
+          // there was an error
+          Log.e("creater user", "Error al crear user");
+        }
+      });
+
+      final Firebase firebaseRef = mFirebaseRef;
+      firebaseRef.authWithPassword(email, pass1, new Firebase.AuthResultHandler() {
+        @Override public void onAuthenticated(AuthData authData) {
+
+          Map<String, String> map = new HashMap<String, String>();
+          map.put("provider", authData.getProvider());
+          if (authData.getProviderData().containsKey("displayName")) {
+            map.put("displayName", authData.getProviderData().get("displayName").toString());
+          }
+          firebaseRef.child("users").child(authData.getUid()).setValue(map);
+          Log.w("logged user",
+              "User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+
+          onSuccess();
+        }
+
+        @Override public void onAuthenticationError(FirebaseError error) {
+          // there was an error
+          Log.e("logged user", "Error al logged user");
+          switch (error.getCode()) {
+            case FirebaseError.USER_DOES_NOT_EXIST:
+              // handle a non existing user
+              //onUserNotExistError();
+              break;
+            case FirebaseError.INVALID_PASSWORD:
+              // handle an invalid password
+              ///onInvalidPasswordError();
+              break;
+            default:
+              // handle other errors
+              //onAuthenticationError();
+              break;
+          }
+        }
+      });
+    }
+  }
+
+  private void onEmailError() {
     mLogupView.setEmailError();
     mLogupView.hideProgress();
   }
 
-  public void onPassError1() {
+  private void onPassError1() {
     mLogupView.setPass1Error();
     mLogupView.hideProgress();
   }
 
-  public void onPassError2() {
+  private void onPassError2() {
     mLogupView.setPass2Error();
     mLogupView.hideProgress();
   }
 
-  public void onPassErrorDistinct() {
+  private void onPassErrorDistinct() {
     mLogupView.setPassDistinctError();
     mLogupView.hideProgress();
   }
 
-  public void onSuccess() {
-    mLogupView.navigateToExtraScreen();
+  private void onSuccess() {
+    mLogupView.openExtra();
   }
 
-  public void onUserNotExistError() {
+  private void onUserNotExistError() {
   }
 
-  public void onInvalidPasswordError() {
+  private void onInvalidPasswordError() {
   }
 
-  public void onAuthenticationError() {
-
+  private void onAuthenticationError() {
   }
 }

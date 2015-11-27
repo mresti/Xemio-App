@@ -80,7 +80,7 @@
     </activity>
 
     <activity
-        android:name=".app.view.activity.ListTreatmentActivity"
+        android:name=".app.view.activity.TreatmentsActivity"
         android:label="@string/toolbar_title_treatment"
         >
     </activity>
@@ -92,7 +92,7 @@
     </activity>
 
     <activity
-        android:name=".app.view.activity.ListEffectsActivity"
+        android:name=".app.view.activity.EffectsActivity"
         android:label="@string/toolbar_title_effect"
         >
     </activity>
@@ -110,7 +110,7 @@
     </activity>
 
     <activity
-        android:name=".app.view.activity.ListIncidencesActivity"
+        android:name=".app.view.activity.IncidencesActivity"
         android:label="@string/toolbar_title_history"
         >
     </activity>
