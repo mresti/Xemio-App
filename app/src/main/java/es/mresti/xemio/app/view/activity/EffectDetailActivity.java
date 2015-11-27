@@ -14,63 +14,70 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import es.mresti.xemio.R;
-import es.mresti.xemio.app.model.Treatment;
+import es.mresti.xemio.app.contract.EffectDetailContract;
+import es.mresti.xemio.app.model.Advice;
 import es.mresti.xemio.app.navigation.Navigator;
-import es.mresti.xemio.app.presenter.DetailTreatmentPresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.DetailTreatmentView;
+import es.mresti.xemio.app.presenter.EffectDetailPresenter;
 
-public class DetailsTreatmentActivity extends BaseActivity implements DetailTreatmentView {
+public class EffectDetailActivity extends BaseActivity implements EffectDetailContract.View {
 
-  public static final String TAG = "DetailsTreatmentActivity";
+  private EffectDetailContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
-  private Firebase mTreatmentDataRef;
-  private DetailTreatmentPresenter mPresenter;
-  private String mTreatmentID;
-  private Treatment mTreatment;
+  private Firebase mEffectDataRef;
+  private String mEffectID;
+  private Advice mAdvice;
 
   // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
-  @Bind(R.id.tvTitle) TextView mTextViewTitle;
-  @Bind(R.id.tvDesc) TextView mTextViewDesc;
-  @Bind(R.id.tvTreat) TextView mTextViewTreat;
+  @Bind(R.id.tvAdvice) TextView mTextViewAdvice;
+  @Bind(R.id.tvCategory) TextView mTextViewCategory;
+  @Bind(R.id.tvEffect) TextView mTextViewEffect;
 
   public static Intent getCallingIntent(Context context, String key) {
-    Intent callingIntent = new Intent(context, DetailsTreatmentActivity.class);
-    callingIntent.putExtra("TREATMENT_ID", key);
+    Intent callingIntent = new Intent(context, EffectDetailActivity.class);
+    callingIntent.putExtra("EFFECT_ID", key);
     return callingIntent;
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Intent intent = getIntent();
-    mTreatmentID = intent.getStringExtra("TREATMENT_ID");
-    setContentView(R.layout.activity_details_treatment);
+    mEffectID = intent.getStringExtra("EFFECT_ID");
+    setContentView(R.layout.activity_details_effect);
     ButterKnife.bind(this);
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
-    mPresenter = PresenterFactory.getDetailTreatmentPresenter(this);
     mNavigator = new Navigator();
+    mActionsListener = new EffectDetailPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    mPresenter.initializeContext(this.getContext());
-    mTreatmentDataRef = mPresenter.getRef(mTreatmentID);
+    mEffectDataRef = mActionsListener.getEffectRef(mEffectID);
+  }
+
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
   }
 
   @Override public void onStart() {
     super.onStart();
 
-    mTreatmentDataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+    mEffectDataRef.addListenerForSingleValueEvent(new ValueEventListener() {
       @Override public void onDataChange(DataSnapshot snapshot) {
-        mTreatment = snapshot.getValue(Treatment.class);
-        mTextViewTitle.setText(mTreatment.getTitle());
-        mTextViewDesc.setText(mTreatment.getDescription());
-        mTextViewTreat.setText(mTreatment.getTreatments());
+        mAdvice = snapshot.getValue(Advice.class);
+        mTextViewEffect.setText(mAdvice.getEffect());
+        mTextViewCategory.setText(mAdvice.getCategory());
+        mTextViewAdvice.setText(mAdvice.getAdvice());
       }
 
       @Override public void onCancelled(FirebaseError firebaseError) {
@@ -99,8 +106,6 @@ public class DetailsTreatmentActivity extends BaseActivity implements DetailTrea
     }
     return super.onOptionsItemSelected(item);
   }
-
-  @Override public Context getContext() {
-    return getApplicationContext();
-  }
 }
+
+

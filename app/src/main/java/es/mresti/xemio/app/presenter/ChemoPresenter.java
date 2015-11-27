@@ -12,6 +12,7 @@ import java.util.Map;
 import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
 
 public class ChemoPresenter implements ChemoContract.UserActionsListener {
+
   private Firebase mFirebaseRef;
   private Context mContext;
   private final ChemoContract.View mChemoView;

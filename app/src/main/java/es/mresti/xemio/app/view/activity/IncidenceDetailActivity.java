@@ -17,18 +17,16 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.IncidenceDetailContract;
 import es.mresti.xemio.app.model.Incidence;
 import es.mresti.xemio.app.navigation.Navigator;
-import es.mresti.xemio.app.presenter.DetailIncidencePresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.DetailIncidenceView;
+import es.mresti.xemio.app.presenter.IncidenceDetailPresenter;
 
-public class DetailsIncidenceActivity extends BaseActivity implements DetailIncidenceView {
+public class IncidenceDetailActivity extends BaseActivity implements IncidenceDetailContract.View {
 
-  public static final String TAG = "DetailsIncidenceActivity";
+  private IncidenceDetailContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
   private Firebase mIncidenceDataRef;
-  private DetailIncidencePresenter mPresenter;
   private String mIncidenceID;
   private Incidence mIncidence;
 
@@ -40,7 +38,7 @@ public class DetailsIncidenceActivity extends BaseActivity implements DetailInci
   @Bind(R.id.fab_del) FloatingActionButton mFABDel;
 
   public static Intent getCallingIntent(Context context, String key) {
-    Intent callingIntent = new Intent(context, DetailsIncidenceActivity.class);
+    Intent callingIntent = new Intent(context, IncidenceDetailActivity.class);
     callingIntent.putExtra("INCIDENCE_ID", key);
     return callingIntent;
   }
@@ -54,16 +52,25 @@ public class DetailsIncidenceActivity extends BaseActivity implements DetailInci
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
-    mPresenter = PresenterFactory.getDetailIncidencePresenter(this);
+    mNavigator = new Navigator();
+    mActionsListener = new IncidenceDetailPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    mPresenter.initializeContext(this.getContext());
-    mIncidenceDataRef = mPresenter.getRef(mIncidenceID);
-    mNavigator = new Navigator();
+    mIncidenceDataRef = mActionsListener.getIncidenceRef(mIncidenceID);
+  }
+
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
   }
 
   @Override public void onStart() {
@@ -108,7 +115,7 @@ public class DetailsIncidenceActivity extends BaseActivity implements DetailInci
   }
 
   private void removeItemChild() {
-    mPresenter.removeIncidence(mIncidenceID);
+    mActionsListener.removeIncidence(mIncidenceID);
     mNavigator.navigateToHistory(this);
     finish();
   }
@@ -130,8 +137,7 @@ public class DetailsIncidenceActivity extends BaseActivity implements DetailInci
     }
     return super.onOptionsItemSelected(item);
   }
-
-  @Override public Context getContext() {
-    return getApplicationContext();
-  }
 }
+
+
+
