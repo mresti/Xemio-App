@@ -1,48 +1,42 @@
 package es.mresti.xemio.app.presenter;
 
 import android.content.Context;
-import es.mresti.xemio.app.interactor.DashboardInteractor;
-import es.mresti.xemio.app.view.DashboardView;
+import android.support.annotation.NonNull;
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.DashboardContract;
 
-public class DashboardPresenter implements Presenter {
-  private DashboardView mDashboardView;
-  private DashboardInteractor mDashboardInteractor;
+import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
+
+public class DashboardPresenter implements DashboardContract.UserActionsListener {
+
+  private Firebase mFirebaseRef;
   private Context mContext;
+  private final DashboardContract.View mDashboardView;
 
-  public static DashboardPresenter newInstance(DashboardView view, DashboardInteractor interactor) {
-    DashboardPresenter presenter = new DashboardPresenter(view, interactor);
-    presenter.initialize();
-    return presenter;
+  public DashboardPresenter(@NonNull DashboardContract.View dashboardView) {
+    mDashboardView = checkNotNull(dashboardView, "dashboardView cannot be null!");
   }
 
-  private DashboardPresenter(DashboardView view, DashboardInteractor interactor) {
-    this.mDashboardView = view;
-    this.mDashboardInteractor = interactor;
-  }
-
-  /**
-   * Initializes the presenter by start retrieving the user list.
-   */
-  private void initialize() {
-    mDashboardInteractor.setPresenter(this);
-  }
-
-  @Override public void resume() {
-  }
-
-  @Override public void pause() {
-  }
-
-  public void initializeContext(Context c) {
+  @Override public void initializeActions(Context c) {
     mContext = c;
-    mDashboardInteractor.initialize(mContext);
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+  }
+
+  @Override public void getUserStatus() {
+    AuthData authData = mFirebaseRef.getAuth();
+    if (authData != null) {
+      // user authenticated
+      // show dashboardActivity
+    } else {
+      // no user authenticated
+      // show mainActivity
+      this.onFailAuth();
+    }
   }
 
   public void onFailAuth() {
-    mDashboardView.navigateToMainScreen();
-  }
-
-  public void getUserStatus() {
-    mDashboardInteractor.userStatus();
+    mDashboardView.openMain();
   }
 }

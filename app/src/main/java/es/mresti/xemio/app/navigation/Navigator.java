@@ -3,6 +3,7 @@ package es.mresti.xemio.app.navigation;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import es.mresti.xemio.app.view.activity.AddIncidenceActivity;
 import es.mresti.xemio.app.view.activity.ChemoActivity;
 import es.mresti.xemio.app.view.activity.DashboardActivity;
 import es.mresti.xemio.app.view.activity.EffectsActivity;
@@ -12,7 +13,6 @@ import es.mresti.xemio.app.view.activity.InfoActivity;
 import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.MainActivity;
-import es.mresti.xemio.app.view.activity.NewIncidenceActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
 import es.mresti.xemio.app.view.activity.TreatmentDetailActivity;
@@ -124,7 +124,7 @@ public class Navigator {
 
   public void navigateToNewIncidence(Context context) {
     if (context != null) {
-      Intent intentToLaunch = NewIncidenceActivity.getCallingIntent(context);
+      Intent intentToLaunch = AddIncidenceActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

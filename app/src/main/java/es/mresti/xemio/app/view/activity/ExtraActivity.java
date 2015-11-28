@@ -26,7 +26,7 @@ public class ExtraActivity extends BaseActivity implements ExtraContract.View {
   private NumericValidator mNumericValidator;
 
   // UI items
-  @Bind(R.id.btn_save) Button mBtn_save;
+  @Bind(R.id.btn_next) Button mBtn_next;
   @Bind(R.id.progress) ProgressBar mProgress;
   @Bind(R.id.aliasInput) EditText mAliasText;
   @Bind(R.id.aliasInputLayout) TextInputLayout mAliasInputLayout;
@@ -91,7 +91,7 @@ public class ExtraActivity extends BaseActivity implements ExtraContract.View {
     mAgeInputLayout.setError(getString(R.string.error_age));
   }
 
-  @OnClick(R.id.btn_save) void navigateToChemo() {
+  @OnClick(R.id.btn_next) void navigateToChemo() {
     boolean aliasValid = mAlphaNumericValidator.isValid();
     boolean ageValid = mNumericValidator.isValid();
 

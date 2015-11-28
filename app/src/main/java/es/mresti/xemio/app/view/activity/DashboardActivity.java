@@ -3,33 +3,31 @@ package es.mresti.xemio.app.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.DashboardContract;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.DashboardPresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.DashboardView;
-import es.mresti.xemio.app.view.adapter.DashboardIconAdapter;
+import es.mresti.xemio.app.view.adapter.DashboardViewPagerAdapter;
+import es.mresti.xemio.app.view.fragment.CheeseListFragment;
+import es.mresti.xemio.app.view.fragment.InfoListFragment;
 
-public class DashboardActivity extends BaseActivity
-    implements DashboardView, AdapterView.OnItemClickListener {
+public class DashboardActivity extends BaseActivity implements DashboardContract.View {
 
-  public static final String TAG = "DashboardActivity";
+  private DashboardContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
-  private DashboardPresenter mPresenter;
 
   // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
-  @Bind(R.id.dashboard_grid) GridView mGridView;
+  @Bind(R.id.viewpager) ViewPager mViewPager;
+  @Bind(R.id.tabs) TabLayout mTabLayout;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, DashboardActivity.class);
@@ -42,61 +40,33 @@ public class DashboardActivity extends BaseActivity
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
-    mPresenter = PresenterFactory.getDashboardPresenter(this);
     mNavigator = new Navigator();
+    mActionsListener = new DashboardPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
+    mActionsListener.getUserStatus();
     setSupportActionBar(mToolbar);
-    mPresenter.initializeContext(this.getContext());
-    mGridView.setAdapter(new DashboardIconAdapter(this));
-    mGridView.setOnItemClickListener(this);
-    // Hack to disable GridView scrolling
-    mGridView.setOnTouchListener(new View.OnTouchListener() {
-      @Override public boolean onTouch(View v, MotionEvent event) {
-        return event.getAction() == MotionEvent.ACTION_MOVE;
-      }
-    });
-    mPresenter.getUserStatus();
-  }
-
-  @Override public void navigateToMainScreen() {
-    mNavigator.navigateToMain(this);
-    finish();
+    if (mViewPager != null) {
+      setupViewPager(mViewPager);
+    }
+    mTabLayout.setupWithViewPager(mViewPager);
   }
 
   @Override public Context getContext() {
     return getApplicationContext();
   }
 
-  @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    switch (position) {
-      case 0:
-        //Goes to the info screen.
-        mNavigator.navigateToInfo(this);
-        break;
-      case 1:
-        //Goes to the treatments screen.
-        mNavigator.navigateToTreatment(this);
-        break;
-      case 2:
-        //Goes to the effects screen.
-        mNavigator.navigateToEffect(this);
-        break;
-      case 3:
-        //Goes to the incidence screen.
-        mNavigator.navigateToNewIncidence(this);
-        break;
-      case 4:
-        //Goes to the history screen.
-        mNavigator.navigateToHistory(this);
-        break;
-      case 5:
-        break;
-      default:
-        break;
-    }
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
+  }
+
+  @Override public void openMain() {
+    mNavigator.navigateToMain(this);
+    finish();
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,6 +80,10 @@ public class DashboardActivity extends BaseActivity
     // automatically handle clicks on the Home/Up button, so long
     // as you specify a parent activity in AndroidManifest.xml.
     int id = item.getItemId();
+
+    if (id == R.id.action_incidence) {
+      mNavigator.navigateToNewIncidence(this);
+    }
 
     //noinspection SimplifiableIfStatement
     if (id == R.id.action_logout) {
@@ -133,5 +107,13 @@ public class DashboardActivity extends BaseActivity
     }
 
     return super.onOptionsItemSelected(item);
+  }
+
+  private void setupViewPager(ViewPager viewPager) {
+    DashboardViewPagerAdapter adapter = new DashboardViewPagerAdapter(getSupportFragmentManager());
+    adapter.addFragment(new CheeseListFragment(), "Mensajes");
+    adapter.addFragment(new CheeseListFragment(), "Historial");
+    adapter.addFragment(new InfoListFragment(), "Información");
+    viewPager.setAdapter(adapter);
   }
 }

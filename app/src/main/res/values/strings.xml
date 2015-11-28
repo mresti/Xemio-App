@@ -6,12 +6,16 @@
   // Main activity
   <string name="title_main">¡Bienvenida a la aplicación de Xemio!</string>
   <string name="text_main_1">Bienvenida a Xemio App, la aplicación de Android para pacientes de
-        Quimioterapia de Cáncer de mama.</string>
+    Quimioterapia de Cáncer de mama.
+  </string>
   <string name="text_main_2">Esta aplicación te acompañará durante la quimioterapia para facilitarte
-        información, un punto de referencia que te sirva para disminuir la ansiedad que produce el tratamiento,
-        y para observar cómo les va a otras.</string>
+    información, un punto de referencia que te sirva para disminuir la ansiedad que produce el
+    tratamiento,
+    y para observar cómo les va a otras.
+  </string>
   <string name="text_main_3">Para poder acompañarte necesitamos hacerte unas pocas preguntas
-        ¿Quieres empezar la experiencia Xemio?</string>
+    ¿Quieres empezar la experiencia Xemio?
+  </string>
   <string name="btn_deny">Rechazar</string>
   <string name="btn_begin">Empezar</string>
 
@@ -42,15 +46,23 @@
   <string name="dialog_select_chemo">Quimio seleccionada</string>
 
   // Dashboard Activity
-  <string name="action_settings">settings</string>
+  <string name="action_settings">Ajustes</string>
   <string name="action_logout">Cerrar sesión</string>
+  <string name="action_notificacion">Notificacion</string>
+  <string name="action_incidence">Incidencia</string>
+  <string name="action_chat">Chat</string>
+  <string name="btn_info">Información</string>
+  <string name="btn_treat">Tratamientos</string>
+  <string name="btn_effect">Efectos secundarios</string>
+  <string name="btn_web">Web fundación</string>
 
   // Info Activity
   <string name="toolbar_title_info">Información Cáncer de Mama</string>
   <string name="info_title_1">1.- ¿Qué es el cáncer de mama?</string>
   <string name="info_title_2">2.- ¿Qué pruebas me van a realizar?</string>
   <string name="info_title_3">3.- Tipos de células y tipos de tumores</string>
-  <string name="info_title_4">4.- ¿Cómo clasificamos el cáncer de mama que me han diagnosticado?</string>
+  <string name="info_title_4">4.- ¿Cómo clasificamos el cáncer de mama que me han diagnosticado?
+  </string>
   <string name="info_title_5">5.- Tipo de tratamiento</string>
   <string name="info_title_6">6.- Otros aspectos a tener en cuenta</string>
   <string name="info_title_7">7.- Otros sitios para consultar</string>
@@ -116,7 +128,17 @@
 
   // tmp values
   <string name="element_prompt">Selecciona un elemento</string>
-  <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel ligula eget ante aliquam viverra non quis est. Duis nunc orci, imperdiet eget fringilla vitae, bibendum non dui. Nulla feugiat commodo nisi, at pulvinar dolor sagittis id. Suspendisse potenti. Nunc sollicitudin, sapien sit amet varius convallis, augue mauris sagittis sapien, a hendrerit mi turpis eget leo. Integer viverra purus id erat euismod molestie eget non orci. Curabitur elementum ac nibh id dapibus. Vestibulum finibus ex in metus consequat vestibulum eget rhoncus lacus. Morbi eu egestas erat. Etiam nec blandit neque. Mauris id efficitur justo. Aenean posuere viverra nisi, sed ullamcorper nisl aliquam nec. Suspendisse imperdiet felis eu enim efficitur, quis pulvinar arcu porttitor. Etiam erat lorem, pellentesque sit amet urna vel, lobortis vulputate sem.</string>
+  <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel ligula
+    eget ante aliquam viverra non quis est. Duis nunc orci, imperdiet eget fringilla vitae, bibendum
+    non dui. Nulla feugiat commodo nisi, at pulvinar dolor sagittis id. Suspendisse potenti. Nunc
+    sollicitudin, sapien sit amet varius convallis, augue mauris sagittis sapien, a hendrerit mi
+    turpis eget leo. Integer viverra purus id erat euismod molestie eget non orci. Curabitur
+    elementum ac nibh id dapibus. Vestibulum finibus ex in metus consequat vestibulum eget rhoncus
+    lacus. Morbi eu egestas erat. Etiam nec blandit neque. Mauris id efficitur justo. Aenean posuere
+    viverra nisi, sed ullamcorper nisl aliquam nec. Suspendisse imperdiet felis eu enim efficitur,
+    quis pulvinar arcu porttitor. Etiam erat lorem, pellentesque sit amet urna vel, lobortis
+    vulputate sem.
+  </string>
 
   // UI components text
   <string name="string_content_description">Non accessible view</string>
