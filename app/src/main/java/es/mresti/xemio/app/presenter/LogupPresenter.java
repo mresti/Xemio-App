@@ -12,8 +12,6 @@ import es.mresti.xemio.app.contract.LogupContract;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
-
 public class LogupPresenter implements LogupContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
@@ -21,7 +19,7 @@ public class LogupPresenter implements LogupContract.UserActionsListener {
   private final LogupContract.View mLogupView;
 
   public LogupPresenter(@NonNull LogupContract.View logupView) {
-    mLogupView = checkNotNull(logupView, "logupView cannot be null!");
+    mLogupView = logupView;
   }
 
   @Override public void initializeActions(Context c) {

@@ -6,8 +6,6 @@ import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.EffectDetailContract;
 
-import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
-
 public class EffectDetailPresenter implements EffectDetailContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
@@ -15,7 +13,7 @@ public class EffectDetailPresenter implements EffectDetailContract.UserActionsLi
   private final EffectDetailContract.View mEffectDetailView;
 
   public EffectDetailPresenter(@NonNull EffectDetailContract.View effectDetailView) {
-    mEffectDetailView = checkNotNull(effectDetailView, "effectDetailView cannot be null!");
+    mEffectDetailView = effectDetailView;
   }
 
   @Override public void initializeActions(Context c) {

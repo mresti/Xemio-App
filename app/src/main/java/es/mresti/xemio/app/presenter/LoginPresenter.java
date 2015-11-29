@@ -10,8 +10,6 @@ import com.firebase.client.FirebaseError;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.LoginContract;
 
-import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
-
 public class LoginPresenter implements LoginContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
@@ -19,7 +17,7 @@ public class LoginPresenter implements LoginContract.UserActionsListener {
   private final LoginContract.View mLoginView;
 
   public LoginPresenter(@NonNull LoginContract.View loginView) {
-    mLoginView = checkNotNull(loginView, "loginView cannot be null!");
+    mLoginView = loginView;
   }
 
   @Override public void validateCredentials(String username, String password) {

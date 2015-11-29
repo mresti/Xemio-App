@@ -6,8 +6,6 @@ import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.RegisterContract;
 
-import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
-
 public class RegisterPresenter implements RegisterContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
@@ -15,7 +13,7 @@ public class RegisterPresenter implements RegisterContract.UserActionsListener {
   private final RegisterContract.View mRegisterView;
 
   public RegisterPresenter(@NonNull RegisterContract.View registerView) {
-    mRegisterView = checkNotNull(registerView, "registerView cannot be null!");
+    mRegisterView = registerView;
   }
 
   @Override public void initializeActions(Context c) {

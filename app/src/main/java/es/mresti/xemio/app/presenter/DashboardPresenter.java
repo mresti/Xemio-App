@@ -7,8 +7,6 @@ import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.DashboardContract;
 
-import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
-
 public class DashboardPresenter implements DashboardContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
@@ -16,7 +14,7 @@ public class DashboardPresenter implements DashboardContract.UserActionsListener
   private final DashboardContract.View mDashboardView;
 
   public DashboardPresenter(@NonNull DashboardContract.View dashboardView) {
-    mDashboardView = checkNotNull(dashboardView, "dashboardView cannot be null!");
+    mDashboardView = dashboardView;
   }
 
   @Override public void initializeActions(Context c) {

@@ -9,8 +9,6 @@ import es.mresti.xemio.app.contract.ChemoContract;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
-
 public class ChemoPresenter implements ChemoContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
@@ -18,7 +16,7 @@ public class ChemoPresenter implements ChemoContract.UserActionsListener {
   private final ChemoContract.View mChemoView;
 
   public ChemoPresenter(@NonNull ChemoContract.View chemoView) {
-    mChemoView = checkNotNull(chemoView, "chemoView cannot be null!");
+    mChemoView = chemoView;
   }
 
   @Override public void initializeActions(Context c) {

@@ -6,8 +6,6 @@ import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.TreatmentsContract;
 
-import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
-
 public class TreatmentsPresenter implements TreatmentsContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
@@ -15,7 +13,7 @@ public class TreatmentsPresenter implements TreatmentsContract.UserActionsListen
   private final TreatmentsContract.View mTreatmentView;
 
   public TreatmentsPresenter(@NonNull TreatmentsContract.View treatmentsView) {
-    mTreatmentView = checkNotNull(treatmentsView, "treatmentsView cannot be null!");
+    mTreatmentView = treatmentsView;
   }
 
   @Override public void initializeActions(Context c) {

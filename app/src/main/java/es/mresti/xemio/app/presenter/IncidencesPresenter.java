@@ -7,8 +7,6 @@ import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.IncidencesContract;
 
-import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
-
 public class IncidencesPresenter implements IncidencesContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
@@ -17,7 +15,7 @@ public class IncidencesPresenter implements IncidencesContract.UserActionsListen
   private final IncidencesContract.View mIncidenceView;
 
   public IncidencesPresenter(@NonNull IncidencesContract.View incidencesView) {
-    mIncidenceView = checkNotNull(incidencesView, "incidencesView cannot be null!");
+    mIncidenceView = incidencesView;
   }
 
   @Override public void initializeActions(Context c) {

@@ -7,15 +7,13 @@ import com.firebase.client.Firebase;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.MainContract;
 
-import static android.support.test.espresso.core.deps.guava.base.Preconditions.checkNotNull;
-
 public class MainPresenter implements MainContract.UserActionsListener {
   private Firebase mFirebaseRef;
   private Context mContext;
   private final MainContract.View mMainView;
 
   public MainPresenter(@NonNull MainContract.View mainView) {
-    mMainView = checkNotNull(mainView, "mainView cannot be null!");
+    mMainView = mainView;
   }
 
   @Override public void initializeActions(Context c) {
