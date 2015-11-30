@@ -12,17 +12,15 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.LogupContract;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.LogupPresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.LogupView;
 import es.mresti.xemio.app.view.validator.EmailValidator;
 import es.mresti.xemio.app.view.validator.PassValidator;
 
-public class LogupActivity extends BaseActivity implements LogupView {
+public class LogupActivity extends BaseActivity implements LogupContract.View {
 
-  public static final String TAG = "LogupActivity";
-  private LogupPresenter mPresenter;
+  private LogupContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
   private EmailValidator mEmailValidator;
   private PassValidator mPassValidator1;
@@ -50,13 +48,10 @@ public class LogupActivity extends BaseActivity implements LogupView {
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
-    mPresenter = PresenterFactory.getLogupPresenter(this);
-    mPresenter.initializeContext(this.getContext());
     mNavigator = new Navigator();
+    mActionsListener = new LogupPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
 
     // Setup field validators.
     mEmailValidator = new EmailValidator();
@@ -67,9 +62,58 @@ public class LogupActivity extends BaseActivity implements LogupView {
     mPassInput2.addTextChangedListener(mPassValidator2);
   }
 
-  /**
-   * Goes to the dashboard screen.
-   */
+  @Override public void showProgress() {
+    mProgress.setVisibility(View.VISIBLE);
+  }
+
+  @Override public void hideProgress() {
+    mProgress.setVisibility(View.GONE);
+  }
+
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
+  }
+
+  @Override public void openExtra() {
+    mNavigator.navigateToExtra(this);
+    finish();
+  }
+
+  @Override public void getBackApp() {
+    mNavigator.navigateToUserRegister(this);
+    finish();
+  }
+
+  @Override public void setEmailError() {
+    mEmailInputLayout.setErrorEnabled(true);
+    mEmailInputLayout.setError(getString(R.string.error_email));
+  }
+
+  @Override public void setPass1Error() {
+    mPassInputLayout1.setErrorEnabled(true);
+    mPassInputLayout1.setError(getText(R.string.error_pass));
+  }
+
+  @Override public void setPass2Error() {
+    mPassInputLayout2.setErrorEnabled(true);
+    mPassInputLayout2.setError(getText(R.string.error_pass));
+  }
+
+  @Override public void setPassDistinctError() {
+    mPassInputLayout1.setErrorEnabled(true);
+    mPassInputLayout1.setError(getText(R.string.error_pass_diff));
+    mPassInputLayout2.setErrorEnabled(true);
+    mPassInputLayout2.setError(getText(R.string.error_pass_diff));
+  }
+
   @OnClick(R.id.btn_save) void navigateToDashboard() {
     boolean emailValid = mEmailValidator.isValid();
     boolean passValid1 = mPassValidator1.isValid();
@@ -97,55 +141,12 @@ public class LogupActivity extends BaseActivity implements LogupView {
     }
 
     if (emailValid && passValid1 && passValid2) {
-      mPresenter.setRegister(mEmailText.getText().toString(), mPassInput1.getText().toString(),
-          mPassInput2.getText().toString());
+      mActionsListener.setRegister(mEmailText.getText().toString(),
+          mPassInput1.getText().toString(), mPassInput2.getText().toString());
     }
   }
 
-  /**
-   * Goes to the finish activity.
-   */
-  @OnClick(R.id.btn_deny) void navigateToFinish() {
-    mNavigator.navigateToUserRegister(this);
-    finish();
-  }
-
-  @Override public void showProgress() {
-    mProgress.setVisibility(View.VISIBLE);
-  }
-
-  @Override public void hideProgress() {
-    mProgress.setVisibility(View.GONE);
-  }
-
-  @Override public void setEmailError() {
-    mEmailInputLayout.setErrorEnabled(true);
-    mEmailInputLayout.setError(getString(R.string.error_email));
-  }
-
-  @Override public void setPass1Error() {
-    mPassInputLayout1.setErrorEnabled(true);
-    mPassInputLayout1.setError(getText(R.string.error_pass));
-  }
-
-  @Override public void setPass2Error() {
-    mPassInputLayout2.setErrorEnabled(true);
-    mPassInputLayout2.setError(getText(R.string.error_pass));
-  }
-
-  @Override public void setPassDistinctError() {
-    mPassInputLayout1.setErrorEnabled(true);
-    mPassInputLayout1.setError(getText(R.string.error_pass_diff));
-    mPassInputLayout2.setErrorEnabled(true);
-    mPassInputLayout2.setError(getText(R.string.error_pass_diff));
-  }
-
-  @Override public void navigateToExtraScreen() {
-    mNavigator.navigateToExtra(this);
-    finish();
-  }
-
-  @Override public Context getContext() {
-    return getApplicationContext();
+  @OnClick(R.id.btn_deny) void navigateToRegister() {
+    this.getBackApp();
   }
 }

@@ -80,43 +80,43 @@
     </activity>
 
     <activity
-        android:name=".app.view.activity.ListTreatmentActivity"
+        android:name=".app.view.activity.TreatmentsActivity"
         android:label="@string/toolbar_title_treatment"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.DetailsTreatmentActivity"
+        android:name=".app.view.activity.TreatmentDetailActivity"
         android:label="@string/toolbar_title_treatment_detail"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.ListEffectsActivity"
+        android:name=".app.view.activity.EffectsActivity"
         android:label="@string/toolbar_title_effect"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.DetailsEffectActivity"
+        android:name=".app.view.activity.EffectDetailActivity"
         android:label="@string/toolbar_title_effect_detail"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.NewIncidenceActivity"
+        android:name=".app.view.activity.AddIncidenceActivity"
         android:label="@string/toolbar_title_incidence"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.ListIncidencesActivity"
+        android:name=".app.view.activity.IncidencesActivity"
         android:label="@string/toolbar_title_history"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.DetailsIncidenceActivity"
+        android:name=".app.view.activity.IncidenceDetailActivity"
         android:label="@string/toolbar_title_incidence_detail"
         >
     </activity>

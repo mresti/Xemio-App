@@ -17,8 +17,6 @@ import es.mresti.xemio.app.view.fragment.InfoFragment;
 
 public class InfoActivity extends BaseActivity {
 
-  public static final String TAG = "InfoActivity";
-
   // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
   @Bind(R.id.fab_next) FloatingActionButton mFABNext;
@@ -37,9 +35,6 @@ public class InfoActivity extends BaseActivity {
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
     setSupportActionBar(mToolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -96,7 +91,7 @@ public class InfoActivity extends BaseActivity {
     mPager.setCurrentItem(mPager.getCurrentItem() - 1);
   }
 
-  @OnClick(R.id.fab_end) void navigateToDashboardScreen() {
+  @OnClick(R.id.fab_end) void navigateToDashboard() {
     finish();
   }
 

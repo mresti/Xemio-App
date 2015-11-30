@@ -1,43 +1,56 @@
 package es.mresti.xemio.app.presenter;
 
 import android.content.Context;
-import es.mresti.xemio.app.interactor.ExtraInteractor;
-import es.mresti.xemio.app.view.ExtraView;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.ExtraContract;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ExtraPresenter implements Presenter {
-  private ExtraView mExtraView;
-  private ExtraInteractor mExtraInteractor;
+public class ExtraPresenter implements ExtraContract.UserActionsListener {
+
+  private Firebase mFirebaseRef;
   private Context mContext;
+  private final ExtraContract.View mExtraView;
 
-  public static ExtraPresenter newInstance(ExtraView extraView, ExtraInteractor extraInteractor) {
-    ExtraPresenter presenter = new ExtraPresenter(extraView, extraInteractor);
-    presenter.initialize();
-    return presenter;
+  public ExtraPresenter(@NonNull ExtraContract.View extraView) {
+    mExtraView = extraView;
   }
 
-  private ExtraPresenter(ExtraView extraView, ExtraInteractor extraInteractor) {
-    this.mExtraView = extraView;
-    this.mExtraInteractor = extraInteractor;
-  }
-
-  private void initialize() {
-    mExtraInteractor.setPresenter(this);
-  }
-
-  @Override public void resume() {
-  }
-
-  @Override public void pause() {
-  }
-
-  public void initializeContext(Context c) {
+  @Override public void initializeActions(Context c) {
     mContext = c;
-    mExtraInteractor.initialize(mContext);
+    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
   }
 
-  public void setRegister(String username, String age) {
+  @Override public void setRegister(String username, String age) {
     mExtraView.showProgress();
-    mExtraInteractor.saveExtraData(username, age);
+    this.saveExtraData(username, age);
+  }
+
+  private void saveExtraData(final String username, final String age) {
+    boolean error = false;
+    if (TextUtils.isEmpty(username)) {
+      this.onUsernameError();
+      error = true;
+    }
+    if (TextUtils.isEmpty(age)) {
+      this.onAgeError();
+      error = true;
+    }
+    if (!error) {
+      AuthData authData = mFirebaseRef.getAuth();
+      Firebase userRef = mFirebaseRef.child("users").child(authData.getUid());
+
+      Map<String, Object> person = new HashMap<String, Object>();
+      person.put("fullName", username);
+      person.put("age", age);
+      userRef.updateChildren(person);
+
+      this.onSuccess();
+    }
   }
 
   public void onUsernameError() {
@@ -51,6 +64,6 @@ public class ExtraPresenter implements Presenter {
   }
 
   public void onSuccess() {
-    mExtraView.navigateToChemoScreen();
+    mExtraView.openChemo();
   }
 }

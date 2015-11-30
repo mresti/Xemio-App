@@ -11,19 +11,17 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.MainContract;
 import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.MainPresenter;
-import es.mresti.xemio.app.presenter.PresenterFactory;
-import es.mresti.xemio.app.view.MainView;
 
 /**
  * Main application screen. This is the app entry point.
  */
-public class MainActivity extends BaseActivity implements MainView {
+public class MainActivity extends BaseActivity implements MainContract.View {
 
-  public static final String TAG = "MainActivity";
+  private MainContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
-  private MainPresenter mPresenter;
 
   // UI items
   @Bind(R.id.btn_begin) Button mBtn_begin;
@@ -42,29 +40,11 @@ public class MainActivity extends BaseActivity implements MainView {
     this.initialize();
   }
 
-  /**
-   * Initializes activity's private members.
-   */
   private void initialize() {
     mNavigator = new Navigator();
-    mPresenter = PresenterFactory.getMainPresenter(this);
-    mPresenter.initializeContext(this.getContext());
-    mPresenter.getUserStatus();
-  }
-
-  /**
-   * Goes to the user register screen.
-   */
-  @OnClick(R.id.btn_begin) void navigateToRegisterscreen() {
-    mNavigator.navigateToUserRegister(this);
-    finish();
-  }
-
-  /**
-   * Goes to the finish activity.
-   */
-  @OnClick(R.id.btn_deny) void navigateToFinish() {
-    finish();
+    mActionsListener = new MainPresenter(this);
+    mActionsListener.initializeActions(this.getContext());
+    mActionsListener.getUserStatus();
   }
 
   @Override public void showProgress() {
@@ -77,12 +57,43 @@ public class MainActivity extends BaseActivity implements MainView {
     mLayoutToolbar.setVisibility(View.GONE);
   }
 
-  @Override public void navigateToDashboardScreen() {
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
+  }
+
+  @Override public void openRegister() {
+    mNavigator.navigateToUserRegister(this);
+    finish();
+  }
+
+  @Override public void openDashboard() {
     mNavigator.navigateToDashboard(this);
     finish();
   }
 
-  @Override public Context getContext() {
-    return getApplicationContext();
+  @Override public void closeApp() {
+    finish();
+  }
+
+  /**
+   * Goes to the user register screen.
+   */
+  @OnClick(R.id.btn_begin) void openRegisterActivity() {
+    this.openRegister();
+  }
+
+  /**
+   * Goes to the finish activity.
+   */
+  @OnClick(R.id.btn_deny) void closeMainActivity() {
+    this.closeApp();
   }
 }
