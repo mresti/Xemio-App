@@ -121,6 +121,7 @@
 
   // Notifications Activity
   <string name="toolbar_title_notifications">Notificaciones</string>
+  <string name="noti_not_items">No hay notificaciones para ver.</string>
 
   // error message
   <string name="error_email">Introduce un email válido</string>
