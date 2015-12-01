@@ -40,21 +40,21 @@
     </activity>
 
     <activity
-        android:name=".app.view.activity.LoginActivity"
+        android:name="es.mresti.xemio.app.view.activity.LoginActivity"
         android:label="@string/app_name"
         android:theme="@style/Theme.Xemio.Init"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.LogupActivity"
+        android:name="es.mresti.xemio.app.view.activity.LogupActivity"
         android:label="@string/app_name"
         android:theme="@style/Theme.Xemio.Init"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.ExtraActivity"
+        android:name="es.mresti.xemio.app.view.activity.ExtraActivity"
         android:label="@string/app_name"
         android:theme="@style/Theme.Xemio.Init"
         >
@@ -80,49 +80,55 @@
     </activity>
 
     <activity
-        android:name=".app.view.activity.TreatmentsActivity"
+        android:name="es.mresti.xemio.app.view.activity.TreatmentsActivity"
         android:label="@string/toolbar_title_treatment"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.TreatmentDetailActivity"
+        android:name="es.mresti.xemio.app.view.activity.TreatmentDetailActivity"
         android:label="@string/toolbar_title_treatment_detail"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.EffectsActivity"
+        android:name="es.mresti.xemio.app.view.activity.EffectsActivity"
         android:label="@string/toolbar_title_effect"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.EffectDetailActivity"
+        android:name="es.mresti.xemio.app.view.activity.EffectDetailActivity"
         android:label="@string/toolbar_title_effect_detail"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.AddIncidenceActivity"
+        android:name="es.mresti.xemio.app.view.activity.AddIncidenceActivity"
         android:label="@string/toolbar_title_incidence"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.IncidencesActivity"
+        android:name="es.mresti.xemio.app.view.activity.IncidencesActivity"
         android:label="@string/toolbar_title_history"
         >
     </activity>
 
     <activity
-        android:name=".app.view.activity.IncidenceDetailActivity"
+        android:name="es.mresti.xemio.app.view.activity.IncidenceDetailActivity"
         android:label="@string/toolbar_title_incidence_detail"
         >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.SettingsActivity"
+        android:label="@string/toolbar_title_settings"
+        >
+    </activity>
+
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.NotificationsActivity"
         android:label="@string/toolbar_title_settings"
         >
     </activity>

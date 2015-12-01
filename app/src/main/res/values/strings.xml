@@ -119,6 +119,9 @@
   <string name="field_logout_title">Cerrar sesión</string>
   <string name="field_logout_text">Salir de la App</string>
 
+  // Notifications Activity
+  <string name="toolbar_title_notifications">Notificaciones</string>
+
   // error message
   <string name="error_email">Introduce un email válido</string>
   <string name="error_pass">Mínimo 6 caracteres sin espacios</string>

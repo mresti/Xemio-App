@@ -13,6 +13,7 @@ import es.mresti.xemio.app.view.activity.InfoActivity;
 import es.mresti.xemio.app.view.activity.LoginActivity;
 import es.mresti.xemio.app.view.activity.LogupActivity;
 import es.mresti.xemio.app.view.activity.MainActivity;
+import es.mresti.xemio.app.view.activity.NotificationsActivity;
 import es.mresti.xemio.app.view.activity.RegisterActivity;
 import es.mresti.xemio.app.view.activity.SettingsActivity;
 import es.mresti.xemio.app.view.activity.TreatmentDetailActivity;
@@ -34,11 +35,6 @@ public class Navigator {
     }
   }
 
-  /**
-   * Goes to the User register screen.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
   public void navigateToUserRegister(Context context) {
     if (context != null) {
       Intent intentToLaunch = RegisterActivity.getCallingIntent(context);
@@ -46,11 +42,6 @@ public class Navigator {
     }
   }
 
-  /**
-   * Goes to the login screen.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
   public void navigateToUserLogIn(Context context) {
     if (context != null) {
       Intent intentToLaunch = LoginActivity.getCallingIntent(context);
@@ -58,11 +49,6 @@ public class Navigator {
     }
   }
 
-  /**
-   * Goes to the logup screen.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
   public void navigateToUserLogUp(Context context) {
     if (context != null) {
       Intent intentToLaunch = LogupActivity.getCallingIntent(context);
@@ -77,11 +63,6 @@ public class Navigator {
     }
   }
 
-  /**
-   * Goes to the chemotherapy screen.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
   public void navigateToChemo(Context context) {
     if (context != null) {
       Intent intentToLaunch = ChemoActivity.getCallingIntent(context);
@@ -89,11 +70,6 @@ public class Navigator {
     }
   }
 
-  /**
-   * Goes to the dashboard screen.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
   public void navigateToDashboard(Context context) {
     if (context != null) {
       Intent intentToLaunch = DashboardActivity.getCallingIntent(context);
@@ -143,11 +119,6 @@ public class Navigator {
     }
   }
 
-  /**
-   * Goes to the xemio website.
-   *
-   * @param context A Context needed to open the destiny activity.
-   */
   public void navigateToXemioWeb(Context context) {
     if (context != null) {
       Intent intentToLaunch = new Intent(Intent.ACTION_VIEW);
@@ -159,6 +130,13 @@ public class Navigator {
   public void navigateToEffect(Context context) {
     if (context != null) {
       Intent intentToLaunch = EffectsActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
+
+  public void navigateToNotifications(Context context) {
+    if (context != null) {
+      Intent intentToLaunch = NotificationsActivity.getCallingIntent(context);
       context.startActivity(intentToLaunch);
     }
   }

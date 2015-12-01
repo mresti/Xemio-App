@@ -81,6 +81,10 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
     // as you specify a parent activity in AndroidManifest.xml.
     int id = item.getItemId();
 
+    if (id == R.id.action_notification) {
+      mNavigator.navigateToNotifications(this);
+    }
+
     if (id == R.id.action_incidence) {
       mNavigator.navigateToNewIncidence(this);
     }
