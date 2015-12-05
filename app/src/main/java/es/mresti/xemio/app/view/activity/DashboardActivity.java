@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import com.firebase.client.Firebase;
+import com.mikepenz.actionitembadge.library.ActionItemBadge;
+import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.DashboardContract;
 import es.mresti.xemio.app.navigation.Navigator;
@@ -23,6 +25,7 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
 
   private DashboardContract.UserActionsListener mActionsListener;
   private Navigator mNavigator;
+  private int badgeCount = 1;
 
   // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
@@ -72,6 +75,11 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
   @Override public boolean onCreateOptionsMenu(Menu menu) {
     // Inflate the menu; this adds items to the action bar if it is present.
     getMenuInflater().inflate(R.menu.menu_main, menu);
+
+
+    ActionItemBadge.update(this, menu.findItem(R.id.action_notification),
+        GoogleMaterial.Icon.gmd_notifications, ActionItemBadge.BadgeStyles.DARK_GREY, badgeCount);
+
     return true;
   }
 

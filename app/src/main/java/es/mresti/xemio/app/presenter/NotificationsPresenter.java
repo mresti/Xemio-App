@@ -24,5 +24,4 @@ public class NotificationsPresenter implements NotificationsContract.UserActions
   @Override public Firebase getNotificationListRef() {
     return mFirebaseRef.child("notifications").child("-Jy4JKD7Lz7PoKKIEyvI");
   }
-
 }

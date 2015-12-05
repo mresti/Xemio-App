@@ -89,6 +89,8 @@
   <string name="form_text_description">Descripción</string>
   <string name="dialog_title_new_incidence">Incidencia creada</string>
   <string name="dialog_message_new_incidence">Puedes ver su incidencia en su historial</string>
+  <string name="dialog_title">Estoy de prueba</string>
+  <string name="dialog_message">Esto si que mola!!</string>
 
   // History Activity
   <string name="toolbar_title_history">Historial</string>

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 23
-  buildToolsVersion "23.0.1"
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
 
   defaultConfig {
     applicationId "es.mresti.xemio"
-    minSdkVersion 15
-    targetSdkVersion 23
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -29,6 +29,10 @@ android {
     textOutput 'stdout'
   }
   buildTypes {
+    debug {
+      // Run code coverage reports by default on debug builds.
+      testCoverageEnabled = true
+    }
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -45,7 +49,7 @@ dependencies {
   compile supportDependencies.appCompat
   compile supportDependencies.cardView
   compile supportDependencies.recyclerView
-  compile supportDependencies.support
+  compile supportDependencies.supportV13
   compile supportDependencies.preferenceV7
   compile supportDependencies.preferenceV14
   androidTestCompile supportDependencies.supportAnnotation
@@ -56,22 +60,34 @@ dependencies {
   // UI dependencies
   compile viewDependencies.butterknife
   compile viewDependencies.materialDialogs
+  compile viewDependencies.iconBadge
+  compile viewDependencies.iconCore
+  //compile viewDependencies.gmdIcon
+  compile viewDependencies.gmdOriginalIcon
 
-  // Unit testing dependencies
+  // Dependencies for local unit tests
   testCompile testingDependencies.junit
   testCompile testingDependencies.mockitoCore
-  androidTestCompile testingDependencies.hamcrest
+  testCompile testingDependencies.hamcrest
 
-  // AndroidJUnit Runner dependencies
-  androidTestCompile testingDependencies.runner
-  androidTestCompile testingDependencies.rules
+  // Android Testing Support Library's runner and rules
+  androidTestCompile androidTestingDependencies.runner
+  androidTestCompile androidTestingDependencies.rules
 
-  // Espresso dependencies
-  androidTestCompile testingDependencies.espressoCore
-  androidTestCompile testingDependencies.espressoContrib
-  androidTestCompile testingDependencies.espressoIntents
+  // Espresso UI Testing
+  androidTestCompile androidTestingDependencies.espressoCore
+  // Espresso-Contrib, Intents and Web dependencies are not used in this project.
+  /*
+  androidTestCompile androidTestingDependencies.espressoContrib
+  androidTestCompile androidTestingDependencies.espressoWeb
+  androidTestCompile androidTestingDependencies.espressoIdling
+  androidTestCompile androidTestingDependencies.espressoIntents
+  */
+  // UIAutomator Testing. Learn about this dependency in this projects README file.
+  //androidTestCompile androidTestingDependencies.uiautomatorV18
 
   // LeakCanary Library
   debugCompile testingDependencies.leakCanaryDebug
   releaseCompile testingDependencies.leakCanaryRel
+
 }

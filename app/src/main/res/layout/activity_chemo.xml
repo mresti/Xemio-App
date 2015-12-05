@@ -54,7 +54,6 @@
 
     </LinearLayout>
 
-
   </LinearLayout>
 
   <include layout="@layout/container_toolbar_theme_btn_next"/>

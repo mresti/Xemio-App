@@ -18,7 +18,7 @@ Code style
 -----------
 
 Here you can download and install the java codestyle.
-https://github.com/square/java-code-styles
+[https://github.com/square/java-code-styles][19]
 
 Libraries used on the project
 ------------------------------------
@@ -30,6 +30,7 @@ Libraries used on the project
 * [JUnit][14]
 * [Mockito][15]
 * [Espresso][16]
+* [Android ActionItemBadge][17]
 
 
 Resources
@@ -52,8 +53,7 @@ Contributors
 ------------
 
 * Tom Evans
-
-
+* Marcelino Cabrera
 
 
 License
@@ -89,4 +89,6 @@ License
 [14]: https://github.com/junit-team/junit
 [15]: https://github.com/mockito/mockito
 [16]: https://developer.android.com/tools/testing-support-library/index.html
+[17]: https://github.com/mikepenz/Android-ActionItemBadge
 [18]: https://github.com/jenzz/Android-MaterialPreference
+[19]: https://github.com/square/java-code-styles

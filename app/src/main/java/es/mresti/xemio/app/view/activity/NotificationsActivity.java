@@ -67,12 +67,12 @@ public class NotificationsActivity extends BaseActivity implements Notifications
     super.onStart();
 
     mNotificationsListAdapter =
-        new FirebaseListAdapter<HashMap>(mNotificationsDatasRef, HashMap.class, R.layout.item_list_1_tv,
-            this) {
+        new FirebaseListAdapter<HashMap>(mNotificationsDatasRef, HashMap.class,
+            R.layout.item_list_1_tv, this) {
           @Override protected void populateView(View v, final HashMap model) {
-            final String key = NotificationsActivity.this.mNotificationsListAdapter.getModelKey(model);
-            ((TextView) v.findViewById(R.id.item_title)).setText(
-                model.get("message").toString());
+            final String key =
+                NotificationsActivity.this.mNotificationsListAdapter.getModelKey(model);
+            ((TextView) v.findViewById(R.id.item_title)).setText(model.get("message").toString());
           }
         };
     mNotificationsList.setAdapter(mNotificationsListAdapter);

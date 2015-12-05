@@ -81,6 +81,6 @@
 
   </LinearLayout>
 
-    <include layout="@layout/container_toolbar_theme_btn_next"/>
+  <include layout="@layout/container_toolbar_theme_btn_next"/>
 
 </merge>
