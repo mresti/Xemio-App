@@ -13,7 +13,8 @@ ext {
   rulesVersion = '0.4.1'
   espressoVersion = '2.2.1'
   uiautomatorVersion = '2.1.2'
-  firebaseVersion = '2.4.1+'
+  firebaseVersion = '2.5.0+'
+  firebaseUIVersion = '0.2.2'
   leakCanaryVersion = '1.3.1'
   butterknifeVersion = '7.0.1'
   matDialogVersion = '0.7.9.1'
@@ -37,17 +38,18 @@ ext {
   viewDependencies = [butterknife    : "com.jakewharton:butterknife:${butterknifeVersion}",
                       materialDialogs: "com.afollestad:material-dialogs:${matDialogVersion}",
                       materialPref   : "com.jenzz:materialpreference:${matPrefVersion}",
-                      iconBadge   : "com.mikepenz:actionitembadge:${itemBadgeVersion}",
-                      iconCore   : "com.mikepenz:iconics-core:${iconCoreVersion}",
-                      gmdIcon   : "com.mikepenz:google-material-typeface:${gmdIconVersion}",
-                      gmdOriginalIcon   : "com.mikepenz:google-material-typeface:${gmdOriginalIconVersion}",]
+                      iconBadge      : "com.mikepenz:actionitembadge:${itemBadgeVersion}",
+                      iconCore       : "com.mikepenz:iconics-core:${iconCoreVersion}",
+                      gmdIcon        : "com.mikepenz:google-material-typeface:${gmdIconVersion}",
+                      gmdOriginalIcon: "com.mikepenz:google-material-typeface:${gmdOriginalIconVersion}",]
 
   // Datasource Library dependencies
-  datasourceDependencies = [firebase: "com.firebase:firebase-client-android:${firebaseVersion}",]
+  datasourceDependencies = [firebase: "com.firebase:firebase-client-android:${firebaseVersion}",
+                            firebaseUI: "com.firebaseui:firebase-ui:${firebaseUIVersion}",]
 
   // Testing Libraries dependencies
   testingDependencies = [junit          : "junit:junit:${junitVersion}",
-                         mockitoCore    : "org.mockito:mockito-all:${mockitoVersion}",
+                         mockito    : "org.mockito:mockito-all:${mockitoVersion}",
                          hamcrest       : "org.hamcrest:hamcrest-all:${hamcrestVersion}",
                          leakCanaryDebug: "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
                          leakCanaryRel  : "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",]

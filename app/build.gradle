@@ -17,6 +17,12 @@ android {
     sourceCompatibility JavaVersion.VERSION_1_7
     targetCompatibility JavaVersion.VERSION_1_7
   }
+  /* This for anyone following along with the repo. Since you will have a different
+     * root URL, this code loads up a value from your gradle.properties file.
+     */
+  buildTypes.each {
+    it.buildConfigField 'String', 'UNIQUE_FIREBASE_ROOT_URL', UniqueFirebaseRootUrl
+  }
   packagingOptions {
     exclude 'LICENSE.txt'
     exclude 'META-INF/LICENSE'
@@ -56,18 +62,17 @@ dependencies {
 
   // Datasources dependencies
   compile datasourceDependencies.firebase
+  compile datasourceDependencies.firebaseUI
 
   // UI dependencies
   compile viewDependencies.butterknife
-  compile viewDependencies.materialDialogs
   compile viewDependencies.iconBadge
   compile viewDependencies.iconCore
-  //compile viewDependencies.gmdIcon
   compile viewDependencies.gmdOriginalIcon
 
   // Dependencies for local unit tests
   testCompile testingDependencies.junit
-  testCompile testingDependencies.mockitoCore
+  testCompile testingDependencies.mockito
   testCompile testingDependencies.hamcrest
 
   // Android Testing Support Library's runner and rules
@@ -89,5 +94,4 @@ dependencies {
   // LeakCanary Library
   debugCompile testingDependencies.leakCanaryDebug
   releaseCompile testingDependencies.leakCanaryRel
-
 }
