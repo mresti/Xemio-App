@@ -19,6 +19,10 @@ public class EmailValidatorTest {
     assertFalse(EmailValidator.isValidEmail("name@domain"));
   }
 
+  @Test public void emailValidator_InvalidEmail_NoDomain2() {
+    assertFalse(EmailValidator.isValidEmail("name@.com"));
+  }
+
   @Test public void emailValidator_InvalidEmail_DoubleDot() {
     assertFalse(EmailValidator.isValidEmail("name@domain..com"));
   }

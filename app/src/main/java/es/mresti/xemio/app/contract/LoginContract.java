@@ -18,9 +18,12 @@ public interface LoginContract {
     void openDashboard();
 
     void getBackApp();
+
+    void showNotificationMessage(String message);
   }
 
-  interface UserActionsListener extends BaseContract.BaseActions {
+  interface UserActionsListener {
+
     void validateCredentials(String username, String password);
   }
 }

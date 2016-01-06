@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:clipToPadding="false"
+>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+  >
+
+    <LinearLayout
+        android:layout_width="700dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+    >
+
+      <Button
+          android:id="@+id/btn_info_screen"
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_info"
+          android:drawableLeft="@drawable/ic_info_white_48dp"
+          style="@style/InfoBasicsButtonLight"
+      />
+
+      <Button
+          android:id="@+id/btn_treat_screen"
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_treat"
+          android:drawableLeft="@drawable/ic_assignment_white_48dp"
+          style="@style/InfoBasicsButtonLight"
+      />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="700dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+    >
+
+      <Button
+          android:id="@+id/btn_effect_screen"
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_effect"
+          android:drawableLeft="@drawable/ic_assignment_late_white_48dp"
+          style="@style/InfoBasicsButtonLight"
+      />
+
+      <Button
+          android:id="@+id/btn_chat_screen"
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_chat"
+          android:drawableLeft="@drawable/ic_message_white_48dp"
+          style="@style/InfoBasicsButtonLight"
+      />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="700dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+    >
+
+      <Button
+          android:id="@+id/btn_web_screen"
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_web"
+          android:drawableLeft="@drawable/ic_web_white_48dp"
+          style="@style/InfoBasicsButtonLight"
+      />
+
+      <Button
+          android:id="@+id/btn_null_screen"
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_incidence"
+          style="@style/InfoBasicsButton"
+          android:visibility="gone"
+      />
+
+    </LinearLayout>
+
+  </LinearLayout>
+</ScrollView>

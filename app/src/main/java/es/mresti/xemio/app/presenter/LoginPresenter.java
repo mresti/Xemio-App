@@ -1,23 +1,23 @@
 package es.mresti.xemio.app.presenter;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.LoginContract;
+import es.mresti.xemio.app.utils.Constants;
 
 public class LoginPresenter implements LoginContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
-  private Context mContext;
+  private AuthData mAuthData;
   private final LoginContract.View mLoginView;
 
-  public LoginPresenter(@NonNull LoginContract.View loginView) {
+  public LoginPresenter(LoginContract.View loginView) {
     mLoginView = loginView;
+    mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
+    mAuthData = mFirebaseRef.getAuth();
   }
 
   @Override public void validateCredentials(String username, String password) {
@@ -25,12 +25,8 @@ public class LoginPresenter implements LoginContract.UserActionsListener {
     this.login(username, password);
   }
 
-  @Override public void initializeActions(Context c) {
-    mContext = c;
-    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
-  }
-
   public void login(final String username, final String password) {
+
     boolean error = false;
     if (TextUtils.isEmpty(username)) {
       this.onUsernameError();
@@ -41,32 +37,37 @@ public class LoginPresenter implements LoginContract.UserActionsListener {
       error = true;
     }
     if (!error) {
-      final Firebase firebaseRef = mFirebaseRef;
-      firebaseRef.authWithPassword(username, password, new Firebase.AuthResultHandler() {
-        @Override public void onAuthenticated(AuthData authData) {
-          onSuccess();
-        }
-
-        @Override public void onAuthenticationError(FirebaseError error) {
-          // there was an error
-          Log.e("logged user", "Error al logged user");
-          switch (error.getCode()) {
-            case FirebaseError.USER_DOES_NOT_EXIST:
-              // handle a non existing user
-              //onUserNotExistError();
-              break;
-            case FirebaseError.INVALID_PASSWORD:
-              // handle an invalid password
-              //onInvalidPasswordError();
-              break;
-            default:
-              // handle other errors
-              //onAuthenticationError();
-              break;
-          }
-        }
-      });
+      this.onConnected(username, password);
     }
+  }
+
+  public void onConnected(final String username, final String password) {
+    mFirebaseRef.authWithPassword(username, password, new Firebase.AuthResultHandler() {
+      @Override public void onAuthenticated(AuthData authData) {
+        onSuccess();
+      }
+
+      @Override public void onAuthenticationError(FirebaseError error) {
+        // there was an error
+        Log.e("logged user", "Error al logged user");
+        Log.e("logger uder", error.toString());
+        Log.e("logger uder", String.valueOf(error.getCode()));
+        switch (error.getCode()) {
+          case FirebaseError.USER_DOES_NOT_EXIST:
+            // handle a non existing user
+            showMessage(Constants.USER_DOES_NOT_EXIST);
+            break;
+          case FirebaseError.INVALID_PASSWORD:
+            // handle an invalid password
+            showMessage(Constants.INVALID_PASSWORD);
+            break;
+          default:
+            // handle other errors
+            showMessage(Constants.OTHER_ERROR);
+            break;
+        }
+      }
+    });
   }
 
   private void onUsernameError() {
@@ -83,12 +84,8 @@ public class LoginPresenter implements LoginContract.UserActionsListener {
     mLoginView.openDashboard();
   }
 
-  private void onUserNotExistError() {
-  }
-
-  private void onInvalidPasswordError() {
-  }
-
-  private void onAuthenticationError() {
+  private void showMessage(String message) {
+    mLoginView.showNotificationMessage(message);
+    mLoginView.hideProgress();
   }
 }

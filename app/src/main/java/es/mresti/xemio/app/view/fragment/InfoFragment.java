@@ -42,7 +42,7 @@ public class InfoFragment extends Fragment {
       Bundle savedInstanceState) {
     ViewGroup rootView =
         (ViewGroup) inflater.inflate(R.layout.fragment_slide_page, container, false);
-    TextView tvTitle = (TextView) rootView.findViewById(R.id.tvTitle);
+    TextView tvTitle = (TextView) rootView.findViewById(R.id.pageTitle);
     tvTitle.setText(String.valueOf(mTitle));
     rootView.setBackgroundColor(Color.parseColor("#f1f1f3"));
     return rootView;

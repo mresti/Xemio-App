@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+>
 
-  <include layout="@layout/container_logo"/>
+  <include layout="@layout/component_logo"/>
 
   <LinearLayout
       android:layout_width="match_parent"
@@ -12,7 +12,7 @@
       android:orientation="vertical"
       android:background="@color/color_white"
       android:layout_marginTop="@dimen/container_margin_top"
-      >
+  >
 
     <TextView
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin"
         android:layout_marginTop="@dimen/card_margin"
-        >
+    >
     </TextView>
 
     <LinearLayout
@@ -31,31 +31,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/color_white"
-        android:paddingLeft="@dimen/content_margin_30"
-        android:paddingRight="@dimen/content_margin_30"
-        android:paddingTop="@dimen/card_margin"
-        >
+        android:layout_marginLeft="@dimen/content_margin_30"
+        android:layout_marginRight="@dimen/content_margin_30"
+        android:layout_marginTop="@dimen/card_margin"
+        android:layout_marginBottom="?android:attr/actionBarSize"
+    >
 
-      <LinearLayout
+      <ListView
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:orientation="vertical"
-          android:background="@color/color_white"
-          android:layout_marginBottom="?android:attr/actionBarSize"
-          >
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listChemo"
-            />
-
-      </LinearLayout>
+          android:id="@+id/listChemo"
+      />
 
     </LinearLayout>
 
   </LinearLayout>
 
-  <include layout="@layout/container_toolbar_theme_btn_next"/>
-
-</merge>
+</FrameLayout>

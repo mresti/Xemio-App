@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+>
 
   <ImageView
       android:layout_width="wrap_content"
@@ -15,16 +12,16 @@
       android:layout_marginTop="@dimen/logo_margin"
       android:src="@drawable/xemio_icon_blanco"
       android:contentDescription="@string/string_content_description"
-      />
+  />
 
   <include
       android:id="@+id/container_main"
-      layout="@layout/container_main"
-      />
+      layout="@layout/component_main"
+  />
 
   <include
-      android:id="@+id/toolbar_bottom"
-      layout="@layout/container_toolbar"
-      />
+      android:id="@+id/nav_bottom"
+      layout="@layout/component_nav"
+  />
 
-</merge>
+</FrameLayout>

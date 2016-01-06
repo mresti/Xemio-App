@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+  <android.support.design.widget.AppBarLayout
+      android:id="@+id/appbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+  >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/ColorPrimary"
+        app:titleTextAppearance="@style/ToolbarTextAppearance.Title"
+        style="@style/MyToolbar"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+    />
+
+  </android.support.design.widget.AppBarLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:layout_marginTop="?android:attr/actionBarSize"
+      android:layout_margin="@dimen/card_margin"
+  >
+
+    <EditText
+        android:id="@+id/subInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/form_text_subject"
+        android:singleLine="true"
+        style="@style/FullWidthEditText"
+        android:layout_marginTop="?android:attr/actionBarSize"/>
+
+    <EditText
+        android:id="@+id/descInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        style="@style/FullWidthEditText"
+        android:hint="@string/form_text_description"/>
+
+
+  </LinearLayout>
+
+  <android.support.design.widget.FloatingActionButton
+      android:id="@+id/fab_submit"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="end|bottom"
+      android:src="@drawable/ic_send_white_24dp"
+      app:borderWidth="0dp"
+      app:elevation="6dp"
+      android:layout_marginBottom="@dimen/fab_margin"
+      android:layout_marginRight="@dimen/fab_margin"
+      android:layout_marginEnd="@dimen/fab_margin"
+      app:fabSize="normal"
+      app:backgroundTint="@color/ColorPrimary"
+  />
+
+</android.support.design.widget.CoordinatorLayout>

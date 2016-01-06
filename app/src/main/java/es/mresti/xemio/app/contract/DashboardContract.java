@@ -9,7 +9,9 @@ public interface DashboardContract {
     void openMain();
   }
 
-  interface UserActionsListener extends BaseContract.BaseActions {
+  interface UserActionsListener {
     void getUserStatus();
+
+    void getUserLogout();
   }
 }

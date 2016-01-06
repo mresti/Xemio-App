@@ -6,7 +6,6 @@ package es.mresti.xemio.app.contract;
 public interface MainContract {
 
   interface View extends BaseContract.BaseView {
-
     void showProgress();
 
     void hideProgress();
@@ -18,7 +17,7 @@ public interface MainContract {
     void closeApp();
   }
 
-  interface UserActionsListener extends BaseContract.BaseActions {
+  interface UserActionsListener {
     void getUserStatus();
   }
 }

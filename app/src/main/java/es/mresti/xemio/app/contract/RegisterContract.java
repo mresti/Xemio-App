@@ -6,14 +6,13 @@ package es.mresti.xemio.app.contract;
 public interface RegisterContract {
 
   interface View extends BaseContract.BaseView {
-
     void openLogin();
 
-    void openLogup();
+    void openCreateAccount();
 
     void closeApp();
   }
 
-  interface UserActionsListener extends BaseContract.BaseActions {
+  interface UserActionsListener {
   }
 }

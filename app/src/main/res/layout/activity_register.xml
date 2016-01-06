@@ -2,9 +2,9 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+>
 
-  <include layout="@layout/container_logo"/>
+  <include layout="@layout/component_logo"/>
 
   <LinearLayout
       android:layout_width="match_parent"
@@ -12,7 +12,7 @@
       android:orientation="vertical"
       android:background="@color/color_white"
       android:layout_marginTop="@dimen/container_margin_top"
-      >
+  >
 
     <TextView
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin"
         android:layout_marginTop="@dimen/card_margin"
-        >
+    >
     </TextView>
 
     <LinearLayout
@@ -35,7 +35,7 @@
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin"
         android:layout_marginTop="@dimen/content_margin_30"
-        >
+    >
 
       <Button
           android:id="@+id/btn_login"
@@ -51,7 +51,7 @@
           android:drawableTop="@drawable/ic_person_black_48dp"
           style="?android:attr/borderlessButtonStyle"
           android:textColor="@color/ColorPrimaryDark"
-          />
+      />
 
       <Button
           android:id="@+id/btn_logup"
@@ -67,11 +67,11 @@
           android:drawableTop="@drawable/ic_person_add_black_48dp"
           style="?android:attr/borderlessButtonStyle"
           android:textColor="@color/ColorPrimaryDark"
-          />
+      />
 
     </LinearLayout>
 
   </LinearLayout>
 
-  <include layout="@layout/container_toolbar"/>
+  <include layout="@layout/component_nav"/>
 </merge>

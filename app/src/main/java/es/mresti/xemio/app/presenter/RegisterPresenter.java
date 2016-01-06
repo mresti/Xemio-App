@@ -1,23 +1,19 @@
 package es.mresti.xemio.app.presenter;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
+import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
-import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.RegisterContract;
+import es.mresti.xemio.app.utils.Constants;
 
 public class RegisterPresenter implements RegisterContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
-  private Context mContext;
+  private AuthData mAuthData;
   private final RegisterContract.View mRegisterView;
 
-  public RegisterPresenter(@NonNull RegisterContract.View registerView) {
+  public RegisterPresenter(RegisterContract.View registerView) {
     mRegisterView = registerView;
-  }
-
-  @Override public void initializeActions(Context c) {
-    mContext = c;
-    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+    mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
+    mAuthData = mFirebaseRef.getAuth();
   }
 }

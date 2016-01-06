@@ -1,25 +1,20 @@
 package es.mresti.xemio.app.presenter;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
-import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.DashboardContract;
+import es.mresti.xemio.app.utils.Constants;
 
 public class DashboardPresenter implements DashboardContract.UserActionsListener {
 
   private Firebase mFirebaseRef;
-  private Context mContext;
+  private AuthData mAuthData;
   private final DashboardContract.View mDashboardView;
 
-  public DashboardPresenter(@NonNull DashboardContract.View dashboardView) {
+  public DashboardPresenter(DashboardContract.View dashboardView) {
     mDashboardView = dashboardView;
-  }
-
-  @Override public void initializeActions(Context c) {
-    mContext = c;
-    mFirebaseRef = new Firebase(mContext.getResources().getString(R.string.firebase_url));
+    mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
+    mAuthData = mFirebaseRef.getAuth();
   }
 
   @Override public void getUserStatus() {
@@ -32,6 +27,10 @@ public class DashboardPresenter implements DashboardContract.UserActionsListener
       // show mainActivity
       this.onFailAuth();
     }
+  }
+
+  @Override public void getUserLogout() {
+    mFirebaseRef.unauth();
   }
 
   public void onFailAuth() {

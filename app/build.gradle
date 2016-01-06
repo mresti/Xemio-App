@@ -11,7 +11,6 @@ android {
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    testApplicationId "es.mresti.xemio.test"
   }
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_7
@@ -35,10 +34,6 @@ android {
     textOutput 'stdout'
   }
   buildTypes {
-    debug {
-      // Run code coverage reports by default on debug builds.
-      testCoverageEnabled = true
-    }
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -56,8 +51,6 @@ dependencies {
   compile supportDependencies.cardView
   compile supportDependencies.recyclerView
   compile supportDependencies.supportV13
-  compile supportDependencies.preferenceV7
-  compile supportDependencies.preferenceV14
   androidTestCompile supportDependencies.supportAnnotation
 
   // Datasources dependencies
@@ -82,14 +75,6 @@ dependencies {
   // Espresso UI Testing
   androidTestCompile androidTestingDependencies.espressoCore
   // Espresso-Contrib, Intents and Web dependencies are not used in this project.
-  /*
-  androidTestCompile androidTestingDependencies.espressoContrib
-  androidTestCompile androidTestingDependencies.espressoWeb
-  androidTestCompile androidTestingDependencies.espressoIdling
-  androidTestCompile androidTestingDependencies.espressoIntents
-  */
-  // UIAutomator Testing. Learn about this dependency in this projects README file.
-  //androidTestCompile androidTestingDependencies.uiautomatorV18
 
   // LeakCanary Library
   debugCompile testingDependencies.leakCanaryDebug

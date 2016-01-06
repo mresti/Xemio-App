@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+  <include layout="@layout/component_logo"/>
+
+  <LinearLayout
+      android:layout_width="400dp"
+      android:layout_gravity="center"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:background="@color/color_white"
+      android:layout_marginTop="@dimen/container_margin_top"
+  >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="@string/title_register"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+    >
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/color_white"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        android:layout_marginTop="@dimen/content_margin_30"
+    >
+
+      <Button
+          android:id="@+id/btn_login"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_login"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="@dimen/content_margin_30"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginStart="@dimen/content_margin_30"
+          android:layout_marginEnd="@dimen/card_margin"
+          android:layout_marginTop="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_person_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorPrimaryDark"
+      />
+
+      <Button
+          android:id="@+id/btn_logup"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/btn_logup"
+          android:layout_marginBottom="@dimen/card_margin"
+          android:layout_marginLeft="@dimen/content_margin_30"
+          android:layout_marginRight="@dimen/card_margin"
+          android:layout_marginStart="@dimen/content_margin_30"
+          android:layout_marginEnd="@dimen/card_margin"
+          android:layout_marginTop="@dimen/card_margin"
+          android:drawableTop="@drawable/ic_person_add_black_48dp"
+          style="?android:attr/borderlessButtonStyle"
+          android:textColor="@color/ColorPrimaryDark"
+      />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+  <include layout="@layout/component_nav"/>
+</FrameLayout>

@@ -10,8 +10,7 @@ public interface IncidenceDetailContract {
   interface View extends BaseContract.BaseView {
   }
 
-  interface UserActionsListener extends BaseContract.BaseActions {
-
+  interface UserActionsListener {
     Firebase getIncidenceRef(String key);
 
     void removeIncidence(String key);

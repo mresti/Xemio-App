@@ -1,25 +1,26 @@
 package es.mresti.xemio.app.view.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import com.firebase.client.Firebase;
-import com.mikepenz.actionitembadge.library.ActionItemBadge;
-import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.DashboardContract;
-import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.DashboardPresenter;
-import es.mresti.xemio.app.view.adapter.DashboardViewPagerAdapter;
-import es.mresti.xemio.app.view.fragment.CheeseListFragment;
+import es.mresti.xemio.app.view.fragment.HistoryListFragment;
 import es.mresti.xemio.app.view.fragment.InfoListFragment;
+import es.mresti.xemio.app.view.navigation.Navigator;
 
 public class DashboardActivity extends BaseActivity implements DashboardContract.View {
 
@@ -46,12 +47,22 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
   private void initialize() {
     mNavigator = new Navigator();
     mActionsListener = new DashboardPresenter(this);
-    mActionsListener.initializeActions(this.getContext());
     mActionsListener.getUserStatus();
     setSupportActionBar(mToolbar);
+
+    /**
+     * Create SectionPagerAdapter, set it as adapter to viewPager with setOffscreenPageLimit(3)
+     **/
     if (mViewPager != null) {
-      setupViewPager(mViewPager);
+      //setupViewPager(mViewPager);
+      SectionPagerAdapter adapter = new SectionPagerAdapter(getSupportFragmentManager());
+      mViewPager.setOffscreenPageLimit(3);
+      mViewPager.setAdapter(adapter);
     }
+
+    /**
+     * Setup the mTabLayout with view pager
+     */
     mTabLayout.setupWithViewPager(mViewPager);
   }
 
@@ -67,6 +78,10 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
     super.onPause();
   }
 
+  @Override public void onDestroy() {
+    super.onDestroy();
+  }
+
   @Override public void openMain() {
     mNavigator.navigateToMain(this);
     finish();
@@ -76,9 +91,8 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
     // Inflate the menu; this adds items to the action bar if it is present.
     getMenuInflater().inflate(R.menu.menu_main, menu);
 
-
-    ActionItemBadge.update(this, menu.findItem(R.id.action_notification),
-        GoogleMaterial.Icon.gmd_notifications, ActionItemBadge.BadgeStyles.DARK_GREY, badgeCount);
+    //ActionItemBadge.update(this, menu.findItem(R.id.action_notification),
+    //    GoogleMaterial.Icon.gmd_notifications, ActionItemBadge.BadgeStyles.DARK_GREY, badgeCount);
 
     return true;
   }
@@ -93,39 +107,100 @@ public class DashboardActivity extends BaseActivity implements DashboardContract
       mNavigator.navigateToNotifications(this);
     }
 
+    if (id == R.id.action_chat) {
+      mNavigator.navigateToNewChat(this);
+    }
+
     if (id == R.id.action_incidence) {
       mNavigator.navigateToNewIncidence(this);
     }
 
-    //noinspection SimplifiableIfStatement
     if (id == R.id.action_logout) {
-      //Goes to the settings screen.
-      Firebase mFirebaseRef = new Firebase(getString(R.string.firebase_url));
-      mFirebaseRef.unauth();
-
-      startActivity(new Intent(getContext(), MainActivity.class).addFlags(
-          Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP)
-          .putExtra("fromDashboard", true));
-      finish();
-      return true;
-    }
-
-    //noinspection SimplifiableIfStatement
-    if (id == R.id.action_settings) {
-      //Goes to the settings screen.
-      mNavigator.navigateToSettings(this);
-      finish();
+      showLogoutDialog();
       return true;
     }
 
     return super.onOptionsItemSelected(item);
   }
 
-  private void setupViewPager(ViewPager viewPager) {
-    DashboardViewPagerAdapter adapter = new DashboardViewPagerAdapter(getSupportFragmentManager());
-    adapter.addFragment(new CheeseListFragment(), "Mensajes");
-    adapter.addFragment(new CheeseListFragment(), "Historial");
-    adapter.addFragment(new InfoListFragment(), "Información");
-    viewPager.setAdapter(adapter);
+  private void logout_user() {
+    mActionsListener.getUserLogout();
+    mNavigator.navigateToMain(this);
+    finish();
+  }
+
+  private void showLogoutDialog() {
+    AlertDialog.Builder builder = new AlertDialog.Builder(DashboardActivity.this);
+    builder.setTitle(getString(R.string.dialog_logout_title));
+    builder.setMessage(getString(R.string.dialog_logout_desc));
+
+    String positiveText = getString(android.R.string.ok);
+    builder.setPositiveButton(positiveText, new DialogInterface.OnClickListener() {
+      @Override public void onClick(DialogInterface dialog, int which) {
+        // positive button logic
+        logout_user();
+      }
+    });
+
+    String negativeText = getString(android.R.string.cancel);
+    builder.setNegativeButton(negativeText, new DialogInterface.OnClickListener() {
+      @Override public void onClick(DialogInterface dialog, int which) {
+        // negative button logic
+      }
+    });
+
+    AlertDialog dialog = builder.create();
+    // display dialog
+    dialog.show();
+  }
+
+  /**
+   * SectionPagerAdapter class that extends FragmentStatePagerAdapter to save fragments state
+   */
+  public class SectionPagerAdapter extends FragmentStatePagerAdapter {
+
+    public SectionPagerAdapter(FragmentManager fm) {
+      super(fm);
+    }
+
+    /**
+     * Use positions (0 and 1) to find and instantiate fragments with newInstance()
+     */
+    @Override public Fragment getItem(int position) {
+
+      Fragment fragment = null;
+
+      /**
+       * Set fragment to different fragments depending on position in ViewPager
+       */
+      switch (position) {
+        case 0:
+          fragment = HistoryListFragment.newInstance();
+          break;
+        case 1:
+        default:
+          fragment = InfoListFragment.newInstance();
+          break;
+      }
+
+      return fragment;
+    }
+
+    @Override public int getCount() {
+      return 2;
+    }
+
+    /**
+     * Set string resources as titles for each fragment by it's position
+     */
+    @Override public CharSequence getPageTitle(int position) {
+      switch (position) {
+        case 0:
+          return getString(R.string.pager_title_1);
+        case 1:
+        default:
+          return getString(R.string.pager_title_2);
+      }
+    }
   }
 }

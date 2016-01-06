@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="es.mresti.xemio"
-    >
-
+>
   <uses-permission android:name="android.permission.INTERNET"/>
-
-  <uses-sdk xmlns:tools="http://schemas.android.com/tools"
-      tools:overrideLibrary="android.support.v14.preference"
-      />
 
   <application
       android:allowBackup="true"
+      android:fullBackupContent="true"
       android:icon="@drawable/ic_launcher"
       android:label="@string/app_name"
       android:theme="@style/Theme.Xemio"
-      android:name="es.mresti.xemio.app.MyApplication"
+      android:name="es.mresti.xemio.app.XemioApplication"
       android:supportsRtl="false"
-      >
+  >
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.MainActivity"
         android:label="@string/app_name"
         android:theme="@style/Theme.Xemio.Init"
-        >
+    >
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
-
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
@@ -35,101 +30,125 @@
         android:name="es.mresti.xemio.app.view.activity.RegisterActivity"
         android:label="@string/app_name"
         android:theme="@style/Theme.Xemio.Init"
-        >
+    >
+    </activity>
+
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.CreateAccountActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+    >
+    </activity>
+
+    <activity
+        android:name=".app.view.activity.ExtraAccountActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+    >
+    </activity>
+
+    <activity
+        android:name=".app.view.activity.ChemoAccountActivity"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Xemio.Init"
+    >
+    </activity>
+
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.DashboardActivity"
+        android:label="@string/app_name"
+    >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.LoginActivity"
         android:label="@string/app_name"
         android:theme="@style/Theme.Xemio.Init"
-        >
-    </activity>
-
-    <activity
-        android:name="es.mresti.xemio.app.view.activity.LogupActivity"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.Xemio.Init"
-        >
-    </activity>
-
-    <activity
-        android:name="es.mresti.xemio.app.view.activity.ExtraActivity"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.Xemio.Init"
-        >
-    </activity>
-
-    <activity
-        android:name="es.mresti.xemio.app.view.activity.ChemoActivity"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.Xemio.Init"
-        >
-    </activity>
-
-    <activity
-        android:name="es.mresti.xemio.app.view.activity.DashboardActivity"
-        android:label="@string/app_name"
-        >
+    >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.InfoActivity"
         android:label="@string/toolbar_title_info"
-        >
+    >
     </activity>
 
     <activity
-        android:name="es.mresti.xemio.app.view.activity.TreatmentsActivity"
+        android:name=".app.view.activity.TreatmentListActivity"
         android:label="@string/toolbar_title_treatment"
-        >
+    >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.TreatmentDetailActivity"
         android:label="@string/toolbar_title_treatment_detail"
-        >
+    >
     </activity>
 
     <activity
-        android:name="es.mresti.xemio.app.view.activity.EffectsActivity"
+        android:name=".app.view.activity.AdviceListActivity"
         android:label="@string/toolbar_title_effect"
-        >
+    >
     </activity>
 
     <activity
-        android:name="es.mresti.xemio.app.view.activity.EffectDetailActivity"
+        android:name=".app.view.activity.AdviceDetailActivity"
         android:label="@string/toolbar_title_effect_detail"
-        >
+    >
     </activity>
 
     <activity
-        android:name="es.mresti.xemio.app.view.activity.AddIncidenceActivity"
-        android:label="@string/toolbar_title_incidence"
-        >
+        android:name=".app.view.activity.ChatListActivity"
+        android:label="@string/toolbar_title_rooms"
+    >
     </activity>
 
     <activity
-        android:name="es.mresti.xemio.app.view.activity.IncidencesActivity"
+        android:name=".app.view.activity.ChatMessageActivity"
+        android:label="@string/toolbar_title_rooms"
+    >
+    </activity>
+
+    <activity
+        android:name=".app.view.activity.HistoricalListActivity"
+        android:label="@string/toolbar_title_historical"
+    >
+    </activity>
+
+    <activity
+        android:name="es.mresti.xemio.app.view.activity.HistoricalDetailActivity"
+        android:label="@string/toolbar_title_effect_detail"
+    >
+    </activity>
+
+    <activity
+        android:name=".app.view.activity.IncidenceListActivity"
         android:label="@string/toolbar_title_history"
-        >
+    >
     </activity>
 
     <activity
         android:name="es.mresti.xemio.app.view.activity.IncidenceDetailActivity"
         android:label="@string/toolbar_title_incidence_detail"
-        >
+    >
     </activity>
 
     <activity
-        android:name="es.mresti.xemio.app.view.activity.SettingsActivity"
-        android:label="@string/toolbar_title_settings"
-        >
-    </activity>
-
-    <activity
-        android:name="es.mresti.xemio.app.view.activity.NotificationsActivity"
+        android:name=".app.view.activity.NotificationListActivity"
         android:label="@string/toolbar_title_notifications"
-        >
+    >
+    </activity>
+
+    <activity
+        android:name=".app.view.activity.ChatAddActivity"
+        android:label="@string/toolbar_title_people"
+    >
+    </activity>
+
+    <activity
+        android:name=".app.view.activity.IncidenceAddActivity"
+        android:label="@string/toolbar_title_incidence"
+    >
     </activity>
 
   </application>

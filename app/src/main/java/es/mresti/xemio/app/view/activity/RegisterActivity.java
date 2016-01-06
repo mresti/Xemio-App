@@ -10,8 +10,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.RegisterContract;
-import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.RegisterPresenter;
+import es.mresti.xemio.app.view.navigation.Navigator;
 
 public class RegisterActivity extends BaseActivity implements RegisterContract.View {
 
@@ -19,10 +19,7 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
   private Navigator mNavigator;
 
   // UI items
-  @Bind(R.id.btn_login) Button mBtn_login;
-  @Bind(R.id.btn_logup) Button mBtn_logup;
-  @Bind(R.id.btn_deny) Button mBtn_deny;
-  @Bind(R.id.btn_begin) Button mBtn_begin;
+  @Bind(R.id.btn_next) Button mBtn_next;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, RegisterActivity.class);
@@ -38,8 +35,7 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
   private void initialize() {
     mNavigator = new Navigator();
     mActionsListener = new RegisterPresenter(this);
-    mActionsListener.initializeActions(this.getContext());
-    mBtn_begin.setVisibility(View.GONE);
+    mBtn_next.setVisibility(View.GONE);
   }
 
   @Override public Context getContext() {
@@ -55,12 +51,12 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
   }
 
   @Override public void openLogin() {
-    mNavigator.navigateToUserLogIn(this);
+    mNavigator.navigateToLogin(this);
     finish();
   }
 
-  @Override public void openLogup() {
-    mNavigator.navigateToUserLogUp(this);
+  @Override public void openCreateAccount() {
+    mNavigator.navigateToCreateAccount(this);
     finish();
   }
 
@@ -68,7 +64,7 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
     finish();
   }
 
-  @OnClick(R.id.btn_deny) void closeMainActivity() {
+  @OnClick(R.id.btn_back) void closeMainActivity() {
     this.closeApp();
   }
 
@@ -77,6 +73,6 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
   }
 
   @OnClick(R.id.btn_logup) void openLogupActivity() {
-    this.openLogup();
+    this.openCreateAccount();
   }
 }

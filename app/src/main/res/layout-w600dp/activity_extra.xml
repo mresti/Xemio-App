@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+  <include layout="@layout/component_logo"/>
+
+  <LinearLayout
+      android:layout_width="400dp"
+      android:layout_height="match_parent"
+      android:layout_gravity="center"
+      android:orientation="vertical"
+      android:background="@color/color_white"
+      android:layout_marginTop="@dimen/container_margin_top"
+      android:weightSum="1"
+  >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="@string/title_logup"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+    >
+    </TextView>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/aliasInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/inputLayout_margin"
+        android:paddingRight="@dimen/inputLayout_margin"
+    >
+
+      <EditText
+          android:id="@+id/aliasInput"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/text_alias"
+          android:singleLine="true"
+          android:theme="@style/MyEditText"
+      />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ageInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/inputLayout_margin"
+        android:paddingRight="@dimen/inputLayout_margin"
+    >
+
+      <EditText
+          android:id="@+id/ageInput"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/text_age"
+          android:inputType="number"
+          android:maxLength="2"
+          android:singleLine="true"
+          android:theme="@style/MyEditText"
+      />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/CircularProgress"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginTop="@dimen/card_margin"
+        android:visibility="gone"
+    />
+
+  </LinearLayout>
+
+  <include layout="@layout/component_nav_1_btn"/>
+
+</FrameLayout>

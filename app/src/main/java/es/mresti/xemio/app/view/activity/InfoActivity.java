@@ -6,16 +6,16 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
+import es.mresti.xemio.app.contract.InfoContract;
 import es.mresti.xemio.app.view.adapter.ViewPagerAdapter;
 import es.mresti.xemio.app.view.fragment.InfoFragment;
 
-public class InfoActivity extends BaseActivity {
+public class InfoActivity extends BaseActivity implements InfoContract.View {
 
   // UI items
   @Bind(R.id.toolbar) Toolbar mToolbar;
@@ -37,7 +37,11 @@ public class InfoActivity extends BaseActivity {
 
   private void initialize() {
     setSupportActionBar(mToolbar);
-    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        onBackPressed();
+      }
+    });
 
     final ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
     adapter.addFragment(InfoFragment.newInstance(getString(R.string.info_title_1)));
@@ -53,16 +57,11 @@ public class InfoActivity extends BaseActivity {
       @Override
       public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         if (mPager.getCurrentItem() == 0) {
-          mFABBack.hide();
-          mFABEnd.hide();
-          mFABNext.show();
+          showFABInit();
         } else if (mPager.getCurrentItem() == 6) {
-          mFABNext.hide();
-          mFABEnd.show();
+          showFABEnd();
         } else {
-          mFABBack.show();
-          mFABEnd.hide();
-          mFABNext.show();
+          showFABNext();
         }
       }
 
@@ -95,21 +94,32 @@ public class InfoActivity extends BaseActivity {
     finish();
   }
 
-  @Override public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
-    //getMenuInflater().inflate(R.menu.menu_incidence, menu);
-    return true;
+  @Override public void showFABNext() {
+    mFABBack.show();
+    mFABEnd.hide();
+    mFABNext.show();
   }
 
-  @Override public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
-    int id = item.getItemId();
+  @Override public void showFABEnd() {
+    mFABNext.hide();
+    mFABEnd.show();
+  }
 
-    if (id == android.R.id.home) {
-      finish();
-    }
-    return super.onOptionsItemSelected(item);
+  @Override public void showFABInit() {
+    mFABBack.hide();
+    mFABEnd.hide();
+    mFABNext.show();
+  }
+
+  @Override public Context getContext() {
+    return getApplicationContext();
+  }
+
+  @Override public void resume() {
+    super.onResume();
+  }
+
+  @Override public void pause() {
+    super.onPause();
   }
 }

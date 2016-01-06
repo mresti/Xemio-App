@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import butterknife.Bind;
@@ -12,8 +11,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import es.mresti.xemio.R;
 import es.mresti.xemio.app.contract.MainContract;
-import es.mresti.xemio.app.navigation.Navigator;
 import es.mresti.xemio.app.presenter.MainPresenter;
+import es.mresti.xemio.app.view.navigation.Navigator;
 
 /**
  * Main application screen. This is the app entry point.
@@ -24,10 +23,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
   private Navigator mNavigator;
 
   // UI items
-  @Bind(R.id.btn_begin) Button mBtn_begin;
-  @Bind(R.id.btn_deny) Button mBtn_deny;
   @Bind(R.id.container_main) ScrollView mLayoutContainer;
-  @Bind(R.id.toolbar_bottom) LinearLayout mLayoutToolbar;
+  @Bind(R.id.nav_bottom) LinearLayout mLayoutNav;
 
   public static Intent getCallingIntent(Context context) {
     return new Intent(context, MainActivity.class);
@@ -43,18 +40,17 @@ public class MainActivity extends BaseActivity implements MainContract.View {
   private void initialize() {
     mNavigator = new Navigator();
     mActionsListener = new MainPresenter(this);
-    mActionsListener.initializeActions(this.getContext());
     mActionsListener.getUserStatus();
   }
 
   @Override public void showProgress() {
     mLayoutContainer.setVisibility(View.VISIBLE);
-    mLayoutToolbar.setVisibility(View.VISIBLE);
+    mLayoutNav.setVisibility(View.VISIBLE);
   }
 
   @Override public void hideProgress() {
     mLayoutContainer.setVisibility(View.GONE);
-    mLayoutToolbar.setVisibility(View.GONE);
+    mLayoutNav.setVisibility(View.GONE);
   }
 
   @Override public Context getContext() {
@@ -70,7 +66,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
   }
 
   @Override public void openRegister() {
-    mNavigator.navigateToUserRegister(this);
+    mNavigator.navigateToRegister(this);
     finish();
   }
 
@@ -86,14 +82,14 @@ public class MainActivity extends BaseActivity implements MainContract.View {
   /**
    * Goes to the user register screen.
    */
-  @OnClick(R.id.btn_begin) void openRegisterActivity() {
+  @OnClick(R.id.btn_next) void openRegisterActivity() {
     this.openRegister();
   }
 
   /**
    * Goes to the finish activity.
    */
-  @OnClick(R.id.btn_deny) void closeMainActivity() {
+  @OnClick(R.id.btn_back) void closeMainActivity() {
     this.closeApp();
   }
 }

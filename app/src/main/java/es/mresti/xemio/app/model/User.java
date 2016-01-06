@@ -7,7 +7,6 @@ public class User {
   private String fullName;
   private int age;
   private String idChemo;
-  private String provider;
 
   public User() {
   }
@@ -17,11 +16,10 @@ public class User {
     this.pass = pass;
   }
 
-  public User(String fullName, int age, String idChemo, String provider) {
+  public User(String fullName, int age, String idChemo) {
     this.fullName = fullName;
     this.age = age;
     this.idChemo = idChemo;
-    this.provider = provider;
   }
 
   public String getEmail() {
@@ -42,9 +40,5 @@ public class User {
 
   public String getIdChemo() {
     return idChemo;
-  }
-
-  public String getProvider() {
-    return provider;
   }
 }

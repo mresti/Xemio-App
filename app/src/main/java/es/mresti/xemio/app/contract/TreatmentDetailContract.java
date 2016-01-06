@@ -10,7 +10,7 @@ public interface TreatmentDetailContract {
   interface View extends BaseContract.BaseView {
   }
 
-  interface UserActionsListener extends BaseContract.BaseActions {
+  interface UserActionsListener {
     Firebase getTreatmentRef(String key);
   }
 }

@@ -25,39 +25,44 @@
   <string name="btn_logup">Registrar</string>
 
   // Login Activity
-  <string name="title_login">Loguearse en Xemio</string>
+  <string name="title_login">Acceder en Xemio</string>
   <string name="text_email">Email</string>
-  <string name="btn_back">Atrás</string>
-  <string name="btn_go">Entrar</string>
 
-  // Logup Activity
+  // Create Account Activity
   <string name="title_logup">Rellena los datos para comenzar</string>
   <string name="text_pass">Contraseña</string>
   <string name="text_pass_reply">Repite Contraseña</string>
 
   // Extra Activity
-  <string name="title_extra">Rellena sus datos para comenzar</string>
   <string name="text_alias">Nombre</string>
   <string name="text_age">Edad</string>
+  <string name="btn_next">Siguiente</string>
 
   // Chemo Activity
-  <string name="title_chemo">Selecciona su tipo de quimioterapia</string>
-  <string name="btn_next">Siguiente</string>
+  <string name="title_chemo">Selecciona su tipo de quimio</string>
   <string name="dialog_select_chemo">Quimio seleccionada</string>
 
   // Dashboard Activity
   <string name="action_settings">Ajustes</string>
   <string name="action_logout">Cerrar sesión</string>
-  <string name="action_notificacion">Notificacion</string>
+  <string name="action_notificacion">Notificación</string>
   <string name="action_incidence">Incidencia</string>
   <string name="action_chat">Chat</string>
   <string name="btn_info">Información</string>
   <string name="btn_treat">Tratamientos</string>
   <string name="btn_effect">Efectos secundarios</string>
+  <string name="btn_chat">Mensajes</string>
   <string name="btn_web">Web fundación</string>
+  <string name="btn_advice">Histórico</string>
+  <string name="btn_incidence">Incidencias</string>
+  <string name="dialog_logout_title">Aviso</string>
+  <string name="dialog_logout_desc">¿Deseas cerrar sesión?</string>
+  <string name="pager_title_1">Historial</string>
+  <string name="pager_title_2">Informacion</string>
+  <string name="icon_resource">Icono</string>
 
   // Info Activity
-  <string name="toolbar_title_info">Información Cáncer de Mama</string>
+  <string name="toolbar_title_info">Cáncer de Mama</string>
   <string name="info_title_1">1.- ¿Qué es el cáncer de mama?</string>
   <string name="info_title_2">2.- ¿Qué pruebas me van a realizar?</string>
   <string name="info_title_3">3.- Tipos de células y tipos de tumores</string>
@@ -68,7 +73,7 @@
   <string name="info_title_7">7.- Otros sitios para consultar</string>
 
   // Treatment Activity
-  <string name="toolbar_title_treatment">Información Tratamientos</string>
+  <string name="toolbar_title_treatment">Tratamientos</string>
 
   // Details Treatment Activity
   <string name="toolbar_title_treatment_detail">Tratamiento detallado</string>
@@ -78,10 +83,13 @@
   <string name="toolbar_title_effect">Efectos Secundarios</string>
 
   // Details Effect Activity
-  <string name="toolbar_title_effect_detail">Efecto Secundario Detallado</string>
+  <string name="toolbar_title_effect_detail">Consejo personalizado</string>
   <string name="text_effect_item">Efecto:</string>
   <string name="text_category_item">Categoría:</string>
   <string name="text_advice_item">Consejo:</string>
+
+  // Rooms Activity
+  <string name="toolbar_title_rooms">Conversaciones</string>
 
   // Incidence Activity
   <string name="toolbar_title_incidence">Nueva incidencia</string>
@@ -89,8 +97,6 @@
   <string name="form_text_description">Descripción</string>
   <string name="dialog_title_new_incidence">Incidencia creada</string>
   <string name="dialog_message_new_incidence">Puedes ver su incidencia en su historial</string>
-  <string name="dialog_title">Estoy de prueba</string>
-  <string name="dialog_message">Esto si que mola!!</string>
 
   // History Activity
   <string name="toolbar_title_history">Historial</string>
@@ -101,29 +107,15 @@
   <string name="dialog_title_detail_incidence">Incidencia</string>
   <string name="dialog_message_detail_incidence">¿Deseas eliminar la incidencia?</string>
 
-  // Details Effects Activity
-  <string name="text_effect_item_title">Tratamiento</string>
-  <string name="text_effect_item_category">Categoría</string>
-  <string name="text_effect_item_advice">Consejo</string>
-
-  // Settings Activity
-  <string name="toolbar_title_settings">Ajustes</string>
-  <string name="category_user">Ajustes</string>
-  <string name="field_alias">Cambiar alias</string>
-  <string name="field_age">Cambiar edad</string>
-  <string name="field_pass">Cambiar contraseña</string>
-  <string name="category_about">App</string>
-  <string name="field_market">Google Play</string>
-  <string name="field_rate">Puntuación</string>
-  <string name="field_authors">Autores</string>
-  <string name="field_version">Version de la aplicación</string>
-  <string name="category_data">Datos usuario</string>
-  <string name="field_logout_title">Cerrar sesión</string>
-  <string name="field_logout_text">Salir de la App</string>
+  // Historical Activity
+  <string name="toolbar_title_historical">Histórico</string>
 
   // Notifications Activity
   <string name="toolbar_title_notifications">Notificaciones</string>
   <string name="noti_not_items">No hay notificaciones para ver.</string>
+
+  // AddChannel Activity
+  <string name="toolbar_title_people">Contactos</string>
 
   // error message
   <string name="error_email">Introduce un email válido</string>
@@ -133,7 +125,6 @@
   <string name="error_pass_diff">Contraseñas deben ser iguales</string>
 
   // tmp values
-  <string name="element_prompt">Selecciona un elemento</string>
   <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel ligula
     eget ante aliquam viverra non quis est. Duis nunc orci, imperdiet eget fringilla vitae, bibendum
     non dui. Nulla feugiat commodo nisi, at pulvinar dolor sagittis id. Suspendisse potenti. Nunc
