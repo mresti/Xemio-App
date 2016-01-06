@@ -50,7 +50,7 @@
   <string name="action_chat">Chat</string>
   <string name="btn_info">Información</string>
   <string name="btn_treat">Tratamientos</string>
-  <string name="btn_effect">Efectos secundarios</string>
+  <string name="btn_effect">Consejos</string>
   <string name="btn_chat">Mensajes</string>
   <string name="btn_web">Web fundación</string>
   <string name="btn_advice">Histórico</string>
@@ -80,7 +80,7 @@
   <string name="text_treatment_items">Tratamientos:</string>
 
   // Effect Activity
-  <string name="toolbar_title_effect">Efectos Secundarios</string>
+  <string name="toolbar_title_effect">Consejos</string>
 
   // Details Effect Activity
   <string name="toolbar_title_effect_detail">Consejo personalizado</string>
