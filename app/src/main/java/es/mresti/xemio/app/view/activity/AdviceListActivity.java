@@ -48,9 +48,6 @@ public class AdviceListActivity extends BaseActivity implements AdviceListFragme
   }
 
   @Override public void onAdviceClicked(String key, String name) {
-
-    Log.e("onadviceclicked-key", key);
-    Log.e("onadviceclicked-name", key);
     boolean existDetail =
         (getSupportFragmentManager().findFragmentById(R.id.fragmentAdviceDetail) != null);
 
